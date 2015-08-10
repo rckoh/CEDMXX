@@ -108,6 +108,7 @@ html, body {
     text-align: center;
     line-height: 40px;
 }
+
 .menubutton{
     width: 40px;
     height: 40px;
@@ -136,17 +137,18 @@ ul
 {
     list-style-type: none;
     text-align: left;
-    padding: 0px 0px 0px 10px;
+    padding: 0px 0px 0px 0px;
 }
 
 .menuarea{
     position: absolute;
     width: 70%;
-    height: 100%;
+    height: calc(100% - 40px);
     background-color: beige;
-    z-index: 100;
-    padding: 0px 0px 0px 0px;
-    margin-left: -70%;
+    z-index: 2;
+/*    padding: 0px 0px 0px 0px;*/
+    margin-left: 0%;
+    opacity: 0.9; 
 }
 
 .menufooter{
