@@ -142,7 +142,7 @@ ul
 .menuarea{
     position: absolute;
     width: 70%;
-    height: 100%;
+    height: 90%;
     background-color: beige;
     z-index: 100;
     padding: 0px 0px 0px 0px;
@@ -151,7 +151,7 @@ ul
 
 .menufooter{
     position: absolute;
-    bottom: 10%;
+    bottom: 0%;
 }
 
 
