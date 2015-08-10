@@ -45,6 +45,7 @@ body {
     padding:0px;
     text-transform:uppercase;
     width:100%;
+    position: fixed;
 }
 
 /* Portrait layout (default) */
@@ -53,8 +54,8 @@ body {
     position:relative;             /* position in the center of the screen */
 /*    left:50%;*/
 /*    top:50%;*/
-/*    height:190px;                    text area height */
-/*    width:600px;                    text area width */
+    height:100%;                    
+    width:100%;                    
 /*    text-align:center;*/
     padding:0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:0px 0px 0px 0px;  /* offset vertical: half of image height and text area height */
