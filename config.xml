@@ -78,7 +78,6 @@
     <string>100</string>
     </gap:config-file>
     <gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
-    <preference name="StatusBarOverlaysWebView" value="false" />
     <access origin="*" />
     <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
