@@ -1,4 +1,6 @@
 /*
+ Copyright 2013-2014 appPlant UG
+
  Licensed to the Apache Software Foundation (ASF) under one
  or more contributor license agreements.  See the NOTICE file
  distributed with this work for additional information
@@ -6,9 +8,9 @@
  to you under the Apache License, Version 2.0 (the
  "License"); you may not use this file except in compliance
  with the License.  You may obtain a copy of the License at
- 
+
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing,
  software distributed under the License is distributed on an
  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
@@ -17,33 +19,17 @@
  under the License.
  */
 
+#import <Foundation/Foundation.h>
 #import <Cordova/CDVPlugin.h>
-#import <Cordova/CDVInvokedUrlCommand.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface CDVStatusBar : CDVPlugin {
-    @protected
-    BOOL _statusBarOverlaysWebView;
-    UIView* _statusBarBackgroundView;
-    BOOL _uiviewControllerBasedStatusBarAppearance;
-    UIColor* _statusBarBackgroundColor;
-    NSString* _eventsCallbackId;
-}
+@interface APPHiddenStatusbarOverlay : CDVPlugin
 
-@property (atomic, assign) BOOL statusBarOverlaysWebView;
-
-- (void) overlaysWebView:(CDVInvokedUrlCommand*)command;
-
-- (void) styleDefault:(CDVInvokedUrlCommand*)command;
-- (void) styleLightContent:(CDVInvokedUrlCommand*)command;
-- (void) styleBlackTranslucent:(CDVInvokedUrlCommand*)command;
-- (void) styleBlackOpaque:(CDVInvokedUrlCommand*)command;
-
-- (void) backgroundColorByName:(CDVInvokedUrlCommand*)command;
-- (void) backgroundColorByHexString:(CDVInvokedUrlCommand*)command;
-
+// Hides the application status bar
 - (void) hide:(CDVInvokedUrlCommand*)command;
+// Shows the application status bar
 - (void) show:(CDVInvokedUrlCommand*)command;
-    
-- (void) _ready:(CDVInvokedUrlCommand*)command;
+// Determines if the status bar is hidden
+- (void) isHidden:(CDVInvokedUrlCommand*)command;
 
 @end

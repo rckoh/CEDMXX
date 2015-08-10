@@ -73,6 +73,7 @@
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
     <string>100</string>
     </gap:config-file>
+    <gap:plugin name="de.appplant.cordova.plugin.hidden-statusbar-overlay" />
     
     <access origin="*" />
     <plugin name="cordova-plugin-whitelist" version="1" />
