@@ -12,25 +12,25 @@ $(function(){
 		  } 
         else {
 			$(".menuarea").animate({
-			marginLeft: "-66%",
+			marginLeft: "-70%",
 		  }, 300, function(){menuStatus = false;});
               
 			return false;
 		  }
 	});
  
-	$('.pages').on("swipeleft",".ui-page-active", function(){
+	$('.app').on("swipeleft",".menuarea", function(){
 		if (menuStatus){	
-		$(".ui-page-active").animate({
+		$("menuarea").animate({
 			marginLeft: "0px",
 		  }, 300, function(){menuStatus = false});
 		  }
 	});
 	
-	$('.pages').on("swiperight", ".ui-page-active", function(){
+	$('.app').on("swiperight", ".menuarea", function(){
 		if (!menuStatus){	
-		$(".ui-page-active").animate({
-			marginLeft: "165px",
+		$(".menuarea").animate({
+			marginLeft: "-70%",
 		  }, 300, function(){menuStatus = true});
 		  }
 	});

@@ -36,9 +36,9 @@ html, body {
 }
 
 /* Portrait layout (default) */
-.app {
+.pages {
 /*    background:url(../img/pssb_logo.png) no-repeat center top;  170px x 200px */
-    position:fixed;             /* position in the center of the screen */
+    
 /*    left:50%;*/
 /*    top:50%;*/
     height:100%;                    
@@ -140,18 +140,18 @@ ul
 }
 
 .menuarea{
-    position: fixed;
-    width: 66%;
-    height: 90%;
+    position: absolute;
+    width: 70%;
+    height: 100%;
     background-color: beige;
     z-index: 100;
     padding: 0px 0px 0px 0px;
-    margin-left: -66%;
+    margin-left: -70%;
 }
 
 .menufooter{
     position: absolute;
-    bottom: 0;
+    bottom: 10%;
 }
 
 
