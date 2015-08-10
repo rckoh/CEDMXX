@@ -142,7 +142,7 @@ ul
 .menuarea{
     position: absolute;
     width: 70%;
-    height: 90%;
+    height: 100%;
     background-color: beige;
     z-index: 100;
     padding: 0px 0px 0px 0px;
