@@ -38,6 +38,12 @@
 <!--        <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>-->
         <link rel="stylesheet" type="text/css" href="css/homepage.css" />
         <script type="text/javascript" src="js/slidemenu.js"></script>
+        <script type="text/javascript">
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                alert(StatusBar);
+            }
+        </script>
     </head>
     <body>
         <div data-role="app" class="app" id="app">
