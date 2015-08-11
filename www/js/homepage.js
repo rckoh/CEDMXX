@@ -48,7 +48,3 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-
-var menuisopen(){
-    $()
-}

@@ -20,7 +20,7 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
-html, body {
+body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -41,11 +41,11 @@ html, body {
     position:absolute;             /* position in the center of the screen */
     left:50%;
     top:50%;
-    height:190px;                   /* text area height */
-    width:600px;                   /* text area width */
+    height:95px;                   /* text area height */
+    width:300px;                   /* text area width */
     text-align:center;
     padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-95px 0px 0px -300px;  /* offset vertical: half of image height and text area height */
+    margin:-47.5px 0px 0px -150px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
 }
 
