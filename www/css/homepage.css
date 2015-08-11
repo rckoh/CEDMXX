@@ -167,7 +167,6 @@ li:hover{
     position: absolute;
     width: 70%;
     height: calc(100% - 50px);
-    background-color: beige;
     z-index: 2;
 /*    padding: 0px 0px 0px 0px;*/
     margin-left: -70%;
@@ -239,4 +238,17 @@ input:focus {
     left: 0;  
     right: 0;  
     margin: auto;
+}
+
+.promoimagename{
+    width: 100%;
+    height: auto;
+    bottom: 0%;
+    position: absolute;
+    background-color: #44c5c7;
+    opacity: 0.9;
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+    color: white;
+    font-size: 15px;
 }

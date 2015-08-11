@@ -58,31 +58,31 @@ function slideshow(){
     var imge="http://cdn.playbuzz.com/cdn/279428ca-ddfa-45ce-87b5-53b20c6f3b38/ac4084b3-f55b-4332-83c9-0d411095e812.jpg";
     var imgname=document.getElementById("promoimage").src;
     
-    if(imgname.src==imga){
-        $(".promoimage").fadeOut(500, function() {
+    if(imgname==imga){
+        $(".promoimage").animate(500, function() {
         $(".promoimage").attr("src",imgb);
-        $(".promoimage").fadeIn(500);});
+        $(".promoimage").animate(500);});
     }
     
-    if(imgname.src==imgb){
+    if(imgname==imgb){
         $(".promoimage").fadeOut(500, function() {
         $(".promoimage").attr("src",imgc);
         $(".promoimage").fadeIn(500);});
     }
     
-    if(imgname.src==imgc){
+    if(imgname==imgc){
         $(".promoimage").fadeOut(500, function() {
         $(".promoimage").attr("src",imgd);
         $(".promoimage").fadeIn(500);});
     }
     
-    if(imgname.src==imgd){
+    if(imgname==imgd){
         $(".promoimage").fadeOut(500, function() {
         $(".promoimage").attr("src",imge);
         $(".promoimage").fadeIn(500);});
     }
     
-    if(imgname.src==imge){
+    if(imgname==imge){
         $(".promoimage").fadeOut(500, function() {
         $(".promoimage").attr("src",imga);
         $(".promoimage").fadeIn(500);});
