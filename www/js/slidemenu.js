@@ -4,7 +4,7 @@ $(function(){
 	$("button.buttonbg").click(function(){
 		if(menuStatus != true){				
 			$(".menuarea").animate({
-                marginLeft: "0px",}, 100, function() {
+                marginLeft: "0px",}, 300, function() {
                     menuStatus = true; 
             });
             
@@ -13,7 +13,7 @@ $(function(){
         else {
 			$(".menuarea").animate({
 			marginLeft: "-70%",
-		  }, 100, function(){menuStatus = false;});
+		  }, 300, function(){menuStatus = false;});
               
 			return false;
 		  }
@@ -23,7 +23,7 @@ $(function(){
 		if (menuStatus){	
 		$(".menuarea").animate({
 			marginLeft: "-70%",
-		  }, 100, function(){menuStatus = false});
+		  }, 300, function(){menuStatus = false});
 		  }
 	});
 	
@@ -31,7 +31,7 @@ $(function(){
 		if (!menuStatus){	
 		$(".menuarea").animate({
 			marginLeft: "0%",
-		  }, 100, function(){menuStatus = true});
+		  }, 300, function(){menuStatus = true});
 		  }
 	});
 	

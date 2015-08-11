@@ -160,6 +160,7 @@ li:hover{
 /*    background-color: #53DCDF;*/
     font-weight: bold;
     color: white;
+    -webkit-transform: translateZ(0);
 }
 
 .menuarea{
