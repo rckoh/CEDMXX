@@ -51,6 +51,6 @@ var app = {
 };
 
 function slideshow(){
-    var imgname=$("#promoimage").src;
+    var imgname=document.getElementById("promoimage").src;
     alert(imgname);
 }
