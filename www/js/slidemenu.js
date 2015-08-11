@@ -19,15 +19,15 @@ $(function(){
 		  }
 	});
  
-	$('.app').on("swipeleft",".menuarea", function(){
+	$('.app').on("swipeleft",".ui-page-active", function(){
 		if (menuStatus){	
-		$("menuarea").animate({
-			marginLeft: "0px",
+		$(".menuarea").animate({
+			marginLeft: "0%",
 		  }, 300, function(){menuStatus = false});
 		  }
 	});
 	
-	$('.app').on("swiperight", ".menuarea", function(){
+	$('.app').on("swiperight", ".ui-page-active", function(){
 		if (!menuStatus){	
 		$(".menuarea").animate({
 			marginLeft: "-70%",
