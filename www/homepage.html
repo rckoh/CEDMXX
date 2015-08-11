@@ -45,7 +45,12 @@
             }
             
             function startslideshow(){
-                window.setInterval(slideshow, 3000);
+               // window.setInterval(slideshow, 3000);
+            }
+            
+            function goiscroll()
+            {
+                window.location = "iscroll.html";
             }
         </script>
     </head>
@@ -105,6 +110,9 @@
                 <div class="promoimagenamediv">
                     <label class="promoimagename">example name<br>this is an example name of image 2<br>this is an example descriptuion of image 3<br></label>
                 </div>
+            </div>
+            <div class="scrollcontent">
+                <button onclick="goiscroll()">go iscroll</button>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>

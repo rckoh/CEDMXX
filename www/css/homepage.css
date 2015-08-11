@@ -87,7 +87,7 @@ html, body {
 }
 
 .headerblack{
-    position: relative;
+/*    position: relative;*/
     background-color:black;
     text-align:justify;
     color: white;
@@ -155,7 +155,7 @@ li:hover{
 }
 
 .itemlabel{
-    display: block;
+/*    display: block;*/
     line-height: 30px;
 /*    background-color: #53DCDF;*/
     font-weight: bold;
@@ -176,7 +176,7 @@ li:hover{
 }
 
 .menufooter{
-    position: absolute;
+/*    position: absolute;*/
     bottom: 20px;
 }
 
@@ -218,25 +218,25 @@ input:focus {
 }
 
 .imagecontent{
-    height: 40%;
+    background:url(../img/bgtemplate.png) no-repeat center top; 
+    height: 45%;
     width: 100%;
-    background-color: beige;
-    display: inline-block;
+    background-color: lightgray;
     position:  absolute;
-    vertical-align: middle;
+/*    line-height: 40px;*/
 }
 
 .promoimage{
-    display: inline-block;
+    display: block;
     max-width: 100%;
     max-height: 100%;
     height: auto;
     width: auto;
     position: absolute;  
-    top: 0;  
-    bottom: 0;  
-    left: 0;  
-    right: 0;  
+    top: 0%;  
+    bottom: 0%;  
+    left: 0%;  
+    right: 0%;  
     margin: auto;
 }
 
@@ -246,8 +246,6 @@ input:focus {
     position: absolute;
     background-color: #44c5c7;
     opacity: 0.9;
-    
-
 }
 
 .promoimagename{
@@ -256,5 +254,18 @@ input:focus {
     color: white;
     font-size: 15px;
     text-align: left;
+/*    position: absolute;*/
     display: inline-block;
+}
+
+.scrollcontent{
+    height: calc(100% - 45% - 100px);
+    width: 100%;
+    background-color: dodgerblue;
+    position: absolute;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    bottom: 0%;
+
 }
