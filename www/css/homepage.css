@@ -95,23 +95,23 @@ html, body {
 }
 
 .menuheader{
-    height: 10%;
+    height: 50px;
 }
 
 .menuheadertable{
-    height: 97%;
+    height: 100%;
     width: 100%;
 }
 
 .headertable{
     width: 100%;
     text-align: center;
-    line-height: 40px;
+    line-height: 50px;
 }
 
 .menubutton{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 /*
@@ -127,8 +127,8 @@ button:focus {
 }
 
 .buttonbg{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-color: transparent;
     border:none;
 }
@@ -143,7 +143,7 @@ ul
 .menuarea{
     position: absolute;
     width: 70%;
-    height: calc(100% - 40px);
+    height: calc(100% - 50px);
     background-color: beige;
     z-index: 2;
 /*    padding: 0px 0px 0px 0px;*/
