@@ -20,7 +20,6 @@ $(function(){
 	});
     
 	$("body").on("swipeleft", function(){
-        alert("slideleft");
 		if (menuStatus){	
 		$(".menuarea").animate({
 			marginLeft: "-70%",
@@ -29,7 +28,6 @@ $(function(){
 	});
 	
 	$("body").on("swiperight", function(){
-        alert("slideright");
 		if (!menuStatus){	
 		$(".menuarea").animate({
 			marginLeft: "0%",
