@@ -107,6 +107,8 @@ html, body {
     width: 100%;
     text-align: center;
     line-height: 50px;
+    font-weight: bold;
+    color: #53DCDF;
 }
 
 .menubutton{
@@ -134,11 +136,28 @@ button:focus {
     border:none;
 }
 
-ul
-{
+ul{
     list-style-type: none;
-    text-align: left;
     padding: 0px 0px 0px 0px;
+}
+
+li:hover{
+    background-color: aqua;
+}
+
+.menuitemimg{
+    height: 40px;
+    width: 40px;
+    padding: 10px 10px 10px 10px;
+    vertical-align: middle;
+}
+
+.itemlabel{
+    display: block;
+    line-height: 40px;
+/*    background-color: #53DCDF;*/
+    font-weight: bold;
+    color: white;
 }
 
 .menuarea{
@@ -150,12 +169,15 @@ ul
 /*    padding: 0px 0px 0px 0px;*/
     margin-left: -70%;
     opacity: 0.9; 
+    background-color: #53DCDF;
+/*    box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.2);*/
 }
 
 .menufooter{
     position: absolute;
     bottom: 20px;
 }
+
 
 
 
