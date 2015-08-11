@@ -18,19 +18,21 @@ $(function(){
 			return false;
 		  }
 	});
- 
-	$('.app').on("swipeleft",".ui-page-active", function(){
+    
+	$("body").on("swipeleft", function(){
+        alert("slideleft");
 		if (menuStatus){	
 		$(".menuarea").animate({
-			marginLeft: "0%",
+			marginLeft: "-70%",
 		  }, 300, function(){menuStatus = false});
 		  }
 	});
 	
-	$('.app').on("swiperight", ".ui-page-active", function(){
+	$("body").on("swiperight", function(){
+        alert("slideright");
 		if (!menuStatus){	
 		$(".menuarea").animate({
-			marginLeft: "-70%",
+			marginLeft: "0%",
 		  }, 300, function(){menuStatus = true});
 		  }
 	});
