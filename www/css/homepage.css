@@ -29,7 +29,8 @@ html, body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#53DCDF;
+/*    background-color:#53DCDF;*/
+    background-color: white;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
     text-transform:uppercase;
@@ -96,6 +97,7 @@ html, body {
 
 .menuheader{
     height: 50px;
+    background-color: #53DCDF;
 }
 
 .menuheadertable{
@@ -146,15 +148,15 @@ li:hover{
 }
 
 .menuitemimg{
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     padding: 10px 10px 10px 10px;
     vertical-align: middle;
 }
 
 .itemlabel{
     display: block;
-    line-height: 40px;
+    line-height: 30px;
 /*    background-color: #53DCDF;*/
     font-weight: bold;
     color: white;
@@ -168,9 +170,9 @@ li:hover{
     z-index: 2;
 /*    padding: 0px 0px 0px 0px;*/
     margin-left: -70%;
-    opacity: 0.9; 
-    background-color: #53DCDF;
-/*    box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.2);*/
+    opacity: 0.98; 
+    background-color: #44c5c7;
+    box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
 .menufooter{
