@@ -59,9 +59,9 @@ function slideshow(){
     var imgname=document.getElementById("promoimage").src;
     
     if(imgname==imga){
-        $(".promoimage").animate(500, function() {
+        $(".promoimage").fadeOut(500, function() {
         $(".promoimage").attr("src",imgb);
-        $(".promoimage").animate(500);});
+        $(".promoimage").fadeOut(500);});
     }
     
     if(imgname==imgb){
