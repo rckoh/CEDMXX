@@ -51,6 +51,40 @@ var app = {
 };
 
 function slideshow(){
+    var imga="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg";
+    var imgb="http://dreamatico.com/data_images/animals/animals-4.jpg";
+    var imgc="http://thewowstyle.com/wp-content/uploads/2015/04/8589130571841-animal-wallpaper-hd.jpg";
+    var imgd="http://i.telegraph.co.uk/multimedia/archive/02296/animal4c_2296997i.jpg";
+    var imge="http://cdn.playbuzz.com/cdn/279428ca-ddfa-45ce-87b5-53b20c6f3b38/ac4084b3-f55b-4332-83c9-0d411095e812.jpg";
     var imgname=document.getElementById("promoimage").src;
-    alert(imgname);
+    
+    if(imgname.src==imga){
+        $(".promoimage").fadeOut(500, function() {
+        $(".promoimage").attr("src",imgb);
+        $(".promoimage").fadeIn(500);});
+    }
+    
+    if(imgname.src==imgb){
+        $(".promoimage").fadeOut(500, function() {
+        $(".promoimage").attr("src",imgc);
+        $(".promoimage").fadeIn(500);});
+    }
+    
+    if(imgname.src==imgc){
+        $(".promoimage").fadeOut(500, function() {
+        $(".promoimage").attr("src",imgd);
+        $(".promoimage").fadeIn(500);});
+    }
+    
+    if(imgname.src==imgd){
+        $(".promoimage").fadeOut(500, function() {
+        $(".promoimage").attr("src",imge);
+        $(".promoimage").fadeIn(500);});
+    }
+    
+    if(imgname.src==imge){
+        $(".promoimage").fadeOut(500, function() {
+        $(".promoimage").attr("src",imga);
+        $(".promoimage").fadeIn(500);});
+    }
 }
