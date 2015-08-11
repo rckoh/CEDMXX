@@ -240,15 +240,21 @@ input:focus {
     margin: auto;
 }
 
-.promoimagename{
+.promoimagenamediv{
     width: 100%;
-    height: auto;
     bottom: 0%;
     position: absolute;
     background-color: #44c5c7;
     opacity: 0.9;
-    text-align: left;
-    padding: 10px 10px 10px 10px;
+    
+
+}
+
+.promoimagename{
+    padding: 0px 0px 0px 0px;
+    margin: 10px 10px 10px 10px;
     color: white;
     font-size: 15px;
+    text-align: left;
+    display: inline-block;
 }
