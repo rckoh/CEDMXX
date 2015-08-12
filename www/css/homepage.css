@@ -299,6 +299,7 @@ input:focus {
 /*    background-color:#fafafa;*/
     font-size:14px;
     border-bottom: 1px dotted #333;
+    background-color: antiquewhite;
 }
 
 .scrollli:hover {
@@ -313,6 +314,12 @@ input:focus {
 }
 
 .listviewimg{
-    width: 30px;
+    width: 40px;
     height: auto;
+    border: 1px solid black;
+    display: block;
+}
+
+.listviewlbl{
+/*    padding: 10px 10px 10px 0px;*/
 }
