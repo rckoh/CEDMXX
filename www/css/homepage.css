@@ -311,3 +311,8 @@ input:focus {
     width:100%;
     padding:0;
 }
+
+.listviewimg{
+    width: 30px;
+    height: auto;
+}

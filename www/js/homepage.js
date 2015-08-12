@@ -90,24 +90,18 @@ function slideshow(){
 }
 
 function getPromoList(){ 
-    alert("start web services");
     $.ajax({
       url : "http://192.168.1.18/MRWebApi/api/activity/category",
       type: 'GET',
       dataType: 'json',            
       success: function (data) { 
-        alert("success get json");
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);
-//        alert(data.length.toString());
          for (var x = 0; x < data.length; x++) {
              $("#scrollul").append("<li class='scrollli'>"+ data[x].categoryName +"</li>");
             }
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-                alert(xhr.statusText);
-                alert(thrownError);
         }
 
     });    
