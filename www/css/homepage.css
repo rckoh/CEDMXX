@@ -176,7 +176,7 @@ li:hover{
 }
 
 .menufooter{
-/*    position: absolute;*/
+    position: absolute;
     bottom: 20px;
 }
 
@@ -258,7 +258,7 @@ input:focus {
     display: inline-block;
 }
 
-.scrollcontent{
+.wrapper{
     height: calc(100% - 45% - 100px);
     width: 100%;
     background-color: dodgerblue;
@@ -267,5 +267,30 @@ input:focus {
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
     bottom: 0%;
+    overflow:auto;
+}
 
+.scrollul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollli {
+    padding:0 10px;
+    height:40px;
+    line-height:40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+    background-color:#fafafa;
+    font-size:14px;
+}
+
+.scroll-content {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
 }
