@@ -97,7 +97,8 @@ function getPromoList(){
       dataType: 'json',            
       success: function (data) { 
         alert("success get json");
-        alert($.parseJSON(data));
+        var returnstr=JSON.stringify(data);
+        alert(returnstr);
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
