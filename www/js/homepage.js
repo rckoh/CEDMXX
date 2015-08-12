@@ -99,6 +99,10 @@ function getPromoList(){
         alert("success get json");
         var returnstr=JSON.stringify(data);
         alert(returnstr);
+        alert(data.length.toString());
+         for (var x = 0; x < 2; x++) {
+                alert(data[x].categoryName);
+            }
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
