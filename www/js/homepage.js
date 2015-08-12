@@ -98,9 +98,11 @@ function getPromoList(){
       success: function (data) {                
         alert($.parseJSON(data));
       },
-      error: function (x, y, z) {
-        alert(x + '\n' + y + '\n' + z);
-      }
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+                alert(xhr.statusText);
+                alert(thrownError);
+        }
 
     });    
   }
