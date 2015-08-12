@@ -95,7 +95,8 @@ function getPromoList(){
       url : "http://192.168.1.18/MRWebApi/api/activity/category",
       type: 'GET',
       dataType: 'json',            
-      success: function (data) {                
+      success: function (data) { 
+        alert("success get json");
         alert($.parseJSON(data));
       },
       error:function (xhr, ajaxOptions, thrownError){
