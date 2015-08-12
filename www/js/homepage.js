@@ -96,7 +96,7 @@ function getPromoList(){
       type: 'GET',
       dataType: 'json',            
       success: function (data) {                
-        WriteResponse(data);
+        alert(data.toString());
       },
       error: function (x, y, z) {
         alert(x + '\n' + y + '\n' + z);
