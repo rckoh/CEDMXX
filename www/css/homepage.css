@@ -162,7 +162,7 @@ li:hover{
 /*    background-color: #53DCDF;*/
     font-weight: bold;
     color: white;
-    -webkit-transform: translateZ(0);
+/*    -webkit-transform: translateZ(0);*/
 }
 
 .menuarea{
@@ -175,6 +175,16 @@ li:hover{
     opacity: 0.98; 
     background-color: #44c5c7;
     box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.2);
+    
+    -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        -webkit-transition: transform 400ms ease
+        -moz-transition: transform 400ms ease
+        -o-transition: transform 400ms ease
+        transition: transform 400ms ease;
 }
 
 .menufooter{
