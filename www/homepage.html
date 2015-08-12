@@ -40,6 +40,12 @@
         <script type="text/javascript" src="js/slidemenu.js"></script>
         <script type="text/javascript">
             document.addEventListener("deviceready", onDeviceReady, false);
+            document.addEventListener("backbutton", onBackKeyDown, false);
+
+            function onBackKeyDown(e) {
+              e.preventDefault();
+                alert("backbutton prevented");
+            }
             function onDeviceReady() {
                 
             }
