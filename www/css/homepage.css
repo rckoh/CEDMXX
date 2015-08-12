@@ -273,7 +273,7 @@ input:focus {
 .wrapper{
     height: calc(100% - 45% - 100px);
     width: 100%;
-    background-color: dodgerblue;
+    background-color: white;
     position: absolute;
     display: block;
     padding: 0px 0px 0px 0px;
@@ -296,8 +296,13 @@ input:focus {
     line-height:40px;
     border-bottom:1px solid #ccc;
     border-top:1px solid #fff;
-    background-color:#fafafa;
+/*    background-color:#fafafa;*/
     font-size:14px;
+    border-bottom: 1px dotted #333;
+}
+
+.scrollli:hover {
+    background-color: white;
 }
 
 .scroll-content {

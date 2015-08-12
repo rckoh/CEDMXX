@@ -88,3 +88,28 @@ function slideshow(){
         $(".promoimage").fadeIn(500);});
     }
 }
+
+function getPromoList(){ 
+    alert("start web services");
+    $.ajax({
+      url : "http://192.168.1.18/MRWebApi/api/activity/category",
+      dataType:"application/json",
+      cache: false,
+      type: "get",
+      contentType: "",    
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+                alert(xhr.statusText);
+                alert(thrownError);
+            },
+      success : function(xml) {
+      
+        alert(xml);
+        $(xml).find("contact").each(function() {
+          var html = '<li>' + $(this).find("firstName").text() 
+          + ' ' + $(this).find("lastName").text() +'</li>';
+          $('#contactList').append(html);
+        });
+      } 
+    });    
+  }

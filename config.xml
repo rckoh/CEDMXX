@@ -82,7 +82,7 @@
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
     <string>100</string>
     </gap:config-file>
-    <access origin="*" />
+    <access origin="*" subdomains="true"/>
     <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
