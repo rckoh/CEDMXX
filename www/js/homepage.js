@@ -98,10 +98,10 @@ function getPromoList(){
       success: function (data) { 
         alert("success get json");
         var returnstr=JSON.stringify(data);
-        alert(returnstr);
-        alert(data.length.toString());
-         for (var x = 0; x < 2; x++) {
-                alert(data[x].categoryName);
+//        alert(returnstr);
+//        alert(data.length.toString());
+         for (var x = 0; x < data.length; x++) {
+             $("#scrollul").append("<li class='scrollli'>"+ data[x].categoryName +"</li>");
             }
       },
       error:function (xhr, ajaxOptions, thrownError){
