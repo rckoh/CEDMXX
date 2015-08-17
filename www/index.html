@@ -37,31 +37,6 @@
                 //window.location = "homepage.html";
             }
             
-            var pushNotification = window.plugins.pushNotification;
-            
-            function onDeviceReady() {
-                alert("ready");
-                try{
-                    if (device.platform == 'android' || device.platform == 'Android' ||
-                        device.platform == 'amazon-fireos' ) {
-                    
-                        pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"16206476952 ","ecb":"app.onNotificationGCM"});
-                    }
-                    else
-                    {
-                        pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});	// required!
-                    }
-                }
-                catch(err){
-                    txt="There was an error on this page.\n\n"; 
-					txt+="Error description: " + err.message + "\n\n"; 
-					alert(txt); 
-                }
-            }
-            
-            
-            document.addEventListener('deviceready', onDeviceReady, true);
-            
         </script>
     </head>
     <body>
