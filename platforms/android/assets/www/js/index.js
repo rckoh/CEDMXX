@@ -44,8 +44,7 @@ var app = {
             pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"16206476952 ","ecb":"app.onNotificationGCM"});
         }
         else {
-            pushNotification.register(app.tokenHandler, app.errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"};
-        });
+            pushNotification.register(app.tokenHandler, app.errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
         }
         
         
