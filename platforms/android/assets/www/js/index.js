@@ -80,8 +80,8 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
-                    var a=document.getElementById("regID");
-                    a.value=result;
+//                    var a=document.getElementById("regID");
+//                    a.value=e.regid;
                     alert('registration id = '+e.regid);
                 }
             break;
