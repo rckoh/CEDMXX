@@ -60,8 +60,6 @@ var app = {
     },
     
     successHandler: function(result) {
-        var a=document.getElementById("regID");
-            a.value=result;
         alert('Callback Success! Result = '+result);
     },
     
@@ -82,6 +80,8 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
+                    var a=document.getElementById("regID");
+                    a.value=result;
                     alert('registration id = '+e.regid);
                 }
             break;
