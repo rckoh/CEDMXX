@@ -49,7 +49,7 @@ var app = {
 
         console.log('Received Event: ' + id);
 
-    }
+    },
     
     successHandler: function(result) {
         alert('Callback Success! Result = '+result)
