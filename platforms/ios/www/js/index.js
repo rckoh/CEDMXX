@@ -39,7 +39,16 @@ var app = {
     receivedEvent: function(id) {
         alert("ready");
         var pushNotification = window.plugins.pushNotification;
-        pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"16206476952 ","ecb":"app.onNotificationGCM"});
+        if (device.platform == 'android' || device.platform == 'Android' ||
+                            device.platform == 'amazon-fireos' ) {
+            pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"16206476952 ","ecb":"app.onNotificationGCM"});
+        }
+        else {
+            pushNotification.register(app.tokenHandler, app.errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"};
+        });
+        }
+        
+        
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -52,11 +61,15 @@ var app = {
     },
     
     successHandler: function(result) {
-        alert('Callback Success! Result = '+result)
+        alert('Callback Success! Result = '+result);
     },
     
     errorHandler:function(error) {
         alert(error);
+    },
+        
+    tokenHandler:function(result) {
+        alert('Callback Success! Result = '+result);
     },
         
     onNotificationGCM: function(e) {
