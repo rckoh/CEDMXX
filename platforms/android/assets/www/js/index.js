@@ -37,7 +37,6 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        alert("ready");
         var pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android' ||
                             device.platform == 'amazon-fireos' ) {
@@ -60,17 +59,17 @@ var app = {
     },
     
     successHandler: function(result) {
-        alert('Callback Success! Result = '+result);
+        //alert('Callback Success! Result = '+result);
     },
     
     errorHandler:function(error) {
-        alert(error);
+        //alert(error);
     },
         
     tokenHandler:function(result) {
         var a=document.getElementById("regID");
             a.value=result;
-        alert('Callback Success! Result = '+result);
+        //alert('Callback Success! Result = '+result);
     },
         
     onNotificationGCM: function(e) {
@@ -80,23 +79,42 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
-                    alert('registration id = '+e.regid);
-                    alert(e);
+                    //alert('registration id = '+e.regid);
+                    //alert(e);
                 }
             break;
  
             case 'message':
               // this is the actual push notification. its format depends on the data model from the push server
-              alert('message = '+e.message+' msgcnt = '+e.msgcnt);
+              //alert('message = '+e.message+' msgcnt = '+e.msgcnt);
             break;
  
             case 'error':
-              alert('GCM error = '+e.msg);
+              //alert('GCM error = '+e.msg);
             break;
  
             default:
-              alert('An unknown GCM event has occurred');
+              //alert('An unknown GCM event has occurred');
               break;
+        }
+    },
+    
+    // iOS
+    onNotificationAPN:function (event) {
+        if ( event.alert )
+        {
+            navigator.notification.alert(event.alert);
+        }
+
+        if ( event.sound )
+        {
+            var snd = new Media(event.sound);
+            snd.play();
+        }
+
+        if ( event.badge )
+        {
+            pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
         }
     }
 };
