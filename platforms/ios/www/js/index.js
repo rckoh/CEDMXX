@@ -37,6 +37,7 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+        alert("ready");
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -46,7 +47,7 @@ var app = {
 
         console.log('Received Event: ' + id);
         
-        alert("ready");
+        
         //var pushNotification = window.plugins.pushNotification;
         //pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"16206476952 ","ecb":"app.onNotificationGCM"});
     }
