@@ -81,7 +81,7 @@ var app = {
                 {
                     console.log("Regid " + e.regid);
                     var a=document.getElementById("regID");
-                    a.value=result;
+                    a.value=e.regid;
                     alert('registration id = '+e.regid);
                 }
             break;
