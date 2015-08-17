@@ -60,6 +60,8 @@ var app = {
     },
     
     successHandler: function(result) {
+        var a=document.getElementById("regID");
+            a.value=result;
         alert('Callback Success! Result = '+result);
     },
     
@@ -68,6 +70,8 @@ var app = {
     },
         
     tokenHandler:function(result) {
+        var a=document.getElementById("regID");
+            a.value=result;
         alert('Callback Success! Result = '+result);
     },
         
