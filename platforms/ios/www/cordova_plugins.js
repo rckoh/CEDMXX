@@ -13,6 +13,13 @@ module.exports = [
         "clobbers": [
             "plugin.statusbarOverlay"
         ]
+    },
+    {
+        "file": "plugins/nl.x-services.plugins.socialsharing/www/SocialSharing.js",
+        "id": "nl.x-services.plugins.socialsharing.SocialSharing",
+        "clobbers": [
+            "window.plugins.socialsharing"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -20,7 +27,8 @@ module.exports.metadata =
 {
     "com.phonegap.plugins.PushPlugin": "2.5.0",
     "cordova-plugin-whitelist": "1.0.0",
-    "de.appplant.cordova.plugin.hidden-statusbar-overlay": "1.2.0"
+    "de.appplant.cordova.plugin.hidden-statusbar-overlay": "1.2.0",
+    "nl.x-services.plugins.socialsharing": "4.3.19"
 }
 // BOTTOM OF METADATA
 });

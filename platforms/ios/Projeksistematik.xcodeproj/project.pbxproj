@@ -42,6 +42,9 @@
 		3F079F6B3BCA4B67A129C9BE /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E649CF92AAA843F6B82E410B /* AppDelegate+notification.m */; };
 		F2BBB64EED804826B986EBE1 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 829AE3B240234B15ABE0DB9E /* PushPlugin.m */; };
 		C47AFBAD40DA4E4AB1B3E0C0 /* APPHiddenStatusbarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6934C318E561432C9E81BB27 /* APPHiddenStatusbarOverlay.m */; };
+		4126F3B52D324CEA807A301D /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = A28CF2897D1C4D4F8411A268 /* SocialSharing.m */; };
+		A9CDF686CD174F68A943BE81 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA99F02F023A4F4A8E0914FB /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		36FEE72C130A4F919954F22B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B309140127644F3BA1404E21 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +116,10 @@
 		4861AA736CA94ADE91A08DB2 /* PushPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PushPlugin.h"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		6934C318E561432C9E81BB27 /* APPHiddenStatusbarOverlay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "APPHiddenStatusbarOverlay.m"; path = "de.appplant.cordova.plugin.hidden-statusbar-overlay/APPHiddenStatusbarOverlay.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		9953BDC8666F435D8107A5AB /* APPHiddenStatusbarOverlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "APPHiddenStatusbarOverlay.h"; path = "de.appplant.cordova.plugin.hidden-statusbar-overlay/APPHiddenStatusbarOverlay.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		A28CF2897D1C4D4F8411A268 /* SocialSharing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SocialSharing.m"; path = "nl.x-services.plugins.socialsharing/SocialSharing.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		ADD75DFDFD17431384B2A9D9 /* SocialSharing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SocialSharing.h"; path = "nl.x-services.plugins.socialsharing/SocialSharing.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		CA99F02F023A4F4A8E0914FB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		B309140127644F3BA1404E21 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +131,8 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
+				A9CDF686CD174F68A943BE81 /* Social.framework in Frameworks */,
+				36FEE72C130A4F919954F22B /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +205,8 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
+				CA99F02F023A4F4A8E0914FB /* Social.framework */,
+				B309140127644F3BA1404E21 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -217,6 +228,8 @@
 				4861AA736CA94ADE91A08DB2 /* PushPlugin.h */,
 				6934C318E561432C9E81BB27 /* APPHiddenStatusbarOverlay.m */,
 				9953BDC8666F435D8107A5AB /* APPHiddenStatusbarOverlay.h */,
+				A28CF2897D1C4D4F8411A268 /* SocialSharing.m */,
+				ADD75DFDFD17431384B2A9D9 /* SocialSharing.h */,
 			);
 			name = Plugins;
 			path = "Projeksistematik/Plugins";
@@ -404,6 +417,7 @@
 				3F079F6B3BCA4B67A129C9BE /* AppDelegate+notification.m in Sources */,
 				F2BBB64EED804826B986EBE1 /* PushPlugin.m in Sources */,
 				C47AFBAD40DA4E4AB1B3E0C0 /* APPHiddenStatusbarOverlay.m in Sources */,
+				4126F3B52D324CEA807A301D /* SocialSharing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
