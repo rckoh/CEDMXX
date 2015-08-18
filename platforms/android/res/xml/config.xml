@@ -92,6 +92,16 @@
     <gap:config-file parent="CFBundleShortVersionString" platform="ios">
         <string>100</string>
     </gap:config-file>
+    <gap:config-file parent="CFBundleURLTypes" platform="ios">
+        <array>
+            <dict>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>fb1618299145090032</string>
+                </array>
+            </dict>
+        </array>
+    </gap:config-file>
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

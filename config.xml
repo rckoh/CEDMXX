@@ -80,10 +80,19 @@
     <feature name="StatusBar">
             <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
-    
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
     <string>100</string>
     </gap:config-file>
+    <gap:config-file platform="ios" parent="CFBundleURLTypes"> 
+        <array> 
+        <dict> 
+        <key>CFBundleURLSchemes</key> 
+        <array> 
+        <string>fb1618299145090032</string> 
+        </array> 
+        </dict> 
+        </array> 
+    </gap:config-file> 
     <access origin="*" subdomains="true"/>
     <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
