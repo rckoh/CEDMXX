@@ -69,6 +69,11 @@
             {
                 window.location = "iscroll.html";
             }
+            
+            function sharetoFV()
+            {
+                window.plugins.socialsharing.shareViaFacebook("Test from MMMDDEECC via Facebook", null /* img */, null /* url */, function() {alert("share success")}, function(errormsg){alert("error to share"+errormsg)});
+            }
         </script>
     </head>
     <body onload="startslideshow();">
@@ -80,7 +85,7 @@
                             <button class="buttonbg"><img class="menubutton" src="img/drawer.png"></img></button>
                         </td>
                         <td style="text-align:right;">
-                            <button class="buttonsharebg" onclick="window.plugins.socialsharing.share('Message only')"><img class="sharebutton" src="img/drawer.png"></img></button>
+                            <button class="buttonsharebg" onclick="sharetoFV()"><img class="sharebutton" src="img/drawer.png"></img></button>
                         </td>
                     </tr>
                 </table>
