@@ -88,7 +88,10 @@
             
             function showDialogFB() { 
                 alert("sharedialog");
-                facebookConnectPlugin.showDialog( { method: "apprequests" }, 
+                facebookConnectPlugin.showDialog( {
+                            method: "apprequests",
+                            message: "Come on man, check out my application."
+                        }, 
                     function (response) { alert(JSON.stringify(response)) },
                     function (response) { alert(JSON.stringify(response)) });
             }
