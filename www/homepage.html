@@ -90,8 +90,7 @@
                 alert("sharedialog");
                 facebookConnectPlugin.showDialog( {
                             method: "share",
-                            link: "http://example.com",
-                            caption: "Such caption, very feed."
+                            href: 'https://developers.facebook.com/docs/',
                         }, 
                     function (response) { alert(JSON.stringify(response)) },
                     function (response) { alert(JSON.stringify(response)) });
