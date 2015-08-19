@@ -82,6 +82,29 @@
             function sharetoFVios(){
                 window.plugins.socialsharing.shareVia('com.apple.social.facebook', 'Message via FB', null, null, null, function(){alert('share ok')}, function(msg) {alert('error: ' + msg)});
             }
+            
+            function sharenativefb(){
+                var fbparam = {
+                    method: "feed",
+                    link: "http://example.com",
+                    caption: "Such caption, very feed."
+                };
+                
+                try{
+                    $cordovaFacebook.showDialog(options).then(
+                    function(success) {
+                        // success
+                        alert("success");
+                    }, 
+                    function (error) {
+                    // errror
+                        alert("error "+error);
+                    });
+                }
+                catch(error){
+                
+                }
+            }
         </script>
     </head>
     <body onload="startslideshow();">
@@ -93,6 +116,7 @@
                             <button class="buttonbg"><img class="menubutton" src="img/drawer.png"></img></button>
                         </td>
                         <td style="text-align:right;">
+                            <button class="buttonsharebg" onclick="sharenativefb()"><img class="sharebutton" src="img/drawer.png"></img></button>
                             <button class="buttonsharebg" onclick="sharetoFV()"><img class="sharebutton" src="img/drawer.png"></img></button>
                             <button class="buttonsharebg" onclick="sharetoFVnormal()"><img class="sharebutton" src="img/drawer.png"></img></button>
                             <button class="buttonsharebg" onclick="sharetoFVios()"><img class="sharebutton" src="img/drawer.png"></img></button>
