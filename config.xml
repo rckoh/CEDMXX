@@ -47,6 +47,10 @@
     <gap:plugin name="de.appplant.cordova.plugin.hidden-statusbar-overlay" />
     <gap:plugin name="com.phonegap.plugins.PushPlugin"/>
     <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" />
+    <gap:plugin name="com.phonegap.plugins.facebookconnect" version="<VERSION>">
+        <param name="APP_ID" value="1618299145090032" />
+        <param name="APP_NAME" value="Projeksistematik" />
+    </gap:plugin>
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="www/res/icon/android/icon-36-ldpi.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="www/res/icon/android/icon-48-mdpi.png" />
