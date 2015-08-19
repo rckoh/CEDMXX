@@ -45,11 +45,6 @@
 		4126F3B52D324CEA807A301D /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = A28CF2897D1C4D4F8411A268 /* SocialSharing.m */; };
 		A9CDF686CD174F68A943BE81 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA99F02F023A4F4A8E0914FB /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		36FEE72C130A4F919954F22B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B309140127644F3BA1404E21 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		71712362D22B49919E7466C2 /* FacebookConnectPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = BA472E6388D148F386CE1CF3 /* FacebookConnectPlugin.m */; };
-		C6D4744AE02E4EB39C0D3699 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D5FA5729C6444BB591E0DB /* FacebookSDK.framework */; };
-		12787D957F69462BBF199C1A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F26BCFE91DCD49B0808044C7 /* libsqlite3.dylib */; };
-		680C93684913472ABC349430 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8676B64032374EEDAAB738CF /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		4E96E96D150C45828029F7B1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73BC8AA33CDD46E497B2C721 /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,12 +120,6 @@
 		ADD75DFDFD17431384B2A9D9 /* SocialSharing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SocialSharing.h"; path = "nl.x-services.plugins.socialsharing/SocialSharing.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		CA99F02F023A4F4A8E0914FB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		B309140127644F3BA1404E21 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		BA472E6388D148F386CE1CF3 /* FacebookConnectPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "FacebookConnectPlugin.m"; path = "com.phonegap.plugins.facebookconnect/FacebookConnectPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		C4C067286853417FA70502E9 /* FacebookConnectPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FacebookConnectPlugin.h"; path = "com.phonegap.plugins.facebookconnect/FacebookConnectPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		62D5FA5729C6444BB591E0DB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "FacebookSDK.framework"; path = "Projeksistematik/Plugins/com.phonegap.plugins.facebookconnect/FacebookSDK.framework"; sourceTree = "<group>"; };
-		F26BCFE91DCD49B0808044C7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsqlite3.dylib"; path = "usr/lib/libsqlite3.dylib"; sourceTree = SDKROOT; fileEncoding = 4; };
-		8676B64032374EEDAAB738CF /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Accounts.framework"; path = "System/Library/Frameworks/Accounts.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		73BC8AA33CDD46E497B2C721 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,10 +133,6 @@
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				A9CDF686CD174F68A943BE81 /* Social.framework in Frameworks */,
 				36FEE72C130A4F919954F22B /* MessageUI.framework in Frameworks */,
-				C6D4744AE02E4EB39C0D3699 /* FacebookSDK.framework in Frameworks */,
-				12787D957F69462BBF199C1A /* libsqlite3.dylib in Frameworks */,
-				680C93684913472ABC349430 /* Accounts.framework in Frameworks */,
-				4E96E96D150C45828029F7B1 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,10 +207,6 @@
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
 				CA99F02F023A4F4A8E0914FB /* Social.framework */,
 				B309140127644F3BA1404E21 /* MessageUI.framework */,
-				62D5FA5729C6444BB591E0DB /* FacebookSDK.framework */,
-				F26BCFE91DCD49B0808044C7 /* libsqlite3.dylib */,
-				8676B64032374EEDAAB738CF /* Accounts.framework */,
-				73BC8AA33CDD46E497B2C721 /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,8 +230,6 @@
 				9953BDC8666F435D8107A5AB /* APPHiddenStatusbarOverlay.h */,
 				A28CF2897D1C4D4F8411A268 /* SocialSharing.m */,
 				ADD75DFDFD17431384B2A9D9 /* SocialSharing.h */,
-				BA472E6388D148F386CE1CF3 /* FacebookConnectPlugin.m */,
-				C4C067286853417FA70502E9 /* FacebookConnectPlugin.h */,
 			);
 			name = Plugins;
 			path = "Projeksistematik/Plugins";
@@ -439,7 +418,6 @@
 				F2BBB64EED804826B986EBE1 /* PushPlugin.m in Sources */,
 				C47AFBAD40DA4E4AB1B3E0C0 /* APPHiddenStatusbarOverlay.m in Sources */,
 				4126F3B52D324CEA807A301D /* SocialSharing.m in Sources */,
-				71712362D22B49919E7466C2 /* FacebookConnectPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,10 +460,6 @@
 				);
 				PRODUCT_NAME = "Projeksistematik";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"Projeksistematik/Plugins/com.phonegap.plugins.facebookconnect\"",
-				);
 			};
 			name = Debug;
 		};
@@ -515,10 +489,6 @@
 				);
 				PRODUCT_NAME = "Projeksistematik";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"Projeksistematik/Plugins/com.phonegap.plugins.facebookconnect\"",
-				);
 			};
 			name = Release;
 		};
