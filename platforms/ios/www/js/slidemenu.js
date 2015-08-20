@@ -3,7 +3,7 @@ $(function(){
 	
 	$("button.buttonbg").click(function(){
 		if(menuStatus != true){				
-			$(".menu").animate({
+			$(".menubg").animate({
                 marginLeft: "0px",}, 300, function() {
                     menuStatus = true; 
             });
