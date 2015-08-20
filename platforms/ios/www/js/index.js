@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var currentpage=1;
 var app = {
     // Application Constructor
     initialize: function() {
@@ -25,6 +26,7 @@ var app = {
     //
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
+    
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
@@ -37,16 +39,6 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var pushNotification = window.plugins.pushNotification;
-        if (device.platform == 'android' || device.platform == 'Android' ||
-                            device.platform == 'amazon-fireos' ) {
-            pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"16206476952 ","ecb":"app.onNotificationGCM"});
-        }
-        else {
-            pushNotification.register(app.tokenHandler, app.errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
-        }
-        
-        
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
@@ -55,66 +47,127 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-
-    },
-    
-    successHandler: function(result) {
-        //alert('Callback Success! Result = '+result);
-    },
-    
-    errorHandler:function(error) {
-        //alert(error);
-    },
-        
-    tokenHandler:function(result) {
-        var a=document.getElementById("regID");
-            a.value=result;
-        //alert('Callback Success! Result = '+result);
-    },
-        
-    onNotificationGCM: function(e) {
-        switch( e.event )
-        {
-            case 'registered':
-                if ( e.regid.length > 0 )
-                {
-                    console.log("Regid " + e.regid);
-                    //alert('registration id = '+e.regid);
-                    //alert(e);
-                }
-            break;
- 
-            case 'message':
-              // this is the actual push notification. its format depends on the data model from the push server
-              //alert('message = '+e.message+' msgcnt = '+e.msgcnt);
-            break;
- 
-            case 'error':
-              //alert('GCM error = '+e.msg);
-            break;
- 
-            default:
-              //alert('An unknown GCM event has occurred');
-              break;
-        }
-    },
-    
-    // iOS
-    onNotificationAPN:function (event) {
-        if ( event.alert )
-        {
-            navigator.notification.alert(event.alert);
-        }
-
-        if ( event.sound )
-        {
-            var snd = new Media(event.sound);
-            snd.play();
-        }
-
-        if ( event.badge )
-        {
-            pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
-        }
     }
 };
+
+function slideshow(){
+    var imga="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg";
+    var imgb="http://dreamatico.com/data_images/animals/animals-4.jpg";
+    var imgc="http://thewowstyle.com/wp-content/uploads/2015/04/8589130571841-animal-wallpaper-hd.jpg";
+    var imgd="http://i.telegraph.co.uk/multimedia/archive/02296/animal4c_2296997i.jpg";
+    var imge="http://cdn.playbuzz.com/cdn/279428ca-ddfa-45ce-87b5-53b20c6f3b38/ac4084b3-f55b-4332-83c9-0d411095e812.jpg";
+    var imgname=document.getElementById("slideshowimage").src;
+    
+    if(imgname==imga){
+        $(".slideshowimage").fadeOut(500, function() {
+        $(".slideshowimage").attr("src",imgb);
+        $(".slideshowimage").fadeOut(500);});
+    }
+    
+    if(imgname==imgb){
+        $(".slideshowimage").fadeOut(500, function() {
+        $(".slideshowimage").attr("src",imgc);
+        $(".slideshowimage").fadeIn(500);});
+    }
+    
+    if(imgname==imgc){
+        $(".slideshowimage").fadeOut(500, function() {
+        $(".slideshowimage").attr("src",imgd);
+        $(".slideshowimage").fadeIn(500);});
+    }
+    
+    if(imgname==imgd){
+        $(".slideshowimage").fadeOut(500, function() {
+        $(".slideshowimage").attr("src",imge);
+        $(".slideshowimage").fadeIn(500);});
+    }
+    
+    if(imgname==imge){
+        $(".slideshowimage").fadeOut(500, function() {
+        $(".slideshowimage").attr("src",imga);
+        $(".slideshowimage").fadeIn(500);});
+    }
+}
+
+function getPromoList(){ 
+    $.ajax({
+      url : "http://192.168.1.18/MRWebApi/api/activity/category",
+      type: 'GET',
+      dataType: 'json',            
+      success: function (data) { 
+        var returnstr=JSON.stringify(data);
+         for (var x = 0; x < data.length; x++) {
+             $("#scrollul").append("<li class='scrollli'><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data[x].categoryPhoto +"'></td><td>"+ data[x].categoryName +"</td></tr></table></li>");
+            }
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+        }
+    });    
+  }
+
+function changepage(pagenumber){
+    if(pagenumber==1){
+        $(".pageone").show();
+        $(".pagetwo").hide();
+        $(".pagethree").hide();
+        
+        if(currentpage>pagenumber){
+            $(".pageone").css("marginLeft", "-100%");
+        }
+        
+        if(currentpage<pagenumber){
+            $(".pageone").css("marginLeft", "100%");
+        }
+        
+        $(".pageone").animate({
+                marginLeft: "0%",}, 300, function() {currentpage=1;});
+        $(".pagetwo").animate({
+                marginLeft: "100%",}, 300, function() {});
+        $(".pagethree").animate({
+                marginLeft: "200%",}, 300, function() {});
+    }
+    
+    if(pagenumber==2){
+        
+        $(".pageone").hide();
+        $(".pagetwo").show();
+        $(".pagethree").hide();
+        
+        if(currentpage>pagenumber){
+            $(".pagetwo").css("marginLeft", "-100%");
+        }
+        
+        if(currentpage<pagenumber){
+            $(".pagetwo").css("marginLeft", "100%");
+        }
+        
+        $(".pageone").animate({
+                marginLeft: "-100%",}, 300, function() {});
+        $(".pagetwo").animate({
+                marginLeft: "0%",}, 300, function() {currentpage=2;});
+        $(".pagethree").animate({
+                marginLeft: "100%",}, 300, function() {});
+    }
+    
+    if(pagenumber==3){
+        $(".pageone").hide();
+        $(".pagetwo").hide();
+        $(".pagethree").show();
+        
+        if(currentpage>pagenumber){
+            $(".pagethree").css("marginLeft", "-100%");
+        }
+        
+        if(currentpage<pagenumber){
+            $(".pagethree").css("marginLeft", "100%");
+        }
+        
+        $(".pageone").animate({
+                marginLeft: "200%",}, 300, function() {});
+        $(".pagetwo").animate({
+                marginLeft: "100%",}, 300, function() {});
+        $(".pagethree").animate({
+                marginLeft: "0%",}, 300, function() {currentpage=3;});
+    }
+}
