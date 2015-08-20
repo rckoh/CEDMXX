@@ -87,7 +87,7 @@ input:focus {
 /*    left:50%;*/
 /*    top:50%;*/
     height:100%;                    
-    width:inherit;  
+    width:100%;  
     overflow: hidden;
 /*    text-align:center;*/
     padding:0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
