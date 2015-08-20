@@ -88,7 +88,6 @@ input:focus {
 /*    top:50%;*/
     height:100%;                    
     width:100%;  
-    overflow: hidden;
 /*    text-align:center;*/
     padding:0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:0px 0px 0px 0px;  /* offset vertical: half of image height and text area height */
@@ -442,7 +441,7 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* listview Style*/
 .wrapper{
-    height: calc(100% - 38%);
+    height: calc(100% - 38%-80px);
     width: 100%;
     background-color: white;
     position: absolute;
