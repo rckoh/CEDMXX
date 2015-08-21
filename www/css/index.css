@@ -288,6 +288,7 @@ input:focus {
 }
 .subheadertable{
     width: 100%;
+    height: 40px;
     text-align: center;
     line-height: 40px;
     font-weight: bold;
@@ -296,11 +297,12 @@ input:focus {
 
 .subheaderbutton{
     background-color: transparent;
-    border: 0px;
+    border: none;
     color: #53DCDF;
     width: 100%;
-    height: 90%;
+    height: 40px;
 }
+
 
 /* subheader Style end*/
 /* ------------------------------------------------------------------------------------*/
@@ -501,8 +503,7 @@ input:focus {
     border-top:1px solid #fff;
 /*    background-color:#fafafa;*/
     font-size:14px;
-    border-bottom: 1px dotted #333;
-/*    background-color: antiquewhite;*/
+    border-bottom: 1px dotted #333;  
 }
 
 .scrollli:hover {
@@ -564,4 +565,27 @@ input:focus {
 
 
 
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* footer Style end*/
+.pagefooter{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 10px;
+    z-index: 98;
+    background-color: #53DCDF;
+    position: absolute;
+    bottom:0;
+    color: white;
+    font-weight: bold;
+    opacity: 0.9;
+    font-family: "Time New Roman";
+}
 
+/* footer Style end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
