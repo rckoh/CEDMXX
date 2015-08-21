@@ -222,7 +222,7 @@ input:focus {
     position: absolute;
     width: 70%;
     height: calc(100% - 40px);
-    z-index: 2;
+    z-index: 99;
 /*    padding: 0px 0px 0px 0px;*/
     margin-left: -70%;
     opacity: 0.98; 
