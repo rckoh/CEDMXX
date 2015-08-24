@@ -469,7 +469,7 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
-/* listview Style*/
+/* listview Style Page 1*/
 .wrapper{
     height: calc(100% - 45%);
     width: 100%;
@@ -558,10 +558,306 @@ input:focus {
     vertical-align: top;
     text-align: left;
 }
-/* listview Style end*/
+/* listview Style Page 1 end*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* listview Style Page 2*/
+.wrapperPage2{
+    height: calc(100% - 45%);
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    bottom: 0%;
+    overflow:auto;
+}
+
+.scrollulPage2{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollliPage2 {
+    padding:0 10px;
+    height:150px;
+    line-height:40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+/*    background-color:#fafafa;*/
+    font-size:14px;
+    border-bottom: 1px dotted #333;  
+}
+
+.scrollliPage2:hover {
+    background-color: white;
+}
+
+.scroll-contentPage2 {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+
+.listviewimgPage2{
+/*    line-height: px;*/
+    width: 100px;
+    height: auto;
+/*    border: 1px solid black;*/
+    display: block;
+}
+
+.listviewlblPage2{
+/*    padding: 10px 10px 10px 0px;*/
+}
+
+.listviewitemtitlePage2{
+    color: #32978f;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 10px;
+    font-family: "Roboto-Medium";
+    font-size: 15px;
+}
+
+.listviewitemdetailsPage2{
+    color: #565656;
+    background-color: transparent;
+    font-family: "Roboto-Regular";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 0px 0px 0px 0px;
+    text-align: justify;
+    
+}
+
+.listviewitemseperatorPage2{
+    line-height: 2px;
+/*    color: #32978f;*/
+    border-bottom: 1px solid #32978f;
+    width: 30px;
+}
+
+.listviewitemframePage2{
+    height:100%; 
+    width:100%;
+    vertical-align: top;
+    text-align: left;
+}
+/* listview Style Page 2 end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* listview Style Page 1*/
+.wrapper{
+    height: calc(100% - 45%);
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    bottom: 0%;
+    overflow:auto;
+}
+
+.scrollul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollli {
+    padding:0 10px;
+    height:150px;
+    line-height:40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+/*    background-color:#fafafa;*/
+    font-size:14px;
+    border-bottom: 1px dotted #333;  
+}
+
+.scrollli:hover {
+    background-color: white;
+}
+
+.scroll-content {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+
+.listviewimg{
+/*    line-height: px;*/
+    width: 100px;
+    height: auto;
+/*    border: 1px solid black;*/
+    display: block;
+}
+
+.listviewlbl{
+/*    padding: 10px 10px 10px 0px;*/
+}
+
+.listviewitemtitle{
+    color: #32978f;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 10px;
+    font-family: "Roboto-Medium";
+    font-size: 15px;
+}
+
+.listviewitemdetails{
+    color: #565656;
+    background-color: transparent;
+    font-family: "Roboto-Regular";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 0px 0px 0px 0px;
+    text-align: justify;
+    
+}
+
+.listviewitemseperator{
+    line-height: 2px;
+/*    color: #32978f;*/
+    border-bottom: 1px solid #32978f;
+    width: 30px;
+}
+
+.listviewitemframe{
+    height:100%; 
+    width:100%;
+    vertical-align: top;
+    text-align: left;
+}
+/* listview Style Page 1 end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* listview Style Page 2*/
+.wrapperPage3{
+    height: calc(100% - 45%);
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    bottom: 0%;
+    overflow:auto;
+}
+
+.scrollulPage3{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollliPage3 {
+    padding:0 10px;
+    height:150px;
+    line-height:40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+/*    background-color:#fafafa;*/
+    font-size:14px;
+    border-bottom: 1px dotted #333;  
+}
+
+.scrollliPage3:hover {
+    background-color: white;
+}
+
+.scroll-contentPage3 {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+
+.listviewimgPage3{
+/*    line-height: px;*/
+    width: 100px;
+    height: auto;
+/*    border: 1px solid black;*/
+    display: block;
+}
+
+.listviewlblPage3{
+/*    padding: 10px 10px 10px 0px;*/
+}
+
+.listviewitemtitlePage3{
+    color: #32978f;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 10px;
+    font-family: "Roboto-Medium";
+    font-size: 15px;
+}
+
+.listviewitemdetailsPage3{
+    color: #565656;
+    background-color: transparent;
+    font-family: "Roboto-Regular";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 0px 0px 0px 0px;
+    text-align: justify;
+    
+}
+
+.listviewitemseperatorPage3{
+    line-height: 2px;
+/*    color: #32978f;*/
+    border-bottom: 1px solid #32978f;
+    width: 30px;
+}
+
+.listviewitemframePage3{
+    height:100%; 
+    width:100%;
+    vertical-align: top;
+    text-align: left;
+}
+/* listview Style Page 3 end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
 
 
 

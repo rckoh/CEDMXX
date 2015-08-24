@@ -45,6 +45,18 @@
         <script type="text/javascript">
             document.addEventListener("deviceready", onDeviceReady, false);
             
+            //bind swipe event with jquery
+            $(function(){
+	
+                $("#pageBody").on("swipeleft", function(){
+                    pageSwipeLeft();
+                });
+
+                $("body").on("swiperight", function(){
+                    pageSwipeRight();
+                });	
+
+            });
 
             function onBackKeyDown(e) {
               e.preventDefault();
@@ -97,7 +109,7 @@
         <script type="text/javascript" src="js/loginnavigate.js"></script>
         
     </head>
-    <body onload="startslideshow();">
+    <body onload="startslideshow();" id="pageBody">
         <div data-role="app" class="app" id="app">
             <div class="menuheader">
                 <table class="menuheadertable">
@@ -160,7 +172,6 @@
             <div class="content">
                 <div class="pageone">
                     <div class="imagecontent">
-
                         <img src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg" class="slideshowimage" id="slideshowimage"></img>
                         <div class="slideshowimagenamediv">
                             <h1 class="slideshowitemtitle">Some Title</h1>
@@ -224,8 +235,32 @@
                         <img src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg" class="slideshowimage" id="slideshowimage"></img>
                         <div class="slideshowimagenamediv">
                             <h1 class="slideshowitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">&nbsp;</p>
-                                                <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+                                <p class="slideshowitemseperator">&nbsp;</p>
+                                <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+                            <div>
+                            <p class="userSummary"><img src="img/view.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/fav.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/share.png" class="userSummaryIcon"/>&nbsp;123&nbsp;&nbsp;</p>
+                        </div>
+                        </div>
+                        
+                    </div>
+                    <div class="wrapperPage2" id="wrapper">
+                        <div class="scroll-contentPage2" id="scroll-content">
+                            <ul class="scrollulPage2" id="scrollul">
+                                <li class="scrollliPage2">
+                                    <table class="listviewitemframePage2">
+                                        <tr>
+                                            <td style="width:20%"><img class="listviewimgPage2" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
+                                            </td>
+                                            <td>
+                                                <h1 class="listviewitemtitlePage2">Some Title</h1>
+                                                <p class="listviewitemseperatorPage2">&nbsp;</p>
+                                                <p class="listviewitemdetailsPage2">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                            </ul>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -234,8 +269,32 @@
                         <img src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg" class="slideshowimage" id="slideshowimage"></img>
                         <div class="slideshowimagenamediv">
                             <h1 class="slideshowitemtitle">Some Title</h1>
-                                               <p class="listviewitemseperator">&nbsp;</p>
-                                                <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+                                <p class="slideshowitemseperator">&nbsp;</p>
+                                <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+                            <div>
+                            <p class="userSummary"><img src="img/view.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/fav.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/share.png" class="userSummaryIcon"/>&nbsp;123&nbsp;&nbsp;</p>
+                        </div>
+                        </div>
+                        
+                    </div>
+                    <div class="wrapperPage3" id="wrapper">
+                        <div class="scroll-contentPage3" id="scroll-content">
+                            <ul class="scrollulPage3" id="scrollul">
+                                <li class="scrollliPage3">
+                                    <table class="listviewitemframePage3">
+                                        <tr>
+                                            <td style="width:20%"><img class="listviewimgPage3" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
+                                            </td>
+                                            <td>
+                                                <h1 class="listviewitemtitlePage3">Some Title</h1>
+                                                <p class="listviewitemseperatorPage3">&nbsp;</p>
+                                                <p class="listviewitemdetailsPage3">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                            </ul>
+                            <br>
                         </div>
                     </div>
                 </div>

@@ -195,3 +195,108 @@ function initsubmenustyle(){
     currentpage=1;
     $("#btnFeatured").css("color", "#00FFFF");
 }
+
+function pageSwipeLeft(){
+    if(currentpage==1){
+        $(".pageone").hide();
+        $(".pagetwo").show();
+        $(".pagethree").hide();
+        $("#btnFeatured").css("color", "#32978f");
+        $("#btnLatestPost").css("color", "#4be5d9");
+        $("#btnAnnouncement").css("color", "#32978f");
+        
+        $(".pagetwo").css("marginLeft", "100%");
+        
+        $(".pageone").animate({
+                marginLeft: "-100%",}, 300, function() {});
+        $(".pagetwo").animate({
+                marginLeft: "0%",}, 300, function() {currentpage=2;});
+        $(".pagethree").animate({
+                marginLeft: "100%",}, 300, function() {});
+        
+        $(".selectedItem").animate({
+                marginLeft: "33%",}, 300, function() {});
+    }
+    else if(currentpage==2){
+         $(".pageone").hide();
+        $(".pagetwo").hide();
+        $(".pagethree").show();
+        $("#btnFeatured").css("color", "#32978f");
+        $("#btnLatestPost").css("color", "#32978f");
+        $("#btnAnnouncement").css("color", "#4be5d9");
+        
+        $(".pagethree").css("marginLeft", "100%");
+        
+        $(".pageone").animate({
+                marginLeft: "200%",}, 300, function() {});
+        $(".pagetwo").animate({
+                marginLeft: "100%",}, 300, function() {});
+        $(".pagethree").animate({
+                marginLeft: "0%",}, 300, function() {currentpage=3;});
+        
+        $(".selectedItem").animate({
+                marginLeft: "67.33%",}, 300, function() {});
+    }
+}
+
+function pageSwipeRight(){
+    if(currentpage==3){
+         $(".pageone").hide();
+        $(".pagetwo").show();
+        $(".pagethree").hide();
+        $("#btnFeatured").css("color", "#32978f");
+        $("#btnLatestPost").css("color", "#4be5d9");
+        $("#btnAnnouncement").css("color", "#32978f");
+        
+        $(".pagetwo").css("marginLeft", "-100%");
+        
+        $(".pageone").animate({
+                marginLeft: "-100%",}, 300, function() {});
+        $(".pagetwo").animate({
+                marginLeft: "0%",}, 300, function() {currentpage=2;});
+        $(".pagethree").animate({
+                marginLeft: "100%",}, 300, function() {});
+        
+        $(".selectedItem").animate({
+                marginLeft: "33%",}, 300, function() {});
+    }
+    else if(currentpage==2){
+        $(".pageone").show();
+        $(".pagetwo").hide();
+        $(".pagethree").hide();
+        $("#btnFeatured").css("color", "#4be5d9");
+        $("#btnLatestPost").css("color", "#32978f");
+        $("#btnAnnouncement").css("color", "#32978f");
+        
+        $(".pageone").css("marginLeft", "-100%");
+        
+        $(".pageone").animate({
+                marginLeft: "0%",}, 300, function() {currentpage=1;});
+        $(".pagetwo").animate({
+                marginLeft: "100%",}, 300, function() {});
+        $(".pagethree").animate({
+                marginLeft: "200%",}, 300, function() {});
+        
+        $(".selectedItem").animate({
+                marginLeft: "0%",}, 300, function() {});
+    }
+}
+//$(function(){  
+//
+//	$("body").on("swipeleft", function(){
+//        alert("swipeleft");
+//		if (menuStatus){	
+//		$(".menubg").animate({
+//			marginLeft: "-70%",
+//		  }, 300, function(){menuStatus = false});
+//		  }
+//	});
+//	
+//	$("body").on("swiperight", function(){
+//		if (!menuStatus){	
+//		$(".menubg").animate({
+//			marginLeft: "0%",
+//		  }, 300, function(){menuStatus = true});
+//		  }
+//	});	
+//});
