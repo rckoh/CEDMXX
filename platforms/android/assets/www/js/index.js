@@ -111,6 +111,9 @@ function changepage(pagenumber){
         $(".pageone").show();
         $(".pagetwo").hide();
         $(".pagethree").hide();
+        $("#btnFeatured").css("color", "#4be5d9");
+        $("#btnLatestPost").css("color", "#32978f");
+        $("#btnAnnouncement").css("color", "#32978f");
         
         if(currentpage>pagenumber){
             $(".pageone").css("marginLeft", "-100%");
@@ -126,6 +129,9 @@ function changepage(pagenumber){
                 marginLeft: "100%",}, 300, function() {});
         $(".pagethree").animate({
                 marginLeft: "200%",}, 300, function() {});
+        
+        $(".selectedItem").animate({
+                marginLeft: "0%",}, 300, function() {});
     }
     
     if(pagenumber==2){
@@ -133,6 +139,9 @@ function changepage(pagenumber){
         $(".pageone").hide();
         $(".pagetwo").show();
         $(".pagethree").hide();
+        $("#btnFeatured").css("color", "#32978f");
+        $("#btnLatestPost").css("color", "#4be5d9");
+        $("#btnAnnouncement").css("color", "#32978f");
         
         if(currentpage>pagenumber){
             $(".pagetwo").css("marginLeft", "-100%");
@@ -148,12 +157,19 @@ function changepage(pagenumber){
                 marginLeft: "0%",}, 300, function() {currentpage=2;});
         $(".pagethree").animate({
                 marginLeft: "100%",}, 300, function() {});
+        
+        $(".selectedItem").animate({
+                marginLeft: "33%",}, 300, function() {});
     }
     
     if(pagenumber==3){
         $(".pageone").hide();
         $(".pagetwo").hide();
         $(".pagethree").show();
+        $("#btnFeatured").css("color", "#32978f");
+        $("#btnLatestPost").css("color", "#32978f");
+        $("#btnAnnouncement").css("color", "#4be5d9");
+        
         
         if(currentpage>pagenumber){
             $(".pagethree").css("marginLeft", "-100%");
@@ -169,5 +185,13 @@ function changepage(pagenumber){
                 marginLeft: "100%",}, 300, function() {});
         $(".pagethree").animate({
                 marginLeft: "0%",}, 300, function() {currentpage=3;});
+        
+        $(".selectedItem").animate({
+                marginLeft: "67.33%",}, 300, function() {});
     }
+}
+
+function initsubmenustyle(){
+    currentpage=1;
+    $("#btnFeatured").css("color", "#00FFFF");
 }

@@ -40,6 +40,7 @@
         <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
 <!--        <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>-->
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/slidemenu.css" />
         <script type="text/javascript" src="js/slidemenu.js"></script>
         <script type="text/javascript">
             document.addEventListener("deviceready", onDeviceReady, false);
@@ -60,17 +61,13 @@
             
             function onDeviceReady() {
                 document.addEventListener("backbutton", onBackKeyDown, false);
+                
             }
             
             function startslideshow(){
                 getPromoList();
                 window.setInterval(slideshow, 5000);
                 
-            }
-            
-            function goiscroll()
-            {
-                window.location = "iscroll.html";
             }
             
             function sharetoFV()
@@ -96,6 +93,9 @@
                     function (response) { alert(JSON.stringify(response)) });
             }
         </script>
+        <script type="text/javascript" src="js/slidemenuaction.js"></script>
+        <script type="text/javascript" src="js/loginnavigate.js"></script>
+        
     </head>
     <body onload="startslideshow();">
         <div data-role="app" class="app" id="app">
@@ -111,7 +111,7 @@
                             <button class="buttonsharebg" onclick="sharetoFV()"><img class="sharebutton" src="img/drawer.png"></img></button>-->
 <!--                            <button class="buttonsharebg2" onclick="sharetoFVnormal()"><img class="sharebuttonimg" src="img/drawer.png"></img></button>-->
 
-                            <button class="buttonsharebg" onclick="sharetoFVios()"><img class="sharebuttonimg" src="img/trending.png"></img></button>
+                            <button class="pageTitileImgBG" onclick="sharetoFVios()"><img class="pageTitileImg" src="img/trending.png"></img></button>
                             <label class="pagetitle">Trending</label>
                         </td>
                     </tr>
@@ -122,40 +122,40 @@
                     <input type="text" class="searchbox" placeholder="search products and services"></input>
                 </div>
                 <div>
-                    <ul>
-                        <li><label class="itemlabel"><img src="img/userprofile.png" class="menuitemimg" />Login</label></li>
-                        <li><label class="itemlabel"><img src="img/userprofile.png" class="menuitemimg" />Treanding</label></li>
-                        <li><label class="itemlabel"><img src="img/userprofile.png" class="menuitemimg" />Business Matching</label></li>
-                        <li><label class="itemlabel"><img src="img/userprofile.png" class="menuitemimg" />Gallery</label></li>
-                        <li><label class="itemlabel"><img src="img/userprofile.png" class="menuitemimg" />Listing</label></li>
-                        <li><label class="itemlabel"><img src="img/userprofile.png" class="menuitemimg" />Setting</label></li>
-                        <li><label class="itemlabel"><img src="img/userprofile.png" class="menuitemimg" />About eSolutions</label></li>
+                    <ul id="slidemenu">
+                        <br>
+                        <script type="text/javascript" src="js/slidemenuitem.js"></script>
                     </ul>    
                 </div>
                 <div class="menufooter">
-                    <img src="img/pssb_logo_menu.png"/>
+                    <img src="img/menufooter.png" class="footerimage"/>
                 </div>
             </div>
             <div class="subheaderblack">
-                <table class="subheadertable">
+                <div>
+                    <table class="subheadertable">
                     <tr style="width:32.67%:height:100%;">
                         <td style="width:32.67%;">
-                            <button class="subheaderbutton" onclick="changepage(1);">Featured</button>
+                            <button class="subheaderbutton" onclick="changepage(1);" id="btnFeatured">Featured</button>
                         </td>
                         <td style="width:1%">
                             &nbsp;|&nbsp;
                         </td>
                         <td style="width:32.67%">
-                            <button class="subheaderbutton" onclick="changepage(2);">Latest Post</button>
+                            <button class="subheaderbutton" onclick="changepage(2);" id="btnLatestPost">Latest Post</button>
                         </td>
                         <td style="width:1%">
                             &nbsp;|&nbsp;
                         </td>
                         <td style="width:32.67%">
-                            <button class="subheaderbutton" onclick="changepage(3);">Announcements</button>
+                            <button class="subheaderbutton" onclick="changepage(3);" id="btnAnnouncement">Announcements</button>
                         </td>
                     </tr>
                 </table>
+                </div>
+                <div class="selectedItem">
+                </div>
+                
             </div>
             <div class="content">
                 <div class="pageone">
@@ -164,9 +164,13 @@
                         <img src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg" class="slideshowimage" id="slideshowimage"></img>
                         <div class="slideshowimagenamediv">
                             <h1 class="slideshowitemtitle">Some Title</h1>
-                                                <p class="slideshowitemseperator">------</p>
-                                                <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+                                <p class="slideshowitemseperator">&nbsp;</p>
+                                <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+                            <div>
+                            <p class="userSummary"><img src="img/view.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/fav.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/share.png" class="userSummaryIcon"/>&nbsp;123&nbsp;&nbsp;</p>
                         </div>
+                        </div>
+                        
                     </div>
                     <div class="wrapper" id="wrapper">
                         <div class="scroll-content" id="scroll-content">
@@ -178,7 +182,7 @@
                                             </td>
                                             <td>
                                                 <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">------</p>
+                                                <p class="listviewitemseperator">&nbsp;</p>
                                                 <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
                                             </td>
                                         </tr>
@@ -191,7 +195,7 @@
                                             </td>
                                             <td>
                                             <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">------</p>
+                                                <p class="listviewitemseperator">&nbsp;</p>
                                                 <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
                                             </td>
                                         </tr>
@@ -204,7 +208,7 @@
                                             </td>
                                             <td>
                                             <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">------</p>
+                                                <p class="listviewitemseperator">&nbsp;</p>
                                                 <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
                                             </td>
                                         </tr>
@@ -220,7 +224,7 @@
                         <img src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg" class="slideshowimage" id="slideshowimage"></img>
                         <div class="slideshowimagenamediv">
                             <h1 class="slideshowitemtitle">Some Title</h1>
-                                                <p class="slideshowitemseperator">------</p>
+                                                <p class="listviewitemseperator">&nbsp;</p>
                                                 <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
                         </div>
                     </div>
@@ -230,7 +234,7 @@
                         <img src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg" class="slideshowimage" id="slideshowimage"></img>
                         <div class="slideshowimagenamediv">
                             <h1 class="slideshowitemtitle">Some Title</h1>
-                                                <p class="slideshowitemseperator">------</p>
+                                               <p class="listviewitemseperator">&nbsp;</p>
                                                 <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
                         </div>
                     </div>
@@ -286,7 +290,7 @@
                 </div>
 -->
             </div>
-            <div class="pagefooter">
+            <div class="pagefooter" onclick="goLogin();">
                 Login
             </div>
         <script type="text/javascript" src="../plugins/iscroll-master/build/iscroll-lite.js"></script>
@@ -299,6 +303,7 @@
         }
         </script>
         <script type="text/javascript">
+            initsubmenustyle();
             app.initialize();
         </script>
     </body>
