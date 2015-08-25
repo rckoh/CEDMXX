@@ -105,19 +105,7 @@
                 <div class="closeButtonFrame">
                     <button class="closeButton" id="closeBtn"><img clas="closeButtonImg" src="img/next.png"/></button>
                 </div>
-                <div class="filterItem">
-                    <h1>Looking for</h1>
-                    <p><select><option>item 1</option><option>item 2</option><option>item 3</option></select></p>
-                    <h1>Keywords</h1>
-                    <p><input type="text" id="keywords"></input></p>
-                    <h1>Interest</h1>
-                    <p><select><option>item 1</option><option>item 2</option><option>item 3</option></select></p>
-                    <h1>Technology Area</h1>
-                    <p><select><option>item 1</option><option>item 2</option><option>item 3</option></select></p>
-                    <h1>Industry Area</h1>
-                    <p><select><option>item 1</option><option>item 2</option><option>item 3</option></select></p>
-                    <h1>&nbsp;</h1>
-                    <button>MATCH ME</button>
+                <div class="filterItem" id="filterItem">
                 </div>
             </div>
             <div class="subheaderblack">
@@ -144,7 +132,7 @@
                 </table>
                 </div>
                 <div class="subheaderFilter">
-                    <button onclick="openFilter();" id="filterBtn" class="filterBtnCls"><img src="img/filter.png" class="filterBtnImg"/></button>
+                    <button id="filterBtn" class="filterBtnCls"><img src="img/filter.png" class="filterBtnImg"/></button>
                 </div>
                 <div class="selectedItem">
                 </div>
@@ -363,7 +351,7 @@
                 </div>
             </div>
         <script type="text/javascript" src="../plugins/iscroll-master/build/iscroll-lite.js"></script>
- 
+        <script type="text/javascript" src="js/filterItem.js"></script>
         <script type="text/javascript">
 
         var theScroll;

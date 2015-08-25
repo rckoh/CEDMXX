@@ -17,3 +17,8 @@ function goAbout(){
          //$("html").animate({marginLeft: "-100%",}, 300, function() {window.location = "index.html";});
 	window.location = "aboutPage.html";
 }
+
+function goListing(){
+         //$("html").animate({marginLeft: "-100%",}, 300, function() {window.location = "index.html";});
+	window.location = "listingPage.html";
+}
