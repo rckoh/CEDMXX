@@ -1,5 +1,4 @@
 $(function(){
-	var menuStatus;
 	
 	$("button.buttonbg").click(function(){
 		if(menuStatus != true){				

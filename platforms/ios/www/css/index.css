@@ -186,7 +186,7 @@ input:focus {
     height: 40px;
     background-color: transparent;
     border:none;
-    right:80px;
+    right:75px;
     top: 0px;
     position: absolute;
 }
@@ -203,9 +203,10 @@ input:focus {
 
 .pageTitileImg{
     width: 30px;
-    height: 30px;
+    height: auto;
     background-color: transparent;
     position: relative;
+    vertical-align: middle;
     
 }
 
@@ -216,8 +217,8 @@ input:focus {
 }
 
 .pagetitle{
-    color: rgba(255, 255, 255, 0.4);
-    width: 60px;
+    color: rgba(255, 255, 255, 0.6);
+    width: auto;
     height: 40px;
     line-height: 40px;
     background-color: transparent;
@@ -271,7 +272,7 @@ input:focus {
 
 .selectedItem{
     position: absolute;
-    background-color: #4be5d9;
+    background-color: #00FFFF;
     width: 32%;
     height: 2px;
     z-index: 96;
@@ -531,6 +532,7 @@ input:focus {
     line-height: 10px;
     font-family: "Roboto-Medium";
     font-size: 15px;
+    margin: 0px 0px 0px 10px;
 }
 
 .listviewitemdetails{
@@ -542,6 +544,7 @@ input:focus {
     line-height: 15px;
     margin: 0px 0px 0px 0px;
     text-align: justify;
+    margin: 10px 0px 0px 10px;
     
 }
 
@@ -550,6 +553,7 @@ input:focus {
 /*    color: #32978f;*/
     border-bottom: 1px solid #32978f;
     width: 30px;
+    margin: 10px 0px 0px 10px;
 }
 
 .listviewitemframe{
@@ -629,6 +633,7 @@ input:focus {
     line-height: 10px;
     font-family: "Roboto-Medium";
     font-size: 15px;
+    margin: 0px 0px 0px 10px;
 }
 
 .listviewitemdetailsPage2{
@@ -640,6 +645,7 @@ input:focus {
     line-height: 15px;
     margin: 0px 0px 0px 0px;
     text-align: justify;
+    margin: 10px 0px 0px 10px;
     
 }
 
@@ -648,6 +654,7 @@ input:focus {
 /*    color: #32978f;*/
     border-bottom: 1px solid #32978f;
     width: 30px;
+    margin: 10px 0px 0px 10px;
 }
 
 .listviewitemframePage2{
@@ -663,108 +670,11 @@ input:focus {
 
 
 
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* listview Style Page 1*/
-.wrapper{
-    height: calc(100% - 45%);
-    width: 100%;
-    background-color: white;
-    position: absolute;
-    display: block;
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
-    bottom: 0%;
-    overflow:auto;
-}
-
-.scrollul{
-    list-style:none;
-    padding:0;
-    margin:0;
-    width:100%;
-    text-align:left;
-}
- 
-.scrollli {
-    padding:0 10px;
-    height:150px;
-    line-height:40px;
-    border-bottom:1px solid #ccc;
-    border-top:1px solid #fff;
-/*    background-color:#fafafa;*/
-    font-size:14px;
-    border-bottom: 1px dotted #333;  
-}
-
-.scrollli:hover {
-    background-color: white;
-}
-
-.scroll-content {
-    position:absolute; 
-    z-index:1;
-    width:100%;
-    padding:0;
-}
-
-.listviewimg{
-/*    line-height: px;*/
-    width: 100px;
-    height: auto;
-/*    border: 1px solid black;*/
-    display: block;
-}
-
-.listviewlbl{
-/*    padding: 10px 10px 10px 0px;*/
-}
-
-.listviewitemtitle{
-    color: #32978f;
-    background-color: transparent;
-    font-weight: normal;
-    line-height: 10px;
-    font-family: "Roboto-Medium";
-    font-size: 15px;
-}
-
-.listviewitemdetails{
-    color: #565656;
-    background-color: transparent;
-    font-family: "Roboto-Regular";
-    font-size: 12px;
-    font-weight: normal;
-    line-height: 15px;
-    margin: 0px 0px 0px 0px;
-    text-align: justify;
-    
-}
-
-.listviewitemseperator{
-    line-height: 2px;
-/*    color: #32978f;*/
-    border-bottom: 1px solid #32978f;
-    width: 30px;
-}
-
-.listviewitemframe{
-    height:100%; 
-    width:100%;
-    vertical-align: top;
-    text-align: left;
-}
-/* listview Style Page 1 end*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-
 
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
-/* listview Style Page 2*/
+/* listview Style Page 3*/
 .wrapperPage3{
     height: calc(100% - 45%);
     width: 100%;
@@ -826,6 +736,7 @@ input:focus {
     line-height: 10px;
     font-family: "Roboto-Medium";
     font-size: 15px;
+    margin: 0px 0px 0px 10px;
 }
 
 .listviewitemdetailsPage3{
@@ -837,6 +748,7 @@ input:focus {
     line-height: 15px;
     margin: 0px 0px 0px 0px;
     text-align: justify;
+    margin: 10px 0px 0px 10px;
     
 }
 
@@ -845,6 +757,7 @@ input:focus {
 /*    color: #32978f;*/
     border-bottom: 1px solid #32978f;
     width: 30px;
+    margin: 10px 0px 0px 10px;
 }
 
 .listviewitemframePage3{

@@ -1,0 +1,119 @@
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* filter Style*/
+.filterbg{
+    position: absolute;
+    width: 90%;
+    height: calc(100% - 40px);
+    z-index: 99;
+/*    padding: 0px 0px 0px 0px;*/
+    margin-left: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.2);
+    
+    -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        -webkit-transition: transform 400ms ease
+        -moz-transition: transform 400ms ease
+        -o-transition: transform 400ms ease
+        transition: transform 400ms ease;
+}
+
+.filterHeader{
+    color: #4be5d9;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    line-height: 30px;
+    background-color: transparent;
+    font-family: "Roboto-Regular";
+    font-size: 14px;
+}
+
+.closeButtonFrame{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 30px;
+    width: auto;
+    background-color: transparent;
+}
+
+.closeButton{
+    border: none;
+    background-color: transparent;
+}
+
+.filterItem{    
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    height: auto;
+    width: calC(100% - 20px);
+    border-top: 1px dotted #4be5d9;
+}
+
+.filterItem h1{
+    color: #4be5d9;
+    font-size: 13px;
+    font-family: "Roboto-Regular";
+    margin: 10px 0px 2px 0px;
+}
+
+.filterItem p{
+    margin: 0px 0px 0px 0px;
+}
+
+.filterItem p select{
+    position: absolute;
+    background-color: white;
+    width: calC(100% - 10px);
+    left: 0px;
+    font-family: "Roboto-Regular";
+    font-size: 14px;
+    margin: 0px 0px 0px 0px;
+/*
+    -webkit-appearance: none; 
+    -webkit-border-radius: 0px;
+*/
+    text-indent: 10px;
+    color: #818181;
+}
+
+.filterItem p select:focus{
+    outline: none;
+}
+
+.filterItem p input{
+/*    position: absolute;*/
+    background-color: white;
+    width: calC(100% - 15px);
+    left: 0px;
+    font-family: "Roboto-Regular";
+    font-size: 14px;
+    color: #818181;
+    text-indent: 10px;
+    margin: 0px 0px 0px 0px;
+    
+}
+
+.filterItem button{
+    position: absolute;
+    background-color: white;
+    width: calC(100% - 10px);
+    left: 0px;
+    background-color: #4be5d9;
+    border: none;
+    font-family: "Roboto-Medium";
+    font-size: 14px;
+    word-spacing: 200;
+    color: white;
+}
+/* filter Style end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/

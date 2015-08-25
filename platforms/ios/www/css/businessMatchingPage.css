@@ -1,0 +1,849 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+@font-face {
+    font-family: 'Roboto-Regular'; /*a name to be used later*/
+    src: url('../font/Roboto-Regular.ttf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'Roboto-Bold'; /*a name to be used later*/
+    src: url('../font/Roboto-Bold.ttf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'Roboto-Light'; /*a name to be used later*/
+    src: url('../font/Roboto-Light.ttf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'Roboto-Thin'; /*a name to be used later*/
+    src: url('../font/Roboto-Thin.ttf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'Roboto-Medium'; /*a name to be used later*/
+    src: url('../font/Roboto-Medium.ttf'); /*URL to font*/
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width:100%;
+    overflow: hidden;
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;
+    -webkit-overflow-scrolling: touch;
+    /* prevent copy paste, to allow, change 'none' to 'text' */
+/*    background-color:#53DCDF;*/
+    background-color: white;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+/*    font-size:12px;*/
+/*    text-transform:uppercase;*/
+}
+
+button:focus { 
+    outline:0 !important; 
+}
+
+input{
+    text-indent: 10px;
+    background-color: #44c5c7; 
+    color: white;
+    border: 1px solid white;
+    border-color:white;
+    border-style: solid;
+    
+}
+
+input:focus { 
+    outline:0 !important; 
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #ffffff;
+    opacity:  0.4;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #ffffff;
+   opacity:  0.4;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #ffffff;
+   opacity:  0.4;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #ffffff;
+    opacity:  0.4;
+}
+
+
+
+.app {
+/*    background:url(../img/pssb_logo.png) no-repeat center top;  170px x 200px */
+    
+/*    left:50%;*/
+/*    top:50%;*/
+    height:100%;                    
+    width:100%;                    
+/*    text-align:center;*/
+    padding:0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:0px 0px 0px 0px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+
+.event {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* Top Header Style*/
+.menuheader{
+    height: 40px;
+    background-color: #46a19a;
+}
+
+.menuheadertable{
+    height: 100%;
+    width: 100%;
+}
+
+.menubutton{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+
+.buttonbg{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border:none;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+
+.pageTitileImgBG{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border:none;
+    right:160px;
+    top: 0px;
+    position: absolute;
+}
+
+.buttonsharebg2{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border:none;
+    right:100px;
+    top: 0px;
+    position: absolute;
+}
+
+.pageTitileImg{
+    width: 42px;
+    height: auto;
+    background-color: transparent;
+    position: relative;
+    vertical-align: middle;
+    
+}
+
+.menubutton:active {
+    vertical-align: top;
+    padding: 1px 1px 1px;
+    border: none;
+}
+
+.pagetitle{
+    color: rgba(255, 255, 255, 0.6);
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+    background-color: transparent;
+    border:none;
+    right: 10px;
+    top: 0px;
+    vertical-align: middle;
+    font-size: 13px;
+    position: absolute;
+    font-size: 16px;
+    font-family: "Roboto-Thin";
+}
+/* Top Header Style end */
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* subheader Style*/
+.subheaderblack{
+/*    position: relative;*/
+    background-color:black;
+    text-align:justify;
+    color: white;
+    height: 40px;
+    width: 100%;
+}
+.subheadertable{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    color: #32978f;
+    vertical-align: top;
+}
+
+.subheaderbutton{
+    background-color: transparent;
+    border: none;
+    color: #32978f;
+    width: 100%;
+    height: 40px;
+    font-family: "Roboto-Medium";
+    font-size: 14px;
+}
+
+
+.selectedItem{
+    position: absolute;
+    background-color: #00FFFF;
+    width: 32%;
+    height: 2px;
+    z-index: 96;
+    top: calC(78px);
+}
+
+.subheaderFilter{
+    position: absolute;
+    background-color: transparent;
+    width: 40px;
+    height: auto;
+    z-index: 96;
+    top: 45px;
+    left: calC(100% - 45px);
+}
+
+.filterBtnCls{
+    height: auto;
+    width: 40px;
+    border: none;
+    background-color: transparent;
+}
+
+.filterBtnImg{
+    height: auto;
+    width: 30px;
+    border: none;
+    background-color: transparent;
+}
+
+/* subheader Style end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* content page Style */
+.content{
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    
+}
+
+.pageone{
+    background-color: white;
+    width: 100%;
+    height: calc(100% - 80px);
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0%;
+    display: inline-block;
+    position: absolute;
+    z-index: 3;
+/*    position: absolute;*/
+    
+    -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        -webkit-transition: transform 400ms ease
+        -moz-transition: transform 400ms ease
+        -o-transition: transform 400ms ease
+        transition: transform 400ms ease;
+}
+
+.pagetwo{
+    background-color: white;
+    width: 100%;
+    height: calc(100% - 80px);
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0%;
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+/*    position: absolute;*/
+    
+    -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        -webkit-transition: transform 400ms ease
+        -moz-transition: transform 400ms ease
+        -o-transition: transform 400ms ease
+        transition: transform 400ms ease;
+}
+/* content page stry end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/*Page 1 Last view matches Style */
+.headerSpaceLVM{
+    height: 5px;
+}
+
+.headerLVM{
+    font-family: "Roboto-Medium";
+    font-size: 14px;
+    background-color: #46a19a;
+    color: white;
+    line-height: 30px;
+    height: 30px;
+    text-indent: 10px;
+}
+
+.wrapperLVM{
+    height: calC(50% - 35px);
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+/*    bottom: 0%;*/
+    overflow:auto;
+}
+
+.scrollulLVM{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollliLVM {
+    padding:0 10px;
+    height:120px;
+    line-height:40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+/*    background-color:#fafafa;*/
+    font-size:14px;
+    border-bottom: 1px dotted #333;  
+}
+
+.scrollliLVM:hover {
+    background-color: white;
+}
+
+.scroll-contentLVM {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+
+.listviewimgLVM{
+/*    line-height: px;*/
+    width: 100px;
+    height: auto;
+/*    border: 1px solid black;*/
+    display: block;
+}
+
+.listviewlblLVM{
+/*    padding: 10px 10px 10px 0px;*/
+}
+
+.listviewitemtitleLVM{
+    color: #32978f;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 10px;
+    font-family: "Roboto-Medium";
+    font-size: 15px;
+    margin: 0px 0px 0px 10px;
+}
+
+.listviewitemdetailsLVM{
+    color: #565656;
+    background-color: transparent;
+    font-family: "Roboto-Regular";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 0px 0px 0px 0px;
+    text-align: justify;
+    margin: 10px 0px 0px 10px;
+    
+}
+
+.listviewitemseperatorLVM{
+    line-height: 2px;
+/*    color: #32978f;*/
+    border-bottom: 1px solid #32978f;
+    width: 30px;
+    margin: 10px 0px 0px 10px;
+}
+
+.listviewitemframeLVM{
+    height:100%; 
+    width:100%;
+    vertical-align: top;
+    text-align: left;
+}
+
+/*Page 1 last view matches Style end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/*Page 1 listview recommended matches Style*/
+.headerSpaceRM{
+    height: 5px;
+    position: absolute;
+    top: 50%;
+}
+
+.headerRM{
+    font-family: "Roboto-Medium";
+    font-size: 14px;
+    background-color: #46a19a;
+    color: white;
+    line-height: 30px;
+    height: 30px;
+    width: 100%;
+    text-indent: 10px;
+    position: absolute;
+    top: calC(50% + 5px);
+}
+
+.wrapperRM{
+    height: calc(100% - 50% - 35px);
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    bottom: 0%;
+    overflow:auto;
+}
+
+.scrollulRM{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollliRM {
+    padding:0 10px;
+    height:120px;
+    line-height:40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+/*    background-color:#fafafa;*/
+    font-size:14px;
+    border-bottom: 1px dotted #333;  
+}
+
+.scrollliRM:hover {
+    background-color: white;
+}
+
+.scroll-contentRM {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+
+.listviewimgRM{
+/*    line-height: px;*/
+    width: 100px;
+    height: auto;
+/*    border: 1px solid black;*/
+    display: block;
+}
+
+.listviewlblRM{
+/*    padding: 10px 10px 10px 0px;*/
+}
+
+.listviewitemtitleRM{
+    color: #32978f;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 10px;
+    font-family: "Roboto-Medium";
+    font-size: 15px;
+    margin: 0px 0px 0px 10px;
+}
+
+.listviewitemdetailsRM{
+    color: #565656;
+    background-color: transparent;
+    font-family: "Roboto-Regular";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 0px 0px 0px 0px;
+    text-align: justify;
+    margin: 10px 0px 0px 10px;
+    
+}
+
+.listviewitemseperatorRM{
+    line-height: 2px;
+/*    color: #32978f;*/
+    border-bottom: 1px solid #32978f;
+    width: 30px;
+    margin: 10px 0px 0px 10px;
+}
+
+.listviewitemframeRM{
+    height:100%; 
+    width:100%;
+    vertical-align: top;
+    text-align: left;
+}
+/*Page 1 listview recommended matches Style  end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/*Page 2 Last view matches Style */
+.headerSpaceLVMPG2{
+    height: 5px;
+}
+
+.headerLVMPG2{
+    font-family: "Roboto-Medium";
+    font-size: 14px;
+    background-color: #46a19a;
+    color: white;
+    line-height: 30px;
+    height: 30px;
+    text-indent: 10px;
+}
+
+.wrapperLVMPG2{
+    height: calC(50% - 35px);
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+/*    bottom: 0%;*/
+    overflow:auto;
+}
+
+.scrollulLVMPG2{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollliLVMPG2 {
+    padding:0 10px;
+    height:120px;
+    line-height:40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+/*    background-color:#fafafa;*/
+    font-size:14px;
+    border-bottom: 1px dotted #333;  
+}
+
+.scrollliLVMPG2:hover {
+    background-color: white;
+}
+
+.scroll-contentLVMPG2 {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+
+.listviewimgLVMPG2{
+/*    line-height: px;*/
+    width: 100px;
+    height: auto;
+/*    border: 1px solid black;*/
+    display: block;
+}
+
+.listviewlblLVMPG2{
+/*    padding: 10px 10px 10px 0px;*/
+}
+
+.listviewitemtitleLVMPG2{
+    color: #32978f;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 10px;
+    font-family: "Roboto-Medium";
+    font-size: 15px;
+    margin: 0px 0px 0px 10px;
+}
+
+.listviewitemdetailsLVMPG2{
+    color: #565656;
+    background-color: transparent;
+    font-family: "Roboto-Regular";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 0px 0px 0px 0px;
+    text-align: justify;
+    margin: 10px 0px 0px 10px;
+    
+}
+
+.listviewitemseperatorLVMPG2{
+    line-height: 2px;
+/*    color: #32978f;*/
+    border-bottom: 1px solid #32978f;
+    width: 30px;
+    margin: 10px 0px 0px 10px;
+}
+
+.listviewitemframeLVMPG2{
+    height:100%; 
+    width:100%;
+    vertical-align: top;
+    text-align: left;
+}
+
+/*Page 2 last view matches Style end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/*Page 2 listview recommended matches Style*/
+.headerSpaceRMPG2{
+    height: 5px;
+    position: absolute;
+    top: 50%;
+}
+
+.headerRMPG2{
+    font-family: "Roboto-Medium";
+    font-size: 14px;
+    background-color: #46a19a;
+    color: white;
+    line-height: 30px;
+    height: 30px;
+    width: 100%;
+    text-indent: 10px;
+    position: absolute;
+    top: calC(50% + 5px);
+}
+
+.wrapperRMPG2{
+    height: calc(100% - 50% - 35px);
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    bottom: 0%;
+    overflow:auto;
+}
+
+.scrollulRMPG2{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollliRMPG2 {
+    padding:0 10px;
+    height:120px;
+    line-height:40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+/*    background-color:#fafafa;*/
+    font-size:14px;
+    border-bottom: 1px dotted #333;  
+}
+
+.scrollliRMPG2:hover {
+    background-color: white;
+}
+
+.scroll-contentRMPG2 {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+
+.listviewimgRMPG2{
+/*    line-height: px;*/
+    width: 100px;
+    height: auto;
+/*    border: 1px solid black;*/
+    display: block;
+}
+
+.listviewlblRMPG2{
+/*    padding: 10px 10px 10px 0px;*/
+}
+
+.listviewitemtitleRMPG2{
+    color: #32978f;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 10px;
+    font-family: "Roboto-Medium";
+    font-size: 15px;
+    margin: 0px 0px 0px 10px;
+}
+
+.listviewitemdetailsRMPG2{
+    color: #565656;
+    background-color: transparent;
+    font-family: "Roboto-Regular";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 0px 0px 0px 0px;
+    text-align: justify;
+    margin: 10px 0px 0px 10px;
+    
+}
+
+.listviewitemseperatorRMPG2{
+    line-height: 2px;
+/*    color: #32978f;*/
+    border-bottom: 1px solid #32978f;
+    width: 30px;
+    margin: 10px 0px 0px 10px;
+}
+
+.listviewitemframeRMPG2{
+    height:100%; 
+    width:100%;
+    vertical-align: top;
+    text-align: left;
+}
+/*Page 2 listview recommended matches Style end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+

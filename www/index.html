@@ -44,7 +44,7 @@
         <script type="text/javascript" src="js/slidemenu.js"></script>
         <script type="text/javascript">
             document.addEventListener("deviceready", onDeviceReady, false);
-            
+            var menuStatus;
             //bind swipe event with jquery
             $(function(){
 	
@@ -131,11 +131,18 @@
             </div>
             <div class="menubg">
                 <div class="searchbox">
-                    <input type="text" class="searchbox" placeholder="search products and services"></input>
+                    <script type="text/javascript" src="js/searchBox.js"></script>
+<!--
+                    <input type="text" class="searchbox" placeholder="search products and services" id="searchTextBox">
+                        <button class="searchBoxBtn" onclick="clearSearch()"><img src="img/search.png" class="searchBoxBtnImg"/></button>
+                    </input>
+-->
                 </div>
                 <div>
+                    <br>
+                    <br>
+                    <br>
                     <ul id="slidemenu">
-                        <br>
                         <script type="text/javascript" src="js/slidemenuitem.js"></script>
                     </ul>    
                 </div>
