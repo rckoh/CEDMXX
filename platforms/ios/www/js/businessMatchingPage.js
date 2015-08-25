@@ -136,8 +136,7 @@ function changepage(pagenumber){
 
 function pageSwipeRight(){
     
-    if(!menuStatus){
-        if(currentpage==2){
+    if(currentpage==2){
             $(".pageone").show();
             $(".pagetwo").hide();
             $("#btnProduct").css("color", "#4be5d9");
@@ -153,5 +152,4 @@ function pageSwipeRight(){
             $(".selectedItem").animate({
                     marginLeft: "0%",}, 300, function() {});
         }
-    }
 }

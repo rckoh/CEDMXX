@@ -52,6 +52,10 @@
                 $("#pageBody").on("swipeleft", function(){
                     pageSwipeLeft();
                 });
+                
+                $("#pageBody").on("swiperight", function(){
+                    pageSwipeRight();
+                });
             });
             
             function onDeviceReady() {
@@ -310,8 +314,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="pagetwo">
+
+                <div class="pagetwo">
                     <div class="headerSpaceLVMPG2">&nbsp;</div>
                     <div class="headerLVMPG2">Last View Matches</div>
                     <div class="wrapperLVMPG2" id="wrapper">
