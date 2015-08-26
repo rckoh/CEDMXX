@@ -191,12 +191,12 @@ input:focus {
     position: absolute;
 }
 
-.buttonsharebg2{
+.inboxBtn{
     width: 40px;
     height: 40px;
     background-color: transparent;
     border:none;
-    right:100px;
+    right:110px;
     top: 0px;
     position: absolute;
 }
@@ -208,6 +208,14 @@ input:focus {
     position: relative;
     vertical-align: middle;
     
+}
+
+.inboxBtnImg{
+    width: 25px;
+    height: auto;
+    background-color: transparent;
+    position: relative;
+    vertical-align: middle;
 }
 
 .menubutton:active {

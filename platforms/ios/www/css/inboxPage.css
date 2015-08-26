@@ -186,17 +186,17 @@ input:focus {
     height: 40px;
     background-color: transparent;
     border:none;
-    right:75px;
+    right:80px;
     top: 0px;
     position: absolute;
 }
 
-.inboxBtn{
+.buttonsharebg2{
     width: 40px;
     height: 40px;
     background-color: transparent;
     border:none;
-    right:110px;
+    right:100px;
     top: 0px;
     position: absolute;
 }
@@ -208,14 +208,6 @@ input:focus {
     position: relative;
     vertical-align: middle;
     
-}
-
-.inboxBtnImg{
-    width: 25px;
-    height: auto;
-    background-color: transparent;
-    position: relative;
-    vertical-align: middle;
 }
 
 .menubutton:active {
@@ -251,12 +243,14 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* subheader Style*/
 .subheaderblack{
-/*    position: relative;*/
+    position: absolute;
     background-color:black;
     text-align:justify;
     color: white;
     height: 40px;
     width: 100%;
+    bottom: 0px;
+    z-index: 50;
 }
 .subheadertable{
     width: 100%;
@@ -277,16 +271,6 @@ input:focus {
     font-size: 14px;
 }
 
-
-.selectedItem{
-    position: absolute;
-    background-color: #00FFFF;
-    width: 32%;
-    height: 2px;
-    z-index: 96;
-    top: calC(78px);
-}
-
 /* subheader Style end*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
@@ -305,38 +289,16 @@ input:focus {
     
 }
 
-.pageone{
-    background-color: aqua;
-    width: 100%;
-    height: calc(100% - 80px);
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0%;
-    display: inline-block;
-    position: absolute;
-    z-index: 3;
-/*    position: absolute;*/
-    
-    -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        -webkit-transition: transform 400ms ease
-        -moz-transition: transform 400ms ease
-        -o-transition: transform 400ms ease
-        transition: transform 400ms ease;
-}
-
 .pagetwo{
     background-color: red;
     width: 100%;
-    height: calc(100% - 80px);
+    height: calc(100% - 45%);
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
     display: inline-block;
     position: absolute;
     z-index: 2;
-    
+    bottom: 0;
     -webkit-transform: translate3d(0,0,0);
         -moz-transform: translate3d(0,0,0);
         -ms-transform: translate3d(0,0,0);
@@ -347,28 +309,6 @@ input:focus {
         -o-transition: transform 400ms ease
         transition: transform 400ms ease;
 }
-
-.pagethree{
-    background-color: purple;
-    width: 100%;
-    height: calc(100% - 80px);
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
-    display: inline-block;
-    position: absolute;
-    z-index: 1;
-    
-    -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        -webkit-transition: transform 400ms ease
-        -moz-transition: transform 400ms ease
-        -o-transition: transform 400ms ease
-        transition: transform 400ms ease;
-}
-
 /* content page stry end*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
@@ -382,7 +322,7 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* image slideshow Style */
-.imagecontent{
+.profileDiv{
     background:url(../img/bgtemplate.png) no-repeat center top; 
     height: 45%;
     width: 100%;
@@ -391,7 +331,7 @@ input:focus {
 /*    line-height: 40px;*/
 }
 
-.slideshowimage{
+.profileBG{
     display: block;
     max-width: 100%;
     max-height: 100%;
@@ -405,69 +345,61 @@ input:focus {
     margin: auto;
 }
 
-.slideshowimagenamediv{
+.profileStatistic{
     width: 100%;
-    bottom: 0%;
+    bottom: 40px;
     position: absolute;
-    background-color: #32978f;
+/*    background-color: #32978f;*/
     opacity: 0.9;
 }
 
-.slideshowimagename{
-    padding: 0px 0px 0px 0px;
-    margin: 10px 10px 10px 10px;
-    color: white;
-    font-size: 15px;
-    text-align: left;
-/*    position: absolute;*/
-    display: inline-block;
+.profilePic{
+    position: absolute;
+    top: 30px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+    border-radius: 100%;
+    z-index: 10;
+    margin: 0px 0px 0px calC(50% - 50px);
 }
 
-.slideshowitemtitle{
+.username{
+    position: absolute;
+    top: 140px;
+    width: 100%;
+    height: 20px;
     color: white;
-    background-color: transparent;
-    font-weight: normal;
-    line-height: 10px;
-    margin: 10px 10px 10px 10px;
+    z-index: 10;
+    text-align: center;
     font-family: "Roboto-Regular";
     font-size: 17px;
 }
 
-.slideshowitemdetails{
+.profileStatisticTable{
     color: white;
-    background-color: transparent;
-    font-weight: normal;
-    line-height: 15px;
-    margin: 10px 10px 10px 10px;
-    font-family: "Roboto-Thin";
-    font-size: 14px;
-    text-align: justify;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+    text-align: center;
 }
 
-.slideshowitemseperator{
-    line-height: 2px;
-    color: #32978f;
-    margin: 10px 10px 10px 10px;
-    color: white;
-    border-bottom: 1px solid white;
-    width: 30px;
+.profileStatisticTable tr td:first-child{
+    border-right: 1px solid white;
 }
 
-.userSummary{
-    line-height: 15px;
-    right:10px;
-    font-family: "Roboto-Thin";
-    font-size: 10px;
-    text-align: right;
-    color: white;
+.profileStatisticTable tr td:last-child{
+    border-left: 1px solid white;
 }
 
-.userSummaryIcon{
-    width: 15px;
-    height: auto;
-    vertical-align: middle;
+.statisticNumber{
+    font-family: "Roboto-Medium";
+    font-size: 24px;
 }
 
+.statisticLbl{
+    font-family: "Roboto-Light";
+    font-size: 16px;
+}
 /* image slideshow Style end*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
@@ -478,117 +410,16 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
-/* listview Style Page 1*/
-.wrapper{
-    height: calc(100% - 45%);
-    width: 100%;
-    background-color: white;
-    position: absolute;
-    display: block;
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
-    bottom: 0%;
-    overflow:auto;
-}
-
-.scrollul{
-    list-style:none;
-    padding:0;
-    margin:0;
-    width:100%;
-    text-align:left;
-}
- 
-.scrollli {
-    padding:0 10px;
-    height:150px;
-    line-height:40px;
-    border-bottom:1px solid #ccc;
-    border-top:1px solid #fff;
-/*    background-color:#fafafa;*/
-    font-size:14px;
-    border-bottom: 1px dotted #333;  
-}
-
-.scrollli:hover {
-    background-color: white;
-}
-
-.scroll-content {
-    position:absolute; 
-    z-index:1;
-    width:100%;
-    padding:0;
-}
-
-.listviewimg{
-/*    line-height: px;*/
-    width: 100px;
-    height: auto;
-/*    border: 1px solid black;*/
-    display: block;
-}
-
-.listviewlbl{
-/*    padding: 10px 10px 10px 0px;*/
-}
-
-.listviewitemtitle{
-    color: #32978f;
-    background-color: transparent;
-    font-weight: normal;
-    line-height: 10px;
-    font-family: "Roboto-Medium";
-    font-size: 15px;
-    margin: 0px 0px 0px 10px;
-}
-
-.listviewitemdetails{
-    color: #565656;
-    background-color: transparent;
-    font-family: "Roboto-Regular";
-    font-size: 12px;
-    font-weight: normal;
-    line-height: 15px;
-    margin: 0px 0px 0px 0px;
-    text-align: justify;
-    margin: 10px 0px 0px 10px;
-    
-}
-
-.listviewitemseperator{
-    line-height: 2px;
-/*    color: #32978f;*/
-    border-bottom: 1px solid #32978f;
-    width: 30px;
-    margin: 10px 0px 0px 10px;
-}
-
-.listviewitemframe{
-    height:100%; 
-    width:100%;
-    vertical-align: top;
-    text-align: left;
-}
-/* listview Style Page 1 end*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-
-
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
 /* listview Style Page 2*/
 .wrapperPage2{
-    height: calc(100% - 45%);
+    height: calc(100% - 40px);
     width: 100%;
     background-color: white;
     position: absolute;
     display: block;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
-    bottom: 0%;
+    bottom: 0;
     overflow:auto;
 }
 
@@ -602,13 +433,13 @@ input:focus {
  
 .scrollliPage2 {
     padding:0 10px;
-    height:150px;
-    line-height:40px;
+/*    height:150px;*/
+/*    line-height:40px;*/
     border-bottom:1px solid #ccc;
     border-top:1px solid #fff;
 /*    background-color:#fafafa;*/
     font-size:14px;
-    border-bottom: 1px dotted #333;  
+    border-bottom: 1px solid #565656;  
 }
 
 .scrollliPage2:hover {
@@ -622,187 +453,109 @@ input:focus {
     padding:0;
 }
 
-.listviewimgPage2{
+.inboxImg{
 /*    line-height: px;*/
-    width: 100px;
-    height: auto;
+    width: 50px;
+    height: 50px;
 /*    border: 1px solid black;*/
     display: block;
+    border-radius: 100%;
 }
 
-.listviewlblPage2{
-/*    padding: 10px 10px 10px 0px;*/
-}
-
-.listviewitemtitlePage2{
-    color: #32978f;
-    background-color: transparent;
-    font-weight: normal;
-    line-height: 10px;
-    font-family: "Roboto-Medium";
+.inboxUnreadTitle{
+    font-family: "Roboto-Bold";
     font-size: 15px;
-    margin: 0px 0px 0px 10px;
+    color: #46a19a;
+    margin: 20px 0px 0px 0px;
+    width: 200px;
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+    display:inline-block;
 }
 
-.listviewitemdetailsPage2{
-    color: #565656;
-    background-color: transparent;
-    font-family: "Roboto-Regular";
+.inboxUnreadDate{
+    font-family: "Roboto-Bold";
     font-size: 12px;
-    font-weight: normal;
-    line-height: 15px;
+    color: #46a19a;
+    margin: 20px 0px 0px 0px;
+}
+
+.inboxUnreadInfo{
+    font-family: "Roboto-Bold";
+    font-size: 13px;
+    color: #565656;
     margin: 0px 0px 0px 0px;
-    text-align: justify;
-    margin: 10px 0px 0px 10px;
-    
+    width: 200px;
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+    display:inline-block;
 }
 
-.listviewitemseperatorPage2{
-    line-height: 2px;
-/*    color: #32978f;*/
-    border-bottom: 1px solid #32978f;
-    width: 30px;
-    margin: 10px 0px 0px 10px;
-}
-
-.listviewitemframePage2{
-    height:100%; 
-    width:100%;
-    vertical-align: top;
-    text-align: left;
-}
-/* listview Style Page 2 end*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-
-
-
-
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* listview Style Page 3*/
-.wrapperPage3{
-    height: calc(100% - 45%);
-    width: 100%;
-    background-color: white;
-    position: absolute;
-    display: block;
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
-    bottom: 0%;
-    overflow:auto;
-}
-
-.scrollulPage3{
-    list-style:none;
-    padding:0;
-    margin:0;
-    width:100%;
-    text-align:left;
-}
+.inboxUnreadMsg{
+    font-family: "Roboto-Light";
+    font-size: 13px;
+    color: #565656;
+    margin: 0px 0px 20px 0px;
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+    display:inline-block;
+    width: 200px;
  
-.scrollliPage3 {
-    padding:0 10px;
-    height:150px;
-    line-height:40px;
-    border-bottom:1px solid #ccc;
-    border-top:1px solid #fff;
-/*    background-color:#fafafa;*/
-    font-size:14px;
-    border-bottom: 1px dotted #333;  
 }
 
-.scrollliPage3:hover {
-    background-color: white;
-}
-
-.scroll-contentPage3 {
-    position:absolute; 
-    z-index:1;
-    width:100%;
-    padding:0;
-}
-
-.listviewimgPage3{
-/*    line-height: px;*/
-    width: 100px;
-    height: auto;
-/*    border: 1px solid black;*/
-    display: block;
-}
-
-.listviewlblPage3{
-/*    padding: 10px 10px 10px 0px;*/
-}
-
-.listviewitemtitlePage3{
-    color: #32978f;
-    background-color: transparent;
-    font-weight: normal;
-    line-height: 10px;
-    font-family: "Roboto-Medium";
+.inboxReadTitle{
+    font-family: "Roboto-Bold";
     font-size: 15px;
-    margin: 0px 0px 0px 10px;
+    color: #787878;
+    margin: 20px 0px 0px 0px;
+    width: 200px;
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+    display:inline-block;
 }
 
-.listviewitemdetailsPage3{
-    color: #565656;
-    background-color: transparent;
-    font-family: "Roboto-Regular";
+.inboxReadDate{
+    font-family: "Roboto-Bold";
     font-size: 12px;
-    font-weight: normal;
-    line-height: 15px;
+    color: #565656;
+    margin: 20px 0px 0px 0px;
+}
+
+.inboxReadInfo{
+    font-family: "Roboto-Bold";
+    font-size: 13px;
+    color: #787878;
     margin: 0px 0px 0px 0px;
-    text-align: justify;
-    margin: 10px 0px 0px 10px;
-    
+    width: 200px;
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+    display:inline-block;
 }
 
-.listviewitemseperatorPage3{
-    line-height: 2px;
-/*    color: #32978f;*/
-    border-bottom: 1px solid #32978f;
-    width: 30px;
-    margin: 10px 0px 0px 10px;
+.inboxReadMsg{
+    font-family: "Roboto-Light";
+    font-size: 13px;
+    color: #787878;
+    margin: 0px 0px 20px 0px;
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+    display:inline-block;
+    width: 200px;
+ 
 }
 
-.listviewitemframePage3{
-    height:100%; 
-    width:100%;
-    vertical-align: top;
-    text-align: left;
-}
-/* listview Style Page 3 end*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
 
 
 
 
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* footer Style end*/
-.pagefooter{
-    width: 100%;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    font-size: 14px;
-    z-index: 98;
-    background-color: #32978f;
-    position: absolute;
-    bottom:0;
-    color: white;
-    font-weight: bold;
-    opacity: 0.9;
-    font-family: "Roboto-Thin";
-}
 
-/* footer Style end*/
+/* listview Style Page 2 end*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/

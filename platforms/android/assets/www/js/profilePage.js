@@ -50,61 +50,6 @@ var app = {
     }
 };
 
-function slideshow(){
-    var imga="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg";
-    var imgb="http://dreamatico.com/data_images/animals/animals-4.jpg";
-    var imgc="http://thewowstyle.com/wp-content/uploads/2015/04/8589130571841-animal-wallpaper-hd.jpg";
-    var imgd="http://i.telegraph.co.uk/multimedia/archive/02296/animal4c_2296997i.jpg";
-    var imge="http://cdn.playbuzz.com/cdn/279428ca-ddfa-45ce-87b5-53b20c6f3b38/ac4084b3-f55b-4332-83c9-0d411095e812.jpg";
-    var imgname=document.getElementById("slideshowimage").src;
-    
-    if(imgname==imga){
-        $(".slideshowimage").fadeOut(500, function() {
-        $(".slideshowimage").attr("src",imgb);
-        $(".slideshowimage").fadeOut(500);});
-    }
-    
-    if(imgname==imgb){
-        $(".slideshowimage").fadeOut(500, function() {
-        $(".slideshowimage").attr("src",imgc);
-        $(".slideshowimage").fadeIn(500);});
-    }
-    
-    if(imgname==imgc){
-        $(".slideshowimage").fadeOut(500, function() {
-        $(".slideshowimage").attr("src",imgd);
-        $(".slideshowimage").fadeIn(500);});
-    }
-    
-    if(imgname==imgd){
-        $(".slideshowimage").fadeOut(500, function() {
-        $(".slideshowimage").attr("src",imge);
-        $(".slideshowimage").fadeIn(500);});
-    }
-    
-    if(imgname==imge){
-        $(".slideshowimage").fadeOut(500, function() {
-        $(".slideshowimage").attr("src",imga);
-        $(".slideshowimage").fadeIn(500);});
-    }
-}
-
-function getPromoList(){ 
-    $.ajax({
-      url : "http://192.168.1.18/MRWebApi/api/activity/category",
-      type: 'GET',
-      dataType: 'json',            
-      success: function (data) { 
-        var returnstr=JSON.stringify(data);
-         for (var x = 0; x < data.length; x++) {
-             $("#scrollul").append("<li class='scrollli' onclick='itemOnClick();'><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data[x].categoryPhoto +"'></td><td>"+ data[x].categoryName +"</td></tr></table></li>");
-            }
-      },
-      error:function (xhr, ajaxOptions, thrownError){
-        debugger;
-        }
-    });    
-  }
 
 function changepage(pagenumber){
     if(pagenumber==1){
@@ -216,28 +161,8 @@ function pageSwipeLeft(){
                     marginLeft: "100%",}, 300, function() {});
 
             $(".selectedItem").animate({
-                    marginLeft: "33%",}, 300, function() {});
-        }
-        else if(currentpage==2){
-             $(".pageone").hide();
-            $(".pagetwo").hide();
-            $(".pagethree").show();
-            $("#btnFeatured").css("color", "#32978f");
-            $("#btnLatestPost").css("color", "#32978f");
-            $("#btnAnnouncement").css("color", "#4be5d9");
-
-            $(".pagethree").css("marginLeft", "100%");
-
-            $(".pageone").animate({
-                    marginLeft: "200%",}, 300, function() {});
-            $(".pagetwo").animate({
-                    marginLeft: "100%",}, 300, function() {});
-            $(".pagethree").animate({
-                    marginLeft: "0%",}, 300, function() {currentpage=3;});
-
-            $(".selectedItem").animate({
-                    marginLeft: "67.33%",}, 300, function() {});
-        }    
+                    marginLeft: "50.5%",}, 300, function() {});
+        }  
     }
     else{
     	$("body").on("swipeleft", function(){
@@ -253,27 +178,7 @@ function pageSwipeLeft(){
 function pageSwipeRight(){
     
     if(!menuStatus){
-        if(currentpage==3){
-            $(".pageone").hide();
-            $(".pagetwo").show();
-            $(".pagethree").hide();
-            $("#btnFeatured").css("color", "#32978f");
-            $("#btnLatestPost").css("color", "#4be5d9");
-            $("#btnAnnouncement").css("color", "#32978f");
-
-            $(".pagetwo").css("marginLeft", "-100%");
-
-            $(".pageone").animate({
-                    marginLeft: "-100%",}, 300, function() {});
-            $(".pagetwo").animate({
-                    marginLeft: "0%",}, 300, function() {currentpage=2;});
-            $(".pagethree").animate({
-                    marginLeft: "100%",}, 300, function() {});
-
-            $(".selectedItem").animate({
-                    marginLeft: "33%",}, 300, function() {});
-        }
-        else if(currentpage==2){
+        if(currentpage==2){
             $(".pageone").show();
             $(".pagetwo").hide();
             $(".pagethree").hide();
@@ -302,8 +207,4 @@ function itemOnClick(){
 
 function itemOnClickService(){
     window.location = "serviceDetailPage.html";
-}
-
-function goInbox(){
-    window.location = "inboxPage.html";
 }

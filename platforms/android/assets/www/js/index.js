@@ -303,3 +303,7 @@ function itemOnClick(){
 function itemOnClickService(){
     window.location = "serviceDetailPage.html";
 }
+
+function goInbox(){
+    window.location = "inboxPage.html";
+}

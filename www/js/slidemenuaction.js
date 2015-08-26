@@ -22,3 +22,8 @@ function goListing(){
          //$("html").animate({marginLeft: "-100%",}, 300, function() {window.location = "index.html";});
 	window.location = "listingPage.html";
 }
+
+function goProfile(){
+         //$("html").animate({marginLeft: "-100%",}, 300, function() {window.location = "index.html";});
+	window.location = "profilePage.html";
+}
