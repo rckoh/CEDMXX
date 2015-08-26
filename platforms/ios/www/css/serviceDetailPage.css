@@ -252,7 +252,7 @@ input:focus {
 
 .backBtn{
     background-color: transparent;
-    border:1px solid black;
+    border:none;
     vertical-align: middle;
     height: 40px;
 }

@@ -257,6 +257,8 @@ input:focus {
     color: white;
     height: 40px;
     width: 100%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 .subheadertable{
     width: 100%;
@@ -265,6 +267,8 @@ input:focus {
     line-height: 40px;
     font-weight: bold;
     color: #32978f;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 .subheaderbutton{
@@ -275,16 +279,21 @@ input:focus {
     height: 40px;
     font-family: "Roboto-Medium";
     font-size: 14px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 
 .selectedItem{
     position: absolute;
     background-color: #00FFFF;
-    width: 32.67%;
+    width: 32.75%;
     height: 2px;
     z-index: 96;
     top: calC(78px);
+/*    margin: 0px 0.5% 0px 0px;*/
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 /* subheader Style end*/

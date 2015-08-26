@@ -131,7 +131,7 @@ function changepage(pagenumber){
                 marginLeft: "200%",}, 300, function() {});
         
         $(".selectedItem").animate({
-                marginLeft: "0%",}, 300, function() {});
+                marginLeft: "0%",}, 300, function() {$(".selectedItem").css("width", "32.75%");});
     }
     
     if(pagenumber==2){
@@ -159,7 +159,7 @@ function changepage(pagenumber){
                 marginLeft: "100%",}, 300, function() {});
         
         $(".selectedItem").animate({
-                marginLeft: "33.67%",}, 300, function() {});
+                marginLeft: "32.75%",}, 300, function() {$(".selectedItem").css("width", "34.5%");});
     }
     
     if(pagenumber==3){
@@ -187,7 +187,7 @@ function changepage(pagenumber){
                 marginLeft: "0%",}, 300, function() {currentpage=3;});
         
         $(".selectedItem").animate({
-                marginLeft: "67.34%",}, 300, function() {});
+                marginLeft: "67.25%",}, 300, function() {$(".selectedItem").css("width", "32.75%");});
     }
 }
 
@@ -216,7 +216,7 @@ function pageSwipeLeft(){
                     marginLeft: "100%",}, 300, function() {});
 
             $(".selectedItem").animate({
-                    marginLeft: "33.67%",}, 300, function() {});
+                    marginLeft: "32.75%",}, 300, function() {$(".selectedItem").css("width", "34.5%");});
         }
         else if(currentpage==2){
              $(".pageone").hide();
@@ -236,7 +236,7 @@ function pageSwipeLeft(){
                     marginLeft: "0%",}, 300, function() {currentpage=3;});
 
             $(".selectedItem").animate({
-                    marginLeft: "67.34%",}, 300, function() {});
+                    marginLeft: "67.25%",}, 300, function() {$(".selectedItem").css("width", "32.75%");});
         }    
     }
     else{
@@ -271,7 +271,7 @@ function pageSwipeRight(){
                     marginLeft: "100%",}, 300, function() {});
 
             $(".selectedItem").animate({
-                    marginLeft: "33.67%",}, 300, function() {});
+                    marginLeft: "32.75%",}, 300, function() {$(".selectedItem").css("width", "34.5%");});
         }
         else if(currentpage==2){
             $(".pageone").show();
@@ -291,7 +291,7 @@ function pageSwipeRight(){
                     marginLeft: "200%",}, 300, function() {});
 
             $(".selectedItem").animate({
-                    marginLeft: "0%",}, 300, function() {});
+                    marginLeft: "0%",}, 300, function() {$(".selectedItem").css("width", "32.75%");});
         }
     }
 }
