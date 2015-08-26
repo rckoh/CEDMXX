@@ -165,7 +165,7 @@ input:focus {
 }
 
 .menubutton{
-    width: 100%;
+    width: auto;
     height: 100%;
     background-color: transparent;
 }
@@ -281,7 +281,7 @@ input:focus {
 .selectedItem{
     position: absolute;
     background-color: #00FFFF;
-    width: 32%;
+    width: 32.67%;
     height: 2px;
     z-index: 96;
     top: calC(78px);
@@ -328,7 +328,7 @@ input:focus {
 }
 
 .pagetwo{
-    background-color: red;
+    background-color: white;
     width: 100%;
     height: calc(100% - 80px);
     padding: 0px 0px 0px 0px;
@@ -349,7 +349,7 @@ input:focus {
 }
 
 .pagethree{
-    background-color: purple;
+    background-color: white;
     width: 100%;
     height: calc(100% - 80px);
     padding: 0px 0px 0px 0px;
