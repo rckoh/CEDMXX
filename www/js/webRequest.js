@@ -1,7 +1,7 @@
 var webUrl = "http://netinfinium.publicvm.com:86/";
 
 function getFeaturedList(){
-    alert("webrequst");
+    //alert("webrequst");
     var requestUrl=webUrl+"drupalgap/getfeatured";
     
     $.ajax({
