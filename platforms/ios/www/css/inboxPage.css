@@ -155,8 +155,11 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* Top Header Style*/
 .menuheader{
-    height: 40px;
+    height: 6%;
+	width:100%;
     background-color: #46a19a;
+	position:absolute;
+	top:0px;
 }
 
 .menuheadertable{
@@ -172,8 +175,8 @@ input:focus {
 
 
 .buttonbg{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
     top: 0px;
@@ -182,8 +185,8 @@ input:focus {
 }
 
 .pageTitileImgBG{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
     right:80px;
@@ -191,23 +194,31 @@ input:focus {
     position: absolute;
 }
 
-.buttonsharebg2{
-    width: 40px;
-    height: 40px;
+.inboxBtn{
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
-    right:100px;
+    right:110px;
     top: 0px;
     position: absolute;
 }
 
 .pageTitileImg{
-    width: 30px;
-    height: auto;
+    width: auto;
+    height: 70%;
     background-color: transparent;
     position: relative;
     vertical-align: middle;
     
+}
+
+.inboxBtnImg{
+    width: auto;
+    height: 50%;
+    background-color: transparent;
+    position: relative;
+    vertical-align: middle;
 }
 
 .menubutton:active {
@@ -219,17 +230,17 @@ input:focus {
 .pagetitle{
     color: rgba(255, 255, 255, 0.6);
     width: auto;
-    height: 40px;
-    line-height: 40px;
+    height: 100%;
+    line-height: 100%;
     background-color: transparent;
     border:none;
     right: 10px;
     top: 0px;
-    vertical-align: middle;
     font-size: 13px;
-    position: absolute;
+    position: relative;
     font-size: 16px;
     font-family: "Roboto-Thin";
+	text-align:center;
 }
 /* Top Header Style end */
 /* ------------------------------------------------------------------------------------*/
@@ -247,14 +258,14 @@ input:focus {
     background-color:black;
     text-align:justify;
     color: white;
-    height: 40px;
+    height: 18%;
     width: 100%;
     bottom: 0px;
     z-index: 50;
 }
 .subheadertable{
     width: 100%;
-    height: 40px;
+    height: 100%;
     text-align: center;
     line-height: 40px;
     font-weight: bold;
@@ -283,31 +294,32 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* content page Style */
 .content{
-    width: 100%;
-    height: auto;
-    background-color: transparent;
+     width: 100%;
+    height: 94%;
+    background-color: white;
+	position:absolute;
+	top:6%;
     
 }
 
 .pagetwo{
     background-color: white;
     width: 100%;
-    height: calc(100% - 45%);
+    height: 55%;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
     display: inline-block;
     position: absolute;
     z-index: 2;
     bottom: 0;
-    -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        -webkit-transition: transform 400ms ease
-        -moz-transition: transform 400ms ease
-        -o-transition: transform 400ms ease
-        transition: transform 400ms ease;
+   -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: transform 400ms ease;
+    -moz-transition: transform 400ms ease;
+    transition: transform 400ms ease;
 }
 /* content page stry end*/
 /* ------------------------------------------------------------------------------------*/
@@ -347,7 +359,8 @@ input:focus {
 
 .profileStatistic{
     width: 100%;
-    bottom: 40px;
+    bottom: 18%;
+    height: 25%;
     position: absolute;
 /*    background-color: #32978f;*/
     opacity: 0.9;
@@ -355,20 +368,20 @@ input:focus {
 
 .profilePic{
     position: absolute;
-    top: 30px;
-    width: 100px;
-    height: 100px;
+    top: 20px;
+/*    width: 30%;*/
+    height: 30%;
     border: 1px solid white;
     border-radius: 100%;
     z-index: 10;
-    margin: 0px 0px 0px calC(50% - 50px);
+/*    margin: 0px 0px 0px calC(50% - 50px);*/
 }
 
 .username{
     position: absolute;
-    top: 140px;
+    top: 45%;
     width: 100%;
-    height: 20px;
+    height: 10%;
     color: white;
     z-index: 10;
     text-align: center;
@@ -393,12 +406,14 @@ input:focus {
 
 .statisticNumber{
     font-family: "Roboto-Medium";
-    font-size: 24px;
+    font-size: 20px;
+    height: 100%;
 }
 
 .statisticLbl{
     font-family: "Roboto-Light";
-    font-size: 16px;
+    font-size: 14px;
+    height: 100%;
 }
 /* image slideshow Style end*/
 /* ------------------------------------------------------------------------------------*/
@@ -412,7 +427,7 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* listview Style Page 2*/
 .wrapperPage2{
-    height: calc(100% - 40px);
+    height: 100%;
     width: 100%;
     background-color: white;
     position: absolute;

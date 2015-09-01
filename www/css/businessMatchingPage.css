@@ -155,8 +155,11 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* Top Header Style*/
 .menuheader{
-    height: 40px;
+    height: 6%;
+	width:100%;
     background-color: #46a19a;
+	position:absolute;
+	top:0px;
 }
 
 .menuheadertable{
@@ -172,8 +175,8 @@ input:focus {
 
 
 .buttonbg{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
     top: 0px;
@@ -182,18 +185,18 @@ input:focus {
 }
 
 .pageTitileImgBG{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
-    right:160px;
+    right:140px;
     top: 0px;
     position: absolute;
 }
 
 .buttonsharebg2{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
     right:100px;
@@ -243,22 +246,46 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* subheader Style*/
 .subheaderblack{
-/*    position: relative;*/
+	position: absolute;
+	top:6%;
     background-color:black;
     text-align:justify;
     color: white;
-    height: 40px;
+    height: 6%;
     width: 100%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
-.subheadertable{
-    width: 100%;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    font-weight: bold;
-    color: #32978f;
-    vertical-align: top;
+
+.subBtn1{
+	width:31%;
+	position:absolute;
+	height:100%;
 }
+
+.subBtn2{
+	width:31%;
+	position:absolute;
+	height:100%;
+	left:34.5%;
+}
+
+
+.subSeperator1{
+	width:3.5%;
+	position:absolute;
+	height:100%;
+	left:31%;
+	vertical-align:middle;
+}
+
+.subSeperator1 button{
+	position:absolute;
+	height:100%;
+	line-height:100%;
+	vertical-align:middle;
+}
+
 
 .subheaderbutton{
     background-color: transparent;
@@ -274,32 +301,35 @@ input:focus {
 .selectedItem{
     position: absolute;
     background-color: #00FFFF;
-    width: 32%;
+    width: 32.75%;
     height: 2px;
     z-index: 96;
-    top: calC(78px);
+    /* top:12%; */
+/*    margin: 0px 0.5% 0px 0px;*/
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+	bottom:0px;
 }
 
 .subheaderFilter{
     position: absolute;
     background-color: transparent;
-    width: 40px;
-    height: auto;
+    width: auto;
+    height: 100%;
     z-index: 96;
-    top: 45px;
-    left: calC(100% - 45px);
+    right: 10px;
 }
 
 .filterBtnCls{
-    height: auto;
-    width: 40px;
+    height: 100%;
+    width: auto;
     border: none;
     background-color: transparent;
 }
 
 .filterBtnImg{
-    height: auto;
-    width: 30px;
+    height: 70%;
+    width: auto;
     border: none;
     background-color: transparent;
 }
@@ -317,15 +347,16 @@ input:focus {
 /* content page Style */
 .content{
     width: 100%;
-    height: auto;
-    background-color: transparent;
-    
+    height: 88%;
+    background-color: white;
+	position:absolute;
+	top:12%;
 }
 
 .pageone{
     background-color: white;
     width: 100%;
-    height: calc(100% - 80px);
+    height: 100%;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0%;
     display: inline-block;
@@ -334,36 +365,33 @@ input:focus {
 /*    position: absolute;*/
     
     -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        -webkit-transition: transform 400ms ease
-        -moz-transition: transform 400ms ease
-        -o-transition: transform 400ms ease
-        transition: transform 400ms ease;
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: transform 400ms ease;
+    -moz-transition: transform 400ms ease;
+    transition: transform 400ms ease;
 }
 
 .pagetwo{
     background-color: white;
     width: 100%;
-    height: calc(100% - 80px);
+    height: 100%;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0%;
     display: inline-block;
     position: absolute;
     z-index: 2;
-/*    position: absolute;*/
     
     -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        -webkit-transition: transform 400ms ease
-        -moz-transition: transform 400ms ease
-        -o-transition: transform 400ms ease
-        transition: transform 400ms ease;
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: transform 400ms ease;
+    -moz-transition: transform 400ms ease;
+    transition: transform 400ms ease;
 }
 /* content page stry end*/
 /* ------------------------------------------------------------------------------------*/
@@ -379,21 +407,23 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /*Page 1 Last view matches Style */
 .headerSpaceLVM{
-    height: 5px;
+    height: 1%;
 }
 
 .headerLVM{
+	position:absolute;
     font-family: "Roboto-Medium";
     font-size: 14px;
     background-color: #46a19a;
     color: white;
     line-height: 30px;
-    height: 30px;
+    height: 5%;
+	width:100%;
     text-indent: 10px;
 }
 
 .wrapperLVM{
-    height: calC(50% - 35px);
+    height: 44%;
     width: 100%;
     background-color: white;
     position: absolute;
@@ -402,6 +432,7 @@ input:focus {
     margin: 0px 0px 0px 0px;
 /*    bottom: 0%;*/
     overflow:auto;
+	top:6%;
 }
 
 .scrollulLVM{
@@ -496,7 +527,7 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /*Page 1 listview recommended matches Style*/
 .headerSpaceRM{
-    height: 5px;
+    height: 1%;
     position: absolute;
     top: 50%;
 }
@@ -507,15 +538,15 @@ input:focus {
     background-color: #46a19a;
     color: white;
     line-height: 30px;
-    height: 30px;
+    height: 5%;
     width: 100%;
     text-indent: 10px;
     position: absolute;
-    top: calC(50% + 5px);
+    top: 51%;
 }
 
 .wrapperRM{
-    height: calc(100% - 50% - 35px);
+    height: 44%;
     width: 100%;
     background-color: white;
     position: absolute;
@@ -616,21 +647,23 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /*Page 2 Last view matches Style */
 .headerSpaceLVMPG2{
-    height: 5px;
+    height: 1%;
 }
 
 .headerLVMPG2{
+    position:absolute;
     font-family: "Roboto-Medium";
     font-size: 14px;
     background-color: #46a19a;
     color: white;
     line-height: 30px;
-    height: 30px;
+    height: 5%;
+	width:100%;
     text-indent: 10px;
 }
 
 .wrapperLVMPG2{
-    height: calC(50% - 35px);
+    height: 44%;
     width: 100%;
     background-color: white;
     position: absolute;
@@ -639,6 +672,7 @@ input:focus {
     margin: 0px 0px 0px 0px;
 /*    bottom: 0%;*/
     overflow:auto;
+	top:6%;
 }
 
 .scrollulLVMPG2{
@@ -733,7 +767,7 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /*Page 2 listview recommended matches Style*/
 .headerSpaceRMPG2{
-    height: 5px;
+    height: 1%;
     position: absolute;
     top: 50%;
 }
@@ -748,11 +782,11 @@ input:focus {
     width: 100%;
     text-indent: 10px;
     position: absolute;
-    top: calC(50% + 5px);
+    top: 51%;
 }
 
 .wrapperRMPG2{
-    height: calc(100% - 50% - 35px);
+    height: 44%;
     width: 100%;
     background-color: white;
     position: absolute;

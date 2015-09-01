@@ -48,7 +48,9 @@
             //bind swipe event with jquery
             
             function onDeviceReady() {
-               
+                           $(".profilePic").width( $(".profilePic").height());
+            var marginleft=$(".app").width()/2 - $(".profilePic").width()/2;
+            $(".profilePic").css("margin-left", marginleft);
                 
             }
         </script>

@@ -139,6 +139,7 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* Login Style*/
 .content{
+	position:absolute;
     height: 100%;
     width: 100%;
 }
@@ -153,7 +154,7 @@ input:focus {
 .appLogo{
     width: auto;
     height: 100%;
-    display: inline-block;
+/*    display: inline-block;*/
 }
 
 .loginDetails{
@@ -165,20 +166,21 @@ input:focus {
 }
 
 .loginLogo{
-    width: 30px;
-    height: 30px;
+     width: auto;
+    height: 15%;
     display: inline-block;
     position: absolute;
-    margin: 0px 0px 0px 10%;
+    /* margin: 0px 0px 0px 10%; */
     border: 1px solid white;
+	left:10%;
 }
 
 .loginTextBox{
     display: inline-block;
     position: absolute;
-    left: 40px;
-    height: 30px;
-    width: calC(80% - 40px);
+    right: 10%;
+    height: 15%;
+    width: 68%;
     margin: 0px 0px 0px 10%;
     background-color: transparent;
     font-family: "Roboto-Light";
@@ -187,24 +189,25 @@ input:focus {
 }
 
 .pwdLogo{
-    width: 30px;
-    height: 30px;
+    width: auto;
+    height: 15%;
     display: inline-block;
     position: absolute;
-    top: 40px;
-    margin: 0px 0px 0px 10%;
+    top: 20%;
+	left:10%;
+    /* margin: 0px 0px 0px 10%; */
     border: 1px solid white;
 }
 
 .pwdTextBox{
     display: inline-block;
     position: absolute;
-    left: 40px;
-    top: 40px;
-    height: 30px;
+    right: 10%;
+    top: 20%;
+    height: 15%;
     margin:0 auto;
-    width: calC(80% - 40px);
-    margin: 0px 0px 0px 10%;
+    width: 68%;
+    /* margin: 0px 0px 0px 10%; */
     background-color: transparent;
     font-family: "Roboto-Light";
     font-size: 14px;
@@ -222,9 +225,9 @@ input:focus {
 
 .loginActionFrame{
     position: absolute;
-    top: calC(60% + 10px + 10px);
+    top: 63%;
     margin: 0px 0px 0px 15%;
-/*    background-color: antiquewhite;*/
+    /* background-color: antiquewhite; */
     width: 70%;
 }
 

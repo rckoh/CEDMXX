@@ -155,8 +155,11 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* Top Header Style*/
 .menuheader{
-    height: 40px;
+    height: 6%;
+	width:100%;
     background-color: #46a19a;
+	position:absolute;
+	top:0px;
 }
 
 .menuheadertable{
@@ -172,8 +175,8 @@ input:focus {
 
 
 .buttonbg{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
     top: 0px;
@@ -182,8 +185,8 @@ input:focus {
 }
 
 .pageTitleImgBG{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
     right:80px;
@@ -192,8 +195,8 @@ input:focus {
 }
 
 .buttonsharebg2{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
     right:100px;
@@ -202,8 +205,8 @@ input:focus {
 }
 
 .pageTitileImg{
-    width: 20px;
-    height: auto;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     position: relative;
     vertical-align: middle;
@@ -219,16 +222,24 @@ input:focus {
 .pagetitle{
     color: rgba(255, 255, 255, 0.6);
     width: auto;
-    height: 40px;
-    line-height: 40px;
+    height: 100%;
+    line-height: 100%;
     background-color: transparent;
     border:none;
     right: 10px;
     top: 0px;
-    vertical-align: middle;
-    position: absolute;
+    font-size: 13px;
+    position: relative;
     font-size: 16px;
     font-family: "Roboto-Thin";
+	text-align:center;
+}
+
+.backBtn{
+    background-color: transparent;
+    border:none;
+    vertical-align: middle;
+    height: 40px;
 }
 /* Top Header Style end */
 /* ------------------------------------------------------------------------------------*/
@@ -240,46 +251,19 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
-/* submenu Style */
-.submenu{
-    background-color:white;
-    text-align:justify;
-    color: #46a19a;
-    font-size: 15px;
-    height: 40px;
-    width: 100%;
-}
-
-.backBtn{
-    background-color: transparent;
-    border:none;
-    vertical-align: middle;
-    height: 40px;
-}
-
-/* submenu Style end*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-
-
-
-
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
 /* content page Style */
 .content{
     width: 100%;
-    height: auto;
-    background-color: transparent;
-    
+    height: 88%;
+    background-color: white;
+	position:absolute;
+	top:6%;
 }
 
 .pageone{
     background-color: white;
     width: 100%;
-    height: calc(100% - 40px);
+    height: 100%;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0%;
     display: inline-block;
@@ -292,9 +276,8 @@ input:focus {
         -ms-transform: translate3d(0,0,0);
         -o-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
-        -webkit-transition: transform 400ms ease
-        -moz-transition: transform 400ms ease
-        -o-transition: transform 400ms ease
+        -webkit-transition: transform 400ms ease;
+        -moz-transition: transform 400ms ease;
         transition: transform 400ms ease;
 }
 
@@ -310,7 +293,7 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* listview Style Page 1*/
 .wrapper{
-    height: calc(100% - 40px);
+    height: 100%;
     width: 100%;
     background-color: white;
     position: absolute;

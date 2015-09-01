@@ -16,26 +16,37 @@ li:hover{
 .menubg{
     position: absolute;
     width: 70%;
-    height: calc(100% - 40px);
+    height: 94%;
     z-index: 99;
 /*    padding: 0px 0px 0px 0px;*/
     margin-left: -70%;
     opacity: 0.95; 
     background-color: #46a19a;
     box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.2);
-    
+    top:6%;
     -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        -webkit-transition: transform 400ms ease
-        -moz-transition: transform 400ms ease
-        -o-transition: transform 400ms ease
-        transition: transform 400ms ease;
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: transform 400ms ease;
+    -moz-transition: transform 400ms ease;
+    transition: transform 400ms ease;
 }
 
 .searchbox{
+    height: 30px;
+    width: 95%;
+    padding: 0px 0px 0px 0px;
+    margin: 5px 5px 5px 5px;
+    /* background-color: #32978f; */
+    color: rgba(255,255,255, 1);
+    font-size: 13px;
+    font-family: "Roboto-Light";
+    position: absolute;
+}
+
+.searchbox input{
     height: 30px;
     width: 95%;
     padding: 0px 0px 0px 0px;

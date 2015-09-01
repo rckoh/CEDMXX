@@ -58,11 +58,10 @@
 
             });
 
-            
-            
             function onDeviceReady() {
-               
-                
+                         $(".profilePic").width( $(".profilePic").height());
+            var marginleft=$(".app").width()/2 - $(".profilePic").width()/2;
+            $(".profilePic").css("margin-left", marginleft);      
             }
         </script>
         <script type="text/javascript" src="js/slidemenuaction.js"></script>
@@ -78,11 +77,6 @@
                             <button class="buttonbg"><img class="menubutton" src="img/drawer.png"></img></button>
                         </td>
                         <td style="text-align:right;">
-<!--
-                            <button class="buttonsharebg" onclick="showDialogFB()"><img class="sharebutton" src="img/drawer.png"></img></button>
-                            <button class="buttonsharebg" onclick="sharetoFV()"><img class="sharebutton" src="img/drawer.png"></img></button>-->
-<!--                            <button class="buttonsharebg2" onclick="sharetoFVnormal()"><img class="sharebuttonimg" src="img/drawer.png"></img></button>-->
-
                             <button class="pageTitileImgBG"><img class="pageTitileImg" src="img/user-2.png"></img></button>
                             <label class="pagetitle">My Profile</label>
                         </td>
@@ -92,11 +86,6 @@
             <div class="menubg">
                 <div class="searchbox">
                     <script type="text/javascript" src="js/searchBox.js"></script>
-<!--
-                    <input type="text" class="searchbox" placeholder="search products and services" id="searchTextBox">
-                        <button class="searchBoxBtn" onclick="clearSearch()"><img src="img/search.png" class="searchBoxBtnImg"/></button>
-                    </input>
--->
                 </div>
                 <div>
                     <br>
@@ -138,13 +127,13 @@
                                 <table class="subheadertable">
                                 <tr style="width:32.67%:height:100%;">
                                     <td style="width:49.5%;">
-                                        <button class="subheaderbutton" onclick="changepage(1);" id="btnFeatured">Points</button>
+                                        <button class="subheaderbutton" onclick="changepage(1);" id="btnPoints">Points</button>
                                     </td>
                                     <td style="width:1%">
                                         &nbsp;|&nbsp;
                                     </td>
                                     <td style="width:49.5%">
-                                        <button class="subheaderbutton" onclick="changepage(2);" id="btnLatestPost">Products & Services</button>
+                                        <button class="subheaderbutton" onclick="changepage(2);" id="btnProducts">Products & Services</button>
                                     </td>
                                 </tr>
                             </table>
@@ -185,11 +174,6 @@
                                     <td>&nbsp;</td>
                                 </tr>
                             </table>
-<!--
-                            <div class="totalPointLbl"></div><div class="totalPointSeperator">-</div><div class="totalPoint">430 points</div>
-                            <div class="totalPointLbl">Total Point Redeemed</div><div class="totalPointSeperator">-</div><div class="totalPoint">100 points</div>
-                            <div class="totalPointLbl">Total Points</div><div class="totalPointSeperator">-</div><div class="totalPoint">330 points</div>
--->
                         </div>
                         <div class="totalPointFooter">Note:<br>To redeem your points, please login to hte website.</div>
                     </div>
@@ -227,6 +211,7 @@
         }
         </script>
         <script type="text/javascript">
+            
             initsubmenustyle();
             app.initialize();
         </script>

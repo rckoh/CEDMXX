@@ -61,7 +61,7 @@ html, body {
 /*    font-size:12px;*/
 /*    text-transform:uppercase;*/
     background:url(../img/about-back.jpg);
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-size: 100% 100%;
 }
 
@@ -157,8 +157,11 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* Top Header Style*/
 .menuheader{
-    height: 40px;
+    height: 6%;
+	width:100%;
     background-color: #46a19a;
+	position:absolute;
+	top:0px;
 }
 
 .menuheadertable{
@@ -174,8 +177,8 @@ input:focus {
 
 
 .buttonbg{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
     top: 0px;
@@ -184,8 +187,8 @@ input:focus {
 }
 
 .pageTitleImgBG{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
     right:130px;
@@ -194,8 +197,8 @@ input:focus {
 }
 
 .buttonsharebg2{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: 100%;
     background-color: transparent;
     border:none;
     right:100px;
@@ -204,8 +207,8 @@ input:focus {
 }
 
 .pageTitileImg{
-    width: 30px;
-    height: auto;
+    width: auto;
+    height: 80%;
     background-color: transparent;
     position: relative;
     vertical-align: middle;
@@ -230,7 +233,6 @@ input:focus {
     position: absolute;
     font-size: 16px;
     font-family: "Roboto-Thin";
-    
 }
 /* Top Header Style end */
 /* ------------------------------------------------------------------------------------*/
@@ -246,9 +248,8 @@ input:focus {
 .content{
     position: absolute;
     width: 100%;
-    height: calC(100% - 40px);
-/*    background-color: transparent;*/
-    background: url();
+    height: 94%;
+	top:6%;
 }
 /* content page stry end*/
 /* ------------------------------------------------------------------------------------*/
@@ -269,8 +270,8 @@ input:focus {
     height: auto;
     text-align: center;
     border: 2px solid white;
-    margin: 10% 50px 20px calC(10% - 10px);
-    padding: 10px 10px 10px 10px;
+    margin: 10% 0px 0px 8%;
+    padding: 2% 2% 2% 2%;
     word-spacing: 3px;
 }
 

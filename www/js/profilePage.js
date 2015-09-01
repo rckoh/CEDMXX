@@ -55,10 +55,8 @@ function changepage(pagenumber){
     if(pagenumber==1){
         $(".pageone").show();
         $(".pagetwo").hide();
-        $(".pagethree").hide();
-        $("#btnFeatured").css("color", "#4be5d9");
-        $("#btnLatestPost").css("color", "#32978f");
-        $("#btnAnnouncement").css("color", "#32978f");
+        $("#btnPoints").css("color", "#4be5d9");
+        $("#btnProducts").css("color", "#32978f");
         
         if(currentpage>pagenumber){
             $(".pageone").css("marginLeft", "-100%");
@@ -83,10 +81,8 @@ function changepage(pagenumber){
         
         $(".pageone").hide();
         $(".pagetwo").show();
-        $(".pagethree").hide();
-        $("#btnFeatured").css("color", "#32978f");
-        $("#btnLatestPost").css("color", "#4be5d9");
-        $("#btnAnnouncement").css("color", "#32978f");
+        $("#btnPoints").css("color", "#32978f");
+        $("#btnProducts").css("color", "#4be5d9");
         
         if(currentpage>pagenumber){
             $(".pagetwo").css("marginLeft", "-100%");
@@ -104,41 +100,13 @@ function changepage(pagenumber){
                 marginLeft: "100%",}, 300, function() {});
         
         $(".selectedItem").animate({
-                marginLeft: "33%",}, 300, function() {});
-    }
-    
-    if(pagenumber==3){
-        $(".pageone").hide();
-        $(".pagetwo").hide();
-        $(".pagethree").show();
-        $("#btnFeatured").css("color", "#32978f");
-        $("#btnLatestPost").css("color", "#32978f");
-        $("#btnAnnouncement").css("color", "#4be5d9");
-        
-        
-        if(currentpage>pagenumber){
-            $(".pagethree").css("marginLeft", "-100%");
-        }
-        
-        if(currentpage<pagenumber){
-            $(".pagethree").css("marginLeft", "100%");
-        }
-        
-        $(".pageone").animate({
-                marginLeft: "200%",}, 300, function() {});
-        $(".pagetwo").animate({
-                marginLeft: "100%",}, 300, function() {});
-        $(".pagethree").animate({
-                marginLeft: "0%",}, 300, function() {currentpage=3;});
-        
-        $(".selectedItem").animate({
-                marginLeft: "67.33%",}, 300, function() {});
+                marginLeft: "50.5%",}, 300, function() {});
     }
 }
 
 function initsubmenustyle(){
     currentpage=1;
-    $("#btnFeatured").css("color", "#00FFFF");
+    $("#btnPoints").css("color", "#00FFFF");
 }
 
 function pageSwipeLeft(){
@@ -146,10 +114,8 @@ function pageSwipeLeft(){
         if(currentpage==1){
             $(".pageone").hide();
             $(".pagetwo").show();
-            $(".pagethree").hide();
-            $("#btnFeatured").css("color", "#32978f");
-            $("#btnLatestPost").css("color", "#4be5d9");
-            $("#btnAnnouncement").css("color", "#32978f");
+            $("#btnPoints").css("color", "#32978f");
+            $("#btnProducts").css("color", "#4be5d9");
 
             $(".pagetwo").css("marginLeft", "100%");
 
@@ -181,10 +147,8 @@ function pageSwipeRight(){
         if(currentpage==2){
             $(".pageone").show();
             $(".pagetwo").hide();
-            $(".pagethree").hide();
-            $("#btnFeatured").css("color", "#4be5d9");
-            $("#btnLatestPost").css("color", "#32978f");
-            $("#btnAnnouncement").css("color", "#32978f");
+            $("#btnPoints").css("color", "#4be5d9");
+            $("#btnProducts").css("color", "#32978f");
 
             $(".pageone").css("marginLeft", "-100%");
 
@@ -192,8 +156,6 @@ function pageSwipeRight(){
                     marginLeft: "0%",}, 300, function() {currentpage=1;});
             $(".pagetwo").animate({
                     marginLeft: "100%",}, 300, function() {});
-            $(".pagethree").animate({
-                    marginLeft: "200%",}, 300, function() {});
 
             $(".selectedItem").animate({
                     marginLeft: "0%",}, 300, function() {});
