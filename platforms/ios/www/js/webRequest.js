@@ -14,11 +14,11 @@ function getFeaturedList(){
       success: function(data, status, xhr) {
         debugger
         var returnstr=JSON.stringify(data);
-          alert(returnstr);
+          //alert(returnstr);
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert(xhr.status);
+          //alert(xhr.status);
         }
     })
 }
