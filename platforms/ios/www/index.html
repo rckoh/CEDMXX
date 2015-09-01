@@ -30,6 +30,7 @@
         <title>Home Page</title>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/webRequest.js"></script>
         <script type="text/javascript" src="facebookConnectPlugin.js"></script>
         <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
         <script type="text/javascript">
@@ -109,7 +110,7 @@
         <script type="text/javascript" src="js/loginnavigate.js"></script>
         
     </head>
-    <body onload="startslideshow();" id="pageBody">
+    <body onload="startslideshow();getFeaturedList()" id="pageBody">
         <div data-role="app" class="app" id="app">
             <div class="menuheader">
                 <table class="menuheadertable">
