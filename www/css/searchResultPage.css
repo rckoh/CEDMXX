@@ -308,7 +308,7 @@ input:focus {
 .scrollli {
     padding:0 10px;
     height:120px;
-    line-height:40px;
+    line-height:auto;
     border-bottom:1px solid #ccc;
     border-top:1px solid #fff;
 /*    background-color:#fafafa;*/
@@ -343,10 +343,10 @@ input:focus {
     color: #32978f;
     background-color: transparent;
     font-weight: normal;
-    line-height: 10px;
+    line-height: 15px;
     font-family: "Roboto-Medium";
     font-size: 15px;
-    margin: 0px 0px 0px 10px;
+    margin: 5px 0px 0px 10px;
 }
 
 .listviewitemdetails{
@@ -357,7 +357,7 @@ input:focus {
     font-weight: normal;
     line-height: 15px;
     text-align: justify;
-    margin: 10px 0px 0px 10px;
+    margin: 10px 0px 10px 10px;
 }
 
 .listviewitemseperator{
@@ -373,6 +373,14 @@ input:focus {
     width:100%;
     vertical-align: top;
     text-align: left;
+}
+
+.noresultlbl{
+    font-family: "Roboto-Regular";
+    color: #565656;
+    font-size: 18px;
+    margin: 20px 10px 10px 10px;
+    position: absolute;
 }
 /* listview Style Page 1 end*/
 /* ------------------------------------------------------------------------------------*/

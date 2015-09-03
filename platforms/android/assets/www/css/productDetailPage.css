@@ -398,7 +398,7 @@ input:focus {
 }
 
 #productImg{
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 
@@ -424,6 +424,12 @@ input:focus {
     border-bottom: 1px solid #46a19a;
     width: 30px;
     line-height: 10px;
+}
+
+.brouchurelink{
+    width: 100%;
+    word-wrap: break-word;
+    
 }
 
 

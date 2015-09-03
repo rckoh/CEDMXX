@@ -48,3 +48,8 @@ function pageSwipeLeft(){
 function clearSearch(){
     $("#searchTextBox").val("");
 }
+
+function loadContent(){
+    var nid=getUrlParameter("nid");
+    getProductDetails(nid);
+}

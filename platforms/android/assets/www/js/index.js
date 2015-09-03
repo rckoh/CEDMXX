@@ -97,7 +97,7 @@ function getPromoList(){
       success: function (data) { 
         var returnstr=JSON.stringify(data);
          for (var x = 0; x < data.length; x++) {
-             $("#scrollul").append("<li class='scrollli' onclick='itemOnClick();'><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data[x].categoryPhoto +"'></td><td>"+ data[x].categoryName +"</td></tr></table></li>");
+//             $("#scrollul").append("<li class='scrollli' onclick='itemOnClick();'><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data[x].categoryPhoto +"'></td><td>"+ data[x].categoryName +"</td></tr></table></li>");
             }
       },
       error:function (xhr, ajaxOptions, thrownError){

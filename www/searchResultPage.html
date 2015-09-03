@@ -9,6 +9,8 @@
 <!--        <link rel="stylesheet" href="js/jquery-mobile/jquery.mobile-1.4.5.css"/>-->
         <title>Home Page</title>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/queryStr.js"></script>
+        <script type="text/javascript" src="js/webRequest.js"></script>
         <script type="text/javascript" src="js/searchResultPage.js"></script>
         <script type="text/javascript" src="facebookConnectPlugin.js"></script>
         <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
@@ -36,11 +38,13 @@
             function onDeviceReady() {
                 
             }
+
+            
         </script>
         <script type="text/javascript" src="js/slidemenuaction.js"></script>
         
     </head>
-    <body id="pageBody">
+    <body id="pageBody" onload="getSearchResult();">
         <div data-role="app" class="app" id="app">
             <div class="menuheader">
                 <table class="menuheadertable">
@@ -81,19 +85,7 @@
                     <div class="wrapper" id="wrapper">
                         <div class="scroll-content" id="scroll-content">
                             <ul class="scrollul" id="scrollul">
-                                <li class="scrollli">
-                                    <table class="listviewitemframe">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimg" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">&nbsp;</p>
-                                                <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
+<!--
                                 <li class="scrollli">
                                     <table style="height:100%; width:100%;">
                                         <tr>
@@ -107,110 +99,7 @@
                                         </tr>
                                     </table>
                                 </li>
-                                <li class="scrollli">
-                                    <table style="height:100%; width:100%;">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimg" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                            <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">&nbsp;</p>
-                                                <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollli">
-                                    <table style="height:100%; width:100%;">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimg" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                            <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">&nbsp;</p>
-                                                <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollli">
-                                    <table style="height:100%; width:100%;">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimg" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                            <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">&nbsp;</p>
-                                                <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollli">
-                                    <table style="height:100%; width:100%;">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimg" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                            <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">&nbsp;</p>
-                                                <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollli">
-                                    <table style="height:100%; width:100%;">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimg" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                            <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">&nbsp;</p>
-                                                <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollli">
-                                    <table style="height:100%; width:100%;">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimg" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                            <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">&nbsp;</p>
-                                                <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollli">
-                                    <table style="height:100%; width:100%;">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimg" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                            <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">&nbsp;</p>
-                                                <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollli">
-                                    <table style="height:100%; width:100%;">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimg" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                            <h1 class="listviewitemtitle">Some Title</h1>
-                                                <p class="listviewitemseperator">&nbsp;</p>
-                                                <p class="listviewitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
+-->
                             </ul>
                             <br>
                         </div>

@@ -48,3 +48,11 @@ function pageSwipeLeft(){
 function clearSearch(){
     $("#searchTextBox").val("");
 }
+
+function getSearchResult(){
+    var key=getUrlParameter("key");
+    
+    getSearchResultList(key);
+}
+
+

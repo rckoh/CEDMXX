@@ -548,7 +548,8 @@ input:focus {
 .scrollli {
     padding:0 10px;
     height:120px;
-    line-height:40px;
+    line-height:auto;
+    min-height: 40px;
     border-bottom:1px solid #ccc;
     border-top:1px solid #fff;
 /*    background-color:#fafafa;*/
@@ -583,10 +584,10 @@ input:focus {
     color: #32978f;
     background-color: transparent;
     font-weight: normal;
-    line-height: 10px;
+    line-height: 15px;
     font-family: "Roboto-Medium";
     font-size: 15px;
-    margin: 0px 0px 0px 10px;
+    margin: 5px 0px 0px 10px;
 }
 
 .listviewitemdetails{
@@ -598,7 +599,7 @@ input:focus {
     line-height: 15px;
     margin: 0px 0px 0px 0px;
     text-align: justify;
-    margin: 10px 0px 0px 10px;
+    margin: 10px 0px 10px 10px;
     
 }
 
@@ -648,8 +649,13 @@ input:focus {
  
 .scrollliPage2 {
     padding:0 10px;
+/*
     height:120px;
     line-height:40px;
+*/
+    height:auto;
+    line-height:auto;
+    min-height: 40px;
     border-bottom:1px solid #ccc;
     border-top:1px solid #fff;
 /*    background-color:#fafafa;*/
@@ -684,10 +690,10 @@ input:focus {
     color: #32978f;
     background-color: transparent;
     font-weight: normal;
-    line-height: 10px;
+    line-height: 15px;
     font-family: "Roboto-Medium";
     font-size: 15px;
-    margin: 0px 0px 0px 10px;
+    margin: 5px 0px 0px 10px;
 }
 
 .listviewitemdetailsPage2{
@@ -699,7 +705,7 @@ input:focus {
     line-height: 15px;
     margin: 0px 0px 0px 0px;
     text-align: justify;
-    margin: 10px 0px 0px 10px;
+    margin: 10px 0px 10px 10px;
     
 }
 
@@ -752,7 +758,8 @@ input:focus {
 .scrollliPage3 {
     padding:0 10px;
     height:120px;
-    line-height:40px;
+    line-height:auto;
+    min-height: 40px;
     border-bottom:1px solid #ccc;
     border-top:1px solid #fff;
 /*    background-color:#fafafa;*/
@@ -787,10 +794,10 @@ input:focus {
     color: #32978f;
     background-color: transparent;
     font-weight: normal;
-    line-height: 10px;
+    line-height: 15px;
     font-family: "Roboto-Medium";
     font-size: 15px;
-    margin: 0px 0px 0px 10px;
+    margin: 5px 0px 0px 10px;
 }
 
 .listviewitemdetailsPage3{
@@ -802,7 +809,7 @@ input:focus {
     line-height: 15px;
     margin: 0px 0px 0px 0px;
     text-align: justify;
-    margin: 10px 0px 0px 10px;
+    margin: 10px 0px 10px 10px;
     
 }
 
