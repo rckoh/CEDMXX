@@ -230,7 +230,7 @@ input:focus {
     right: 10px;
     top: 0px;
     vertical-align: middle;
-    position: absolute;
+    position: relative;
     font-size: 16px;
     font-family: "Roboto-Thin";
 }

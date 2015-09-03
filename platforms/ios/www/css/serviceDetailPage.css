@@ -222,14 +222,14 @@ input:focus {
 .pagetitle{
     color: rgba(255, 255, 255, 0.6);
     width: auto;
-    height: 40px;
-    line-height: 40px;
+    height: auto;
+    line-height: auto;
     background-color: transparent;
     border:none;
     right: 10px;
     top: 0px;
     vertical-align: middle;
-    position: absolute;
+    position: relative;
     font-size: 16px;
     font-family: "Roboto-Thin";
 }
