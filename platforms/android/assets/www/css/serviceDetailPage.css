@@ -222,16 +222,17 @@ input:focus {
 .pagetitle{
     color: rgba(255, 255, 255, 0.6);
     width: auto;
-    height: auto;
-    line-height: auto;
+    height: 100%;
+    line-height: 100%;
     background-color: transparent;
     border:none;
     right: 10px;
     top: 0px;
-    vertical-align: middle;
+    font-size: 13px;
     position: relative;
     font-size: 16px;
     font-family: "Roboto-Thin";
+    text-align:center;
 }
 /* Top Header Style end */
 /* ------------------------------------------------------------------------------------*/
