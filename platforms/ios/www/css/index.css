@@ -175,7 +175,7 @@ input:focus {
 
 
 .buttonbg{
-    width: auto;
+    width: 10%;
     height: 100%;
     background-color: transparent;
     border:none;
@@ -588,7 +588,6 @@ input:focus {
     font-family: "Roboto-Medium";
     font-size: 15px;
     margin: 5px 0px 0px 10px;
-    word-wrap: break-word;
 }
 
 .listviewitemdetails{
@@ -695,7 +694,6 @@ input:focus {
     font-family: "Roboto-Medium";
     font-size: 15px;
     margin: 5px 0px 0px 10px;
-    word-wrap: break-word;
 }
 
 .listviewitemdetailsPage2{
@@ -800,7 +798,6 @@ input:focus {
     font-family: "Roboto-Medium";
     font-size: 15px;
     margin: 5px 0px 0px 10px;
-    word-wrap: break-word;
 }
 
 .listviewitemdetailsPage3{
@@ -862,3 +859,23 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
+
+
+@media (min-width: 360px) {
+    .pagefooter{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    z-index: 98;
+    background-color: black;
+    position: absolute;
+    bottom:0;
+    color: white;
+    font-weight: bold;
+    opacity: 0.9;
+    font-family: "Roboto-Thin";
+}
+   
+}
