@@ -189,9 +189,9 @@ input:focus {
     height: 100%;
     background-color: transparent;
     border:none;
-    right:75px;
+    right:5px;
     top: 0px;
-    position: absolute;
+    position: relative;
 }
 
 .inboxBtn{
@@ -199,25 +199,25 @@ input:focus {
     height: 100%;
     background-color: transparent;
     border:none;
-    right:110px;
+    right:0px;
     top: 0px;
-    position: absolute;
+    position: relative;
 }
 
 .pageTitileImg{
     width: auto;
-    height: 70%;
+    height: 100%;
     background-color: transparent;
-    position: relative;
+/*    position: relative;*/
     vertical-align: middle;
     
 }
 
 .inboxBtnImg{
     width: auto;
-    height: 50%;
+    height: 80%;
     background-color: transparent;
-    position: relative;
+/*    position: relative;*/
     vertical-align: middle;
 }
 
@@ -240,7 +240,7 @@ input:focus {
     position: relative;
     font-size: 16px;
     font-family: "Roboto-Thin";
-	text-align:center;
+    text-align:center;
 }
 /* Top Header Style end */
 /* ------------------------------------------------------------------------------------*/
