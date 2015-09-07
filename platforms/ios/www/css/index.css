@@ -588,6 +588,7 @@ input:focus {
     font-family: "Roboto-Medium";
     font-size: 15px;
     margin: 5px 0px 0px 10px;
+    word-wrap: break-word;
 }
 
 .listviewitemdetails{
@@ -694,6 +695,7 @@ input:focus {
     font-family: "Roboto-Medium";
     font-size: 15px;
     margin: 5px 0px 0px 10px;
+    word-wrap: break-word;
 }
 
 .listviewitemdetailsPage2{
@@ -798,6 +800,7 @@ input:focus {
     font-family: "Roboto-Medium";
     font-size: 15px;
     margin: 5px 0px 0px 10px;
+    word-wrap: break-word;
 }
 
 .listviewitemdetailsPage3{
