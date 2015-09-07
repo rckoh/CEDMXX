@@ -75,6 +75,16 @@
             function onDeviceReady() {
                 document.addEventListener("backbutton", onBackKeyDown, false);
                 
+//                var widthtitle=$(".pagetitle").width();
+//            var widthtitleimage=$("#pageTitileImgBG").width();    
+//                alert(widthtitle);
+//                alert(widthtitleimage);
+//                var newtitleimgmargin=widthtitle+10;
+//                $(".pageTitileImgBG").css("right", newtitleimgmargin);          
+//                
+//             
+//                var newinboxbtnmargin=newtitleimgmargin+widthtitleimage+10;
+//                $(".inboxBtn").css("right", newinboxbtnmargin);   
             }
             
             function startslideshow(){
@@ -115,8 +125,10 @@
             <div class="menuheader">
                 <div class="menuheadertable">
                     <button class="buttonbg"><img class="menubutton" src="img/drawer.png"></img></button>
+                </div>
+                <div style="position:absolute;top:0;right:0;height:100%;width:auto;">
                     <button class="inboxBtn" onclick="goInbox()"><img class="inboxBtnImg" src="img/message.png"></img></button>
-                    <button class="pageTitileImgBG" onclick=""><img class="pageTitileImg" src="img/trending.png"></img></button>
+                    <button class="pageTitileImgBG" id="pageTitileImgBG" onclick=""><img class="pageTitileImg" src="img/trending.png"></img></button>
                     <button class="pagetitle">Trending</button>
                 </div>
 <!--

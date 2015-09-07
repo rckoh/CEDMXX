@@ -189,9 +189,11 @@ input:focus {
     height: 100%;
     background-color: transparent;
     border:none;
-    right:25%;
+/*
+    right:75px;
     top: 0px;
-    position: absolute;
+*/
+/*    position: absolute;*/
 }
 
 .inboxBtn{
@@ -199,9 +201,11 @@ input:focus {
     height: 100%;
     background-color: transparent;
     border:none;
-    right:33%;
+/*
+    right:110px;
     top: 0px;
-    position: absolute;
+*/
+/*    position: absolute;*/
 }
 
 .pageTitileImg{
@@ -229,17 +233,18 @@ input:focus {
 
 .pagetitle{
     color: rgba(255, 255, 255, 0.6);
-    width: 23%;
+    width: auto;
     height: 100%;
     line-height: 100%;
     background-color: transparent;
     border:none;
     right: 10px;
     top: 0px;
-    position: absolute;
-    font-size: auto;
+/*    position: absolute;*/
+    font-size: 16px;
     font-family: "Roboto-Thin";
 	text-align:right;
+    margin-left: 10px;
 }
 /* Top Header Style end */
 /* ------------------------------------------------------------------------------------*/
