@@ -114,22 +114,30 @@
     <body onload="startslideshow();getFeaturedList();getLatestPostList();getAnnouncementList();" id="pageBody">
         <div data-role="app" class="app" id="app">
             <div class="menuheader">
+                <div class="menuheadertable">
+                    <button class="buttonbg"><img class="menubutton" src="img/drawer.png"></img></button>
+                    <button class="inboxBtn" onclick="goInbox()"><img class="inboxBtnImg" src="img/message.png"></img></button>
+                    <button class="pageTitileImgBG" onclick=""><img class="pageTitileImg" src="img/trending.png"></img></button>
+                    <button class="pagetitle">Trending</button>
+                </div>
+<!--
                 <table class="menuheadertable">
                     <tr>
                         <td style="width:40%">
                             <button class="buttonbg"><img class="menubutton" src="img/drawer.png"></img></button>
                         </td>
                         <td style="text-align:right;width:60%">
-<!--
+
                             <button class="buttonsharebg" onclick="showDialogFB()"><img class="sharebutton" src="img/drawer.png"></img></button>
-                            <button class="buttonsharebg" onclick="sharetoFV()"><img class="sharebutton" src="img/drawer.png"></img></button>-->
+                            <button class="buttonsharebg" onclick="sharetoFV()"><img class="sharebutton" src="img/drawer.png"></img></button>
                             <button class="inboxBtn" onclick="goInbox()"><img class="inboxBtnImg" src="img/message.png"></img></button>
 
                             <button class="pageTitileImgBG" onclick=""><img class="pageTitileImg" src="img/trending.png"></img></button>
-                            <label class="pagetitle">Trending</label>
+                            <button class="pagetitle">Trending</button>
                         </td>
                     </tr>
                 </table>
+-->
             </div>
             <div class="menubg">
                 <div class="searchbox">
@@ -278,7 +286,6 @@
         <script type="text/javascript">
 
         var theScroll;
-            alert($(".app").height());
         function scroll() {
             theScroll = new iScroll('wrapper');
         }
