@@ -73,7 +73,7 @@
 .subheaderFilter{
     position: absolute;
     background-color: transparent;
-    width: auto;
+    width: 12%;
     height: 100%;
     z-index: 96;
     right: 10px;
@@ -88,7 +88,7 @@
 
 .filterBtnImg{
     height: 70%;
-    width: 100%;
+    width: AUTO;
     border: none;
     background-color: transparent;
 }
