@@ -164,7 +164,7 @@ input:focus {
 
 .menuheaderleft{
     height: 100%;
-    width: 100%;
+    width: 20%;
 }
 
 .menuheaderright{
@@ -172,7 +172,8 @@ input:focus {
     top:0;
     right:0;
     height:100%;
-    width:auto;
+    width:80%;
+    background-color: transparent;
 }
 
 .menubutton{
@@ -193,10 +194,11 @@ input:focus {
 }
 
 .pageTitileImgBG{
-    width: auto;
+    width: 18%;
     height: 100%;
     background-color: transparent;
     border:none;
+    float: right;
 /*
     right:75px;
     top: 0px;
@@ -205,15 +207,17 @@ input:focus {
 }
 
 .inboxBtn{
-    width: auto;
+/*    position: absolute;*/
+    width: 10%;
     height: 100%;
     background-color: transparent;
     border:none;
+    float: right;
 /*
     right:110px;
     top: 0px;
 */
-/*    position: absolute;*/
+    
 }
 
 .pageTitileImg{
@@ -252,7 +256,8 @@ input:focus {
     font-size: 16px;
     font-family: "Roboto-Thin";
 	text-align:right;
-    margin-left: 10px;
+    float: right;
+/*    margin-left: 10px;*/
 }
 
 .backBtn{
