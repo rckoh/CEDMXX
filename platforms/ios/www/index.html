@@ -40,6 +40,7 @@
         </script>  
         <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
 <!--        <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>-->
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/slidemenu.css" />
         <script type="text/javascript" src="js/slidemenu.js"></script>
@@ -123,10 +124,10 @@
     <body onload="startslideshow();getFeaturedList();getLatestPostList();getAnnouncementList();" id="pageBody">
         <div data-role="app" class="app" id="app">
             <div class="menuheader">
-                <div class="menuheadertable">
+                <div class="menuheaderleft">
                     <button class="buttonbg"><img class="menubutton" src="img/drawer.png"></img></button>
                 </div>
-                <div style="position:absolute;top:0;right:0;height:100%;width:auto;">
+                <div class="menuheaderright">
                     <button class="inboxBtn" onclick="goInbox()"><img class="inboxBtnImg" src="img/message.png"></img></button>
                     <button class="pageTitileImgBG" id="pageTitileImgBG" onclick=""><img class="pageTitileImg" src="img/trending.png"></img></button>
                     <button class="pagetitle">Trending</button>
