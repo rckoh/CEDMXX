@@ -1,0 +1,610 @@
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* subheader Style*/
+.subheaderblack{
+	position: absolute;
+	top:6%;
+    background-color:black;
+    text-align:justify;
+    color: white;
+    height: 6%;
+    width: 100%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+.subBtn1{
+	width:31%;
+	position:absolute;
+	height:100%;
+}
+
+.subBtn2{
+	width:31%;
+	position:absolute;
+	height:100%;
+	left:34.5%;
+}
+
+.subBtn3{
+	width:31%;
+	position:absolute;
+	height:100%;
+	left:69%;
+}
+
+.subSeperator1{
+	width:3.5%;
+	position:absolute;
+	height:100%;
+	left:31%;
+	vertical-align:middle;
+}
+
+.subSeperator1 button{
+	position:absolute;
+	height:100%;
+	line-height:100%;
+	vertical-align:middle;
+}
+
+.subSeperator2 button{
+	width:3.5%;
+	position:absolute;
+	height:100%;
+	left:65.5%;
+}
+
+
+.subheaderbutton{
+    background-color: transparent;
+    border: none;
+    color: #32978f;
+    width: 100%;
+    height: 100%;
+	line-height:100%;
+    font-family: "Roboto-Medium";
+    font-size: 14px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+
+.selectedItem{
+    position: absolute;
+    background-color: #00FFFF;
+    width: 32.75%;
+    height: 2px;
+    z-index: 96;
+    /* top:12%; */
+/*    margin: 0px 0.5% 0px 0px;*/
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+	bottom:0px;
+}
+
+/* subheader Style end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* content page Style */
+.content{
+    width: 100%;
+    height: 88%;
+    background-color: white;
+	position:absolute;
+	top:12%;
+}
+
+.pageone{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0%;
+    display: inline-block;
+    position: absolute;
+    z-index: 3;
+/*    position: absolute;*/
+    
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: transform 400ms ease;
+    -moz-transition: transform 400ms ease;
+    transition: transform 400ms ease;
+}
+
+.pagetwo{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: transform 400ms ease;
+    -moz-transition: transform 400ms ease;
+    transition: transform 400ms ease;
+}
+
+.pagethree{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    
+   -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transition: transform 400ms ease;
+    -moz-transition: transform 400ms ease;
+    transition: transform 400ms ease;
+}
+
+/* content page stry end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* image slideshow Style */
+.imagecontent{
+    background:url(../img/bgtemplate.png) no-repeat center top; 
+    height: 45%;
+    width: 100%;
+    background-color: white;
+    position:  absolute;
+/*    line-height: 40px;*/
+}
+
+.slideshowimage{
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    width: auto;
+    position: absolute;  
+    top: 0%;  
+    bottom: 0%;  
+    left: 0%;  
+    right: 0%;  
+    margin: auto;
+}
+
+.slideshowimagenamediv{
+    width: 100%;
+    bottom: 0%;
+    position: absolute;
+    background-color: #32978f;
+    opacity: 0.9;
+}
+
+.slideshowimagename{
+    padding: 0px 0px 0px 0px;
+    margin: 10px 10px 10px 10px;
+    color: white;
+    font-size: 15px;
+    text-align: left;
+/*    position: absolute;*/
+    display: inline-block;
+}
+
+.slideshowitemtitle{
+    color: white;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 10px;
+    margin: 10px 10px 10px 10px;
+    font-family: "Roboto-Regular";
+    font-size: 17px;
+}
+
+.slideshowitemdetails{
+    color: white;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 10px 10px 10px 10px;
+    font-family: "Roboto-Thin";
+    font-size: 14px;
+    text-align: justify;
+}
+
+.slideshowitemseperator{
+    line-height: 2px;
+    color: #32978f;
+    margin: 10px 10px 10px 10px;
+    color: white;
+    border-bottom: 1px solid white;
+    width: 30px;
+}
+
+.userSummary{
+    line-height: 15px;
+    right:10px;
+    font-family: "Roboto-Thin";
+    font-size: 10px;
+    text-align: right;
+    color: white;
+}
+
+.userSummaryIcon{
+    width: 15px;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* image slideshow Style end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* listview Style Page 1*/
+.wrapper{
+    height: 55%;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    bottom: 0%;
+    overflow:auto;
+}
+
+.scrollul{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollli {
+    padding:0 10px;
+    height:auto;
+    line-height:auto;
+    min-height: 40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+/*    background-color:#fafafa;*/
+    font-size:14px;
+    border-bottom: 1px dotted #333;  
+}
+
+.scrollli:hover {
+    background-color: white;
+}
+
+.scroll-content {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+
+.listviewimg{
+/*    line-height: px;*/
+    width: 100px;
+    height: auto;
+/*    border: 1px solid black;*/
+    display: block;
+}
+
+.listviewlbl{
+/*    padding: 10px 10px 10px 0px;*/
+}
+
+.listviewitemtitle{
+    color: #32978f;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 15px;
+    font-family: "Roboto-Medium";
+    font-size: 15px;
+    margin: 5px 0px 0px 10px;
+}
+
+.listviewitemdetails{
+    color: #565656;
+    background-color: transparent;
+    font-family: "Roboto-Regular";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 0px 0px 0px 0px;
+    text-align: justify;
+    margin: 10px 0px 10px 10px;
+    
+}
+
+.listviewitemseperator{
+    line-height: 2px;
+/*    color: #32978f;*/
+    border-bottom: 1px solid #32978f;
+    width: 30px;
+    margin: 10px 0px 0px 10px;
+}
+
+.listviewitemframe{
+    height:100%; 
+    width:100%;
+    vertical-align: top;
+    text-align: left;
+}
+/* listview Style Page 1 end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* listview Style Page 2*/
+.wrapperPage2{
+    height: 55%;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    bottom: 0%;
+    overflow:auto;
+}
+
+.scrollulPage2{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollliPage2 {
+    padding:0 10px;
+/*
+    height:120px;
+    line-height:40px;
+*/
+    height:auto;
+    line-height:auto;
+    min-height: 40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+/*    background-color:#fafafa;*/
+    font-size:14px;
+    border-bottom: 1px dotted #333;  
+}
+
+.scrollliPage2:hover {
+    background-color: white;
+}
+
+.scroll-contentPage2 {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+
+.listviewimgPage2{
+/*    line-height: px;*/
+    width: 100px;
+    height: auto;
+/*    border: 1px solid black;*/
+    display: block;
+}
+
+.listviewlblPage2{
+/*    padding: 10px 10px 10px 0px;*/
+}
+
+.listviewitemtitlePage2{
+    color: #32978f;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 15px;
+    font-family: "Roboto-Medium";
+    font-size: 15px;
+    margin: 5px 0px 0px 10px;
+}
+
+.listviewitemdetailsPage2{
+    color: #565656;
+    background-color: transparent;
+    font-family: "Roboto-Regular";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 0px 0px 0px 0px;
+    text-align: justify;
+    margin: 10px 0px 10px 10px;
+    
+}
+
+.listviewitemseperatorPage2{
+    line-height: 2px;
+/*    color: #32978f;*/
+    border-bottom: 1px solid #32978f;
+    width: 30px;
+    margin: 10px 0px 0px 10px;
+}
+
+.listviewitemframePage2{
+    height:100%; 
+    width:100%;
+    vertical-align: top;
+    text-align: left;
+}
+/* listview Style Page 2 end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* listview Style Page 3*/
+.wrapperPage3{
+    height: 55%;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    bottom: 0%;
+    overflow:auto;
+}
+
+.scrollulPage3{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollliPage3 {
+    padding:0 10px;
+    height:auto;
+    line-height:auto;
+    min-height: 40px;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+/*    background-color:#fafafa;*/
+    font-size:14px;
+    border-bottom: 1px dotted #333;  
+}
+
+.scrollliPage3:hover {
+    background-color: white;
+}
+
+.scroll-contentPage3 {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+
+.listviewimgPage3{
+/*    line-height: px;*/
+    width: 100px;
+    height: auto;
+/*    border: 1px solid black;*/
+    display: block;
+}
+
+.listviewlblPage3{
+/*    padding: 10px 10px 10px 0px;*/
+}
+
+.listviewitemtitlePage3{
+    color: #32978f;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 15px;
+    font-family: "Roboto-Medium";
+    font-size: 15px;
+    margin: 5px 0px 0px 10px;
+}
+
+.listviewitemdetailsPage3{
+    color: #565656;
+    background-color: transparent;
+    font-family: "Roboto-Regular";
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 15px;
+    margin: 0px 0px 0px 0px;
+    text-align: justify;
+    margin: 10px 0px 10px 10px;
+    
+}
+
+.listviewitemseperatorPage3{
+    line-height: 2px;
+/*    color: #32978f;*/
+    border-bottom: 1px solid #32978f;
+    width: 30px;
+    margin: 10px 0px 0px 10px;
+}
+
+.listviewitemframePage3{
+    height:100%; 
+    width:100%;
+    vertical-align: top;
+    text-align: left;
+}
+/* listview Style Page 3 end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* footer Style end*/
+.pagefooter{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    z-index: 98;
+    background-color: #32978f;
+    position: absolute;
+    bottom:0;
+    color: white;
+    font-weight: bold;
+    opacity: 0.9;
+    font-family: "Roboto-Thin";
+}
+
+/* footer Style end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
