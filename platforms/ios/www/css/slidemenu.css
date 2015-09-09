@@ -47,7 +47,7 @@ li:hover{
 }
 
 .searchbox input{
-    height: 30px;
+    height: 7vw;
     width: 95%;
     padding: 0px 0px 0px 0px;
     margin: 5px 5px 5px 5px;
@@ -62,7 +62,7 @@ li:hover{
 .searchBoxBtn{
     position: absolute;
     display: inline-block;
-    height: 20px;
+    height: 100%;
     width: auto;
     padding: 0px 0px 0px 0px;
     margin: 10px 5px 5px 5px;
@@ -80,7 +80,7 @@ li:hover{
 
 .itemlabel{
 /*    display: block;*/
-    line-height: 30px;
+    line-height: 8vw;
 /*    background-color: #53DCDF;*/
 /*    font-weight: bold;*/
     color: white;

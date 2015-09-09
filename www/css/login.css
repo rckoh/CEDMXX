@@ -31,7 +31,7 @@ html, body {
 /*    background-color:#53DCDF;*/
     background-color: #32978f;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
+    font-size:2.4vw;
     text-transform:uppercase;
     background: URL("../img/login.jpg");
     background-size: auto auto;
@@ -101,7 +101,7 @@ input:focus {
     border-radius:4px;
     -webkit-border-radius:4px;
     color:#FFFFFF;
-    font-size:12px;
+    font-size:2.4vw;
     margin:0px 30px;
     padding:2px 0px;
 }
@@ -184,7 +184,7 @@ input:focus {
     margin: 0px 0px 0px 10%;
     background-color: transparent;
     font-family: "Roboto-Light";
-    font-size: 14px;
+    font-size: 3vw;
     text-transform: uppercase;
 }
 
@@ -210,7 +210,7 @@ input:focus {
     /* margin: 0px 0px 0px 10%; */
     background-color: transparent;
     font-family: "Roboto-Light";
-    font-size: 14px;
+    font-size: 3vw;
     text-transform: uppercase;
 }
 
@@ -234,7 +234,7 @@ input:focus {
 .btnForgetPassword{
     background-color: transparent;
     width: 100%;
-    font-size: 14px;
+    font-size: 3vw;
     border: none;
     color: white;
     font-family: "Roboto-Bold";
@@ -243,7 +243,7 @@ input:focus {
 .btnLogin{
     background-color: transparent;
     width: 100%;
-    font-size: 14px;
+    font-size: 3vw;
     border: none;
     color: white;
     font-family: "Roboto-Bold";
@@ -252,7 +252,7 @@ input:focus {
 .buttonSeperator{
     color: white;
     font-family: "Roboto-Bold";
-    font-size: 14px;
+    font-size: 3vw;
 }
 
 /* Login Style end*/

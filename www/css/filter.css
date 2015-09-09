@@ -31,7 +31,7 @@
     line-height: 30px;
     background-color: transparent;
     font-family: "Roboto-Regular";
-    font-size: 14px;
+    font-size: 3vw;
 }
 
 .closeButtonFrame{
@@ -59,7 +59,7 @@
 
 .filterItem h1{
     color: #4be5d9;
-    font-size: 13px;
+    font-size: 2.5vw;
     font-family: "Roboto-Regular";
     margin: 10px 0px 2px 0px;
 }
@@ -78,7 +78,7 @@
     width: 100%;
     left: 0px;
     font-family: "Roboto-Regular";
-    font-size: 14px;
+    font-size: 2.4vw;
     margin: 0px 0px 0px 0px;
 /*
     -webkit-appearance: none; 
@@ -98,7 +98,7 @@
     width: 98%;
     left: 0;
     font-family: "Roboto-Regular";
-    font-size: 14px;
+    font-size: 2.4vw;
     color: #818181;
     text-indent: 10px;
     margin: 0px 0px 0px 0px;
@@ -114,7 +114,7 @@
     background-color: #4be5d9;
     border: none;
     font-family: "Roboto-Medium";
-    font-size: 14px;
+    font-size: 2.6vw;
     word-spacing: 200;
     color: white;
 }
