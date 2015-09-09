@@ -226,7 +226,7 @@
     margin: 10px 10px 10px 10px;
     font-family: "Roboto-Regular";
     font-size: 4vw;
-    max-height: 30px;
+    max-height: 4.1vw;
     text-overflow: ellipsis;
     overflow: hidden;
 }

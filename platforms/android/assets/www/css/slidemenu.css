@@ -62,10 +62,10 @@ li:hover{
 .searchBoxBtn{
     position: absolute;
     display: inline-block;
-    height: 100%;
-    width: auto;
+    height: 7vw;
+    width: 7vw;
     padding: 0px 0px 0px 0px;
-    margin: 10px 5px 5px 5px;
+    margin: 5px 5px 5px 5px;
     right: 10px;
     background-color: transparent;
     border: none;

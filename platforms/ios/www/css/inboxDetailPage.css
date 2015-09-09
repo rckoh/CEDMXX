@@ -167,7 +167,7 @@
 /* ------------------------------------------------------------------------------------*/
 /* Page footer*/
 .pageFooter{
-    height:40px;
+    height:6%;
     position: absolute;
     bottom:0;
     background-color: white;
@@ -178,7 +178,7 @@
 .deleteBtn{
     position: absolute;
     left: 0px;
-    height: 40px;
+    height: 100%;
     width: auto;
     background-color: transparent;
     border: none;
@@ -187,7 +187,7 @@
 .replyBtn{
     position: absolute;
     left: 50px;
-    height: 40px;
+    height: 100%;
     width: auto;
     background-color: transparent;
     border: none;
@@ -196,7 +196,7 @@
 .previousBtn{
     position: absolute;
     right: 50px;
-    height: 40px;
+    height: 100%;
     width: auto;
     background-color: transparent;
     border: none;
@@ -204,7 +204,7 @@
 .nextBtn{
     position: absolute;
     right: 0px;
-    height: 40px;
+    height: 100%;
     width: auto;
     background-color: transparent;
     border: none;
