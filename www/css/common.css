@@ -253,7 +253,7 @@ input:focus {
     right: 10px;
     top: 0px;
 /*    position: absolute;*/
-    font-size: 16px;
+    font-size: 4vw;
     font-family: "Roboto-Thin";
 	text-align:right;
     float: right;
