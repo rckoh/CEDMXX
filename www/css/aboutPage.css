@@ -44,7 +44,7 @@ html, body {
 .companyName{
     position: absolute;
     font-family: "Roboto-Light";
-    font-size: 20px;
+    font-size: 5vw;
     color: white;
     width: 80%;
     height: auto;
@@ -58,7 +58,7 @@ html, body {
 .aboutUsDetails{
     position: absolute;
     font-family: "Roboto-Light";
-    font-size: 14px;
+    font-size: 3vw;
     color: white;
     width: 88%;
     height: auto;
@@ -69,39 +69,3 @@ html, body {
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
-
-
-@media only screen and (min-device-width : 768px) { /* tablets and iPad */
-    /* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* content page Style */
-.companyName{
-    position: absolute;
-    font-family: "Roboto-Light";
-    font-size: 25px;
-    color: white;
-    width: 80%;
-    height: auto;
-    text-align: center;
-    border: 2px solid white;
-    margin: 10% 0px 0px 8%;
-    padding: 2% 2% 2% 2%;
-    word-spacing: 2px;
-}
-
-.aboutUsDetails{
-    position: absolute;
-    font-family: "Roboto-Light";
-    font-size: 18px;
-    color: white;
-    width: 88%;
-    height: auto;
-    text-align: justify;
-    margin: 30% 50px 20px 6%;
-}
-/* content page stry end*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-}
