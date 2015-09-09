@@ -41,7 +41,7 @@ li:hover{
     margin: 5px 5px 5px 5px;
     /* background-color: #32978f; */
     color: rgba(255,255,255, 1);
-    font-size: 13px;
+    font-size: 2.8vw;
     font-family: "Roboto-Light";
     position: absolute;
 }
@@ -53,7 +53,7 @@ li:hover{
     margin: 5px 5px 5px 5px;
     background-color: #32978f;
     color: rgba(255,255,255, 1);
-    font-size: 13px;
+    font-size: 2.8vw;
     font-family: "Roboto-Light";
     position: absolute;
 }
@@ -84,14 +84,14 @@ li:hover{
 /*    background-color: #53DCDF;*/
 /*    font-weight: bold;*/
     color: white;
-    font-size: 13px;
+    font-size: 3vw;
     font-family: "Roboto-Light";
 /*    -webkit-transform: translateZ(0);*/
 }
 
 .menuitemimg{
     height: auto;
-    width: 25px;
+    width: 6vw;
     padding: 8px 30px 8px 20px;
     vertical-align: middle;
 }
