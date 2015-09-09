@@ -71,7 +71,7 @@ html, body {
 /* ------------------------------------------------------------------------------------*/
 
 
-@media only screen and (min-device-width : 1024px) { /* 10" tablets and iPad */
+@media only screen and (min-device-width : 768px) { /* tablets and iPad */
     /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ html, body {
     position: absolute;
     font-family: "Roboto-Light";
     font-size: 25px;
-    color: black;
+    color: white;
     width: 80%;
     height: auto;
     text-align: center;
