@@ -78,7 +78,7 @@ html, body {
 .companyName{
     position: absolute;
     font-family: "Roboto-Light";
-    font-size: 25px;
+    font-size: 25px !important;
     color: white;
     width: 80%;
     height: auto;
@@ -92,7 +92,7 @@ html, body {
 .aboutUsDetails{
     position: absolute;
     font-family: "Roboto-Light";
-    font-size: 18px;
+    font-size: 18px !important;
     color: white;
     width: 88%;
     height: auto;
