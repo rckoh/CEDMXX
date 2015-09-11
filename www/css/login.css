@@ -185,7 +185,7 @@ input:focus {
     background-color: transparent;
     font-family: "Roboto-Light";
     font-size: 3vw;
-    text-transform: uppercase;
+/*    text-transform: uppercase;*/
 }
 
 .pwdLogo{
@@ -211,7 +211,7 @@ input:focus {
     background-color: transparent;
     font-family: "Roboto-Light";
     font-size: 3vw;
-    text-transform: uppercase;
+/*    text-transform: uppercase;*/
 }
 
 .seperator{

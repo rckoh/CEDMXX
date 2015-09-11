@@ -31,6 +31,7 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/webRequest.js"></script>
+        <script type="text/javascript" src="js/loading.js"></script>
         <script type="text/javascript" src="facebookConnectPlugin.js"></script>
         <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
         <script type="text/javascript">
@@ -47,6 +48,7 @@
         <script type="text/javascript">
             document.addEventListener("deviceready", onDeviceReady, false);
             var menuStatus;
+            
             //bind swipe event with jquery
             $(function(){
 	
@@ -88,10 +90,8 @@
 //                $(".inboxBtn").css("right", newinboxbtnmargin); 
             }
             
-            function startslideshow(){
-                getPromoList();
-                window.setInterval(slideshow, 5000);
-                
+            function startslideshow(data){
+                window.setInterval(slideshow(data), 5000);
             }
             
             function sharetoFV()
@@ -121,7 +121,8 @@
         <script type="text/javascript" src="js/loginnavigate.js"></script>
         
     </head>
-    <body onload="startslideshow();getFeaturedList();getLatestPostList();getAnnouncementList();" id="pageBody">
+<!--    <body onload="startslideshow();getFeaturedList();getLatestPostList();getAnnouncementList();" id="pageBody" class="appBody">-->
+    <body id="pageBody" class="appBody">
         <div data-role="app" class="app" id="app">
             <div class="menuheader">
                 <div class="menuheaderleft">
@@ -196,13 +197,15 @@
             <div class="content">
                 <div class="pageone">
                     <div class="imagecontent">
-                        <img src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg" class="slideshowimage" id="slideshowimage"></img>
+                        <img src="img/loading.gif" class="slideshowimage" id="slideshowimage"></img>
                         <div class="slideshowimagenamediv">
+<!--
                             <h1 class="slideshowitemtitle">Some TitleSomeTitleomeTitleomeTitle omeTitleomeTitleomeTitle</h1>
                                 <p class="slideshowitemseperator">&nbsp;</p>
-                                <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.We developed enterprise level office PABX that cater for everyteleprothy needsWe developed enterprise level office PABX that cater for everyteleprothy needsWe developed enterprise level office PABX that cater for everyteleprothy needs</p>
+                                <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everytelepr</p>
+-->
                             <div>
-                            <p class="userSummary"><img src="img/view.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/fav.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/share.png" class="userSummaryIcon"/>&nbsp;123&nbsp;&nbsp;</p>
+<!--                            <p class="userSummary"><img src="img/view.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/fav.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/share.png" class="userSummaryIcon"/>&nbsp;123&nbsp;&nbsp;</p>-->
                         </div>
                         </div>
                         
@@ -217,14 +220,16 @@
                     </div> 
                 </div>
                 <div class="pagetwo">
-                    <div class="imagecontent">
-                        <img src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg" class="slideshowimage" id="slideshowimage"></img>
-                        <div class="slideshowimagenamediv">
-                            <h1 class="slideshowitemtitle">Some Title</h1>
-                                <p class="slideshowitemseperator">&nbsp;</p>
-                                <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+                    <div class="imagecontentpage2">
+                        <img src="img/loading.gif" class="slideshowimagepage2" id="slideshowimagepage2"></img>
+                        <div class="slideshowimagenamedivpage2">
+<!--
+                            <h1 class="slideshowitemtitlepage2">Some Title</h1>
+                                <p class="slideshowitemseperatorpage2">&nbsp;</p>
+                                <p class="slideshowitemdetailspage2">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+-->
                             <div>
-                            <p class="userSummary"><img src="img/view.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/fav.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/share.png" class="userSummaryIcon"/>&nbsp;123&nbsp;&nbsp;</p>
+<!--                            <p class="userSummarypage2"><img src="img/view.png" class="userSummaryIconpage2"/>&nbsp;13&nbsp;<img src="img/fav.png" class="userSummaryIconpage2"/>&nbsp;13&nbsp;<img src="img/share.png" class="userSummaryIconpage2"/>&nbsp;123&nbsp;&nbsp;</p>-->
                         </div>
                         </div>
                         
@@ -253,14 +258,16 @@
                     </div>
                 </div>
                 <div class="pagethree">
-                    <div class="imagecontent">
-                        <img src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg" class="slideshowimage" id="slideshowimage"></img>
-                        <div class="slideshowimagenamediv">
-                            <h1 class="slideshowitemtitle">Some Title</h1>
-                                <p class="slideshowitemseperator">&nbsp;</p>
-                                <p class="slideshowitemdetails">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+                    <div class="imagecontentpage3">
+                        <img src="img/loading.gif" class="slideshowimagepage3" id="slideshowimagepage3"></img>
+                        <div class="slideshowimagenamedivpage3">
+<!--
+                            <h1 class="slideshowitemtitlepage3">Some Title</h1>
+                                <p class="slideshowitemseperatorpage3">&nbsp;</p>
+                                <p class="slideshowitemdetailspage3">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
+-->
                             <div>
-                            <p class="userSummary"><img src="img/view.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/fav.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/share.png" class="userSummaryIcon"/>&nbsp;123&nbsp;&nbsp;</p>
+<!--                            <p class="userSummary"><img src="img/view.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/fav.png" class="userSummaryIcon"/>&nbsp;13&nbsp;<img src="img/share.png" class="userSummaryIcon"/>&nbsp;123&nbsp;&nbsp;</p>-->
                         </div>
                         </div>
                         
@@ -289,9 +296,6 @@
                     </div>
                 </div>
             </div>
-            <div class="pagefooter" onclick="goLogin();">
-                Login
-            </div>
         </div>
         <script type="text/javascript" src="../plugins/iscroll-master/build/iscroll-lite.js"></script>
  
@@ -304,7 +308,11 @@
         </script>
         <script type="text/javascript">
             initsubmenustyle();
+            getFeaturedList()
             app.initialize();
+            checkLoginStatus();
+            initdb();
+            checkMenuLoginStatus();
         </script>
     </body>
 </html>

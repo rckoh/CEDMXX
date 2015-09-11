@@ -29,7 +29,9 @@
 <!--        <link rel="stylesheet" href="js/jquery-mobile/jquery.mobile-1.4.5.css"/>-->
         <title>Home Page</title>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/webRequest.js"></script>
+        <script type="text/javascript" src="js/loading.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
         <script type="text/javascript" src="facebookConnectPlugin.js"></script>
         <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
         <script type="text/javascript">
@@ -40,6 +42,7 @@
         <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
 <!--        <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>-->
         <link rel="stylesheet" type="text/css" href="css/login.css" />
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
         <script type="text/javascript" src="js/slidemenu.js"></script>
         <script type="text/javascript">
             document.addEventListener("deviceready", onDeviceReady, false);
@@ -49,11 +52,6 @@
 			$(".appLogo").css("margin-left", marginleft);
                 document.addEventListener("backbutton", onBackKeyDown, false);
             }
-            
-            function goHomepage(){
-                window.location = "index.html";
-            }
-            
         </script>
         <script type="text/javascript" src="js/menuclick.js"></script>
         
@@ -65,9 +63,9 @@
                     <img class="appLogo" src="img/mdec.png"/>
                 </div>
                 <div class="loginDetails">
-                    <img class="loginLogo" src="img/user-2.png"/><input class="loginTextBox" placeholder="USER NAME" type="text"></input>
+                    <img class="loginLogo" src="img/user-2.png"/><input class="loginTextBox" placeholder="USER NAME" type="text" maxlength="15" id="username"></input>
                     <br>
-                    <img class="pwdLogo" src="img/user-2.png"/><input class="pwdTextBox" placeholder="PASSWORD" type="text"></input>
+                    <img class="pwdLogo" src="img/user-2.png"/><input class="pwdTextBox" placeholder="PASSWORD" type="password" maxlength="15" id="password"></input>
                 </div>
             </div>
             <div class="seperator">
@@ -81,7 +79,7 @@
                         </td>
                         <td style="width:10%; text-align:center;" class="buttonSeperator">|</td>
                         <td style="width:45%">
-                            <button class="btnLogin" onclick="goHomepage()">Login</button>
+                            <button class="btnLogin" onclick="login();">Login</button>
                         </td>
                     </tr>
                 </table>

@@ -181,6 +181,63 @@ function getProductDetails(nid){
     })
 }
 
+function requestLogin(username, password){
+    var requestUrl=webUrl+"?q=services/session/token";
+    
+    $.ajax({
+      url: requestUrl,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      success: function(data, status, xhr) {
+        debugger;
+        var sessionToken=JSON.stringify(data);
+        postLogin(sessionToken, username, password);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          if(xhr.status==0)
+            alert("Unable connect to server."); 
+          
+        }
+    })
+}
+
+function postLogin(token, username, password){
+    var requestUrl=webUrl+"drupalgap/user/login";
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-CSRF-Token":token
+      },
+      data:"username=" + username + "&password="+password,
+      success: function(data, status, xhr) {
+        debugger;
+        var uid=data.user.uid;
+        var name=data.user.name;
+        var email=data.user.mail;
+        var profileimg=data.user.picture.url;
+          
+         storeProfile(uid, name, email, profileimg);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          if(xhr.status==0)
+            alert("Unable connect to server.");      
+          else
+            alert("Invalid username or password");
+          
+          endLoading();
+        }
+    })
+}
+
+
+
                   
                         
                         

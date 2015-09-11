@@ -50,64 +50,218 @@ var app = {
     }
 };
 
-function slideshow(){
-    var imga="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg";
-    var imgb="http://dreamatico.com/data_images/animals/animals-4.jpg";
-    var imgc="http://thewowstyle.com/wp-content/uploads/2015/04/8589130571841-animal-wallpaper-hd.jpg";
-    var imgd="http://i.telegraph.co.uk/multimedia/archive/02296/animal4c_2296997i.jpg";
-    var imge="http://cdn.playbuzz.com/cdn/279428ca-ddfa-45ce-87b5-53b20c6f3b38/ac4084b3-f55b-4332-83c9-0d411095e812.jpg";
+function slideshow(data){
+    
+//    var imga="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg";
+//    var imgb="http://dreamatico.com/data_images/animals/animals-4.jpg";
+//    var imgc="http://thewowstyle.com/wp-content/uploads/2015/04/8589130571841-animal-wallpaper-hd.jpg";
+//    var imgd="http://i.telegraph.co.uk/multimedia/archive/02296/animal4c_2296997i.jpg";
+//    var imge="http://cdn.playbuzz.com/cdn/279428ca-ddfa-45ce-87b5-53b20c6f3b38/ac4084b3-f55b-4332-83c9-0d411095e812.jpg";
+    
+    var imga=data.nodes[0].node.background .src;
+    var imgb=data.nodes[1].node.background .src;
+    var imgc=data.nodes[2].node.background .src;
+    var imgd=data.nodes[3].node.background .src;
+    var imge=data.nodes[4].node.background .src;
+//    alert("cas");
+//    if($(".slideshowimage").attr("src")=="img/loading.gif");
+    
     var imgname=document.getElementById("slideshowimage").src;
     
     if(imgname==imga){
         $(".slideshowimage").fadeOut(500, function() {
         $(".slideshowimage").attr("src",imgb);
-        $(".slideshowimage").fadeOut(500);});
+        $(".slideshowimage").fadeIn(500);
+        $(".slideshowimagenamediv h1").remove();
+        $(".slideshowimagenamediv p").remove();
+        $(".slideshowimagenamediv").append("<h1 class='slideshowitemtitle'>"+data.nodes[1].node.title+"</h1><p class='slideshowitemseperator'>&nbsp;</p><p class='slideshowitemdetails'>"+data.nodes[1].node.description+"</p>");});
     }
     
     if(imgname==imgb){
         $(".slideshowimage").fadeOut(500, function() {
         $(".slideshowimage").attr("src",imgc);
-        $(".slideshowimage").fadeIn(500);});
+        $(".slideshowimage").fadeIn(500);
+        $(".slideshowimagenamediv h1").remove();
+        $(".slideshowimagenamediv p").remove();
+        $(".slideshowimagenamediv").append("<h1 class='slideshowitemtitle'>"+data.nodes[2].node.title+"</h1><p class='slideshowitemseperator'>&nbsp;</p><p class='slideshowitemdetails'>"+data.nodes[2].node.description+"</p>");
+        });
+        
+        
     }
     
     if(imgname==imgc){
         $(".slideshowimage").fadeOut(500, function() {
         $(".slideshowimage").attr("src",imgd);
-        $(".slideshowimage").fadeIn(500);});
+        $(".slideshowimage").fadeIn(500);
+        $(".slideshowimagenamediv h1").remove();
+        $(".slideshowimagenamediv p").remove();
+        $(".slideshowimagenamediv").append("<h1 class='slideshowitemtitle'>"+data.nodes[3].node.title+"</h1><p class='slideshowitemseperator'>&nbsp;</p><p class='slideshowitemdetails'>"+data.nodes[3].node.description+"</p>");
+        });
+        
+        
     }
     
     if(imgname==imgd){
         $(".slideshowimage").fadeOut(500, function() {
         $(".slideshowimage").attr("src",imge);
-        $(".slideshowimage").fadeIn(500);});
+        $(".slideshowimage").fadeIn(500);
+        $(".slideshowimagenamediv h1").remove();
+        $(".slideshowimagenamediv p").remove();
+        $(".slideshowimagenamediv").append("<h1 class='slideshowitemtitle'>"+data.nodes[4].node.title+"</h1><p class='slideshowitemseperator'>&nbsp;</p><p class='slideshowitemdetails'>"+data.nodes[4].node.description+"</p>");
+        });
+        
+        
     }
     
     if(imgname==imge){
         $(".slideshowimage").fadeOut(500, function() {
         $(".slideshowimage").attr("src",imga);
-        $(".slideshowimage").fadeIn(500);});
+        $(".slideshowimage").fadeIn(500);
+        $(".slideshowimagenamediv h1").remove();
+        $(".slideshowimagenamediv p").remove();
+        $(".slideshowimagenamediv").append("<h1 class='slideshowitemtitle'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperator'>&nbsp;</p><p class='slideshowitemdetails'>"+data.nodes[0].node.description+"</p>");
+        });
     }
 }
 
-function getPromoList(){ 
-    $.ajax({
-      url : "http://192.168.1.18/MRWebApi/api/activity/category",
-      type: 'GET',
-      dataType: 'json',            
-      success: function (data) { 
-        var returnstr=JSON.stringify(data);
-         for (var x = 0; x < data.length; x++) {
-//             $("#scrollul").append("<li class='scrollli' onclick='itemOnClick();'><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data[x].categoryPhoto +"'></td><td>"+ data[x].categoryName +"</td></tr></table></li>");
-            }
-      },
-      error:function (xhr, ajaxOptions, thrownError){
-        debugger;
-        }
-    });    
-  }
+function slideshowpagetwo(data){
+    
+    var imga=data.nodes[0].node.background .src;
+    var imgb=data.nodes[1].node.background .src;
+    var imgc=data.nodes[2].node.background .src;
+    var imgd=data.nodes[3].node.background .src;
+    var imge=data.nodes[4].node.background .src;
+//    if($(".slideshowimage").attr("src")=="img/loading.gif");
+    
+    var imgname=document.getElementById("slideshowimagepage2").src;
+
+    if(imgname==imga){
+        $(".slideshowimagepage2").fadeOut(500, function() {
+        $(".slideshowimagepage2").attr("src",imgb);
+        $(".slideshowimagepage2").fadeIn(500);
+        $(".slideshowimagenamedivpage2 h1").remove();
+        $(".slideshowimagenamedivpage2 p").remove();
+        $(".slideshowimagenamedivpage2").append("<h1 class='slideshowitemtitlepage2'>"+data.nodes[1].node.title+"</h1><p class='slideshowitemseperatorpage2'>&nbsp;</p><p class='slideshowitemdetailspage2'>"+data.nodes[1].node.description+"</p>");});
+    }
+    
+    if(imgname==imgb){
+        $(".slideshowimagepage2").fadeOut(500, function() {
+        $(".slideshowimagepage2").attr("src",imgc);
+        $(".slideshowimagepage2").fadeIn(500);
+        $(".slideshowimagenamedivpage2 h1").remove();
+        $(".slideshowimagenamedivpage2 p").remove();
+        $(".slideshowimagenamedivpage2").append("<h1 class='slideshowitemtitlepage2'>"+data.nodes[2].node.title+"</h1><p class='slideshowitemseperatorpage2'>&nbsp;</p><p class='slideshowitemdetailspage2'>"+data.nodes[2].node.description+"</p>");
+        });
+        
+        
+    }
+    
+    if(imgname==imgc){
+        $(".slideshowimagepage2").fadeOut(500, function() {
+        $(".slideshowimagepage2").attr("src",imgd);
+        $(".slideshowimagepage2").fadeIn(500);
+        $(".slideshowimagenamedivpage2 h1").remove();
+        $(".slideshowimagenamedivpage2 p").remove();
+        $(".slideshowimagenamedivpage2").append("<h1 class='slideshowitemtitlepage2'>"+data.nodes[3].node.title+"</h1><p class='slideshowitemseperatorpage2'>&nbsp;</p><p class='slideshowitemdetailspage2'>"+data.nodes[3].node.description+"</p>");
+        });
+        
+        
+    }
+    
+    if(imgname==imgd){
+        $(".slideshowimagepage2").fadeOut(500, function() {
+        $(".slideshowimagepage2").attr("src",imge);
+        $(".slideshowimagepage2").fadeIn(500);
+        $(".slideshowimagenamedivpage2 h1").remove();
+        $(".slideshowimagenamedivpage2 p").remove();
+        $(".slideshowimagenamedivpage2").append("<h1 class='slideshowitemtitlepage2'>"+data.nodes[4].node.title+"</h1><p class='slideshowitemseperatorpage2'>&nbsp;</p><p class='slideshowitemdetailspage2'>"+data.nodes[4].node.description+"</p>");
+        });
+        
+        
+    }
+    
+    if(imgname==imge){
+        $(".slideshowimagepage2").fadeOut(500, function() {
+        $(".slideshowimagepage2").attr("src",imga);
+        $(".slideshowimagepage2").fadeIn(500);
+        $(".slideshowimagenamedivpage2 h1").remove();
+        $(".slideshowimagenamedivpage2 p").remove();
+        $(".slideshowimagenamedivpage2").append("<h1 class='slideshowitemtitlepage2'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage2'>&nbsp;</p><p class='slideshowitemdetailspage2'>"+data.nodes[0].node.description+"</p>");
+        });
+    }
+}
+
+
+function slideshowpagethree(data){
+    
+    var imga=data.nodes[0].node.background .src;
+    var imgb=data.nodes[1].node.background .src;
+    var imgc=data.nodes[2].node.background .src;
+    var imgd=data.nodes[3].node.background .src;
+    var imge=data.nodes[4].node.background .src;
+//    if($(".slideshowimage").attr("src")=="img/loading.gif");
+    
+    var imgname=document.getElementById("slideshowimagepage3").src;
+
+    if(imgname==imga){
+        $(".slideshowimagepage3").fadeOut(500, function() {
+        $(".slideshowimagepage3").attr("src",imgb);
+        $(".slideshowimagepage3").fadeIn(500);
+        $(".slideshowimagenamedivpage3 h1").remove();
+        $(".slideshowimagenamedivpage3 p").remove();
+        $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[1].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[1].node.description+"</p>");});
+    }
+    
+    if(imgname==imgb){
+        $(".slideshowimagepage3").fadeOut(500, function() {
+        $(".slideshowimagepage3").attr("src",imgc);
+        $(".slideshowimagepage3").fadeIn(500);
+        $(".slideshowimagenamedivpage3 h1").remove();
+        $(".slideshowimagenamedivpage3 p").remove();
+        $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[2].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[2].node.description+"</p>");
+        });
+        
+        
+    }
+    
+    if(imgname==imgc){
+        $(".slideshowimagepage3").fadeOut(500, function() {
+        $(".slideshowimagepage3").attr("src",imgd);
+        $(".slideshowimagepage3").fadeIn(500);
+        $(".slideshowimagenamedivpage3 h1").remove();
+        $(".slideshowimagenamedivpage3 p").remove();
+        $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[3].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[3].node.description+"</p>");
+        });
+        
+        
+    }
+    
+    if(imgname==imgd){
+        $(".slideshowimagepage3").fadeOut(500, function() {
+        $(".slideshowimagepage3").attr("src",imge);
+        $(".slideshowimagepage3").fadeIn(500);
+        $(".slideshowimagenamedivpage3 h1").remove();
+        $(".slideshowimagenamedivpage3 p").remove();
+        $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[4].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[4].node.description+"</p>");
+        });
+        
+        
+    }
+    
+    if(imgname==imge){
+        $(".slideshowimagepage3").fadeOut(500, function() {
+        $(".slideshowimagepage3").attr("src",imga);
+        $(".slideshowimagepage3").fadeIn(500);
+        $(".slideshowimagenamedivpage3 h1").remove();
+        $(".slideshowimagenamedivpage3 p").remove();
+        $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[0].node.description+"</p>");
+        });
+    }
+}
+
 
 function changepage(pagenumber){
-    if(pagenumber==1){
+    if(pagenumber==1 && currentpage!=pagenumber){
         $(".pageone").show();
         $(".pagetwo").hide();
         $(".pagethree").hide();
@@ -132,9 +286,12 @@ function changepage(pagenumber){
         
         $(".selectedItem").animate({
                 marginLeft: "0%",}, 300, function() {$(".selectedItem").css("width", "32.75%");});
+        
+        getFeaturedList();
+    
     }
     
-    if(pagenumber==2){
+    if(pagenumber==2 && currentpage!=pagenumber){
         
         $(".pageone").hide();
         $(".pagetwo").show();
@@ -160,9 +317,11 @@ function changepage(pagenumber){
         
         $(".selectedItem").animate({
                 marginLeft: "32.75%",}, 300, function() {$(".selectedItem").css("width", "34.5%");});
+            
+        getLatestPostList();
     }
     
-    if(pagenumber==3){
+    if(pagenumber==3 && currentpage!=pagenumber){
         $(".pageone").hide();
         $(".pagetwo").hide();
         $(".pagethree").show();
@@ -188,6 +347,8 @@ function changepage(pagenumber){
         
         $(".selectedItem").animate({
                 marginLeft: "67.25%",}, 300, function() {$(".selectedItem").css("width", "32.75%");});
+        
+        getAnnouncementList();
     }
 }
 
@@ -217,6 +378,8 @@ function pageSwipeLeft(){
 
             $(".selectedItem").animate({
                     marginLeft: "32.75%",}, 300, function() {$(".selectedItem").css("width", "34.5%");});
+            
+            getLatestPostList();
         }
         else if(currentpage==2){
              $(".pageone").hide();
@@ -237,6 +400,8 @@ function pageSwipeLeft(){
 
             $(".selectedItem").animate({
                     marginLeft: "67.25%",}, 300, function() {$(".selectedItem").css("width", "32.75%");});
+            
+            getAnnouncementList();
         }    
     }
     else{
@@ -272,6 +437,8 @@ function pageSwipeRight(){
 
             $(".selectedItem").animate({
                     marginLeft: "32.75%",}, 300, function() {$(".selectedItem").css("width", "34.5%");});
+            
+            getLatestPostList();
         }
         else if(currentpage==2){
             $(".pageone").show();
@@ -292,6 +459,8 @@ function pageSwipeRight(){
 
             $(".selectedItem").animate({
                     marginLeft: "0%",}, 300, function() {$(".selectedItem").css("width", "32.75%");});
+            
+            getFeaturedList();
         }
     }
 }
@@ -307,3 +476,42 @@ function itemOnClickService(){
 function goInbox(){
     window.location = "inboxPage.html";
 }
+
+function checkLoginStatus() {
+    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
+    db.transaction(runSelectProfile);
+}
+
+function runSelectProfile(t){
+    t.executeSql('SELECT * FROM userprofile', [], success, error);
+}
+
+function success(t, results){
+    if(results.rows.length==0)
+    {
+        $(".app").prepend("<div class='pagefooter' onclick='goLogin();'>Login</div>");
+    }
+}
+function error(err){
+//    alert('There was an error processing the SQL: '+err.message);
+}
+
+function initdb(){
+    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
+    db.transaction(inittabletransaction, errorinitdb, successinitdb);
+}
+
+function inittabletransaction(t) {
+    t.executeSql('CREATE TABLE IF NOT EXISTS userprofile (uid text, companyid text,name text, email text, profileImg text, role text, token text)');
+}
+
+function errorinitdb(err){
+//    alert('Error insert: '+err.message);
+    //alert("init Failed.");
+}
+
+function successinitdb(){
+    //alert('init success');
+}
+
+

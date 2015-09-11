@@ -11,17 +11,26 @@ function getFeaturedList(){
         "Content-Type": "application/json"
       },
       success: function(data, status, xhr) {
-        debugger;
-        for (var x = 0; x < data.nodes.length; x++) {
-            
+        debugger;        
+        $(".scrollul li").remove();
+        for (var x = 0; x < data.nodes.length; x++) {    
             if(data.nodes[x].node.type=="productservice"){
                 $(".scrollul").append("<li class='scrollli' onclick='viewProductDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
             }
             else if(data.nodes[x].node.type=="company"){
                 $(".scrollul").append("<li class='scrollli' onclick='' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "(" +data.nodes[x].node.type+")"+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
             }
-
         }
+          
+        $(".slideshowimagenamediv h1").remove();
+        $(".slideshowimagenamediv p").remove();
+        $(".slideshowimage").attr("src", data.nodes[0].node.background.src);
+        $(".slideshowimagenamediv").append("<h1 class='slideshowitemtitle'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperator'>&nbsp;</p><p class='slideshowitemdetails'>"+data.nodes[0].node.description+"</p>");
+        window.setInterval(function() {
+        slideshow(data);
+        },5000);
+          
+        
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -42,10 +51,21 @@ function getLatestPostList(){
       },
       success: function(data, status, xhr) {
         debugger;
+        $(".scrollulPage2 li").remove();
+          
         for (var x = 0; x < data.nodes.length; x++) {
             $(".scrollulPage2").append("<li class='scrollliPage2' onclick='itemOnClickService();' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage2' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage2'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperatorPage2'>&nbsp;</p><p class='listviewitemdetailsPage2'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
-
         }
+         
+          
+        $(".slideshowimagenamedivpage2 h1").remove();
+        $(".slideshowimagenamedivpage2 p").remove();
+        $(".slideshowimagepage2").attr("src", data.nodes[0].node.background .src);
+        $(".slideshowimagenamedivpage2").append("<h1 class='slideshowitemtitlepage2'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage2'>&nbsp;</p><p class='slideshowitemdetailspage2'>"+data.nodes[0].node.description+"</p>");
+        window.setInterval(function() {
+        slideshowpagetwo(data);
+        },5000);
+          
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -66,10 +86,21 @@ function getAnnouncementList(){
       },
       success: function(data, status, xhr) {
         debugger;
+        $(".scrollulPage3 li").remove();  
+          
         for (var x = 0; x < data.nodes.length; x++) {
             $(".scrollulPage3").append("<li class='scrollliPage3' onclick='itemOnClickService();' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage3' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage3'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperatorPage3'>&nbsp;</p><p class='listviewitemdetailsPage3'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
 
         }
+          
+        $(".slideshowimagenamedivpage3 h1").remove();
+        $(".slideshowimagenamedivpage3 p").remove();
+        $(".slideshowimagepage3").attr("src", data.nodes[0].node.background .src);
+        $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[0].node.description+"</p>");
+        window.setInterval(function() {
+        slideshowpagethree(data);
+        },5000);
+          
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -181,7 +212,178 @@ function getProductDetails(nid){
     })
 }
 
-                  
-                        
+
+function requestLogin(username, password){
+    var requestUrl=webUrl+"?q=services/session/token";
+    
+    $.ajax({
+      url: requestUrl,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      success: function(data, status, xhr) {
+        debugger;
+        var sessionToken=JSON.stringify(data);
+        postLogin(sessionToken, username, password);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          if(xhr.status==0)
+            alert("Unable connect to server."); 
+          
+        }
+    })
+}
+
+function postLogin(token, username, password){
+    var requestUrl=webUrl+"drupalgap/user/login";
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-CSRF-Token":token
+      },
+      data:"username=" + username + "&password="+password,
+      success: function(data, status, xhr) {
+        debugger;
+        var uid=data.user.uid;
+        var name=data.user.name;
+        var email=data.user.mail;
+        var profileimg=data.user.picture.url;
+        var role="";
+        var companyid=data.user.field_company_id_user.und[0].target_id;  
+          
+        $.each(data.user.roles , function(key , value){ // First Level
+            if(role=="")
+                role=role+key.toString()
+            else
+                role=role+","+key.toString();
+        });
+        
+        storeProfile(uid, companyid, name, email, profileimg, role, token);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          if(xhr.status==0)
+            alert("Unable connect to server.");      
+          else
+            alert("Invalid username or password");
+          
+          endLoading();
+        }
+    })
+}
+
+function storeProfile(uid, companyid, name, email, profileimg, role, token) {
+    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
+    var profile = {
+    values1 : [uid, companyid, name, email, profileimg, role, token]
+    };
+
+    insertProfile(profile);
+    
+    function insertProfile(profile) {
+        db.transaction(function(tx) {
+            tx.executeSql('DROP TABLE IF EXISTS userprofile');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS userprofile (uid text, companyid text,name text, email text, profileImg text, role text, token text)');
+            tx.executeSql('DELETE FROM userprofile');
+            tx.executeSql(
+                'INSERT INTO userprofile (uid, companyid, name, email, profileImg, role, token) VALUES (?, ?, ?, ?, ?, ?, ?)', 
+                profile.values1,
+                successLogin,
+                errorLogin
+            );
+        });
+    }
+}
+
+function errorLogin(err){
+//    alert('Error insert: '+err.message);
+    alert("Login Failed.");
+    endLoading();
+}
+
+function successLogin(){
+//    alert('insert success');
+    endLoading();
+    window.location="index.html";
+}
+
+
+function requestLogout(){
+    var requestUrl=webUrl+"?q=services/session/token";
+    
+    $.ajax({
+      url: requestUrl,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      success: function(data, status, xhr) {
+        debugger;
+        var sessionToken=JSON.stringify(data);
+        postLogout(sessionToken);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          if(xhr.status==0)
+            alert("Unable connect to server."); 
+          
+        }
+    })
+}
+
+
+function postLogout(token){
+    var requestUrl=webUrl+"drupalgap/user/logout";
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      success: function(data, status, xhr) {
+        debugger;
+//          var returnstr=JSON.stringify(data);
+//          alert(data);
+        deleteProfile();
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          
+          alert("Logout failed.serv" +xhr.responseText);
+          
+          endLoading();
+        }
+    })
+}
+
+
+function deleteProfile() {
+    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
+    db.transaction(runDeleteProfile);
+}
+
+function runDeleteProfile(t){
+    t.executeSql('DELETE FROM userprofile', successDeleteProfile, errorDeleteProfile);
+}
+
+  
+function errorDeleteProfile(err){
+//    alert('Error insert: '+err.message);
+    endLoading();
+    alert("Logout Failed. db");
+}
+
+function successDeleteProfile(){
+    endLoading();
+    alert("Logout Succesfully");
+    window.location="index.html";
+}
+
                         
                         

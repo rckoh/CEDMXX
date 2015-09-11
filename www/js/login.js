@@ -171,3 +171,13 @@ function changepage(pagenumber){
                 marginLeft: "0%",}, 300, function() {currentpage=3;});
     }
 }
+
+function login(){
+    startLoading();
+    
+    var username=$("#username").val();
+    var password=$("#password").val();
+    var sessiontoken=requestLogin(username, password);
+    
+    
+}
