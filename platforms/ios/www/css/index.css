@@ -76,7 +76,7 @@
     background-color: #00FFFF;
     width: 32.75%;
     height: 2px;
-    z-index: 96;
+    z-index: 89;
     /* top:12%; */
 /*    margin: 0px 0.5% 0px 0px;*/
     padding: 0px 0px 0px 0px;
@@ -206,6 +206,7 @@
     position: absolute;
     background-color: #32978f;
     opacity: 0.9;
+    min-height: 17vw;
 }
 
 .slideshowimagename{
@@ -222,11 +223,11 @@
     color: white;
     background-color: transparent;
     font-weight: normal;
-    line-height: auto;
+    line-height: 4.5vw;
     margin: 10px 10px 10px 10px;
     font-family: "Roboto-Regular";
     font-size: 4vw;
-    max-height: 4.1vw;
+    max-height: 4.5vw;
     text-overflow: ellipsis;
     overflow: hidden;
 }
@@ -235,18 +236,19 @@
     color: white;
     background-color: transparent;
     font-weight: normal;
-    line-height: 15px;
+    line-height: 3.5vw;
     margin: 10px 10px 10px 10px;
     font-family: "Roboto-Thin";
     font-size: 3vw;
     text-align: justify;
-    max-height: 30px;
+    max-height: 10.5vw;
+    min-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
 }
 
 .slideshowitemseperator{
-    line-height: 2px;
+    line-height: 1vw;
     color: #32978f;
     margin: 10px 10px 10px 10px;
     color: white;
@@ -273,6 +275,220 @@
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
+
+
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* image slideshow page 2 Style */
+.imagecontentpage2{
+    background:url(../img/bgtemplate.png) no-repeat center top; 
+    height: 45%;
+    width: 100%;
+    background-color: white;
+    position:  absolute;
+/*    line-height: 40px;*/
+}
+
+.slideshowimagepage2{
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    width: auto;
+    position: absolute;  
+    top: 0%;  
+    bottom: 0%;  
+    left: 0%;  
+    right: 0%;  
+    margin: auto;
+}
+
+.slideshowimagenamedivpage2{
+    width: 100%;
+    bottom: 0%;
+    position: absolute;
+    background-color: #32978f;
+    opacity: 0.9;
+    min-height: 17vw;
+}
+
+.slideshowimagenamepage2{
+    padding: 0px 0px 0px 0px;
+    margin: 10px 10px 10px 10px;
+    color: white;
+    font-size: 15px;
+    text-align: left;
+/*    position: absolute;*/
+    display: inline-block;
+}
+
+.slideshowitemtitlepage2{
+    color: white;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 4.5vw;
+    margin: 10px 10px 10px 10px;
+    font-family: "Roboto-Regular";
+    font-size: 4vw;
+    max-height: 4.5vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.slideshowitemdetailspage2{
+    color: white;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 3.5vw;
+    margin: 10px 10px 10px 10px;
+    font-family: "Roboto-Thin";
+    font-size: 3vw;
+    text-align: justify;
+    max-height: 10.5vw;
+    min-height: 10.5vw;
+    text-overflow: clip;
+    overflow: hidden;
+}
+
+.slideshowitemseperatorpage2{
+    line-height: 1vw;
+    color: #32978f;
+    margin: 10px 10px 10px 10px;
+    color: white;
+    border-bottom: 1px solid white;
+    width: 30px;
+}
+
+.userSummarypage2{
+    line-height: 15px;
+    right:10px;
+    font-family: "Roboto-Thin";
+    font-size: ;
+    text-align: right;
+    color: white;
+}
+
+.userSummaryIconpage2{
+    width: 2.5vw;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* image slideshow page 2 Style end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* image slideshow page 3 Style */
+.imagecontentpage3{
+    background:url(../img/bgtemplate.png) no-repeat center top; 
+    height: 45%;
+    width: 100%;
+    background-color: white;
+    position:  absolute;
+/*    line-height: 40px;*/
+}
+
+.slideshowimagepage3{
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+    width: auto;
+    position: absolute;  
+    top: 0%;  
+    bottom: 0%;  
+    left: 0%;  
+    right: 0%;  
+    margin: auto;
+}
+
+.slideshowimagenamedivpage3{
+    width: 100%;
+    bottom: 0%;
+    position: absolute;
+    background-color: #32978f;
+    opacity: 0.9;
+    min-height: 17vw;
+}
+
+.slideshowimagenamepage3{
+    padding: 0px 0px 0px 0px;
+    margin: 10px 10px 10px 10px;
+    color: white;
+    font-size: 15px;
+    text-align: left;
+/*    position: absolute;*/
+    display: inline-block;
+}
+
+.slideshowitemtitlepage3{
+    color: white;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 4.5vw;
+    margin: 10px 10px 10px 10px;
+    font-family: "Roboto-Regular";
+    font-size: 4vw;
+    max-height: 4.5vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.slideshowitemdetailspage3{
+    color: white;
+    background-color: transparent;
+    font-weight: normal;
+    line-height: 3.5vw;
+    margin: 10px 10px 10px 10px;
+    font-family: "Roboto-Thin";
+    font-size: 3vw;
+    text-align: justify;
+    max-height: 10.5vw;
+    min-height: 10.5vw;
+    text-overflow: clip;
+    overflow: hidden;
+}
+
+.slideshowitemseperatorpage3{
+    line-height: 1vw;
+    color: #32978f;
+    margin: 10px 10px 10px 10px;
+    color: white;
+    border-bottom: 1px solid white;
+    width: 30px;
+}
+
+.userSummarypage3{
+    line-height: 15px;
+    right:10px;
+    font-family: "Roboto-Thin";
+    font-size: ;
+    text-align: right;
+    color: white;
+}
+
+.userSummaryIconpage3{
+    width: 2.5vw;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* image slideshow page 3 Style end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
 
 
 
@@ -612,7 +828,7 @@
     text-align: center;
     line-height: 30px;
     font-size: 3.5vw;
-    z-index: 98;
+    z-index:89;
     background-color: #32978f;
     position: absolute;
     bottom:0;
