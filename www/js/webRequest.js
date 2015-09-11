@@ -1,4 +1,5 @@
 var webUrl = "http://netinfinium.publicvm.com:86/";
+var intervalid, intervalidpage2, intervalidpage3;
 
 function getFeaturedList(){
     //alert("webrequst");
@@ -26,7 +27,8 @@ function getFeaturedList(){
         $(".slideshowimagenamediv p").remove();
         $(".slideshowimage").attr("src", data.nodes[0].node.background.src);
         $(".slideshowimagenamediv").append("<h1 class='slideshowitemtitle'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperator'>&nbsp;</p><p class='slideshowitemdetails'>"+data.nodes[0].node.description+"</p>");
-        window.setInterval(function() {
+        window.clearInterval(intervalid);
+        intervalid=window.setInterval(function() {
         slideshow(data);
         },5000);
           
@@ -62,7 +64,9 @@ function getLatestPostList(){
         $(".slideshowimagenamedivpage2 p").remove();
         $(".slideshowimagepage2").attr("src", data.nodes[0].node.background .src);
         $(".slideshowimagenamedivpage2").append("<h1 class='slideshowitemtitlepage2'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage2'>&nbsp;</p><p class='slideshowitemdetailspage2'>"+data.nodes[0].node.description+"</p>");
-        window.setInterval(function() {
+       
+        window.clearInterval(intervalidpage2);
+        intervalidpage2=window.setInterval(function() {
         slideshowpagetwo(data);
         },5000);
           
@@ -97,7 +101,9 @@ function getAnnouncementList(){
         $(".slideshowimagenamedivpage3 p").remove();
         $(".slideshowimagepage3").attr("src", data.nodes[0].node.background .src);
         $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[0].node.description+"</p>");
-        window.setInterval(function() {
+        
+        window.clearInterval(intervalidpage3);  
+        intervalidpage3=window.setInterval(function() {
         slideshowpagethree(data);
         },5000);
           
