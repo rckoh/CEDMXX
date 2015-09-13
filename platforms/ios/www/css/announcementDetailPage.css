@@ -121,16 +121,16 @@
 
 .scrollli h1{
     font-family: "Roboto-Regular";
-    font-size: 17px;
+    font-size: 4vw;
     color: #46a19a;
     margin: 0px 0px 0px 0px;
     background-color: white;
-    height: 30px;
+    height: auto;
 }
 
 .scrollli h2{
     font-family: "Roboto-Regular";
-    font-size: 15px;
+    font-size: 3vw;
     color: #46a19a;
     margin: 0px 0px 0px 0px;
     background-color: white;
@@ -156,7 +156,7 @@
 }
 
 #productImg{
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 

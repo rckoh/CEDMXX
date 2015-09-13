@@ -163,10 +163,53 @@ function pageSwipeRight(){
     }
 }
 
-function itemOnClick(){
-    window.location = "productDetailPage.html";
+
+function initcompanyprofile(){
+    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
+    db.transaction(runGetComanyIdTrnasaction);
 }
 
-function itemOnClickService(){
-    window.location = "serviceDetailPage.html";
+function runGetComanyIdTrnasaction(t){
+    t.executeSql('select companyid from userprofile', [], successGetCompanyId, errorGetCompanyId);    
 }
+
+function successGetCompanyId(t, results){
+    if(results.rows.length>0)
+    {
+        var companyid=results.rows.item(0).companyid;
+        requestCompanyProfile(companyid);
+        getProfileProdServList(companyid);
+    }
+
+}
+
+function errorGetCompanyId(err){
+//    alert('There was an error processing the SQL: '+err.message);
+} 
+
+function initUserPoint(){
+    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
+    db.transaction(runGetUserIdTransaction);
+}
+
+function runGetUserIdTransaction(t){
+    t.executeSql('select uid, name, profileImg from userprofile', [], successGetUserId, errorGetUserid);    
+}
+
+function successGetUserId(t, results){
+    if(results.rows.length>0)
+    {
+        requestUserPoint(results.rows.item(0).uid);
+        $("#lblUSername").text(results.rows.item(0).name);
+       
+//        $("#imgProfile").attr("src".results.rows.item(0).profileImg);
+       
+    }
+
+}
+
+function errorGetUserid(err){
+    alert("fail");
+//    alert('There was an error processing the SQL: '+err.message);
+} 
+

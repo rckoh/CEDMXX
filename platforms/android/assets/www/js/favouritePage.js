@@ -48,3 +48,24 @@ function pageSwipeLeft(){
 function clearSearch(){
     $("#searchTextBox").val("");
 }
+
+function initfavlist(){
+    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
+    db.transaction(rungetUserIdTrnasaction);
+}
+
+function rungetUserIdTrnasaction(t){
+    t.executeSql('select uid from userprofile', [], successGetUSerId, errorGetUSerId);    
+}
+
+function successGetUSerId(t, results){
+    if(results.rows.length>0)
+    {
+        getFavouriteList(results.rows.item(0).uid);
+    }
+
+}
+
+function errorGetUSerId(err){
+//    alert('There was an error processing the SQL: '+err.message);
+} 

@@ -469,8 +469,8 @@ function itemOnClick(){
     window.location = "productDetailPage.html";
 }
 
-function itemOnClickService(){
-    window.location = "serviceDetailPage.html";
+function itemOnClickAnnouncement(){
+    window.location = "announcementDetailPage.html";
 }
 
 function goInbox(){

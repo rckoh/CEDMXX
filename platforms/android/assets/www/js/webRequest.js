@@ -2,7 +2,6 @@ var webUrl = "http://netinfinium.publicvm.com:86/";
 var intervalid, intervalidpage2, intervalidpage3;
 
 function getFeaturedList(){
-    //alert("webrequst");
     var requestUrl=webUrl+"drupalgap/getfeatured";
     
     $.ajax({
@@ -56,13 +55,13 @@ function getLatestPostList(){
         $(".scrollulPage2 li").remove();
           
         for (var x = 0; x < data.nodes.length; x++) {
-            $(".scrollulPage2").append("<li class='scrollliPage2' onclick='itemOnClickService();' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage2' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage2'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperatorPage2'>&nbsp;</p><p class='listviewitemdetailsPage2'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+            $(".scrollulPage2").append("<li class='scrollliPage2' onclick='viewAnnouncementDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage2' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage2'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperatorPage2'>&nbsp;</p><p class='listviewitemdetailsPage2'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
         }
          
           
         $(".slideshowimagenamedivpage2 h1").remove();
         $(".slideshowimagenamedivpage2 p").remove();
-        $(".slideshowimagepage2").attr("src", data.nodes[0].node.background .src);
+        $(".slideshowimagepage2").attr("src", data.nodes[0].node.background.src);
         $(".slideshowimagenamedivpage2").append("<h1 class='slideshowitemtitlepage2'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage2'>&nbsp;</p><p class='slideshowitemdetailspage2'>"+data.nodes[0].node.description+"</p>");
        
         window.clearInterval(intervalidpage2);
@@ -90,16 +89,17 @@ function getAnnouncementList(){
       },
       success: function(data, status, xhr) {
         debugger;
+          
         $(".scrollulPage3 li").remove();  
           
         for (var x = 0; x < data.nodes.length; x++) {
-            $(".scrollulPage3").append("<li class='scrollliPage3' onclick='itemOnClickService();' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage3' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage3'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperatorPage3'>&nbsp;</p><p class='listviewitemdetailsPage3'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+            $(".scrollulPage3").append("<li class='scrollliPage3' onclick='viewAnnouncementDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage3' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage3'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperatorPage3'>&nbsp;</p><p class='listviewitemdetailsPage3'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
 
         }
           
         $(".slideshowimagenamedivpage3 h1").remove();
         $(".slideshowimagenamedivpage3 p").remove();
-        $(".slideshowimagepage3").attr("src", data.nodes[0].node.background .src);
+        $(".slideshowimagepage3").attr("src", data.nodes[0].node.background.src);
         $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[0].node.description+"</p>");
         
         window.clearInterval(intervalidpage3);  
@@ -185,7 +185,7 @@ function getProductDetails(nid){
           var returnstr=JSON.stringify(data);
         for (var x = 0; x < data.nodes.length; x++) {
             var title=data.nodes[x].node.title;
-            var imageUrl=data.nodes[x].node.image.src;
+            var imageUrl=data.nodes[x].node.background.src;
             var desc=(data.nodes[x].node.description=="")?"N/A":data.nodes[x].node.description;
             var unidsellingpoint=(data.nodes[x].node.product_unique_selling_point=="")?"N/A":data.nodes[x].node.product_unique_selling_point;
             var custRef=(data.nodes[x].node.customer_reference=="")?"N/A":data.nodes[x].node.customer_reference;
@@ -218,6 +218,194 @@ function getProductDetails(nid){
     })
 }
 
+function getAnnouncementDetails(nid){
+    var requestUrl=webUrl+"drupalgap/getpostdetail/"+nid;
+    $.ajax({
+      url: requestUrl,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      success: function(data, status, xhr) {
+        debugger;
+
+        var title=data.nodes[0].node.title;
+          
+        var imageUrl=data.nodes[0].node.background.src;
+        var desc=(data.nodes[0].node.description=="")?"N/A":data.nodes[0].node.description;
+          
+        $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><br><p class='description'>"+desc+"</p><p><br><br></p></li>");
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          //alert(xhr.status);
+        }
+    })
+}
+
+function getFavouriteList(uid){
+    var requestUrl=webUrl+"drupalgap/getfavourite/"+uid;
+    $.ajax({
+      url: requestUrl,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      success: function(data, status, xhr) {
+        debugger;   
+        $(".scrollul li").remove();
+        for (var x = 0; x < data.nodes.length; x++) {    
+            if(data.nodes[x].node.type=="Product" || data.nodes[x].node.type=="Service"){
+                $(".scrollul").append("<li class='scrollli' onclick='viewProductDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+            }
+            else if(data.nodes[x].node.type=="Company"){
+                $(".scrollul").append("<li class='scrollli' onclick='' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "(" +data.nodes[x].node.type+")"+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+            }
+        }
+          
+        $(".slideshowimagenamediv h1").remove();
+        $(".slideshowimagenamediv p").remove();
+        $(".slideshowimage").attr("src", data.nodes[0].node.background.src);
+        $(".slideshowimagenamediv").append("<h1 class='slideshowitemtitle'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperator'>&nbsp;</p><p class='slideshowitemdetails'>"+data.nodes[0].node.description+"</p>");
+        window.clearInterval(intervalid);
+        intervalid=window.setInterval(function() {
+        slideshow(data);
+        },5000);
+          
+        
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          //alert(xhr.status);
+        }
+    })
+}
+
+function requestCompanyProfile(companyid){
+    var requestUrl=webUrl+"?q=services/session/token";
+    
+    $.ajax({
+      url: requestUrl,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      success: function(data, status, xhr) {
+        debugger;
+        var sessionToken=JSON.stringify(data);
+        postCompanyProfile(companyid,sessionToken);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          if(xhr.status==0)
+            alert("Unable connect to server."); 
+          
+        }
+    })
+}
+
+function postCompanyProfile(companyid, token){
+    var requestUrl=webUrl+"drupalgap/mobileapp/companyprofile.json?nid="+companyid;
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      success: function(data, status, xhr) {
+        debugger;
+        var newJsonObj=$.parseJSON(data);
+        
+        var numberofview=newJsonObj.total_view;
+        var numberoffav=newJsonObj.total_favourite;
+        var numberofshare=newJsonObj.total_share;
+        
+        $("#lblviewnumber").text(numberofview);
+        $("#lblfavnumber").text(numberoffav);
+        $("#lblsharenumber").text(numberofshare);
+        
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server.");
+        }
+    })
+}
+
+
+function requestUserPoint(uid){
+    var requestUrl=webUrl+"?q=services/session/token";
+    $.ajax({
+      url: requestUrl,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      success: function(data, status, xhr) {
+        debugger;
+        var sessionToken=JSON.stringify(data);
+        postUserPoint(uid,sessionToken);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          if(xhr.status==0)
+            alert("Unable connect to server."); 
+          
+        }
+    })
+}
+
+function postUserPoint(uid, token){
+    var requestUrl=webUrl+"drupalgap/mobileapp/userpoints.json?uid="+uid;
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      success: function(data, status, xhr) {
+        debugger;
+        var newJsonObj=$.parseJSON(data);
+
+        var numberofearn=newJsonObj.total_earned;
+        var numberofredeem=newJsonObj.total_redeemed;
+        var numberofbalance=newJsonObj.totalbalanced;
+        
+        $("#lblpointearn").text(numberofearn+" Points");
+        $("#lblpointredeem").text(numberofredeem+" Points");
+        $("#lblpointbalance").text(numberofbalance+ " Points");
+        
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server.");
+        }
+    })
+}
+
+function getProfileProdServList(companyid){
+    var requestUrl=webUrl+"drupalgap/getprodservlist/"+companyid;
+    $.ajax({
+      url: requestUrl,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      success: function(data, status, xhr) {
+        debugger;        
+        $(".scrollulPage2 li").remove();
+        for (var x = 0; x < data.nodes.length; x++) {    
+            $(".scrollulPage2").append("<li class='scrollliPage2' onclick='viewProductDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage2' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage2'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperatorPage2'>&nbsp;</p><p class='listviewitemdetailsPage2'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+        }
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          //alert(xhr.status);
+        }
+    })
+}
 
 function requestLogin(username, password){
     var requestUrl=webUrl+"?q=services/session/token";

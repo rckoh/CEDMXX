@@ -11,6 +11,8 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/announcementDetailPage.js"></script>
         <script type="text/javascript" src="facebookConnectPlugin.js"></script>
+        <script type="text/javascript" src="js/queryStr.js"></script>
+        <script type="text/javascript" src="js/webRequest.js"></script>
         <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
         <script type="text/javascript">
             $(document).bind('mobileinit',function(){
@@ -26,7 +28,7 @@
         <script type="text/javascript">
             document.addEventListener("deviceready", onDeviceReady, false);
             var menuStatus;
-            
+
             $(function(){
 	
                 $("#pageBody").on("swipeleft", function(){
@@ -45,7 +47,7 @@
         <script type="text/javascript" src="js/slidemenuaction.js"></script>
         
     </head>
-    <body id="pageBody">
+    <body id="pageBody" onload="loadContent();">
         <div data-role="app" class="app" id="app">
             <div class="menuheader">
                 <div class="menuheaderleft">
@@ -69,30 +71,30 @@
                 </div>
             </div>
             <div class="submenu">
-                <button class="backBtn" onclick="back();"><img src=img/backbuttonsmall.png class="backBtnImgSmall"/></button>&nbsp;Back to search results
+                <button class="backBtn" onclick="back();"><img src=img/backbuttonsmall.png class="backBtnImgSmall"/></button>&nbsp;Back
             </div>
             <div class="content">
                 <div class="pageone">
                     <div class="wrapper" id="wrapper">
                         <div class="scroll-content" id="scroll-content">
                             <ul class="scrollul" id="scrollul">
+<!--
                                 <li class="scrollli">
                                     <h1 id="companyName">Creative Technology Consultancy</h1>
                                     <br>
                                     <p><img id="productImg" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg"/></p>
                                     <p class="seperator">&nbsp;</p><br>
-                                    
-                                    <h2>Customer References</h2>
-                                    <p class="h2seperator">&nbsp;</p>
                                     <p class="description"> MSC Malaysia eSolutions was first designed to bridge the gap for potential buyrs and sellers to access into a wide range of innovative products and services offered oin the areas of technological industries.<br><br>Todat, the demands and awareness in this industry has grown into a mass needs in keeping up with the latest trend in technology and are alwayson the lookout for new ideas in the market.<br><br>This has expanded the MSC Malaysia products and services listing portal into a centre-stage for buyers, sellers, affiliates and funders to extend the vines of their networks for business oppurtunities, new venture interests and promising business partners.</p>
                                     <p><br><br></p>
                                 </li>
+-->
                             </ul>
                             <br>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         <script type="text/javascript" src="../plugins/iscroll-master/build/iscroll-lite.js"></script>
  
         <script type="text/javascript">
@@ -103,8 +105,10 @@
         }
         </script>
         <script type="text/javascript">
-            initsubmenustyle();
+            
+//            initsubmenustyle();
             app.initialize();
+            checkMenuLoginStatus();
         </script>
     </body>
 </html>
