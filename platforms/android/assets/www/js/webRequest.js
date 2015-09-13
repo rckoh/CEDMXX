@@ -276,7 +276,7 @@ function getFavouriteList(uid){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          //alert(xhr.status);
+          alert("Unable connect to server.");
         }
     })
 }
@@ -298,7 +298,7 @@ function requestCompanyProfile(companyid){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           if(xhr.status==0)
-            alert("Unable connect to server."); 
+            alert("Unable connect to server." + xhr.responseText);
           
         }
     })
@@ -328,7 +328,7 @@ function postCompanyProfile(companyid, token){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");
+          alert("Unable connect to server." + xhr.responseText);
         }
     })
 }
@@ -350,7 +350,7 @@ function requestUserPoint(uid){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           if(xhr.status==0)
-            alert("Unable connect to server."); 
+            alert("Unable connect to server." + xhr.responseText);
           
         }
     })
@@ -380,7 +380,7 @@ function postUserPoint(uid, token){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");
+          alert("Unable connect to server." + xhr.responseText);
         }
     })
 }
@@ -402,7 +402,7 @@ function getProfileProdServList(companyid){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          //alert(xhr.status);
+          alert("Unable connect to server." + xhr.responseText);
         }
     })
 }
