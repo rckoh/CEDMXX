@@ -436,6 +436,7 @@ function requestLogin(username, password){
           if(xhr.status==0)
             alert("Unable connect to server."); 
           
+          endLoading();
         }
     })
 }
