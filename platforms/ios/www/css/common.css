@@ -294,7 +294,7 @@ input:focus {
 
 .loadingIcon{
     position: absolute;
-    top: 50vw;
+    top: 80vw;
     right:44vw;
     width: 12vw;
     height: 12vw;
