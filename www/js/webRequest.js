@@ -10,6 +10,7 @@ function getFeaturedList(){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;        
         $(".scrollul li").remove();
@@ -50,6 +51,7 @@ function getLatestPostList(){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
         $(".scrollulPage2 li").remove();
@@ -68,7 +70,6 @@ function getLatestPostList(){
         intervalidpage2=window.setInterval(function() {
         slideshowpagetwo(data);
         },5000);
-          
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -87,6 +88,7 @@ function getAnnouncementList(){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
           
@@ -125,6 +127,7 @@ function getSearchResultList(key){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
           var returnstr=JSON.stringify(data);
@@ -180,6 +183,7 @@ function getProductDetails(nid){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
           var returnstr=JSON.stringify(data);
@@ -226,6 +230,7 @@ function getAnnouncementDetails(nid){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
 
@@ -251,6 +256,7 @@ function getFavouriteList(uid){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;   
         $(".scrollul li").remove();
@@ -271,8 +277,6 @@ function getFavouriteList(uid){
         intervalid=window.setInterval(function() {
         slideshow(data);
         },5000);
-          
-        
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -290,6 +294,7 @@ function requestCompanyProfile(companyid){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
         var sessionToken=JSON.stringify(data);
@@ -313,6 +318,7 @@ function postCompanyProfile(companyid, token){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
         var newJsonObj=$.parseJSON(data);
@@ -342,6 +348,7 @@ function requestUserPoint(uid){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
         var sessionToken=JSON.stringify(data);
@@ -365,6 +372,7 @@ function postUserPoint(uid, token){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
         var newJsonObj=$.parseJSON(data);
@@ -393,6 +401,7 @@ function getProfileProdServList(companyid){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;        
         $(".scrollulPage2 li").remove();
@@ -416,6 +425,7 @@ function requestLogin(username, password){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
         var sessionToken=JSON.stringify(data);
@@ -441,6 +451,7 @@ function postLogin(token, username, password){
         "X-CSRF-Token":token
       },
       data:"username=" + username + "&password="+password,
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
         var uid=data.user.uid;
@@ -516,6 +527,7 @@ function requestLogout(){
       headers: {
         "Content-Type": "application/json"
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
         var sessionToken=JSON.stringify(data);
@@ -540,6 +552,7 @@ function postLogout(token){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
+      timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
 //          var returnstr=JSON.stringify(data);
