@@ -292,15 +292,23 @@ input:focus {
     z-index: 98;
 }
 
-.loadingIcon{
+.loadingFrame{
     position: absolute;
-    top: 80vw;
+    top: 60vw;
     right:44vw;
-    width: 12vw;
-    height: 12vw;
+    width: 14vw;
+    height: 14vw;
     background-color: black;
     border-radius: 10px;
     z-index: 99;
+}
+
+.loadingIcon{
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
 }
 
 

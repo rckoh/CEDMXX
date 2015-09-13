@@ -519,64 +519,65 @@ function successLogin(){
 
 
 function requestLogout(){
-    var requestUrl=webUrl+"?q=services/session/token";
-    
-    $.ajax({
-      url: requestUrl,
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      timeout: 10000,    
-      success: function(data, status, xhr) {
-        debugger;
-        var sessionToken=JSON.stringify(data);
-        postLogout(sessionToken);
-      },
-      error:function (xhr, ajaxOptions, thrownError){
-        debugger;
-          if(xhr.status==0)
-            alert("Unable connect to server."); 
-          
-        }
-    })
+    deleteProfile();
+//    var requestUrl=webUrl+"?q=services/session/token";
+//    
+//    $.ajax({
+//      url: requestUrl,
+//      method: "GET",
+//      headers: {
+//        "Content-Type": "application/json"
+//      },
+//      timeout: 10000,    
+//      success: function(data, status, xhr) {
+//        debugger;
+//        var sessionToken=JSON.stringify(data);
+//        postLogout(sessionToken);
+//      },
+//      error:function (xhr, ajaxOptions, thrownError){
+//        debugger;
+//          if(xhr.status==0)
+//            alert("Unable connect to server."); 
+//          
+//        }
+//    })
 }
 
 
 function postLogout(token){
-    var requestUrl=webUrl+"drupalgap/user/logout";
-    $.ajax({
-      url: requestUrl,
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-CSRF-Token":token
-      },
-      timeout: 10000,    
-      success: function(data, status, xhr) {
-        debugger;
-//          var returnstr=JSON.stringify(data);
-//          alert(data);
-        deleteProfile();
-      },
-      error:function (xhr, ajaxOptions, thrownError){
-        debugger;
-          
-          alert("Unable connect to server."); 
-          
-          endLoading();
-        }
-    })
+//    var requestUrl=webUrl+"drupalgap/user/logout";
+//    $.ajax({
+//      url: requestUrl,
+//      method: "POST",
+//      headers: {
+//        "Content-Type": "application/json",
+//        "X-CSRF-Token":token
+//      },
+//      timeout: 10000,    
+//      success: function(data, status, xhr) {
+//        debugger;
+////          var returnstr=JSON.stringify(data);
+////          alert(data);
+//        deleteProfile();
+//      },
+//      error:function (xhr, ajaxOptions, thrownError){
+//        debugger;
+//          
+//          alert("Unable connect to server."); 
+//          
+//          endLoading();
+//        }
+//    })
 }
 
 
 function deleteProfile() {
     var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
-    db.transaction(runDeleteProfile);
+    db.transaction(runDeleteProfile, errorDeleteProfile, successDeleteProfile);
 }
 
 function runDeleteProfile(t){
-    t.executeSql('DELETE FROM userprofile', successDeleteProfile, errorDeleteProfile);
+    t.executeSql('DELETE FROM userprofile');
 }
 
   
