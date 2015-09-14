@@ -318,6 +318,7 @@ function postCompanyProfile(companyid, token){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
+      crossDomain: true,
       timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
@@ -372,6 +373,7 @@ function postUserPoint(uid, token){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
+      crossDomain: true,
       timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
