@@ -6,7 +6,7 @@ function getFeaturedList(){
     
     $.ajax({
       url: requestUrl,
-      method: "GET",
+      type: "GET",
       headers: {
         "Content-Type": "application/json"
       },
@@ -47,7 +47,7 @@ function getLatestPostList(){
     
     $.ajax({
       url: requestUrl,
-      method: "GET",
+      type: "GET",
       headers: {
         "Content-Type": "application/json"
       },
@@ -84,7 +84,7 @@ function getAnnouncementList(){
     
     $.ajax({
       url: requestUrl,
-      method: "GET",
+      type: "GET",
       headers: {
         "Content-Type": "application/json"
       },
@@ -123,7 +123,7 @@ function getSearchResultList(key){
     
     $.ajax({
       url: requestUrl,
-      method: "GET",
+      type: "GET",
       headers: {
         "Content-Type": "application/json"
       },
@@ -179,7 +179,7 @@ function getProductDetails(nid){
     
     $.ajax({
       url: requestUrl,
-      method: "GET",
+      type: "GET",
       headers: {
         "Content-Type": "application/json"
       },
@@ -226,7 +226,7 @@ function getAnnouncementDetails(nid){
     var requestUrl=webUrl+"drupalgap/getpostdetail/"+nid;
     $.ajax({
       url: requestUrl,
-      method: "GET",
+      type: "GET",
       headers: {
         "Content-Type": "application/json"
       },
@@ -252,7 +252,7 @@ function getFavouriteList(uid){
     var requestUrl=webUrl+"drupalgap/getfavourite/"+uid;
     $.ajax({
       url: requestUrl,
-      method: "GET",
+      type: "GET",
       headers: {
         "Content-Type": "application/json"
       },
@@ -290,7 +290,7 @@ function requestCompanyProfile(companyid){
     
     $.ajax({
       url: requestUrl,
-      method: "GET",
+      type: "GET",
       headers: {
         "Content-Type": "application/json"
       },
@@ -313,7 +313,7 @@ function postCompanyProfile(companyid, token){
     var requestUrl=webUrl+"drupalgap/mobileapp/companyprofile.json?nid="+companyid;
     $.ajax({
       url: requestUrl,
-      method: "POST",
+      type: "POST",
       headers: {
         "Content-Type": "application/json",
         "X-CSRF-Token":token
@@ -345,7 +345,7 @@ function requestUserPoint(uid){
     var requestUrl=webUrl+"?q=services/session/token";
     $.ajax({
       url: requestUrl,
-      method: "GET",
+      type: "GET",
       headers: {
         "Content-Type": "application/json"
       },
@@ -368,7 +368,7 @@ function postUserPoint(uid, token){
     var requestUrl=webUrl+"drupalgap/mobileapp/userpoints.json?uid="+uid;
     $.ajax({
       url: requestUrl,
-      method: "POST",
+      type: "POST",
       headers: {
         "Content-Type": "application/json",
         "X-CSRF-Token":token
@@ -423,7 +423,7 @@ function requestLogin(username, password){
     
     $.ajax({
       url: requestUrl,
-      method: "GET",
+      type: "GET",
       headers: {
         "Content-Type": "application/json"
       },
