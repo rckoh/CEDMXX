@@ -122,7 +122,8 @@
             </dict>
         </array>
     </gap:config-file>
-    <access origin="*" subdomains="true" />
+    <access origin="http://*" />
+    <access origin="https://*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />

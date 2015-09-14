@@ -99,7 +99,9 @@
         </dict> 
         </array> 
     </gap:config-file> 
-    <access origin="*" subdomains="true"/>
+    <access origin="http://*" />
+    <access origin="https://*" />
+<!--    <access origin="*" subdomains="true"/>-->
     <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
