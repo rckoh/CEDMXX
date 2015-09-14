@@ -311,6 +311,7 @@ function requestCompanyProfile(companyid){
 
 function postCompanyProfile(companyid, token){
     var requestUrl=webUrl+"drupalgap/mobileapp/companyprofile.json?nid="+companyid;
+    alert(token);
     $.ajax({
       url: requestUrl,
       type: "POST",
@@ -365,6 +366,7 @@ function requestUserPoint(uid){
 
 function postUserPoint(uid, token){
     var requestUrl=webUrl+"drupalgap/mobileapp/userpoints.json?uid="+uid;
+    alert(token);
     $.ajax({
       url: requestUrl,
       type: "POST",
@@ -520,55 +522,54 @@ function successLogin(){
 
 
 function requestLogout(){
-    deleteProfile();
-//    var requestUrl=webUrl+"?q=services/session/token";
-//    
-//    $.ajax({
-//      url: requestUrl,
-//      method: "GET",
-//      headers: {
-//        "Content-Type": "application/json"
-//      },
-//      timeout: 10000,    
-//      success: function(data, status, xhr) {
-//        debugger;
-//        var sessionToken=JSON.stringify(data);
-//        postLogout(sessionToken);
-//      },
-//      error:function (xhr, ajaxOptions, thrownError){
-//        debugger;
-//          if(xhr.status==0)
-//            alert("Unable connect to server."); 
-//          
-//        }
-//    })
+    //deleteProfile();
+    var requestUrl=webUrl+"?q=services/session/token";
+    
+    $.ajax({
+      url: requestUrl,
+      type: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+        var sessionToken=JSON.stringify(data);
+        postLogout(sessionToken);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          if(xhr.status==0)
+            alert("Unable connect to server."); 
+        }
+    })
 }
 
 
 function postLogout(token){
-//    var requestUrl=webUrl+"drupalgap/user/logout";
-//    $.ajax({
-//      url: requestUrl,
-//      method: "POST",
-//      headers: {
-//        "Content-Type": "application/json",
-//        "X-CSRF-Token":token
-//      },
-//      timeout: 10000,    
-//      success: function(data, status, xhr) {
-//        debugger;
-////          var returnstr=JSON.stringify(data);
-////          alert(data);
-//        deleteProfile();
-//      },
-//      error:function (xhr, ajaxOptions, thrownError){
-//        debugger;
-//          
-//          alert("Unable connect to server."); 
-//          
-//          endLoading();
-//        }
-//    })
+    var requestUrl=webUrl+"drupalgap/user/logout";
+    $.ajax({
+      url: requestUrl,
+      type: "POST",
+      dataType: 'json',
+      beforeSend: function (request) {
+        request.setRequestHeader("X-CSRF-Token", token);
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+//          var returnstr=JSON.stringify(data);
+//          alert(data);
+        deleteProfile();
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          
+          alert("Unable connect to server." + xhr.status + " " + xhr.resoponseText); 
+          
+          endLoading();
+        }
+    })
 }
 
 
