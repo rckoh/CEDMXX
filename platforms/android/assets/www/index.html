@@ -63,6 +63,10 @@
 
             });
 
+            function onDeviceReady() {
+                document.addEventListener("backbutton", onBackKeyDown, false);
+            }
+            
             function onBackKeyDown(e) {
               e.preventDefault();
               navigator.notification.confirm("Are you sure you want to exit ?", onConfirm, "Confirmation", "Yes,No");     
@@ -74,21 +78,6 @@
                 }else{
                     navigator.app.exitApp();// Otherwise we quit the app.
                 }
-            }
-            
-            function onDeviceReady() {
-                document.addEventListener("backbutton", onBackKeyDown, false);
-                
-//                var widthtitle=$(".pagetitle").width();
-//            var widthtitleimage=$("#pageTitileImgBG").width();    
-//                alert(widthtitle);
-//                alert(widthtitleimage);
-//                var newtitleimgmargin=widthtitle+10;
-//                $(".pageTitileImgBG").css("right", newtitleimgmargin);          
-//                
-//             
-//                var newinboxbtnmargin=newtitleimgmargin+widthtitleimage+10;
-//                $(".inboxBtn").css("right", newinboxbtnmargin); 
             }
             
             function startslideshow(data){
