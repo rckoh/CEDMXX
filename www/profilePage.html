@@ -232,10 +232,14 @@
             $(".profilePicFrame").width( $(".profilePicFrame").height());
             var marginleft=$(".app").width()/2 - $(".profilePicFrame").width()/2;
             $(".profilePicFrame").css("margin-left", marginleft);    
-            $(".profilePicFrame").show();   
+            $(".profilePicFrame").show();  
             checkMenuLoginStatus();
-            initcompanyprofile();
-//            initUserPoint();
+            
+            $(document).ready(
+                initcompanyprofile();
+                initUserPoint();
+            );
+            
         </script>
     </body>
 </html>
