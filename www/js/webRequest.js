@@ -335,7 +335,7 @@ function postCompanyProfile(companyid, token){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server. " + xhr.status+" "+ xhr.resoponseText); 
+          alert("Unable connect to server. " + xhr.status+" "+ xhr.responseText); 
         }
     })
 }
@@ -358,7 +358,7 @@ function requestUserPoint(uid){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           if(xhr.status==0)
-            alert("Unable connect to server. " + xhr.status+" "+ xhr.resoponseText); 
+            alert("Unable connect to server. " + xhr.status+" "+ xhr.responseText); 
           
         }
     })
@@ -390,7 +390,7 @@ function postUserPoint(uid, token){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server. " + xhr.status+" "+ xhr.resoponseText); 
+          alert("Unable connect to server. " + xhr.status+" "+ xhr.responseText); 
         }
     })
 }
