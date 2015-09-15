@@ -73,6 +73,8 @@ function pageSwipeLeft(){
 
             $(".selectedItem").animate({
                     marginLeft: "33%",}, 300, function() {});
+            
+            initServicelist();
         }    
     }
     else{
@@ -108,6 +110,8 @@ function changepage(pagenumber){
         
         $(".selectedItem").animate({
                 marginLeft: "0%",}, 300, function() {});
+        
+        initProductlist();
     }
     
     if(pagenumber==2){
@@ -131,6 +135,8 @@ function changepage(pagenumber){
         
         $(".selectedItem").animate({
                 marginLeft: "33.67%",}, 300, function() {});
+        
+        initServicelist();
     }
 }
 
@@ -151,5 +157,15 @@ function pageSwipeRight(){
 
             $(".selectedItem").animate({
                     marginLeft: "0%",}, 300, function() {});
+            
+            initProductlist();
         }
+}
+
+function initProductlist(){
+    requestListingProductList();
+}
+
+function initServicelist(){
+    requestListingServiceList();
 }

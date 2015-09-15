@@ -178,7 +178,7 @@ function successGetCompanyId(t, results){
     {
         var companyid=results.rows.item(0).companyid;
         requestCompanyProfile(companyid);
-        getProfileProdServList(companyid);
+//        getProfileProdServList(companyid);
     }
 
 }

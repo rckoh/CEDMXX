@@ -1,24 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta charset="utf-8" />
@@ -30,6 +10,7 @@
         <title>Home Page</title>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/listingPage.js"></script>
+        <script type="text/javascript" src="js/webRequest.js"></script>
         <script type="text/javascript" src="facebookConnectPlugin.js"></script>
         <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
         <script type="text/javascript">
@@ -144,110 +125,6 @@
                     <div class="wrapperLVM" id="wrapper">
                         <div class="scroll-contentLVM" id="scroll-content">
                             <ul class="scrollulLVM" id="scrollul">
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
                             </ul>
                             <br>
                         </div>
@@ -257,97 +134,6 @@
                     <div class="wrapperLVMPG2" id="wrapper">
                         <div class="scroll-contentLVMPG2" id="scroll-content">
                             <ul class="scrollulLVMPG2" id="scrollul">
-                                <li class="scrollliLVMPG2">
-                                    <table class="listviewitemframeLVMPG2">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVMPG2" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVMPG2">Some Title</h1>
-                                                <p class="listviewitemseperatorLVMPG2">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVMPG2">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVMPG2">
-                                    <table class="listviewitemframeLVMPG2">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVMPG2" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVMPG2">Some Title</h1>
-                                                <p class="listviewitemseperatorLVMPG2">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVMPG2">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVMPG2">
-                                    <table class="listviewitemframeLVMPG2">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVMPG2" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVMPG2">Some Title</h1>
-                                                <p class="listviewitemseperatorLVMPG2">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVMPG2">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVMPG2">
-                                    <table class="listviewitemframeLVMPG2">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVMPG2" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVMPG2">Some Title</h1>
-                                                <p class="listviewitemseperatorLVMPG2">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVMPG2">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVMPG2">
-                                    <table class="listviewitemframeLVMPG2">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVMPG2" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVMPG2">Some Title</h1>
-                                                <p class="listviewitemseperatorLVMPG2">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVMPG2">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVMPG2">
-                                    <table class="listviewitemframeLVMPG2">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVMPG2" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVMPG2">Some Title</h1>
-                                                <p class="listviewitemseperatorLVMPG2">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVMPG2">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVMPG2">
-                                    <table class="listviewitemframeLVMPG2">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVMPG2" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVMPG2">Some Title</h1>
-                                                <p class="listviewitemseperatorLVMPG2">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVMPG2">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
                             </ul>
                             <br>
                         </div>
@@ -366,6 +152,7 @@
         <script type="text/javascript">
             app.initialize();
             checkMenuLoginStatus();
+            initProductlist();
         </script>
     </body>
 </html>

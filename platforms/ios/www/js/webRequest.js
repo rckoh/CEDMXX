@@ -285,6 +285,8 @@ function getFavouriteList(uid){
     })
 }
 
+
+
 function requestCompanyProfile(companyid){
     var requestUrl=webUrl+"?q=services/session/token";
     
@@ -595,5 +597,99 @@ function successDeleteProfile(){
     window.location="index.html";
 }
 
-                        
+
+function requestListingProductList(){
+    var requestUrl=webUrl+"?q=services/session/token";
+    $.ajax({
+      url: requestUrl,
+      type: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+        var sessionToken=JSON.stringify(data);
+        postListingProductList(sessionToken);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          if(xhr.status==0)
+            alert("Unable connect to server."); 
+        }
+    })
+}
+
+function postListingProductList(token){
+    var requestUrl=webUrl+"drupalgap/mobileapp/getListingResult.json?type=product";
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+    
+        $(".scrollulLVM li").remove();
+        for (var x = 0; x < data.results.length; x++) { 
+                    $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
+        }          
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server.");      
+        }
+    })
+}
+
+function requestListingServiceList(){
+    var requestUrl=webUrl+"?q=services/session/token";
+    $.ajax({
+      url: requestUrl,
+      type: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+        var sessionToken=JSON.stringify(data);
+        postListingServiceList(sessionToken);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server."); 
+        }
+    })
+}
+
+function postListingServiceList(token){
+    var requestUrl=webUrl+"drupalgap/mobileapp/getListingResult.json?type=service";
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+        $(".scrollulLVMPG2 li").remove();
+        for (var x = 0; x < data.results.length; x++) { 
+                    $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
+        }          
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server.");      
+        }
+    })
+}
+                     
                         
