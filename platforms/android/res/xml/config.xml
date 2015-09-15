@@ -108,8 +108,12 @@
             </dict>
         </array>
     </gap:config-file>
+    <access origin=".*" />
     <access origin="http://*" />
     <access origin="https://*" />
+    <access origin="http://127.0.0.1*" />
+    <access origin="http://netinfinium.publicvm.com" />
+    <access origin="http://netinfinium.publicvm.com" subdomains="true" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
