@@ -180,7 +180,7 @@ function successGetCompanyId(t, results){
         var token=results.rows.item(0).token;
         postCompanyProfile(companyid, token);
 //        requestCompanyProfile(companyid);
-        getProfileProdServList(companyid);
+        //getProfileProdServList(companyid);
     }
 
 }
