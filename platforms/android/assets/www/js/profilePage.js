@@ -170,14 +170,16 @@ function initcompanyprofile(){
 }
 
 function runGetComanyIdTrnasaction(t){
-    t.executeSql('select companyid from userprofile', [], successGetCompanyId, errorGetCompanyId);    
+    t.executeSql('select companyid,token from userprofile', [], successGetCompanyId, errorGetCompanyId);    
 }
 
 function successGetCompanyId(t, results){
     if(results.rows.length>0)
     {
         var companyid=results.rows.item(0).companyid;
-        requestCompanyProfile(companyid);
+        var token=results.rows.item(0).token;
+        postCompanyProfile(companyid, token);
+//        requestCompanyProfile(companyid);
         getProfileProdServList(companyid);
     }
 
@@ -193,13 +195,16 @@ function initUserPoint(){
 }
 
 function runGetUserIdTransaction(t){
-    t.executeSql('select uid, name, profileImg from userprofile', [], successGetUserId, errorGetUserid);    
+    t.executeSql('select uid, name, profileImg, token from userprofile', [], successGetUserId, errorGetUserid);    
 }
 
 function successGetUserId(t, results){
     if(results.rows.length>0)
     {
-        requestUserPoint(results.rows.item(0).uid);
+        var uid=results.rows.item(0).uid;
+        var token=results.rows.item(0).token;
+        postUserPoint(uid, token);
+//        requestUserPoint(results.rows.item(0).uid);
         $("#lblUSername").text(results.rows.item(0).name);
        
 //        $("#imgProfile").attr("src".results.rows.item(0).profileImg);
