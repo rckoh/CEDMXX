@@ -447,7 +447,7 @@ function requestLogin(username, password){
 
 function postLogin(token, username, password){
     var requestUrl=webUrl+"drupalgap/user/login";
-    
+    alert(token);
     $.ajax({
       url: requestUrl,
       method: "POST",

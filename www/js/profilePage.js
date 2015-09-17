@@ -182,7 +182,6 @@ function successGetCompanyId(t, results){
 //        requestCompanyProfile(companyid);
         //getProfileProdServList(companyid);
     }
-
 }
 
 function errorGetCompanyId(err){
