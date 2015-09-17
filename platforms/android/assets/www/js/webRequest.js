@@ -313,7 +313,7 @@ function requestCompanyProfile(companyid){
 
 function postCompanyProfile(companyid, token){
     var requestUrl=webUrl+"drupalgap/mobileapp/companyprofile.json?nid="+companyid;
-//    alert("companyprofiletoken:"+token);
+    alert("companyprofiletoken:"+token);
     $.ajax({
       url: requestUrl,
       type: "POST",
@@ -368,7 +368,7 @@ function requestUserPoint(uid){
 
 function postUserPoint(uid, token){
     var requestUrl=webUrl+"drupalgap/mobileapp/userpoints.json?uid="+uid;
-//    alert("userpointtoken:"+token);
+    alert("userpointtoken:"+token);
     $.ajax({
       url: requestUrl,
       type: "POST",
