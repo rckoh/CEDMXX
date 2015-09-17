@@ -31,9 +31,8 @@ function successMenuSelectProfile(t, results){
         $("#slidemenu").append("<li onClick='goListing();'><label class='itemlabel'><img src='img/listing.png' class='menuitemimg' />Listings</label></li>");
         $("#slidemenu").append("<li><label class='itemlabel'><img src='img/lock.png' class='menuitemimg' />Change Password</label></li>");
         $("#slidemenu").append("<li onclick='goAbout();'><label class='itemlabel'><img src='img/about.png' class='menuitemimg' />About eSolutions</label></li>");
-        $("#slidemenu").append("<li><label class='itemlabel' onclick='logout();'><img src='img/logout.png' class='menuitemimg' />Logout</label></li>");
+        $("#slidemenu").append("<li><label class='itemlabel' onclick='initLogout();'><img src='img/logout.png' class='menuitemimg' />Logout</label></li>");
     }
-
 ////        console.log('ID: '+results.rows.item(i).id);
 
 }

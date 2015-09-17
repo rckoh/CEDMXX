@@ -214,7 +214,6 @@ function successGetUserId(t, results){
 }
 
 function errorGetUserid(err){
-    alert("fail");
 //    alert('There was an error processing the SQL: '+err.message);
 } 
 

@@ -313,7 +313,7 @@ function requestCompanyProfile(companyid){
 
 function postCompanyProfile(companyid, token){
     var requestUrl=webUrl+"drupalgap/mobileapp/companyprofile.json?nid="+companyid;
-    alert("companyprofiletoken:"+token);
+//    alert("companyprofiletoken:"+token);
     $.ajax({
       url: requestUrl,
       type: "POST",
@@ -368,7 +368,7 @@ function requestUserPoint(uid){
 
 function postUserPoint(uid, token){
     var requestUrl=webUrl+"drupalgap/mobileapp/userpoints.json?uid="+uid;
-    alert("userpointtoken:"+token);
+//    alert("userpointtoken:"+token);
     $.ajax({
       url: requestUrl,
       type: "POST",
@@ -549,29 +549,28 @@ function requestLogout(){
 
 
 function postLogout(token){
-//    var requestUrl=webUrl+"drupalgap/user/logout.json";
-//    $.ajax({
-//      url: requestUrl,
-//      type: "POST",
-//      dataType: 'application/json',
-//      beforeSend: function (request) {
-//        request.setRequestHeader("X-CSRF-Token", token);
-//      },
-//      timeout: 10000,    
-//      success: function(data, status, xhr) {
-//        debugger;
-////          var returnstr=JSON.stringify(data);
-////          alert(data);
-//        deleteProfile();
-//      },
-//      error:function (xhr, ajaxOptions, thrownError){
-//        debugger;
-//          
-//          alert("Unable connect to server." + xhr.status + " " + thrownError); 
-//          
-//          endLoading();
-//        }
-//    })
+//    alert("Logout token:"+token);
+    var requestUrl=webUrl+"drupalgap/user/logout.json";
+    $.ajax({
+      url: requestUrl,
+      type: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+        deleteProfile();
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          
+          alert("Unable connect to server." + xhr.status + " " + xhr.responseText); 
+          
+          endLoading();
+        }
+    })
 }
 
 

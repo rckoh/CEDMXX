@@ -28,7 +28,25 @@ function goProfile(){
 	window.location = "profilePage.html";
 }
 
-function logout() {
+function initLogout(){
     startLoading();
-    requestLogout();
+    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
+    db.transaction(runGetTokenTransaction);
 }
+
+function runGetTokenTransaction(t){
+    t.executeSql('select token from userprofile', [], successGetToken, errorGetToken);    
+}
+
+function successGetToken(t, results){
+    if(results.rows.length>0)
+    {
+        var token=results.rows.item(0).token;
+        postLogout(token);
+    }
+
+}
+
+function errorGetToken(err){
+//    alert('There was an error processing the SQL: '+err.message);
+} 
