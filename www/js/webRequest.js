@@ -447,7 +447,7 @@ function requestLogin(username, password){
 
 function postLogin(token, username, password){
     var requestUrl=webUrl+"drupalgap/user/login";
-    alert(token);
+
     $.ajax({
       url: requestUrl,
       method: "POST",
@@ -465,7 +465,7 @@ function postLogin(token, username, password){
         var profileimg=data.user.picture.url;
         var role="";
         var companyid=data.user.field_company_id_user.und[0].target_id;  
-          
+        var sessionToken=data.token;
         $.each(data.user.roles , function(key , value){ // First Level
             if(role=="")
                 role=role+key.toString()
@@ -473,7 +473,7 @@ function postLogin(token, username, password){
                 role=role+","+key.toString();
         });
         
-        storeProfile(uid, companyid, name, email, profileimg, role, token);
+        storeProfile(uid, companyid, name, email, profileimg, role, sessionToken);
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
