@@ -19,7 +19,7 @@ function getFeaturedList(){
                 $(".scrollul").append("<li class='scrollli' onclick='viewProductDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
             }
             else if(data.nodes[x].node.type=="company"){
-                $(".scrollul").append("<li class='scrollli' onclick='' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "(" +data.nodes[x].node.type+")"+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+                $(".scrollul").append("<li class='scrollli' onclick='viewCompanyDetails("+data.nodes[x].node.nid+")' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "(" +data.nodes[x].node.type+")"+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
             }
         }
           
@@ -174,6 +174,10 @@ function viewAnnouncementDetails(nid){
     window.location = "announcementDetailPage.html?nid="+nid;
 }
 
+function viewCompanyDetails(nid){
+    window.location = "companyDetailPage.html?nid="+nid;
+}
+
 function getProductDetails(nid){
     var requestUrl=webUrl+"drupalgap/getprodservdetail/"+nid;
     
@@ -248,6 +252,95 @@ function getAnnouncementDetails(nid){
     })
 }
 
+
+function getCompanyDetails(nid){
+    var requestUrl=webUrl+"drupalgap/getcompanydetail/"+nid;
+    $.ajax({
+      url: requestUrl,
+      type: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+          var returnstr=JSON.stringify(data);
+          
+          var title=data.nodes[0].node.title;
+          var imageUrl=data.nodes[0].node.image.src;
+          var desc=data.nodes[0].node.desc;
+          var address=data.nodes[0].node.address;
+          var wesiteUrl=(data.nodes[0].node.website_url=="")?"N/A":"<a class='brouchurelink' href='"+data.nodes[0].node.website_url+"'>"+data.nodes[0].node.website_url+"</a>";
+          var requirement=(data.nodes[0].node.requirement=="")?"N/A":data.nodes[0].node.requirement;
+          var awards=(data.nodes[0].node.award=="")?"N/A":data.nodes[0].node.award;
+          
+          $(".scrollul").append(
+            "<li class='scrollli'><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='lineseperator'>&nbsp;</p><br><h1 id='companyName'>"+title+"</h1><p class='description'> "+desc+"<br><br><table class='companyInfo'><tr><td><span>Address</span></td><td><span>:</span></td><td><span>"+address+"</span> </td></tr><tr><td><span>Website URL</span></td><td><span>:</span></td><td><span>"+wesiteUrl+"</span> </td></tr></table></p><p class='seperator'>&nbsp;</p><br><p class='description'><span class='buttonSpan'><button><img src='img/share%20alt.png'/></button>&nbsp;<button><img src='img/fav-alt.png'/></button>&nbsp;</span><table class='companyStatistic'><tr><td>Views</td><td>:</td><td>0</td></tr><tr><td>Shares</td><td>:</td><td>0</td></tr><tr><td>Favourites</td><td>:</td><td>0</td></tr></table></p><p class='seperator'>&nbsp;</p><br><div class='companyDetails'><div class='requirement'><button class='requirementBtn' onclick='changepage(1);'>Company Requirement</button></div><div class='awards'><button class='awardsBtn' onclick='changepage(2);'>Comapny Awards</button></div><div class='selectedItem'>&nbsp;</div><div class='companyDetailsDescriptionOne'>"+requirement+"</div><div class='companyDetailsDescriptionTwo'>"+awards+"</div></div><br><h2>Announcement</h2><ul class='scrollul' id='scrollulAnnouncement'></ul><br><h2>Products and Services</h2><ul class='scrollul' id='scrollulProdServ'></ul></li>"
+          );
+          
+          getCompanyProdServList(nid);
+          getCompanyAnnouncementList(nid);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server."); 
+        }
+    })
+}
+
+
+function getCompanyProdServList(companyid){
+    var requestUrl=webUrl+"drupalgap/getprodservlist/"+companyid;
+    $.ajax({
+      url: requestUrl,
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;        
+        $("#scrollulProdServ li").remove();
+        for (var x = 0; x < data.nodes.length; x++) {    
+            $("#scrollulProdServ").append("<li class='scrollliChild' onclick='viewProductDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlechild'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+        }
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server. "); 
+        }
+    })
+}
+
+function getCompanyAnnouncementList(nid){
+    //alert("webrequst");
+    var requestUrl=webUrl+"drupalgap/getannouncement/"+nid;
+    
+    $.ajax({
+      url: requestUrl,
+      type: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+          
+        $("#scrollulAnnouncement li").remove();  
+          
+        for (var x = 0; x < data.nodes.length; x++) {
+            $("#scrollulAnnouncement").append("<li class='scrollliChild' onclick='viewAnnouncementDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlechild'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+
+        }          
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server."); 
+        }
+    })
+}
+
+
 function getFavouriteList(uid){
     var requestUrl=webUrl+"drupalgap/getfavourite/"+uid;
     $.ajax({
@@ -287,33 +380,8 @@ function getFavouriteList(uid){
 
 
 
-function requestCompanyProfile(companyid){
-    var requestUrl=webUrl+"?q=services/session/token";
-    
-    $.ajax({
-      url: requestUrl,
-      type: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      timeout: 10000,    
-      success: function(data, status, xhr) {
-        debugger;
-        var sessionToken=JSON.stringify(data);
-        postCompanyProfile(companyid,sessionToken);
-      },
-      error:function (xhr, ajaxOptions, thrownError){
-        debugger;
-          if(xhr.status==0)
-            alert("Unable connect to server. "); 
-          
-        }
-    })
-}
-
 function postCompanyProfile(companyid, token){
     var requestUrl=webUrl+"drupalgap/mobileapp/companyprofile.json?nid="+companyid;
-    alert("companyprofiletoken:"+token);
     $.ajax({
       url: requestUrl,
       type: "POST",
@@ -343,32 +411,8 @@ function postCompanyProfile(companyid, token){
 }
 
 
-function requestUserPoint(uid){
-    var requestUrl=webUrl+"?q=services/session/token";
-    $.ajax({
-      url: requestUrl,
-      type: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      timeout: 10000,    
-      success: function(data, status, xhr) {
-        debugger;
-        var sessionToken=JSON.stringify(data);
-        postUserPoint(uid,sessionToken);
-      },
-      error:function (xhr, ajaxOptions, thrownError){
-        debugger;
-          if(xhr.status==0)
-            alert("Unable connect to server. " + xhr.status+" "+ xhr.responseText); 
-          
-        }
-    })
-}
-
 function postUserPoint(uid, token){
     var requestUrl=webUrl+"drupalgap/mobileapp/userpoints.json?uid="+uid;
-    alert("userpointtoken:"+token);
     $.ajax({
       url: requestUrl,
       type: "POST",
@@ -440,7 +484,7 @@ function requestLogin(username, password){
           if(xhr.status==0)
             alert("Unable connect to server."); 
           
-          endLoading();
+          loading.endLoading();
         }
     })
 }
@@ -482,7 +526,7 @@ function postLogin(token, username, password){
           else
             alert("Invalid username or password");
           
-          endLoading();
+          loading.endLoading();
         }
     })
 }
@@ -513,44 +557,19 @@ function storeProfile(uid, companyid, name, email, profileimg, role, token) {
 function errorLogin(err){
 //    alert('Error insert: '+err.message);
     alert("Login Failed.");
-    endLoading();
+    loading.endLoading();
 }
 
 function successLogin(){
 //    alert('insert success');
-    endLoading();
+    loading.endLoading();
     window.location="index.html";
 }
 
 
-function requestLogout(){
-    deleteProfile();
-//    var requestUrl=webUrl+"?q=services/session/token";
-//    
-//    $.ajax({
-//      url: requestUrl,
-//      type: "GET",
-//      headers: {
-//        "Content-Type": "application/json"
-//      },
-//      timeout: 10000,    
-//      success: function(data, status, xhr) {
-//        debugger;
-//        var sessionToken=JSON.stringify(data);
-//        postLogout(sessionToken);
-//      },
-//      error:function (xhr, ajaxOptions, thrownError){
-//        debugger;
-//          if(xhr.status==0)
-//            alert("Unable connect to server."); 
-//        }
-//    })
-}
-
 
 function postLogout(token){
-//    alert("Logout token:"+token);
-    var requestUrl=webUrl+"drupalgap/user/logout.json";
+    var requestUrl=webUrl+"drupalgap/user/logout";
     $.ajax({
       url: requestUrl,
       type: "POST",
@@ -568,7 +587,7 @@ function postLogout(token){
           
           alert("Unable connect to server." + xhr.status + " " + xhr.responseText); 
           
-          endLoading();
+          loading.endLoading();
         }
     })
 }
@@ -585,39 +604,16 @@ function runDeleteProfile(t){
 
   
 function errorDeleteProfile(err){
-//    alert('Error insert: '+err.message);
-    endLoading();
+    loading.endLoading();
     alert("Logout Failed. db");
 }
 
 function successDeleteProfile(){
-    endLoading();
+    loading.endLoading();
     alert("Logout Succesfully");
     window.location="index.html";
 }
 
-
-function requestListingProductList(){
-    var requestUrl=webUrl+"?q=services/session/token";
-    $.ajax({
-      url: requestUrl,
-      type: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      timeout: 10000,    
-      success: function(data, status, xhr) {
-        debugger;
-        var sessionToken=JSON.stringify(data);
-        postListingProductList(sessionToken);
-      },
-      error:function (xhr, ajaxOptions, thrownError){
-        debugger;
-          if(xhr.status==0)
-            alert("Unable connect to server."); 
-        }
-    })
-}
 
 function postListingProductList(token){
     var requestUrl=webUrl+"drupalgap/mobileapp/getListingResult.json?type=product";
@@ -634,7 +630,8 @@ function postListingProductList(token){
         debugger;
     
         $(".scrollulLVM li").remove();
-        for (var x = 0; x < data.results.length; x++) { 
+        //for (var x = 0; x < data.results.length; x++) { 
+        for (var x = 0; x < 49; x++) { 
                     $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
         }          
       },
@@ -645,26 +642,35 @@ function postListingProductList(token){
     })
 }
 
-function requestListingServiceList(){
-    var requestUrl=webUrl+"?q=services/session/token";
+
+function postSearchListingProductList(token, productName, productCompany, gst, industry, techArea){
+    var requestUrl=webUrl+"drupalgap/mobileapp/getListingResult.json?type=product&title="+productName+"&company="+productCompany+"&gst="+gst+"&ind="+industry+"&tech="+techArea;
+    
     $.ajax({
       url: requestUrl,
-      type: "GET",
+      method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
       },
       timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
-        var sessionToken=JSON.stringify(data);
-        postListingServiceList(sessionToken);
+    
+        $(".scrollulLVM li").remove();
+        //for (var x = 0; x < data.results.length; x++) { 
+        for (var x = 0; x < 49; x++) { 
+                    $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
+        }          
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."); 
+          alert("Unable connect to server.");      
         }
     })
 }
+
+
 
 function postListingServiceList(token){
     var requestUrl=webUrl+"drupalgap/mobileapp/getListingResult.json?type=service";
@@ -680,7 +686,8 @@ function postListingServiceList(token){
       success: function(data, status, xhr) {
         debugger;
         $(".scrollulLVMPG2 li").remove();
-        for (var x = 0; x < data.results.length; x++) { 
+        //for (var x = 0; x < data.results.length; x++) { 
+        for (var x = 0; x < 49; x++) { 
                     $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
         }          
       },
@@ -690,5 +697,141 @@ function postListingServiceList(token){
         }
     })
 }
+
+function postSearchListingServiceList(token, serviceName, serviceCompany, cat, subcat){
+    var requestUrl=webUrl+"drupalgap/mobileapp/getListingResult.json?type=service&title="+serviceName+"&company="+serviceCompany+"&cat="+cat+"&subcat="+subcat;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+        $(".scrollulLVMPG2 li").remove();
+        //for (var x = 0; x < data.results.length; x++) { 
+        for (var x = 0; x < 49; x++) { 
+                    $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
+        }          
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server.");      
+        }
+    })
+}
+
+function postProductSearchCriteria(token){
+    var requestUrl=webUrl+"drupalgap/mobileapp/getListingSearchCriteria.json?type=product";
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+        $("#filterProductTechArea option").remove();
+        $("#filterProductIndustry option").remove();
+        $("#filterProductGST option").remove();
+          
+        for(var x=0; x<data.technology_area.length; x++){     
+            var optionValue=data.technology_area[x].tech.value;
+            var displayname=data.technology_area[x].tech.display_name;
+            $("#filterProductTechArea").append($("<option></option>").attr("value",optionValue).text(displayname));
+        }
+        
+        for(var x=0; x<data.industry_area.length; x++){
+            var optionValue=data.industry_area[x].industry.value;
+            var displayname=data.industry_area[x].industry.display_name;
+            $("#filterProductIndustry").append($("<option></option>").attr("value",optionValue).text(displayname));
+        }
+        
+        for(var x=0; x<data.gst_compliance.length; x++){
+            var optionValue=data.gst_compliance[x].gst.value;
+            var displayname=data.gst_compliance[x].gst.display_name;
+            $("#filterProductGST").append($("<option></option>").attr("value",optionValue).text(displayname));
+        }  
+        loading.endLoading();
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          loading.endLoading();
+          alert("Unable connect to server.");      
+        }
+    })
+}
+
+function postServiceSearchCriteria(token){
+    var requestUrl=webUrl+"drupalgap/mobileapp/getListingSearchCriteria.json?type=service";
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+        $("#filterServiceCategory option").remove();
+
+        for(var x=0; x<data.service_category.length; x++){     
+            var optionValue=data.service_category[x].category.value+"|"+data.service_category[x].category.sub_key;
+            var displayname=data.service_category[x].category.display_name;
+            $("#filterServiceCategory").append($("<option></option>").attr("value",optionValue).text(displayname));
+        }
+        
+        postServiceSearchCriteriaSubCategory(token, data.service_category[0].category.sub_key);
+//        loading.endLoading();
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          loading.endLoading();
+          alert("Unable connect to server.");      
+        }
+    })
+}
+
+
+function postServiceSearchCriteriaSubCategory(token, category){
+    var requestUrl=webUrl+"drupalgap/mobileapp/getListingSearchCriteria.json?type=service&cat="+category;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+        debugger;
+        $("#filterServiceSubCategory option").remove();
+
+        for(var x=0; x<data.sub_category.length; x++){     
+            var optionValue=data.sub_category[x].sub.value;
+            var displayname=data.sub_category[x].sub.display_name;
+            $("#filterServiceSubCategory").append($("<option></option>").attr("value",optionValue).text(displayname));
+        }
+
+        loading.endLoading();
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          loading.endLoading();
+          alert("Unable connect to server.");      
+        }
+    })
+}
+
+
                      
                         

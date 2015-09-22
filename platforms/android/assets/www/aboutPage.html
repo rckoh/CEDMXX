@@ -10,7 +10,7 @@
         <title>Home Page</title>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/aboutPage.js"></script>
-        <script type="text/javascript" src="facebookConnectPlugin.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
         <script type="text/javascript">
             $(document).bind('mobileinit',function(){
@@ -101,7 +101,11 @@
         </script>
         <script type="text/javascript">
             app.initialize();
-            checkMenuLoginStatus();
+            dbmanager.initdb();
+            $(document).ready(
+                function(){
+                    slideMenu.initSlideMenu();
+            });
         </script>
     </body>
 </html>

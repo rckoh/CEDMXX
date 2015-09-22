@@ -179,13 +179,11 @@ function successGetCompanyId(t, results){
         var companyid=results.rows.item(0).companyid;
         var token=results.rows.item(0).token;
         postCompanyProfile(companyid, token);
-//        requestCompanyProfile(companyid);
-        //getProfileProdServList(companyid);
+        getProfileProdServList(companyid);
     }
 }
 
 function errorGetCompanyId(err){
-//    alert('There was an error processing the SQL: '+err.message);
 } 
 
 function initUserPoint(){
@@ -203,16 +201,10 @@ function successGetUserId(t, results){
         var uid=results.rows.item(0).uid;
         var token=results.rows.item(0).token;
         postUserPoint(uid, token);
-//        requestUserPoint(results.rows.item(0).uid);
         $("#lblUSername").text(results.rows.item(0).name);
-       
-//        $("#imgProfile").attr("src".results.rows.item(0).profileImg);
-       
     }
-
 }
 
 function errorGetUserid(err){
-//    alert('There was an error processing the SQL: '+err.message);
 } 
 

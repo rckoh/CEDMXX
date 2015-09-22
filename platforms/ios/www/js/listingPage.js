@@ -74,7 +74,7 @@ function pageSwipeLeft(){
             $(".selectedItem").animate({
                     marginLeft: "33%",}, 300, function() {});
             
-            initServicelist();
+            initListingServList();
         }    
     }
     else{
@@ -111,7 +111,8 @@ function changepage(pagenumber){
         $(".selectedItem").animate({
                 marginLeft: "0%",}, 300, function() {});
         
-        initProductlist();
+        initListingProdList();
+        
     }
     
     if(pagenumber==2){
@@ -136,7 +137,8 @@ function changepage(pagenumber){
         $(".selectedItem").animate({
                 marginLeft: "33.67%",}, 300, function() {});
         
-        initServicelist();
+        initListingServList();
+        
     }
 }
 
@@ -157,15 +159,39 @@ function pageSwipeRight(){
 
             $(".selectedItem").animate({
                     marginLeft: "0%",}, 300, function() {});
-            
-            initProductlist();
+        
+            initListingProdList();
         }
 }
 
-function initProductlist(){
-    requestListingProductList();
+function initListingProdList(){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var token=returnData.rows.item(0).token;
+            postListingProductList(token);
+        }
+    });
 }
 
-function initServicelist(){
-    requestListingServiceList();
+function initListingServList(){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var token=returnData.rows.item(0).token;
+            postListingServiceList(token);
+        }
+    });
 }
+
+function initSearchCriteria(searchType){
+    loading.startLoading();
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var token=returnData.rows.item(0).token;
+            if(searchType=="product")
+                postProductSearchCriteria(token);
+            else
+                postServiceSearchCriteria(token);
+        }
+    });
+}
+

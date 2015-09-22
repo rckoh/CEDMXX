@@ -173,7 +173,7 @@ function changepage(pagenumber){
 }
 
 function login(){
-    startLoading();
+    loading.startLoading();
     
     var username=$("#username").val();
     var password=$("#password").val();

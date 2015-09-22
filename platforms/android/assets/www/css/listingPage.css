@@ -84,6 +84,7 @@
     width: 100%;
     border: none;
     background-color: transparent;
+    z-index: 95;
 }
 
 .filterBtnImg{

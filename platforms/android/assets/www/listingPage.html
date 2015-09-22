@@ -8,24 +8,23 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
 <!--        <link rel="stylesheet" href="js/jquery-mobile/jquery.mobile-1.4.5.css"/>-->
         <title>Home Page</title>
+        <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/listingPage.js"></script>
         <script type="text/javascript" src="js/webRequest.js"></script>
-        <script type="text/javascript" src="facebookConnectPlugin.js"></script>
-        <script type="text/javascript" src="js/jquery-mobile/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/slidemenu.js"></script>
+        <script type="text/javascript" src="js/filterListing.js"></script>
         <script type="text/javascript">
             $(document).bind('mobileinit',function(){
                 $.mobile.loadingMessage = false;
             })
         </script>  
-        <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.js"></script>
-<!--        <script type="text/javascript" src="js/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>-->
         <link rel="stylesheet" type="text/css" href="css/common.css" />
         <link rel="stylesheet" type="text/css" href="css/listingPage.css" />
         <link rel="stylesheet" type="text/css" href="css/slidemenu.css" />
         <link rel="stylesheet" type="text/css" href="css/filter.css" />
-        <script type="text/javascript" src="js/slidemenu.js"></script>
-        <script type="text/javascript" src="js/filteractionListing.js"></script>
         <script type="text/javascript">
             document.addEventListener("deviceready", onDeviceReady, false);
             var menuStatus;
@@ -45,9 +44,6 @@
             }
 
         </script>
-        <script type="text/javascript" src="js/slidemenuaction.js"></script>
-        <script type="text/javascript" src="js/loginnavigate.js"></script>
-        
     </head>
     <body id="pageBody">
         <div data-role="app" class="app" id="app">
@@ -60,19 +56,6 @@
                     <button class="pageTitileImgBG" id="pageTitileImgBG" onclick=""><img class="pageTitileImg" src="img/listing.png"></img></button>
                     <button class="inboxBtn" onclick="goInbox()"><img class="inboxBtnImg" src="img/message.png"></img></button>
                 </div>
-<!--
-                <table class="menuheadertable">
-                    <tr>
-                        <td>
-                            <button class="buttonbg"><img class="menubutton" src="img/drawer.png"></img></button>
-                        </td>
-                        <td style="text-align:right;">
-                            <button class="pageTitileImgBG" onclick=""><img class="pageTitileImg" src="img/listing.png"></img></button>
-                            <label class="pagetitle">Listings</label>
-                        </td>
-                    </tr>
-                </table>
--->
             </div>
             <div class="menubg">
                 <div class="searchbox">
@@ -90,14 +73,16 @@
                     <img src="img/menufooter.png" class="footerimage"/>
                 </div>
             </div>
-            <div class="filterbg">
-                <div class="filterHeader">
-                    Search
-                </div>
-                <div class="closeButtonFrame">
-                    <button class="closeButton" id="closeBtn"><img clas="closeButtonImg" src="img/filter-arrow.png"/></button>
-                </div>
-                <div class="filterItem" id="filterItem">
+            <div class="filterFrame">
+                <div class="filterbg">
+                    <div class="filterHeader">
+                        Search
+                    </div>
+                    <div class="closeButtonFrame">
+                        <button class="closeButton" id="closeBtn"><img clas="closeButtonImg" src="img/filter-arrow.png"/>                                 </button>
+                    </div>
+                    <div class="filterItem" id="filterItem">
+                    </div>
                 </div>
             </div>
             <div class="subheaderblack">
@@ -150,9 +135,13 @@
         }
         </script>
         <script type="text/javascript">
+            filterListing.initListingFilter();
             app.initialize();
-            checkMenuLoginStatus();
-            initProductlist();
+            dbmanager.initdb();
+            $(document).ready(function(){
+                slideMenu.initSlideMenu();
+                initListingProdList();
+            });
         </script>
     </body>
 </html>

@@ -1,21 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 var currentpage=1;
 var app = {
     // Application Constructor
@@ -50,21 +32,16 @@ var app = {
     }
 };
 
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//slide show
 function slideshow(data){
-    
-//    var imga="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg";
-//    var imgb="http://dreamatico.com/data_images/animals/animals-4.jpg";
-//    var imgc="http://thewowstyle.com/wp-content/uploads/2015/04/8589130571841-animal-wallpaper-hd.jpg";
-//    var imgd="http://i.telegraph.co.uk/multimedia/archive/02296/animal4c_2296997i.jpg";
-//    var imge="http://cdn.playbuzz.com/cdn/279428ca-ddfa-45ce-87b5-53b20c6f3b38/ac4084b3-f55b-4332-83c9-0d411095e812.jpg";
-    
     var imga=data.nodes[0].node.background .src;
     var imgb=data.nodes[1].node.background .src;
     var imgc=data.nodes[2].node.background .src;
     var imgd=data.nodes[3].node.background .src;
     var imge=data.nodes[4].node.background .src;
-//    alert("cas");
-//    if($(".slideshowimage").attr("src")=="img/loading.gif");
     
     var imgname=document.getElementById("slideshowimage").src;
     
@@ -85,8 +62,6 @@ function slideshow(data){
         $(".slideshowimagenamediv p").remove();
         $(".slideshowimagenamediv").append("<h1 class='slideshowitemtitle'>"+data.nodes[2].node.title+"</h1><p class='slideshowitemseperator'>&nbsp;</p><p class='slideshowitemdetails'>"+data.nodes[2].node.description+"</p>");
         });
-        
-        
     }
     
     if(imgname==imgc){
@@ -97,8 +72,6 @@ function slideshow(data){
         $(".slideshowimagenamediv p").remove();
         $(".slideshowimagenamediv").append("<h1 class='slideshowitemtitle'>"+data.nodes[3].node.title+"</h1><p class='slideshowitemseperator'>&nbsp;</p><p class='slideshowitemdetails'>"+data.nodes[3].node.description+"</p>");
         });
-        
-        
     }
     
     if(imgname==imgd){
@@ -109,8 +82,6 @@ function slideshow(data){
         $(".slideshowimagenamediv p").remove();
         $(".slideshowimagenamediv").append("<h1 class='slideshowitemtitle'>"+data.nodes[4].node.title+"</h1><p class='slideshowitemseperator'>&nbsp;</p><p class='slideshowitemdetails'>"+data.nodes[4].node.description+"</p>");
         });
-        
-        
     }
     
     if(imgname==imge){
@@ -231,9 +202,7 @@ function slideshowpagethree(data){
         $(".slideshowimagenamedivpage3 h1").remove();
         $(".slideshowimagenamedivpage3 p").remove();
         $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[3].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[3].node.description+"</p>");
-        });
-        
-        
+        }); 
     }
     
     if(imgname==imgd){
@@ -243,9 +212,7 @@ function slideshowpagethree(data){
         $(".slideshowimagenamedivpage3 h1").remove();
         $(".slideshowimagenamedivpage3 p").remove();
         $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[4].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[4].node.description+"</p>");
-        });
-        
-        
+        });  
     }
     
     if(imgname==imge){
@@ -259,6 +226,14 @@ function slideshowpagethree(data){
     }
 }
 
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//submenu
+function initsubmenustyle(){
+    currentpage=1;
+    $("#btnFeatured").css("color", "#00FFFF");
+}
 
 function changepage(pagenumber){
     if(pagenumber==1 && currentpage!=pagenumber){
@@ -288,7 +263,6 @@ function changepage(pagenumber){
                 marginLeft: "0%",}, 300, function() {$(".selectedItem").css("width", "32.75%");});
         
         getFeaturedList();
-    
     }
     
     if(pagenumber==2 && currentpage!=pagenumber){
@@ -350,11 +324,6 @@ function changepage(pagenumber){
         
         getAnnouncementList();
     }
-}
-
-function initsubmenustyle(){
-    currentpage=1;
-    $("#btnFeatured").css("color", "#00FFFF");
 }
 
 function pageSwipeLeft(){
@@ -465,53 +434,27 @@ function pageSwipeRight(){
     }
 }
 
-function itemOnClick(){
-    window.location = "productDetailPage.html";
-}
 
-function itemOnClickAnnouncement(){
-    window.location = "announcementDetailPage.html";
-}
-
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//page navigate
 function goInbox(){
     window.location = "inboxPage.html";
 }
 
-function checkLoginStatus() {
-    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
-    db.transaction(runSelectProfile);
+
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//login button 
+function initLoginButton(){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length==0)
+            $(".app").prepend("<div class='pagefooter' onclick='goLogin();'>Login</div>");
+    });
 }
 
-function runSelectProfile(t){
-    t.executeSql('SELECT * FROM userprofile', [], success, error);
-}
 
-function success(t, results){
-    if(results.rows.length==0)
-    {
-        $(".app").prepend("<div class='pagefooter' onclick='goLogin();'>Login</div>");
-    }
-}
-function error(err){
-//    alert('There was an error processing the SQL: '+err.message);
-}
-
-function initdb(){
-    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
-    db.transaction(inittabletransaction, errorinitdb, successinitdb);
-}
-
-function inittabletransaction(t) {
-    t.executeSql('CREATE TABLE IF NOT EXISTS userprofile (uid text, companyid text,name text, email text, profileImg text, role text, token text)');
-}
-
-function errorinitdb(err){
-//    alert('Error insert: '+err.message);
-    //alert("init Failed.");
-}
-
-function successinitdb(){
-    //alert('init success');
-}
 
 
