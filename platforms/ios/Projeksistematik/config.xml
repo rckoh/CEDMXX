@@ -123,7 +123,7 @@
             </dict>
         </array>
     </gap:config-file>
-    <access origin=".*" />
+    <access origin="*" />
     <access origin="http://*" />
     <access origin="https://*" />
     <access origin="http://127.0.0.1*" />
