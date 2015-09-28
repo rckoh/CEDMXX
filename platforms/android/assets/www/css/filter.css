@@ -18,8 +18,8 @@
     height: 94%;
     margin-left: 10%;
 /*    padding: 0px 0px 0px 0px;*/
-    background-color: rgba(0, 0, 0, 0.75);
-	background-color: black;
+    background-color: rgba(0, 0, 0, 0.7);
+/*	background-color: black;*/
     box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.2);
     top:6%;
     -webkit-transform: translate3d(0,0,0);

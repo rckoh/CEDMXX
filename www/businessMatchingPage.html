@@ -14,7 +14,8 @@
         <script type="text/javascript" src="js/businessMatchingPage.js"></script>
         <script type="text/javascript" src="facebookConnectPlugin.js"></script>
         <script type="text/javascript" src="js/slidemenu.js"></script>
-        <script type="text/javascript" src="js/filteraction.js"></script>
+        <script type="text/javascript" src="js/filterItem.js"></script>
+        <script type="text/javascript" src="js/webRequest.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript">
             $(document).bind('mobileinit',function(){
@@ -24,7 +25,7 @@
         <link rel="stylesheet" type="text/css" href="css/common.css" />
         <link rel="stylesheet" type="text/css" href="css/businessMatchingPage.css" />
         <link rel="stylesheet" type="text/css" href="css/slidemenu.css" />
-        <link rel="stylesheet" type="text/css" href="css/filter.css" />
+        <link rel="stylesheet" type="text/css" href="css/filterItem.css" />
         <script type="text/javascript">
             document.addEventListener("deviceready", onDeviceReady, false);
             var menuStatus;
@@ -57,19 +58,6 @@
                     <button class="pageTitileImgBG" id="pageTitileImgBG" onclick=""><img class="pageTitileImg" src="img/business_matching.png"></img></button>
                     <button class="inboxBtn" onclick="goInbox()"><img class="inboxBtnImg" src="img/message.png"></img></button>
                 </div>
-<!--
-                <table class="menuheadertable">
-                    <tr>
-                        <td>
-                            <button class="buttonbg"><img class="menubutton" src="img/drawer.png"></img></button>
-                        </td>
-                        <td style="text-align:right;">
-                            <button class="pageTitileImgBG" onclick=""><img class="pageTitileImg" src="img/business_matching.png"></img></button>
-                            <label class="pagetitle">Business Matching</label>
-                        </td>
-                    </tr>
-                </table>
--->
             </div>
             <div class="menubg">
                 <div class="searchbox">
@@ -87,14 +75,23 @@
                     <img src="img/menufooter.png" class="footerimage"/>
                 </div>
             </div>
-            <div class="filterbg">
-                <div class="filterHeader">
-                    Filter
-                </div>
-                <div class="closeButtonFrame">
-                    <button class="closeButton" id="closeBtn"><img clas="closeButtonImg" src="img/filter-arrow.png"/></button>
-                </div>
-                <div class="filterItem" id="filterItem">
+            <div class="filterFrame">
+                <div class="filterbg">
+                        <div class="wrapperFilter" id="wrapper">
+                            <div class="scroll-contentFilter" id="scroll-content">
+                                <ul class="scrollulFilter" id="scrollul">
+                                    <div class="filterHeader">
+                                        Filter
+                                    </div>
+                                    <div class="closeButtonFrame">
+                                        <button class="closeButton" id="closeBtn"><img clas="closeButtonImg" src="img/filter-arrow.png"/></button>
+                                    </div>
+                                    <div class="filterItem" id="filterItem">
+                                    </div>
+                                </ul>
+                                <br>
+                            </div>
+                        </div>
                 </div>
             </div>
             <div class="subheaderblack">
@@ -106,11 +103,11 @@
                          <button class="subheaderbutton">|</button>
                     </div>
                     <div class="subBtn2">
-                        <button class="subheaderbutton" onclick="changepage(2);" id="btnServices">Services</button>
+                        <button class="subheaderbutton" id="filterBtn">Filter</button>
                     </div>
                 </div>
                 <div class="subheaderFilter">
-                    <button id="filterBtn" class="filterBtnCls"><img src="img/filter.png" class="filterBtnImg"/></button>
+<!--                    <button id="filterBtn" class="filterBtnCls"><img src="img/filter.png" class="filterBtnImg"/></button>-->
                 </div>
                 <div class="selectedItem">
                 </div>
@@ -123,6 +120,7 @@
                     <div class="wrapperLVM" id="wrapper">
                         <div class="scroll-contentLVM" id="scroll-content">
                             <ul class="scrollulLVM" id="scrollul">
+<!--
                                 <li class="scrollliLVM">
                                     <table class="listviewitemframeLVM">
                                         <tr>
@@ -136,58 +134,7 @@
                                         </tr>
                                     </table>
                                 </li>
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliLVM">
-                                    <table class="listviewitemframeLVM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgLVM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleLVM">Some Title</h1>
-                                                <p class="listviewitemseperatorLVM">&nbsp;</p>
-                                                <p class="listviewitemdetailsLVM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
+-->
                             </ul>
                             <br>
                         </div>
@@ -197,84 +144,6 @@
                     <div class="wrapperRM" id="wrapper">
                         <div class="scroll-contentRM" id="scroll-content">
                             <ul class="scrollulRM" id="scrollul">
-                                <li class="scrollliRM">
-                                    <table class="listviewitemframeRM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgRM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleRM">Some Title</h1>
-                                                <p class="listviewitemseperatorRM">&nbsp;</p>
-                                                <p class="listviewitemdetailsRM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliRM">
-                                    <table class="listviewitemframeRM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgRM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleRM">Some Title</h1>
-                                                <p class="listviewitemseperatorRM">&nbsp;</p>
-                                                <p class="listviewitemdetailsRM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliRM">
-                                    <table class="listviewitemframeRM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgRM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleRM">Some Title</h1>
-                                                <p class="listviewitemseperatorRM">&nbsp;</p>
-                                                <p class="listviewitemdetailsRM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliRM">
-                                    <table class="listviewitemframeRM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgRM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleRM">Some Title</h1>
-                                                <p class="listviewitemseperatorRM">&nbsp;</p>
-                                                <p class="listviewitemdetailsRM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliRM">
-                                    <table class="listviewitemframeRM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgRM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleRM">Some Title</h1>
-                                                <p class="listviewitemseperatorRM">&nbsp;</p>
-                                                <p class="listviewitemdetailsRM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
-                                <li class="scrollliRM">
-                                    <table class="listviewitemframeRM">
-                                        <tr>
-                                            <td style="width:20%"><img class="listviewimgRM" src="http://cdn.playbuzz.com/cdn/fdbf1197-18af-43df-a5b1-76d180475700/49081b85-5614-4368-9103-71d9f0651322.jpg">
-                                            </td>
-                                            <td>
-                                                <h1 class="listviewitemtitleRM">Some Title</h1>
-                                                <p class="listviewitemseperatorRM">&nbsp;</p>
-                                                <p class="listviewitemdetailsRM">We developed enterprise level office PABX that cater for everyteleprothy needs.</p>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </li>
                             </ul>
                             <br>
                         </div>
@@ -287,6 +156,7 @@
                     <div class="wrapperLVMPG2" id="wrapper">
                         <div class="scroll-contentLVMPG2" id="scroll-content">
                             <ul class="scrollulLVMPG2" id="scrollul">
+<!--
                                 <li class="scrollliLVMPG2">
                                     <table class="listviewitemframeLVMPG2">
                                         <tr>
@@ -300,6 +170,7 @@
                                         </tr>
                                     </table>
                                 </li>
+-->
                             </ul>
                             <br>
                         </div>
@@ -329,7 +200,6 @@
                 </div> 
             </div>
         <script type="text/javascript" src="../plugins/iscroll-master/build/iscroll-lite.js"></script>
-        <script type="text/javascript" src="js/filterItem.js"></script>
         <script type="text/javascript">
 
         var theScroll;
@@ -338,11 +208,15 @@
         }
         </script>
         <script type="text/javascript">
+            filterItem.initItemFilter();
             app.initialize();
             dbmanager.initdb();
             $(document).ready(
                 function(){
                     slideMenu.initSlideMenu();
+                    initsubmenustyle();
+                    initLVMProduct();
+                    initInboxButton();
             });
             
         </script>

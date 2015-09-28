@@ -153,3 +153,21 @@ function pageSwipeRight(){
                     marginLeft: "0%",}, 300, function() {});
         }
 }
+
+function initSearchCriteria(searchType){
+    loading.startLoading();
+    
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var token=returnData.rows.item(0).token;
+            if(searchType=="product")
+                postBMProductFilterCriteria(token);
+            else
+                postBMServiceFilterCriteria(token);
+        }
+    });
+}
+
+function initLVMProduct(){
+    productLoadLVMResult();
+}

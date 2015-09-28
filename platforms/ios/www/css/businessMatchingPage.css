@@ -319,6 +319,7 @@
     margin: 0px 0px 0px 0px;
     bottom: 0%;
     overflow:auto;
+    overflow-x: hidden;
 }
 
 .scrollulRM{

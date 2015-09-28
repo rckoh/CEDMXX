@@ -82,6 +82,10 @@ $(function(){
 //----------------------------------------------------------
 //add filter button action
 function productSearchResult(){
+    $(".filterFrame").animate({
+			marginLeft: "100%",
+		  }, 300, function(){$(".filterFrame").css("margin-left", "-100%");});
+    
     var productName=$("#productName").val();
     var company=$("#productCompany").val();
     var gst=$("#filterProductGST").val();
@@ -97,6 +101,10 @@ function productSearchResult(){
 }
 
 function serviceSearchResult(){
+    $(".filterFrame").animate({
+			marginLeft: "100%",
+		  }, 300, function(){$(".filterFrame").css("margin-left", "-100%");});
+    
     var serviceName=$("#serviceName").val();
     var company=$("#serviceCompany").val();
     var category=$("#filterServiceCategory").val();

@@ -82,7 +82,7 @@
 }
 
 .filterItem p select{
-    position: absolute;
+/*    position: absolute;*/
     background-color: white;
     width: 100%;
     left: 0px;
@@ -127,6 +127,73 @@
     word-spacing: 200;
     color: white;
 }
+
+.check_box {
+    display:none;
+}
+
+.check_box + label{
+    background:url('../img/checkbox.png') no-repeat;
+    height: 3vw;
+    width: 100%;
+    display:inline-block;
+    padding-left: 5vw;
+    vertical-align: middle;
+    font-size: 2.2vw;
+}
+
+.check_box:checked + label{
+    background:url('../img/checkbox-checked.png') no-repeat;
+    height: 3vw;
+    width: 100%;
+    display:inline-block;
+    padding-left: 5vw;
+    vertical-align: middle;
+}
+
+.wrapperFilter{
+    height: 100%;
+    width: 100%;
+/*    background-color: white;*/
+    position: relative;
+    display: block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    bottom: 0%;
+    overflow:auto;
+    overflow-x: hidden;
+}
+
+.scrollulFilter{
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
+}
+ 
+.scrollliFilter {
+/*    padding:0 10px;*/
+    height:auto;
+    line-height:auto;
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+/*    background-color:#fafafa;*/
+    font-size:14px;
+    border-bottom: 1px dotted #333;  
+}
+
+.scrollliFilter:hover {
+    background-color: white;
+}
+
+.scroll-contentFilter {
+    position:absolute; 
+    z-index:1;
+    width:100%;
+    padding:0;
+}
+
 /* filter Style end*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/

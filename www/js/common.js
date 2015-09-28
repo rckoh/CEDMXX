@@ -57,3 +57,22 @@ var dbmanager = {
 };
 
 
+
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//inbox page navigate
+function goInbox(){
+    window.location = "inboxPage.html";
+}
+
+function initInboxButton(){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length==0)
+            $(".inboxBtn").hide();
+    });
+}
+
+
+
+
