@@ -177,7 +177,7 @@ function login(){
     
     var username=$("#username").val();
     var password=$("#password").val();
-    var sessiontoken=requestLogin(username, password);
+    requestLogin(username, password);
     
     
 }

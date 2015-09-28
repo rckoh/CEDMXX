@@ -486,6 +486,8 @@ function requestLogin(username, password){
         debugger;
           if(xhr.status==0)
             alert("Unable connect to server."); 
+          else
+            alert("Unable connect to server."); 
           
           loading.endLoading();
         }
