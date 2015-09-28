@@ -36,7 +36,7 @@ function getFeaturedList(){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."); 
+          alert("Unable connect to server."+xhr.status+xhr.responseText); 
         }
     })
 }
