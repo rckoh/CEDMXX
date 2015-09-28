@@ -941,9 +941,10 @@ function viewProductDetailsBM(nid){
     window.location = "productDetailPage.html?nid="+nid+"&fromPage=BM";
 }
 
-function postLVMProductList(token, uid, type){
+function postLVMProductList(token, uid){
     var requestUrl=webUrl+"drupalgap/mobileapp/bmRecentViewed.json?uid="+uid;
-    
+    alert(requestUrl);
+    alert(token);
     $.ajax({
       url: requestUrl,
       method: "POST",
@@ -956,7 +957,7 @@ function postLVMProductList(token, uid, type){
       debugger;
         
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);
+        alert(returnstr);
         
 //        $(".scrollulRM li").remove();
 ////        alert(data.length);

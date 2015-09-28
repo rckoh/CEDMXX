@@ -161,8 +161,8 @@ function productLoadLVMResult(){
         if(returnData.rows.length>0){
             var token=returnData.rows.item(0).token;
             var uid=returnData.rows.item(0).uid;
-            var type="product";
-            postLVMProductList(token, uid, type);
+            
+            postLVMProductList(token, uid);
         }
     });
 }
