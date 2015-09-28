@@ -8,6 +8,11 @@ module.exports = [
         ]
     },
     {
+        "file": "plugins/cordova-plugin-whitelist/whitelist.js",
+        "id": "cordova-plugin-whitelist.whitelist",
+        "runs": true
+    },
+    {
         "file": "plugins/de.appplant.cordova.plugin.hidden-statusbar-overlay/www/hidden-statusbar-overlay.js",
         "id": "de.appplant.cordova.plugin.hidden-statusbar-overlay.HiddenStatusbarOverlay",
         "clobbers": [
@@ -26,7 +31,7 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "com.phonegap.plugins.PushPlugin": "2.5.0",
-    "cordova-plugin-whitelist": "1.0.0",
+    "cordova-plugin-whitelist": "1.1.0",
     "de.appplant.cordova.plugin.hidden-statusbar-overlay": "1.2.0",
     "nl.x-services.plugins.socialsharing": "4.3.19"
 }

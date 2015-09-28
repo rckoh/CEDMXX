@@ -23,7 +23,7 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-whitelist": "1.0.0",
+    "cordova-plugin-whitelist": "1.1.0",
     "com.phonegap.plugins.PushPlugin": "2.5.0",
     "de.appplant.cordova.plugin.hidden-statusbar-overlay": "1.2.0",
     "nl.x-services.plugins.socialsharing": "4.3.19"
