@@ -35,6 +35,7 @@
         PSSB Mobile Apps Development Team
     </author>
     <content src="index.html" />
+    <preference name="android-build-tool" value="ant" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
