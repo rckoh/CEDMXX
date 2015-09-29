@@ -23,10 +23,6 @@
                         {
                             "xml": "<feature name=\"SocialSharing\"><param name=\"ios-package\" value=\"SocialSharing\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
-                            "count": 1
                         }
                     ]
                 }
@@ -61,12 +57,7 @@
                             "count": 1
                         }
                     ],
-                    "CoreGraphics.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ]
+                    "CoreGraphics.framework": []
                 }
             }
         }
@@ -82,9 +73,6 @@
             "PACKAGE_NAME": "com.projeksistematik.com.my.projeksistematik"
         },
         "nl.x-services.plugins.socialsharing": {
-            "PACKAGE_NAME": "com.projeksistematik.com.my.projeksistematik"
-        },
-        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.projeksistematik.com.my.projeksistematik"
         }
     },

@@ -44,13 +44,5 @@
             "APP_ID": "1618299145090032",
             "APP_NAME": "Projeksistematik"
         }
-    },
-    "cordova-plugin-inappbrowser": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-inappbrowser"
-        },
-        "is_top_level": true,
-        "variables": {}
     }
 }

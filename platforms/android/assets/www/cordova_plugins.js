@@ -18,14 +18,6 @@ module.exports = [
         "clobbers": [
             "window.plugins.socialsharing"
         ]
-    },
-    {
-        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-        "id": "cordova-plugin-inappbrowser.inappbrowser",
-        "clobbers": [
-            "cordova.InAppBrowser.open",
-            "window.open"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -34,8 +26,7 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.1.0",
     "com.phonegap.plugins.PushPlugin": "2.5.0",
     "de.appplant.cordova.plugin.hidden-statusbar-overlay": "1.2.0",
-    "nl.x-services.plugins.socialsharing": "4.3.19",
-    "cordova-plugin-inappbrowser": "1.0.1"
+    "nl.x-services.plugins.socialsharing": "4.3.19"
 }
 // BOTTOM OF METADATA
 });
