@@ -51,11 +51,18 @@ var app = {
 };
 
 
-function itemOnClick(){
-    window.location = "productDetailPage.html";
+function initUserPoint(){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var companyid=returnData.rows.item(0).companyid;
+            var uid=returnData.rows.item(0).uid;
+            var token=returnData.rows.item(0).token;
+            var profileImg=returnData.rows.item(0).profileImg;
+            $(".profileImg").attr("src", profileImg);
+            $("#lblUSername").text(returnData.rows.item(0).name);
+            
+            postCompanyProfile(companyid, token);
+            postInboxMessageList(token, uid, "2");
+        }
+    });
 }
-
-function itemOnClickService(){
-    window.location = "inboxDetailPage.html";
-}
-

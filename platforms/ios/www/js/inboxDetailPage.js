@@ -1,3 +1,4 @@
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -47,8 +48,70 @@ function pageSwipeLeft(){
 
 function clearSearch(){
     $("#searchTextBox").val("");
-}
+}dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var uid=returnData.rows.item(0).uid;
+            var token=returnData.rows.item(0).token;
+            postInboxMessageContent(token, uid, "3");
+//            $(".profileImg").attr("src", profileImg);
+//            $("#lblUSername").text(returnData.rows.item(0).name);
+            
+//            postCompanyProfile(companyid, token);
+//            postInboxMessageList(token, uid, "2");
+        }
+    });
 
 function back(){
     window.history.back();
 }
+
+function initMessageContent(){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var uid=returnData.rows.item(0).uid;
+            var token=returnData.rows.item(0).token;
+            var mid=getUrlParameter("mid");
+            
+            postInboxMessageContent(token, uid, "3", mid);
+        }
+    });
+}
+
+function deleteMsg(){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var uid=returnData.rows.item(0).uid;
+            var token=returnData.rows.item(0).token;
+            var mid=getUrlParameter("mid");
+            loading.startLoading();
+            postInboxMessageDelete(token, uid, "6", mid);
+        }
+    });
+}
+
+var textboxDisplay=0;
+
+function replyOnClick(){
+    if(textboxDisplay==0){
+        $(".messageDiv").show();
+        textboxDisplay=1;
+    }
+    else{
+        $(".messageDiv").hide();
+        textboxDisplay=0;
+    }
+    
+}
+
+
+//function replyMsg(){
+//    dbmanager.getProfile(function(returnData){
+//        if(returnData.rows.length>0){
+//            var uid=returnData.rows.item(0).uid;
+//            var token=returnData.rows.item(0).token;
+//            var mid=getUrlParameter("mid");
+//            loading.startLoading();
+//            postInboxMessageDelete(token, uid, "6", mid);
+//        }
+//    });
+//}

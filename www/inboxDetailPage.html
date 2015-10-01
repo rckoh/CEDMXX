@@ -13,6 +13,8 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/inboxDetailPage.js"></script>
         <script type="text/javascript" src="facebookConnectPlugin.js"></script>
+        <script type="text/javascript" src="js/queryStr.js"></script>
+        <script type="text/javascript" src="js/webRequest.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript">
             $(document).bind('mobileinit',function(){
@@ -50,24 +52,27 @@
                     <div class="wrapper" id="wrapper">
                         <div class="scroll-content" id="scroll-content">
                             <ul class="scrollul" id="scrollul">
+<!--
                                 <li class="scrollli">
                                     <br>
-                                    <p class="msgInfo">More Info</p>
+                                    <p class="msgInfo">More Infomation</p>
                                     <p class="msgTitle">Creative Technology Consultancy</p>
                                     <p class="msgDate">7/7/2015 - 3:30 AM</p>
                                     <p class="seperator">&nbsp;</p><br>
                                     <p class="description"> MSC Malaysia eSolutions was first designed to bridge the gap for potential buyrs and sellers to access into a wide range of innovative products and services offered oin the areas of technological industries.<br><br>Todat, the demands and awareness in this industry has grown into a mass needs in keeping up with the latest trend in technology and are alwayson the lookout for new ideas in the market.<br><br>This has expanded the MSC Malaysia products and services listing portal into a centre-stage for buyers, sellers, affiliates and funders to extend the vines of their networks for business oppurtunities, new venture interests and promising business partners.</p>
                                     <p class="seperator">&nbsp;</p>
                                 </li>
+-->
                             </ul>
                             <br>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="messageDiv"><input class="replyMessageInput"></input></div>
             <div class="pageFooter">
-                <button class="deleteBtn"><img src="img/delete.png"/></button>
-                <button class="replyBtn"><img src="img/reply.png"/></button>
+                <button class="deleteBtn" onclick="deleteMsg();"><img src="img/delete.png"/></button>
+                <button class="replyBtn" onclick="replyOnClick();"><img src="img/reply.png"/></button>
                 <button class="previousBtn"><img src="img/previous.png"/></button>
                 <button class="nextBtn"><img src="img/next.png"/></button>
             </div>
@@ -85,6 +90,7 @@
             dbmanager.initdb();
             $(document).ready(
                 function(){
+                    initMessageContent();
 //                    slideMenu.initSlideMenu();
             });
         </script>

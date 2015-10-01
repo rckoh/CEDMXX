@@ -163,46 +163,29 @@ function pageSwipeRight(){
     }
 }
 
-
 function initcompanyprofile(){
-    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
-    db.transaction(runGetComanyIdTrnasaction);
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var companyid=returnData.rows.item(0).companyid;
+            var token=returnData.rows.item(0).token;
+            var profileImg=returnData.rows.item(0).profileImg;
+            $(".profileImg").attr("src", profileImg);
+            postCompanyProfile(companyid, token);
+            getProfileProdServList(companyid);
+        }
+    });
 }
 
-function runGetComanyIdTrnasaction(t){
-    t.executeSql('select companyid,token from userprofile', [], successGetCompanyId, errorGetCompanyId);    
-}
-
-function successGetCompanyId(t, results){
-    if(results.rows.length>0)
-    {
-        var companyid=results.rows.item(0).companyid;
-        var token=results.rows.item(0).token;
-        postCompanyProfile(companyid, token);
-        getProfileProdServList(companyid);
-    }
-}
-
-function errorGetCompanyId(err){
-} 
 
 function initUserPoint(){
-    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
-    db.transaction(runGetUserIdTransaction);
-}
-
-function runGetUserIdTransaction(t){
-    t.executeSql('select uid, name, profileImg, token from userprofile', [], successGetUserId, errorGetUserid);    
-}
-
-function successGetUserId(t, results){
-    if(results.rows.length>0)
-    {
-        var uid=results.rows.item(0).uid;
-        var token=results.rows.item(0).token;
-        postUserPoint(uid, token);
-        $("#lblUSername").text(results.rows.item(0).name);
-    }
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var uid=returnData.rows.item(0).uid;
+            var token=returnData.rows.item(0).token;
+            postUserPoint(uid, token);
+            $("#lblUSername").text(returnData.rows.item(0).name);
+        }
+    });
 }
 
 function errorGetUserid(err){

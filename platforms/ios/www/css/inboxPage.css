@@ -52,7 +52,7 @@
     
 }
 
-.pagetwo{
+.pageone{
     background-color: white;
     width: 100%;
     height: 55%;
@@ -88,7 +88,7 @@
     background:url(../img/bgtemplate.png) no-repeat center top; 
     height: 45%;
     width: 100%;
-    background-color: white;
+    background-color: lightgray;
     position:  absolute;
 /*    line-height: 40px;*/
 }
@@ -116,7 +116,7 @@
     opacity: 0.9;
 }
 
-.profilePic{
+.profilePicFrame{
     position: absolute;
     top: 20px;
 /*    width: 30%;*/
@@ -124,7 +124,31 @@
     border: 1px solid white;
     border-radius: 100%;
     z-index: 10;
+    display: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: white;
 /*    margin: 0px 0px 0px calC(50% - 50px);*/
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    width:2vw;
+    vertical-align: middle;
+    background-color: blue;
+    margin-left: -2vw;
+    
+}
+
+.profileImg {
+    background: #3A6F9A;
+    vertical-align: middle;
+    background-color: white;
+    width: 100%;
+    height: auto;
+    margin-left: -0.8vw;
 }
 
 .username{
@@ -177,7 +201,7 @@
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* listview Style Page 2*/
-.wrapperPage2{
+.wrapper{
     height: 100%;
     width: 100%;
     background-color: white;
@@ -189,7 +213,7 @@
     overflow:auto;
 }
 
-.scrollulPage2{
+.scrollul{
     list-style:none;
     padding:0;
     margin:0;
@@ -197,7 +221,7 @@
     text-align:left;
 }
  
-.scrollliPage2 {
+.scrollli {
     padding:0 10px;
 /*    height:150px;*/
 /*    line-height:40px;*/
@@ -208,11 +232,11 @@
     border-bottom: 1px solid #565656;  
 }
 
-.scrollliPage2:hover {
+.scrollli:hover {
     background-color: white;
 }
 
-.scroll-contentPage2 {
+.scroll-content {
     position:absolute; 
     z-index:1;
     width:100%;
@@ -225,7 +249,18 @@
     height: 50px;
 /*    border: 1px solid black;*/
     display: block;
-    border-radius: 100%;
+    border-radius: 50%;
+    border: 2px solid #adabac;
+}
+
+.inboxImgUnread{
+/*    line-height: px;*/
+    width: 50px;
+    height: 50px;
+/*    border: 1px solid black;*/
+    display: block;
+    border-radius: 50%;
+    border: 2px solid #565656;
 }
 
 .inboxUnreadTitle{

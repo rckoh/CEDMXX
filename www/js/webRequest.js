@@ -383,8 +383,9 @@ function getFavouriteList(uid){
 
 
 
-function postCompanyProfile(companyid, token){
+function postCompanyProfile(companyid, token, page){
     var requestUrl=webUrl+"drupalgap/mobileapp/companyprofile.json?nid="+companyid;
+    
     $.ajax({
       url: requestUrl,
       type: "POST",
@@ -508,6 +509,7 @@ function postLogin(token, username, password){
       timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
+        
         var uid=data.user.uid;
         var name=data.user.name;
         var email=data.user.mail;
@@ -945,8 +947,8 @@ function viewProductDetailsBM(nid){
 
 function postLVMProductList(token, uid){
     var requestUrl=webUrl+"drupalgap/mobileapp/bmRecentViewed.json?uid="+uid;
-    alert(requestUrl);
-    alert(token);
+//    alert(requestUrl);
+//    alert(token);
     $.ajax({
       url: requestUrl,
       method: "POST",
@@ -959,13 +961,15 @@ function postLVMProductList(token, uid){
       debugger;
         
         var returnstr=JSON.stringify(data);
-        alert(returnstr);
+//        alert(returnstr);
         
-//        $(".scrollulRM li").remove();
-////        alert(data.length);
-//        for (var x = 0; x < data.length; x++) { 
-//                    $(".scrollulRM").append("<li class='scrollliRM' onclick='viewProductDetails("+data[x].nid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='"+data[x].image+"'></td><td><h1 class='listviewitemtitleRM'>"+data[x].title+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].description+"</p></td></tr></table></li>");
-//        }            
+$(".scrollulLVM li").remove();
+
+        for (var x = 0; x < data.length; x++) { 
+            if(data[x].type=="product" || data[x].type=="service"){
+                $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetailsBM("+data[x].nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data[x].image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data[x].title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data[x].description+"</p></td></tr></table></li>");
+            }
+        } 
         
         loading.endLoading();
                   
@@ -1112,8 +1116,186 @@ function postFilterServiceList(token, uid, submitted, lookFor, keyword, interest
     })
 }
 
+function postNewInboxMessageCount(token, uid, act){
+    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+//        alert(returnstr);
+      
+        $(".inboxBtn label").remove();
+        if(data.new_message_count>0)
+            $(".menuheaderright").append("<label class='badgeNumber'>"+data.new_message_count+"</label>");  
+          
+                  
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server.");      
+        }
+    })
+}
 
+function postInboxMessageList(token, uid, act){
+    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+//        alert(returnstr);    
+             
+        var list = new Array();
 
+        for (var x = 0; x < data.length; x++) { 
+            
+            var participant="";
+            $.each(data[x].participants , function(key , value){ // First Level
+               $.each(value , function(key , value){ // First Level
+                    participant=value.name;
+                }); 
+            });
 
-                     
+            if(data[x].is_new==0){
+                $(".scrollul").append("<li class='scrollli' onclick='viewMessageContent("+data[x].thread_id+");'><table style='width:100%;'><tr><td rowspan='3' style='width:20%'><img class='inboxImg' src='img/profile_default_new2.png'></td><td style='width:60%;'><p class='inboxReadTitle'>"+data[x].subject+"</p></td><td style='width:20%;' rowspan='2'><p class='inboxReadDate'>"+data[x].last_updated+"</p></td></tr><tr><td style='width:60%;'></td></tr><tr><td style='width:60%;'><span class='inboxReadMsg'>"+data[x].messageBody+"</span></td></tr></table></li>");
+                
+//                                $(".scrollul").append("<li class='scrollli' onclick='viewMessageContent("+data[x].thread_id+");'><table style='width:100%;'><tr><td rowspan='3' style='width:20%'><img class='inboxImg' src='img/profile_default_new2.png'></td><td style='width:60%;'><p class='inboxReadTitle'>"+data[x].subject+"</p></td><td style='width:20%;' rowspan='2'><p class='inboxReadDate'>"+data[x].last_updated+"</p></td></tr><tr><td style='width:60%;'><p class='inboxReadInfo'>"+data[x].subject+"</p></td></tr><tr><td style='width:60%;'><span class='inboxReadMsg'>"+data[x].messageBody+"</span></td></tr></table></li>");
+            }
+            else{
+                $(".scrollul").append("<li class='scrollli' onclick='viewMessageContent("+data[x].thread_id+");'><table style='width:100%;'><tr><td rowspan='3' style='width:20%'><img class='inboxImgUnread' src='img/profile_default_new.png'></td><td style='width:60%;'><p class='inboxUnreadTitle'>"+data[x].subject+"</p></td><td style='width:20%;' rowspan='2'><p class='inboxUnreadDate'>"+data[x].last_updated+"</p></td></tr><tr><td style='width:60%;'></td></tr><tr><td style='width:60%;'><span class='inboxUnreadMsg'>"+data[x].messageBody+"</span></td></tr></table></li>");
+                
+//                $(".scrollul").append("<li class='scrollli' onclick='viewMessageContent("+data[x].thread_id+");'><table style='width:100%;'><tr><td rowspan='3' style='width:20%'><img class='inboxImgUnread' src='img/profile_default_new.png'></td><td style='width:60%;'><p class='inboxUnreadTitle'>"+participant+"</p></td><td style='width:20%;' rowspan='2'><p class='inboxUnreadDate'>"+data[x].last_updated+"</p></td></tr><tr><td style='width:60%;'><p class='inboxUnreadInfo'>"+data[x].subject+"</p></td></tr><tr><td style='width:60%;'><span class='inboxUnreadMsg'>"+data[x].messageBody+"</span></td></tr></table></li>");
+            }
+            
+        }
+        
+//        $.each(data, function(i, item) {
+//            
+//            list.push(item.text);
+//        });
+        
+          
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server.");      
+        }
+    })
+}
+
+function postInboxMessageContent(token, uid, act, mid){
+    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&mid="+mid;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+//        alert(returnstr);    
+            
+//        var title=data.recipients[0].recipient.name;
+        var date=data.messages[0].message.datetime;
+        var message="";
+        var recipient="";
+        
+        for(var x=0; x<data.recipients.length; x++){
+            if(recipient=="")
+                recipient=data.recipients[x].recipient.name;
+            else
+                recipient=recipient+","+data.recipients[x].recipient.name;
+        }
+          
+        for(var x=0; x<data.messages.length; x++){
+            $(".scrollul").append("<li class='scrollli'><br><p class='msgInfo'></p><p class='msgTitle'>"+data.messages[x].message.author.name+"</p><p class='msgDate'>"+data.messages[x].message.datetime+"</p><p class='seperator'>&nbsp;</p><br><p class='description'>"+data.messages[x].message.messageBody+"</p><p class='seperator'>&nbsp;</p></li>");
+        }
+          
+//        $(".scrollul").append("<li class='scrollli'><br><p class='msgInfo'>More Infomation</p><p class='msgTitle'>"+recipient+"</p><p class='msgDate'>"+date+"</p>"+message+"<p class='seperator'>&nbsp;</p></li>");
+          
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server.");      
+        }
+    })
+}
+
+function postInboxMessageDelete(token, uid, act, mid){
+    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&mid="+mid;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+        alert("Message Deleted");    
+        goInbox();
+        loading.endLoading();
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server.");      
+          loading.endLoading();
+        }
+    })
+}
+
+function postInboxMessageReply(token, uid, act, mid, message){
+    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&mid="+mid+"&dataBody="+message;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+        alert("Message Deleted");    
+        goInbox();
+        loading.endLoading();
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server.");      
+          loading.endLoading();
+        }
+    })
+}
+
+function viewMessageContent(mid){
+    window.location = "inboxDetailPage.html?mid="+mid;
+}
+
+                   
                         

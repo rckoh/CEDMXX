@@ -68,9 +68,27 @@ function goInbox(){
 
 function initInboxButton(){
     dbmanager.getProfile(function(returnData){
-        if(returnData.rows.length==0)
-            $(".inboxBtn").hide();
+        if(returnData.rows.length>0)
+            $(".inboxBtn").show();
     });
+}
+
+
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//inbox check new message
+
+var inboxMessage={
+    
+    checkNewMessageNumber:function(){
+        dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0)
+            var token=returnData.rows.item(0).token;
+            var uid=returnData.rows.item(0).uid;
+            postNewInboxMessageCount(token, uid, "1");
+        });
+    },
 }
 
 
