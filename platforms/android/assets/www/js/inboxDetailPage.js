@@ -71,7 +71,7 @@ function initMessageContent(){
             var uid=returnData.rows.item(0).uid;
             var token=returnData.rows.item(0).token;
             var mid=getUrlParameter("mid");
-            
+            loading.startLoading();
             postInboxMessageContent(token, uid, "3", mid);
         }
     });
@@ -96,13 +96,30 @@ function replyOnClick(){
         $(".messageDiv").show();
         textboxDisplay=1;
     }
-    else{
+    else if(textboxDisplay==1)
+    {
         $(".messageDiv").hide();
         textboxDisplay=0;
     }
-    
+    else{
+        $(".messageDiv").show();
+        textboxDisplay=1;
+    }
 }
 
+function submitReplyMessage(){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var uid=returnData.rows.item(0).uid;
+            var token=returnData.rows.item(0).token;
+            var mid=getUrlParameter("mid");
+            var message=$(".replyMessageInput").val();
+            loading.startLoading();
+            postInboxMessageReply(token, uid, "5", mid, message);
+        }
+    });
+}
+                         
 
 //function replyMsg(){
 //    dbmanager.getProfile(function(returnData){

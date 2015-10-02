@@ -1214,7 +1214,7 @@ function postInboxMessageContent(token, uid, act, mid){
       debugger;
         var returnstr=JSON.stringify(data);
 //        alert(returnstr);    
-            
+        $(".scrollul li").remove();  
 //        var title=data.recipients[0].recipient.name;
         var date=data.messages[0].message.datetime;
         var message="";
@@ -1228,15 +1228,16 @@ function postInboxMessageContent(token, uid, act, mid){
         }
           
         for(var x=0; x<data.messages.length; x++){
-            $(".scrollul").append("<li class='scrollli'><br><p class='msgInfo'></p><p class='msgTitle'>"+data.messages[x].message.author.name+"</p><p class='msgDate'>"+data.messages[x].message.datetime+"</p><p class='seperator'>&nbsp;</p><br><p class='description'>"+data.messages[x].message.messageBody+"</p><p class='seperator'>&nbsp;</p></li>");
+            $(".scrollul").append("<li class='scrollli'><br><p class='msgInfo'></p><p class='msgTitle'>"+data.messages[x].message.author.name+"</p><p class='msgDate'>"+data.messages[x].message.datetime+"</p><hr><p class='description'>"+data.messages[x].message.messageBody+"</p><hr></li>");
         }
           
 //        $(".scrollul").append("<li class='scrollli'><br><p class='msgInfo'>More Infomation</p><p class='msgTitle'>"+recipient+"</p><p class='msgDate'>"+date+"</p>"+message+"<p class='seperator'>&nbsp;</p></li>");
-          
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");      
+          alert("Unable connect to server.");  
+          loading.endLoading();
         }
     })
 }
@@ -1281,9 +1282,14 @@ function postInboxMessageReply(token, uid, act, mid, message){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-        alert("Message Deleted");    
-        goInbox();
-        loading.endLoading();
+//        alert(returnstr);    
+        if(data.success==true){
+            postInboxMessageContent(token, uid, "3", mid);
+        }
+        else{
+            alert(data.messages.warning);
+            loading.endLoading();
+        }
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
