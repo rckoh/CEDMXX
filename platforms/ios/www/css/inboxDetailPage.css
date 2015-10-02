@@ -223,7 +223,7 @@
 .pageFooter{
     height:6%;
     position: absolute;
-    top:94%;
+    bottom:0px;
     background-color: white;
     z-index: 89;
     width: 100%;
