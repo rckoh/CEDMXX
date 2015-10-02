@@ -238,6 +238,11 @@
     border: none;
 }
 
+.deleteBtn img{
+    height: 100%;
+    width: auto;
+}
+
 .replyBtn{
     position: absolute;
     left: 50px;
@@ -245,6 +250,11 @@
     width: auto;
     background-color: transparent;
     border: none;
+}
+
+.replyBtn img{
+    height: 100%;
+    width: auto;
 }
 
 .previousBtn{
@@ -255,6 +265,12 @@
     background-color: transparent;
     border: none;
 }
+
+.previousBtn img{
+    height: 80%;
+    width: auto;
+}
+
 .nextBtn{
     position: absolute;
     right: 0px;
@@ -262,6 +278,11 @@
     width: auto;
     background-color: transparent;
     border: none;
+}
+
+.nextBtn img{
+    height: 80%;
+    width: auto;
 }
 /* Page footer end*/
 /* ------------------------------------------------------------------------------------*/
