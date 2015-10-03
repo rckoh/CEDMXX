@@ -26,6 +26,8 @@
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="false" />
+    <preference name="android-windowSoftInputMode" value="adjustPan" />
+    <preference name="android:configChanges" value="orientation|keyboardHidden" />
     <preference name="webviewbounce" value="false" />
     <preference name="prerendered-icon" value="true" />
     <preference name="stay-in-webview" value="false" />
@@ -41,7 +43,6 @@
     <preference name="UIWebViewBounce" value="false" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="SplashScreen" value="screen" />
-    <preference name="KeyboardShrinksView" value="false" />
     <gap:plugin name="cordova-plugin-battery-status" source="npm" />
     <gap:plugin name="cordova-plugin-camera" source="npm" />
     <gap:plugin name="cordova-plugin-media-capture" source="npm" />
