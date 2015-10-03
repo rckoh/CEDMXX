@@ -1228,7 +1228,7 @@ function postInboxMessageContent(token, uid, act, mid){
         }
           
         for(var x=0; x<data.messages.length; x++){
-            $(".scrollul").append("<li class='scrollli'><br><p class='msgInfo'></p><p class='msgTitle'>"+data.messages[x].message.author.name+"</p><p class='msgDate'>"+data.messages[x].message.datetime+"</p><hr><p class='description'>"+data.messages[x].message.messageBody+"</p><hr></li>");
+            $(".scrollul").append("<li class='scrollli'><br><p class='msgInfo'></p><p class='msgTitle'>"+data.messages[x].message.author.name+"</p><p class='msgDate'>"+data.messages[x].message.datetime+"</p><hr><span class='description'>"+data.messages[x].message.messageBody+"</span><hr></li>");
         }
           
 //        $(".scrollul").append("<li class='scrollli'><br><p class='msgInfo'>More Infomation</p><p class='msgTitle'>"+recipient+"</p><p class='msgDate'>"+date+"</p>"+message+"<p class='seperator'>&nbsp;</p></li>");
@@ -1285,6 +1285,7 @@ function postInboxMessageReply(token, uid, act, mid, message){
 //        alert(returnstr);    
         if(data.success==true){
             postInboxMessageContent(token, uid, "3", mid);
+            replyOnClick();
         }
         else{
             alert(data.messages.warning);

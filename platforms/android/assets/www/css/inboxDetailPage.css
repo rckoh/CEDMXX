@@ -140,13 +140,11 @@
 }
 
 .description{
-    font-family: "Roboto-Regular";
-    font-size: 2.4vw;
+    font-family: "Roboto-Regular"; 
+    font-size: 2.4vw; 
     text-align: justify;
-    color: #565656;
+    color: #565656; 
     line-height: 2.4vw;
-/*    line-height: 3.5vw;*/
-/*    margin-top: 3vw;*/
 }
 
 .h2seperator{
@@ -167,10 +165,10 @@
 /* ------------------------------------------------------------------------------------*/
 /* reply message*/
 .messageDiv{
-    height:6%;
+    height:60%;
     width: 100%;
     position: absolute;
-    bottom:6%;
+    top:0%;
     background-color: lightgray;
     z-index: 89;
     width: 100%;
@@ -178,16 +176,22 @@
 }
 
 .replyMessageInput{
-    width: 80%;
+    width: 90%;
     position: absolute;
     left: 5%;
     padding: 0;
     margin: 0;
-    height: 60%;
-    top: 20%;
+    height: 80%;
+    top: 10%;
     border-radius: 10px;
     background-color: white;
     color: #565656;
+    resize: none;
+    min-height: 73%;
+    max-height: 73%;    
+    font-size: 3vw;
+    padding: 1vw;
+    box-sizing: border-box;
 }
 
 .btnSend{
@@ -195,9 +199,12 @@
     right: 3%;
     border: none;
     outline: 0;
-    height: 100%;
+    height: 15%;
+    bottom: 0;
     width: auto;
     background-color: transparent;
+    color: deepskyblue;
+    font-size: 3vw;
 }
 
 .btnSend img{

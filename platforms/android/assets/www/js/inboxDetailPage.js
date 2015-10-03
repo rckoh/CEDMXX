@@ -114,8 +114,9 @@ function submitReplyMessage(){
             var token=returnData.rows.item(0).token;
             var mid=getUrlParameter("mid");
             var message=$(".replyMessageInput").val();
+            
             loading.startLoading();
-            postInboxMessageReply(token, uid, "5", mid, message);
+            postInboxMessageReply(token, uid, "5", mid, encode4HTML(message));
         }
     });
 }
