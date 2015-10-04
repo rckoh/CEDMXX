@@ -65,7 +65,7 @@ function sharetoFV()
 }
             
 function sharetoFVnormal(){
-    alert("share");
+//    alert("share");
                 window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl');
 }
             
@@ -82,3 +82,60 @@ function showDialogFB() {
                     function (response) { alert(JSON.stringify(response)) },
                     function (response) { alert(JSON.stringify(response)) });
 }
+
+var selectedId;
+var textboxDisplay=0;
+function replyOnClick(sId){
+    if(textboxDisplay==0){
+        $(".messageDivFrame").show();
+        textboxDisplay=1;
+        selectedId=sId;
+    }
+    else if(textboxDisplay==1)
+    {
+        $(".messageDivFrame").hide();
+        textboxDisplay=0;
+    }
+    else{
+        $(".messageDivFrame").show();
+        textboxDisplay=1;
+        selectedId=sId;
+    }
+}
+
+function submitReplyMessage(){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var uid=returnData.rows.item(0).uid;
+            var token=returnData.rows.item(0).token;
+            var message=$(".replyMessageInput").val();
+            var subject=$(".replyMessageSubject").val();
+            
+            loading.startLoading();
+            postNewMessageToUSer(token, uid, "4", selectedId, encode4HTML(message), subject);
+        }
+    });
+}
+
+function checkFav(nid){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var uid=returnData.rows.item(0).uid;
+            var token=returnData.rows.item(0).token;
+            
+            PostFavCheck(token, uid, nid, "1");
+        }
+    });
+}
+
+function clickFav(nid){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var uid=returnData.rows.item(0).uid;
+            var token=returnData.rows.item(0).token;
+            
+            PostFavCheck(token, uid, nid, "0");
+        }
+    });
+}
+

@@ -327,6 +327,14 @@
     border: none;
 }
 
+.buttonSpan button:nth-child(2){
+    display: none;
+}
+
+.buttonSpan button:nth-child(3){
+    display: none;
+}
+
 .companyDetails{
     width: 100%;
     background-color:#E6E6E6; 
@@ -404,6 +412,135 @@
     color: #BDBDBD;
 }
 /* listview Style Page 1 end*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* reply message*/
+.messageDiv{
+    height:60%;
+    width: 100%;
+    position: relative;
+    top:0%;
+    background-color: lightgray;
+    width: 100%;
+
+}
+
+.replyMessageInput{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    height: 65%;
+    top: 22%;
+    border-radius: 10px;
+    background-color: white;
+    border-color: transparent;
+    color: #565656;
+    resize: none;
+    min-height: 65%;
+    max-height: 65%;    
+    font-size: 3vw;
+    padding: 1vw;
+    box-sizing: border-box;
+}
+
+.replyMessageSubject{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    height:7%;
+    top: 10%;
+    border-radius: 10px;
+    background-color: white;
+    color: #565656;
+    font-size: 3vw;
+    padding: 1vw;
+    box-sizing: border-box;
+}
+
+.btnSend{
+    position: absolute;
+    right: 3%;
+    border: none;
+    outline: 0;
+    height: 15%;
+    bottom: 0;
+    width: auto;
+    background-color: transparent;
+    color: deepskyblue;
+    font-size: 3vw;
+}
+
+.btnClose{
+    position: absolute;
+    left: 3%;
+    border: none;
+    outline: 0;
+    height: 15%;
+    bottom: 0;
+    width: auto;
+    background-color: transparent;
+    color: deepskyblue;
+    font-size: 3vw;
+}
+
+.btnSend img{
+    height: 100%;
+    width: auto;
+    background-color: transparent;
+}
+
+
+.replyMessageLbl{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    padding: 0;
+    margin: 0;
+    height: 80%;
+    top: 3%;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #565656;
+    resize: none;
+    min-height: 73%;
+    max-height: 73%;    
+    font-size: 3vw;
+    padding: 1vw;
+    box-sizing: border-box;
+}
+
+.messageDivFrame{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+    background-color: transparent;
+    z-index: 89;
+}
+
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #565656;
+    opacity:  0.4;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #565656;
+   opacity:  0.4;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #565656;
+   opacity:  0.4;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #565656;
+    opacity:  0.4;
+}
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/

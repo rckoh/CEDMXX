@@ -171,3 +171,38 @@ function initSearchCriteria(searchType){
 function initLVMProduct(){
     productLoadLVMResult();
 }
+
+var selectedId;
+var textboxDisplay=0;
+function replyOnClick(sId){
+    if(textboxDisplay==0){
+        $(".messageDivFrame").show();
+        textboxDisplay=1;
+        selectedId=sId;
+    }
+    else if(textboxDisplay==1)
+    {
+        $(".messageDivFrame").hide();
+        textboxDisplay=0;
+    }
+    else{
+        $(".messageDivFrame").show();
+        textboxDisplay=1;
+        selectedId=sId;
+    }
+}
+
+function submitReplyMessage(){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var uid=returnData.rows.item(0).uid;
+            var token=returnData.rows.item(0).token;
+            var message=$(".replyMessageInput").val();
+            var subject=$(".replyMessageSubject").val();
+            
+            loading.startLoading();
+            postNewMessageToUSer(token, uid, "7", selectedId, encode4HTML(message), subject);
+        }
+    });
+}
+                         

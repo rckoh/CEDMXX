@@ -207,6 +207,19 @@
     font-size: 3vw;
 }
 
+.btnClose{
+    position: absolute;
+    left: 3%;
+    border: none;
+    outline: 0;
+    height: 15%;
+    bottom: 0;
+    width: auto;
+    background-color: transparent;
+    color: deepskyblue;
+    font-size: 3vw;
+}
+
 .btnSend img{
     height: 100%;
     width: auto;
@@ -214,7 +227,24 @@
 }
 
 
-
+.replyMessageLbl{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    padding: 0;
+    margin: 0;
+    height: 80%;
+    top: 3%;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #565656;
+    resize: none;
+    min-height: 73%;
+    max-height: 73%;    
+    font-size: 3vw;
+    padding: 1vw;
+    box-sizing: border-box;
+}
 
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/

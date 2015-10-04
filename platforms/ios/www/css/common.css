@@ -81,23 +81,6 @@ input:focus {
     outline:0 !important; 
 }
 
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    #ffffff;
-    opacity:  0.4;
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    #ffffff;
-   opacity:  0.4;
-}
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    #ffffff;
-   opacity:  0.4;
-}
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    #ffffff;
-    opacity:  0.4;
-}
-
 
 
 .app {
@@ -329,9 +312,110 @@ input:focus {
     left: 10%;
 }
 
-
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
-/* ------------------------------------------------------------------------------------*/
 /* Loading Style end */
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
 
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* reply message*/
+
+.changePwdDiv{
+    height:60%;
+    width: 100%;
+    position: relative;
+    top:0%;
+    background-color: lightgray;
+    width: 100%;
+}
+
+
+.newPwd{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    height:5%;
+    top: 30%;
+    border-radius: 10px;
+    background-color: white;
+    color: #565656;
+    font-size: 3vw;
+    padding: 1vw;
+}
+
+.confirmPwd{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    height:5%;
+    top: 40%;
+    border-radius: 10px;
+    background-color: white;
+    color: #565656;
+    font-size: 3vw;
+    padding: 1vw;
+}
+
+.btnChangePwd{
+    position: absolute;
+    right: 3%;
+    border: none;
+    outline: 0;
+    height: 15%;
+    bottom: 0;
+    width: auto;
+    background-color: transparent;
+    color: deepskyblue;
+    font-size: 3vw;
+}
+
+.btnChangePwdClose{
+    position: absolute;
+    left: 3%;
+    border: none;
+    outline: 0;
+    height: 15%;
+    bottom: 0;
+    width: auto;
+    background-color: transparent;
+    color: deepskyblue;
+    font-size: 3vw;
+}
+
+
+
+.changePwdLbl{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    height: 80%;
+    top: 10%;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #565656;
+    resize: none;
+    min-height: 73%;
+    max-height: 73%;    
+    font-size: 3vw;
+    padding: 1vw;
+    box-sizing: border-box;
+}
+
+.changePwdFrame{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+/*    display: none;*/
+    background-color: transparent;
+    z-index: 89;
+}
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/

@@ -23,7 +23,7 @@ var slideMenu = {
                 $("#slidemenu").append("<li onClick='goTrending();'><label class='itemlabel'><img src='img/trending.png' class='menuitemimg' />Trending</label></li>");
                 $("#slidemenu").append("<li onClick='goBusinessMatching();'><label class='itemlabel'><img src='img/business_matching.png' class='menuitemimg' />Business Matching</label></li>");
                 $("#slidemenu").append("<li onClick='goListing();'><label class='itemlabel'><img src='img/listing.png' class='menuitemimg' />Listings</label></li>");
-                $("#slidemenu").append("<li><label class='itemlabel'><img src='img/lock.png' class='menuitemimg' />Change Password</label></li>");
+                $("#slidemenu").append("<li onClick='initchangePwd();'><label class='itemlabel'><img src='img/lock.png' class='menuitemimg' />Change Password</label></li>");
                 $("#slidemenu").append("<li onclick='goAbout();'><label class='itemlabel'><img src='img/about.png' class='menuitemimg' />About eSolutions</label></li>");
                 $("#slidemenu").append("<li><label class='itemlabel' onclick='logoutOnclick();'><img src='img/logout.png' class='menuitemimg' />Logout</label></li>");
             }
@@ -56,7 +56,7 @@ $(function(){
 		  }, 300, function(){menuStatus = false;});
               
 			return false;
-		  }
+        }
 });
     
 //	$("body").on("swipeleft", function(){
@@ -128,6 +128,63 @@ function logoutOnclick(){
     });
 }
 
+
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//change password onclick
+
+function initchangePwd(){
+    $(".menubg").animate({
+			marginLeft: "-70%",
+		  }, 300, function(){menuStatus = false;});
+              
+    $(".app").prepend("<div class='changePwdFrame'></div>");
+    $(".changePwdFrame").prepend("<div class='changePwdDiv'></div>");
+    $(".changePwdDiv").append("<label class='changePwdLbl'>Change Password</label>");
+    $(".changePwdDiv").append("<input class='newPwd' placeholder='New password' type='password'></input>");
+    $(".changePwdDiv").append("<input class='confirmPwd' placeholder='Confirm password' type='password'></input>");
+    $(".changePwdDiv").append("<button class='btnChangePwdClose' onclick='closeChangePwd()'>Close</button>");
+    $(".changePwdDiv").append("<button class='btnChangePwd' onclick='changePwd()'>Change Password</button>");
+                    
+}
+
+function closeChangePwd(){
+    $(".app .changePwdFrame").remove();
+}
+
+function changePwd(){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var token=returnData.rows.item(0).token;
+            var uid=returnData.rows.item(0).uid;
+            var newPwd=$(".newPwd").val();
+            var confirmPwd=$(".confirmPwd").val();
+            
+            if(newPwd==""){
+                alert("Invalid password");
+                $(".newPwd").focus();
+            }
+            else if(confirmPwd==""){
+                alert("Invalid password");
+                $(".confirmPwd").focus();
+            }
+            else if(newPwd.length<6){
+                alert("Password must at least 6 characters");
+                $(".newPwd").focus();
+            }
+            else if(confirmPwd!=newPwd){
+                alert("Password not matching");
+                $(".confirmPwd").focus();
+            }
+            else{
+                loading.startLoading();
+                postChangePwd(token, uid, newPwd);
+            }
+                
+        }
+    });
+}
 
 
 

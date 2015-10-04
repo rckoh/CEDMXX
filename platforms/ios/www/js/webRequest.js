@@ -213,14 +213,23 @@ function getProductDetails(nid, fromPage){
             var ssubcat=(data.nodes[x].node.service_sub_category=="")?"N/A":data.nodes[x].node.service_sub_category;
             
             if(data.nodes[x].node.type=="Product"){
-                $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button><img src='img/fav-alt.png'/></button>&nbsp;</p><br><p><img id='productImg' src='"+ imageUrl +"'/></p><p class='seperator'>&nbsp;</p><br><p class='description'>"+ desc +"</p><p class='seperator'>&nbsp;</p><h2>Unique Selling Point</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+unidsellingpoint+"</p><h2>Customer References</h2><p class='h2seperator'>&nbsp;</p><p class='description'>" +custRef+"</p><h2>Brochures</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+brochure+"</p><h2>Tags</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+tags+"</p><h2>Technology Area</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+techarea+"</p><h2>Platforms</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+platform+"</p><h2>Product Requirement</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+prequirement+"</p><h2>Market</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+market+" </p><h2>Industry</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+industry+"</p><h2>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><p class='description'></p><p><br><br></p></li>");
+                $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><br><p><img id='productImg' src='"+ imageUrl +"'/></p><p class='seperator'>&nbsp;</p><br><p class='description'>"+ desc +"</p><p class='seperator'>&nbsp;</p><h2>Unique Selling Point</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+unidsellingpoint+"</p><h2>Customer References</h2><p class='h2seperator'>&nbsp;</p><p class='description'>" +custRef+"</p><h2>Brochures</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+brochure+"</p><h2>Tags</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+tags+"</p><h2>Technology Area</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+techarea+"</p><h2>Platforms</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+platform+"</p><h2>Product Requirement</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+prequirement+"</p><h2>Market</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+market+" </p><h2>Industry</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+industry+"</p><h2>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><p class='description'></p><p><br><br></p></li>");
             }
             else if(data.nodes[x].node.type=="Service"){
-                $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><p class='pBtn'><button><img src='img/share%20alt.png'/></button>&nbsp;<button><img src='img/fav-alt.png'/></button>&nbsp;</p><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><br><p class='description'>"+desc+"</p><p class='seperator'>&nbsp;</p><h2>Customer References</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+custRef+"</p><h2>Brochures</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+brochure+"</p><h2>Tags</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+tags+"</p><h2>Platforms</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+platform+"</p><h2>Service Requirement</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+srequirement+"</p><h2>Market</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+market+"</p><h2>Service Category</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+scategory+"</p><h2>Service Sub Category</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+ssubcat+"</p><h2>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><p class='description'></p><p><br><br></p></li>");
+                $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><p class='pBtn'><button><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><br><p class='description'>"+desc+"</p><p class='seperator'>&nbsp;</p><h2>Customer References</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+custRef+"</p><h2>Brochures</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+brochure+"</p><h2>Tags</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+tags+"</p><h2>Platforms</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+platform+"</p><h2>Service Requirement</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+srequirement+"</p><h2>Market</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+market+"</p><h2>Service Category</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+scategory+"</p><h2>Service Sub Category</h2><p class='h2seperator'>&nbsp;</p><p class='description'>"+ssubcat+"</p><h2>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><p class='description'></p><p><br><br></p></li>");
             }
             
 //            <img id='galleryImg' src='"+data.nodes[x].node.gallery+"'/>
         }
+          
+        dbmanager.getProfile(function(returnData){
+                if(returnData.rows.length>0){
+                    $(".pBtn button:nth-child(2)").show();
+                    $(".pBtn button:nth-child(3)").show();
+                    checkFav(nid);
+                }
+        });
+        
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -278,8 +287,16 @@ function getCompanyDetails(nid){
           var awards=(data.nodes[0].node.award=="")?"N/A":data.nodes[0].node.award;
           
           $(".scrollul").append(
-            "<li class='scrollli'><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='lineseperator'>&nbsp;</p><br><h1 id='companyName'>"+title+"</h1><p class='description'> "+desc+"<br><br><table class='companyInfo'><tr><td><span>Address</span></td><td><span>:</span></td><td><span>"+address+"</span> </td></tr><tr><td><span>Website URL</span></td><td><span>:</span></td><td><span>"+wesiteUrl+"</span> </td></tr></table></p><p class='seperator'>&nbsp;</p><br><p class='description'><span class='buttonSpan'><button><img src='img/share%20alt.png'/></button>&nbsp;<button><img src='img/fav-alt.png'/></button>&nbsp;</span><table class='companyStatistic'><tr><td>Views</td><td>:</td><td>0</td></tr><tr><td>Shares</td><td>:</td><td>0</td></tr><tr><td>Favourites</td><td>:</td><td>0</td></tr></table></p><p class='seperator'>&nbsp;</p><br><div class='companyDetails'><div class='requirement'><button class='requirementBtn' onclick='changepage(1);'>Company Requirement</button></div><div class='awards'><button class='awardsBtn' onclick='changepage(2);'>Comapny Awards</button></div><div class='selectedItem'>&nbsp;</div><div class='companyDetailsDescriptionOne'>"+requirement+"</div><div class='companyDetailsDescriptionTwo'>"+awards+"</div></div><br><h2>Announcement</h2><ul class='scrollul' id='scrollulAnnouncement'></ul><br><h2>Products and Services</h2><ul class='scrollul' id='scrollulProdServ'></ul></li>"
+            "<li class='scrollli'><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='lineseperator'>&nbsp;</p><br><h1 id='companyName'>"+title+"</h1><p class='description'> "+desc+"<br><br><table class='companyInfo'><tr><td><span>Address</span></td><td><span>:</span></td><td><span>"+address+"</span> </td></tr><tr><td><span>Website URL</span></td><td><span>:</span></td><td><span>"+wesiteUrl+"</span> </td></tr></table></p><p class='seperator'>&nbsp;</p><br><p class='description'><span class='buttonSpan'><button onclick='sharetoFV();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></span><table class='companyStatistic'><tr><td>Views</td><td>:</td><td>0</td></tr><tr><td>Shares</td><td>:</td><td>0</td></tr><tr><td>Favourites</td><td>:</td><td>0</td></tr></table></p><p class='seperator'>&nbsp;</p><br><div class='companyDetails'><div class='requirement'><button class='requirementBtn' onclick='changepage(1);'>Company Requirement</button></div><div class='awards'><button class='awardsBtn' onclick='changepage(2);'>Comapny Awards</button></div><div class='selectedItem'>&nbsp;</div><div class='companyDetailsDescriptionOne'>"+requirement+"</div><div class='companyDetailsDescriptionTwo'>"+awards+"</div></div><br><h2>Announcement</h2><ul class='scrollul' id='scrollulAnnouncement'></ul><br><h2>Products and Services</h2><ul class='scrollul' id='scrollulProdServ'></ul></li>"
           );
+          
+          dbmanager.getProfile(function(returnData){
+                if(returnData.rows.length>0){
+                    $(".buttonSpan button:nth-child(2)").show();
+                    $(".buttonSpan button:nth-child(3)").show();
+                    checkFav(nid);
+                }
+          });
           
           getCompanyProdServList(nid);
           getCompanyAnnouncementList(nid);
@@ -926,7 +943,7 @@ function postFilterProductList(token, uid, submitted, lookFor, keyword, interest
                 $(".scrollulRM").append("<li class='scrollliRM' onclick='viewProductDetailsBM("+data[x].nid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='"+data[x].image+"'></td><td><h1 class='listviewitemtitleRM'>"+data[x].title+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].description+"</p></td></tr></table></li>");
             }
             else{
-                $(".scrollulRM").append("<li class='scrollliRM'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src=''></td><td><h1 class='listviewitemtitleRM'>"+data[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].roles+"</p></td></tr></table></li>");
+                $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src=''></td><td><h1 class='listviewitemtitleRM'>"+data[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].roles+"</p></td></tr></table></li>");
             }
         }            
           
@@ -969,7 +986,11 @@ $(".scrollulLVM li").remove();
             if(data[x].type=="product" || data[x].type=="service"){
                 $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetailsBM("+data[x].nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data[x].image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data[x].title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data[x].description+"</p></td></tr></table></li>");
             }
+            else{
+                $(".scrollulLVM").append("<li class='scrollliLVM' onclick='replyOnClick("+data[x].uid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src=''></td><td><h1 class='listviewitemtitleLVM'>"+data[x].name+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data[x].roles+"</p></td></tr></table></li>");
+            }
         } 
+          
         
         loading.endLoading();
                   
@@ -1061,7 +1082,6 @@ function postBMServiceSubCategory(token, category){
 
         $("#serviceSubCatDiv h1").remove();
 
-        alert(data.servCategoryData.sub_category[0].sub.value);
           
         for(var x=0; x<data.servCategoryData.sub_category.length; x++){     
             var optionValue=data.servCategoryData.sub_category[x].sub.value;
@@ -1101,7 +1121,7 @@ function postFilterServiceList(token, uid, submitted, lookFor, keyword, interest
                 $(".scrollulRM").append("<li class='scrollliRM' onclick='viewProductDetailsBM("+data[x].nid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='"+data[x].image+"'></td><td><h1 class='listviewitemtitleRM'>"+data[x].title+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].description+"</p></td></tr></table></li>");
             }
             else{
-                $(".scrollulRM").append("<li class='scrollliRM'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src=''></td><td><h1 class='listviewitemtitleRM'>"+data[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].roles+"</p></td></tr></table></li>");
+                $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src=''></td><td><h1 class='listviewitemtitleRM'>"+data[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].roles+"</p></td></tr></table></li>");
             }
         }            
           
@@ -1285,6 +1305,7 @@ function postInboxMessageReply(token, uid, act, mid, message){
 //        alert(returnstr);    
         if(data.success==true){
             postInboxMessageContent(token, uid, "3", mid);
+            alert("Message sent");
             replyOnClick();
         }
         else{
@@ -1298,6 +1319,104 @@ function postInboxMessageReply(token, uid, act, mid, message){
           loading.endLoading();
         }
     })
+}
+
+function postNewMessageToUSer(token, uid, act, nid, message, subject){
+    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&nid="+nid+"&subject="+subject+"&dataBody="+message;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+//        alert(returnstr);    
+        if(data.success==true){
+            alert("Message sent");
+            loading.endLoading();
+            replyOnClick();
+        }
+        else{
+            alert(data.messages.warning);
+            loading.endLoading();
+        }
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          alert("Unable connect to server.");      
+          loading.endLoading();
+        }
+    })
+}
+
+function PostFavCheck(token, uid, nid, flag){
+    var requestUrl=webUrl+"drupalgap/mobileapp/favourite.json?nid="+nid+"&uid="+uid+"&checkflag="+flag;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+//        alert("returnstr:"+returnstr);  
+//        alert("flag:"+flag);  
+        
+        if(flag=="1"){
+            if(data=="true")
+                $("#shareImg").attr("src", "img/fav-ed.png");
+        }
+        else{
+            if(data=="true")
+                $("#shareImg").attr("src", "img/fav-ed.png");
+            else
+                $("#shareImg").attr("src", "img/fav-alt.png");
+        }   
+        
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          if(flag=="0")
+            alert("Unable connect to server.");      
+        }
+    })
+}
+
+
+function postChangePwd(token, uid, newPwd){
+    var requestUrl=webUrl+"drupalgap/mobileapp/changepassword.json?uid="+uid+"&newpass="+newPwd;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+        alert("Password Change successfully");  
+        loading.endLoading();  
+        closeChangePwd();
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+            alert("Unable connect to server.");      
+            loading.endLoading();
+        }
+    })
+
 }
 
 function viewMessageContent(mid){
