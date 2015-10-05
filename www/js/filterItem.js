@@ -126,6 +126,11 @@ function productFilterResult(){
             var uid=returnData.rows.item(0).uid;
             postFilterProductList(token, uid, "true", lookfor, keyword, interest, industryArea, techArea);
         }
+        else{
+            var token="";
+            var uid="0";
+            postFilterProductList(token, uid, "true", lookfor, keyword, interest, industryArea, techArea);
+        }
     });
 }
 
@@ -181,6 +186,10 @@ function getServiceSubCat(){
         if(returnData.rows.length>0){
             var token=returnData.rows.item(0).token;
             postBMServiceSubCategory(token, categoryArr[1]);
+        }
+        else{
+            var token="";
+            postBMServiceSubCategory(token, categoryArr[1], "");
         }
     });
 }

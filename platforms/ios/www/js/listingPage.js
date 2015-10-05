@@ -170,6 +170,10 @@ function initListingProdList(){
             var token=returnData.rows.item(0).token;
             postListingProductList(token);
         }
+        else{
+            var token="";
+            postListingProductList(token, "0");
+        }
     });
 }
 
@@ -178,6 +182,10 @@ function initListingServList(){
         if(returnData.rows.length>0){
             var token=returnData.rows.item(0).token;
             postListingServiceList(token);
+        }
+        else{
+            var token="";
+            postListingServiceList(token, "0");
         }
     });
 }
@@ -191,6 +199,13 @@ function initSearchCriteria(searchType){
                 postProductSearchCriteria(token);
             else
                 postServiceSearchCriteria(token);
+        }
+        else{
+             var token="";
+            if(searchType=="product")
+                postProductSearchCriteria(token, "0");
+            else
+                postServiceSearchCriteria(token, "0");
         }
     });
 }

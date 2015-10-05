@@ -97,6 +97,10 @@ function productSearchResult(){
             var token=returnData.rows.item(0).token;
             postSearchListingProductList(token, productName, company, gst, industry, techArea);
         }
+        else{
+            var token="";
+            postSearchListingProductList(token, productName, company, gst, industry, techArea, "0");
+        }
     });
 }
 
@@ -116,6 +120,10 @@ function serviceSearchResult(){
             var token=returnData.rows.item(0).token;
             postSearchListingServiceList(token, serviceName, company, categoryArr[0], subcategory);
         }
+        else{
+            var token="";
+            postSearchListingServiceList(token, serviceName, company, categoryArr[0], subcategory, "0");
+        }
     });
 }
 
@@ -134,6 +142,10 @@ function getSubCategory(){
         if(returnData.rows.length>0){
             var token=returnData.rows.item(0).token;
             postServiceSearchCriteriaSubCategory(token, categoryArr[1]);
+        }
+        else{
+            var token="";
+            postServiceSearchCriteriaSubCategory(token, categoryArr[1], "");
         }
     });
 }
