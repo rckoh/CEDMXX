@@ -1476,7 +1476,7 @@ function postForgetPwd(name){
 
 function postRegistrationId(uid, token,regid, type){
     var requestUrl=webUrl+"drupalgap/pushnotification.json?uid="+uid+"&token="+regid+"&type="+type;
-    
+    alert("post registration");
     $.ajax({
       url: requestUrl,
       method: "POST",
@@ -1492,6 +1492,7 @@ function postRegistrationId(uid, token,regid, type){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
+          alert("regidUnable connect to server.");      
         }
     })
 }
