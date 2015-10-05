@@ -1476,7 +1476,7 @@ function postForgetPwd(name){
 
 function postRegistrationId(uid, token,regid, type){
     var requestUrl=webUrl+"drupalgap/pushnotification.json?uid="+uid+"&token="+regid+"&type="+type;
-    alert("requestUrl");
+    alert(requestUrl);
     alert(uid);
     alert(token);
     alert(regid);
