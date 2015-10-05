@@ -1493,7 +1493,7 @@ function postRegistrationId(uid, token,regid, type){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("regidUnable connect to server.");      
+          alert("regidUnable connect to server." + xhr.responseText);      
         }
     })
 }
