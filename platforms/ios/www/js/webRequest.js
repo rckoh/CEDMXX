@@ -1474,14 +1474,15 @@ function postForgetPwd(name){
     })
 }
 
-function postRegistrationId(uid, regid, type){
+function postRegistrationId(uid, token,regid, type){
     var requestUrl=webUrl+"drupalgap/pushnotification.json?uid="+uid+"&token="+regid+"&type="+type;
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded",
+        "X-CSRF-Token":token
       },
       timeout: 10000,    
       success: function(data, status, xhr) {
