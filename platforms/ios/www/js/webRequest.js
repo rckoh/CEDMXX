@@ -36,7 +36,7 @@ function getFeaturedList(){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."+xhr.status+xhr.responseText); 
+          alert("Unable connect to server."); 
         }
     })
 }
@@ -426,7 +426,7 @@ function postCompanyProfile(companyid, token, page){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server. " + xhr.status+" "+ xhr.responseText); 
+          alert("Unable connect to server. "); 
         }
     })
 }
@@ -457,7 +457,7 @@ function postUserPoint(uid, token){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server. " + xhr.status+" "+ xhr.responseText); 
+          alert("Unable connect to server. "); 
         }
     })
 }
@@ -609,7 +609,7 @@ function postLogout(token){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           
-          alert("Unable connect to server." + xhr.status + " " + xhr.responseText); 
+          alert("Unable connect to server."); 
           
           loading.endLoading();
         }
