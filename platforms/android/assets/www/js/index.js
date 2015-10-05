@@ -38,16 +38,9 @@ var app = {
         
         
         if ( device.platform == 'android' || device.platform == 'Android'){
-            alert("push notification");
             pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"16206476952","ecb":"app.onNotificationGCM"});
         } 
         else {
-//            pushNotification.registerDevice({alert:true, badge:true, sound:true}, 
-//                function(status) {
-//                app.myLog.value+=JSON.stringify(['registerDevice status: ', status])+"\n";
-//                app.storeToken(status.deviceToken);
-//            });
-            alert("apn push notification");
             pushNotification.register(app.tokenHandler,app.errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});
         }
 
@@ -55,11 +48,11 @@ var app = {
     
     // result contains any message sent from the plugin call
     successHandler: function(result) {
-        alert('Callback Success! Result = '+result);
+//        alert('Callback Success! Result = '+result);
     },
     
     errorHandler:function(error) {
-        alert(error);
+//        alert(error);
     },
     
     onNotificationGCM: function(e) {
@@ -69,21 +62,30 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
 //                    console.log("Regid " + e.regid);
-                    alert('registration id = '+e.regid);
+//                    alert('registration id = '+e.regid);
+                    dbmanager.getProfile(function(returnData){
+                        if(returnData.rows.length==0){
+                            var uid=returnData.rows.item(0).uid;
+                            var token=returnData.rows.item(0).token;
+                            var regid=e.regid;
+                            
+                            postRegistrationId(uid, token, regid, "android"); 
+                        }    
+                    });
                 }
             break;
  
             case 'message':
               // this is the actual push notification. its format depends on the data model from the push server
-              alert('message = '+e.message+' msgcnt = '+e.msgcnt);
+//              alert('message = '+e.message+' msgcnt = '+e.msgcnt);
             break;
  
             case 'error':
-              alert('GCM error = '+e.msg);
+//              alert('GCM error = '+e.msg);
             break;
  
             default:
-              alert('An unknown GCM event has occurred');
+//              alert('An unknown GCM event has occurred');
               break;
         }
     },
@@ -91,7 +93,16 @@ var app = {
     tokenHandler: function(result) {
         // Your iOS push server needs to know the token before it can push to this device
         // here is where you might want to send it the token for later use.
-        alert('device token = ' + result);
+//        alert('device token = ' + result);
+        dbmanager.getProfile(function(returnData){
+            if(returnData.rows.length==0){
+                var uid=returnData.rows.item(0).uid;
+                var token=returnData.rows.item(0).token;
+                var regid=result;
+                            
+                postRegistrationId(uid, token, regid, "ios"); 
+            }    
+        });
     },
     
     onNotificationAPN: function(event) {

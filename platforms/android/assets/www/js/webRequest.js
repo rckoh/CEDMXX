@@ -1474,6 +1474,27 @@ function postForgetPwd(name){
     })
 }
 
+function postRegistrationId(uid, regid, type){
+    var requestUrl=webUrl+"drupalgap/pushnotification.json?uid="+uid+"&token="+regid+"&type="+type;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+          alert(returnstr);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+        }
+    })
+}
+
 function viewMessageContent(mid){
     window.location = "inboxDetailPage.html?mid="+mid;
 }
