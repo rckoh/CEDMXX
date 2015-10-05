@@ -64,7 +64,7 @@ var app = {
 //                    console.log("Regid " + e.regid);
 //                    alert('registration id = '+e.regid);
                     dbmanager.getProfile(function(returnData){
-                        if(returnData.rows.length==0){
+                        if(returnData.rows.length>0){
                             var uid=returnData.rows.item(0).uid;
                             var token=returnData.rows.item(0).token;
                             var regid=e.regid;
@@ -95,7 +95,7 @@ var app = {
         // here is where you might want to send it the token for later use.
 //        alert('device token = ' + result);
         dbmanager.getProfile(function(returnData){
-            if(returnData.rows.length==0){
+            if(returnData.rows.length>0){
                 var uid=returnData.rows.item(0).uid;
                 var token=returnData.rows.item(0).token;
                 var regid=result;

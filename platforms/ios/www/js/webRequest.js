@@ -1488,7 +1488,8 @@ function postRegistrationId(uid, token,regid, type){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-          alert(returnstr);
+        alert(returnstr);
+          
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
