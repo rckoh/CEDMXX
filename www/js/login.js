@@ -178,6 +178,40 @@ function login(){
     var username=$("#username").val();
     var password=$("#password").val();
     requestLogin(username, password);
+}
+
+
+function forgetPwd(){
+    var keyWord=$(".keyTxt").val();
+
+    if(keyWord==""){
+        alert("Please insert user id or email address");
+        $(".keyTxt").focus();
+    }
+    else{
+        loading.startLoading();
+        postForgetPwd(keyWord);
+    }
+}
+
+var textboxDisplay=0;
+function forgetPwdOnClick(){
     
+    $(".keyTxt").val("");
     
+    if(textboxDisplay==0){
+        $(".forgetPwdFrame").show();
+        textboxDisplay=1;
+        $(".keyTxt").focus();
+    }
+    else if(textboxDisplay==1)
+    {
+        $(".forgetPwdFrame").hide();
+        textboxDisplay=0;
+    }
+    else{
+        $(".forgetPwdFrame").show();
+        textboxDisplay=1;
+        $(".keyTxt").focus();
+    }
 }

@@ -1416,7 +1416,33 @@ function postChangePwd(token, uid, newPwd){
             loading.endLoading();
         }
     })
+}
 
+function postForgetPwd(name){
+    var requestUrl=webUrl+"drupalgap/user/request_new_password.json?name="+name;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      timeout: 10000,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+        
+        alert("Email sent"); 
+          
+        loading.endLoading();  
+        forgetPwdOnClick();
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+            alert("Unable connect to server.");      
+            loading.endLoading();
+        }
+    })
 }
 
 function viewMessageContent(mid){

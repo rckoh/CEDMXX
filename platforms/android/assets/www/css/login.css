@@ -278,4 +278,109 @@ input:focus {
 /* ------------------------------------------------------------------------------------*/
 
 
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* forget password*/
+
+.forgetPwdDiv{
+    height:60%;
+    width: 100%;
+    position: relative;
+    top:0%;
+    background-color: lightgray;
+    width: 100%;
+}
+
+
+.keyTxt{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    height:8%;
+    top: 30%;
+    border-radius: 10px;
+    background-color: white;
+    color: #565656;
+    font-size: 3vw;
+    padding: 1vw;
+    box-sizing: border-box;
+}
+
+
+.btnForgetPwd{
+    position: absolute;
+    right: 3%;
+    border: none;
+    outline: 0;
+    height: 15%;
+    bottom: 0;
+    width: auto;
+    background-color: transparent;
+    color: deepskyblue;
+    font-size: 3vw;
+}
+
+.btnForgetPwdClose{
+    position: absolute;
+    left: 3%;
+    border: none;
+    outline: 0;
+    height: 15%;
+    bottom: 0;
+    width: auto;
+    background-color: transparent;
+    color: deepskyblue;
+    font-size: 3vw;
+}
+
+
+
+.forgetPwdLbl{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    height: 80%;
+    top: 10%;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #565656;
+    resize: none;
+    min-height: 73%;
+    max-height: 73%;    
+    font-size: 3vw;
+    padding: 1vw;
+}
+
+.forgetPwdFrame{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+    background-color: transparent;
+    z-index: 89;
+}
+
+.forgetPwdDetailLbl{
+    text-align: left;
+    width: 90%;
+    left: 5%;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    height: 80%;
+    top: 20%;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #565656;    
+    font-size: 2vw;
+    padding: 1vw;
+    text-transform: capitalize;
+}
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
 

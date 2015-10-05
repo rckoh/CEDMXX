@@ -28,9 +28,7 @@
             document.addEventListener("deviceready", onDeviceReady, false);
             
             function onDeviceReady() {
-			var marginleft=$(".app").width()/2-$(".appLogo").width()/2;
-			$(".appLogo").css("margin-left", marginleft);
-                document.addEventListener("backbutton", onBackKeyDown, false);
+//			     document.addEventListener("backbutton", onBackKeyDown, false);
             }
         </script>
         <script type="text/javascript" src="js/menuclick.js"></script>
@@ -55,7 +53,7 @@
                 <table style="width:100%">
                     <tr style="width:100%">
                         <td style="width:45%;">
-                            <button class="btnForgetPassword">Forget Password</button>
+                            <button class="btnForgetPassword" onclick="forgetPwdOnClick();">Forget Password</button>
                         </td>
                         <td style="width:10%; text-align:center;" class="buttonSeperator">|</td>
                         <td style="width:45%">
@@ -64,9 +62,25 @@
                     </tr>
                 </table>
             </div>
+            <div class='forgetPwdFrame'>
+                <div class='forgetPwdDiv'>
+                    <label class='forgetPwdLbl'>Forget Password</label>
+                    <label class='forgetPwdDetailLbl'>Enter username or email address. An new password will be send to your mailbox.</label>
+                    <input class='keyTxt' type='text'></input>
+                    <button class='btnForgetPwdClose' onclick='forgetPwdOnClick();'>Close</button>
+                    <button class='btnForgetPwd' onclick='forgetPwd();'>Forget Password</button>
+                </div>
+            </div>
         </div>
         <script type="text/javascript">
             app.initialize();
+            $(document).ready(function(){
+                $(".appLogo").load(function(){
+//                    $(this).width();
+                    var marginleft=$(".app").width()/2-$(this).width()/2;
+			     $(".appLogo").css("margin-left", marginleft);    
+                });
+            });
         </script>
     </body>
 </html>
