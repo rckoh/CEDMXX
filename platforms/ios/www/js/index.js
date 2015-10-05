@@ -25,16 +25,19 @@ var app = {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
-        alert("receive event");
+        
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        
+
+    },
+    
+    initPushNotificationRegister: function(){
         var pushNotification = window.plugins.pushNotification;
         
         
-        if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
+        if ( device.platform == 'android' || device.platform == 'Android'){
             alert("push notification");
             pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"16206476952","ecb":"app.onNotificationGCM"});
         } 
@@ -44,22 +47,15 @@ var app = {
 //                app.myLog.value+=JSON.stringify(['registerDevice status: ', status])+"\n";
 //                app.storeToken(status.deviceToken);
 //            });
-            pushNotification.register(
-            app.tokenHandler,
-            app.errorHandler,
-            {
-                "badge":"true",
-                "sound":"true",
-                "alert":"true",
-                "ecb":"app.onNotificationAPN"
-            });
+            alert("apn push notification");
+            pushNotification.register(app.tokenHandler,app.errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});
         }
 
     },
     
     // result contains any message sent from the plugin call
     successHandler: function(result) {
-        alert('Callback Success! Result = '+result)
+        alert('Callback Success! Result = '+result);
     },
     
     errorHandler:function(error) {
@@ -92,29 +88,29 @@ var app = {
         }
     },
     
-//    tokenHandler: function(result) {
-//        // Your iOS push server needs to know the token before it can push to this device
-//        // here is where you might want to send it the token for later use.
-//        alert('device token = ' + result);
-//    },
+    tokenHandler: function(result) {
+        // Your iOS push server needs to know the token before it can push to this device
+        // here is where you might want to send it the token for later use.
+        alert('device token = ' + result);
+    },
     
-//    onNotificationAPN: function(event) {
-//        if ( event.alert )
-//        {
-//            navigator.notification.alert(event.alert);
-//        }
-//
-//        if ( event.sound )
-//        {
-//            var snd = new Media(event.sound);
-//            snd.play();
-//        }
-//
-//        if ( event.badge )
-//        {
-//            pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
-//        }
-//    }
+    onNotificationAPN: function(event) {
+        if ( event.alert )
+        {
+            navigator.notification.alert(event.alert);
+        }
+
+        if ( event.sound )
+        {
+            var snd = new Media(event.sound);
+            snd.play();
+        }
+
+        if ( event.badge )
+        {
+            pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
+        }
+    }
 };
 
 //-----------------------------------------------------------------

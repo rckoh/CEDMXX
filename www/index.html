@@ -65,6 +65,7 @@
 
             function onDeviceReady() {
                 document.addEventListener("backbutton", onBackKeyDown, false);
+                app.initPushNotificationRegister();
             }
             
             function onBackKeyDown(e) {
