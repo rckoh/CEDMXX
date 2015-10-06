@@ -420,6 +420,7 @@ function postCompanyProfile(companyid, token, page){
         var numberofshare=newJsonObj.total_share;
         var backgroundImg=newJsonObj.background;
           
+        
         $("#lblviewnumber").text(numberofview);
         $("#lblfavnumber").text(numberoffav);
         $("#lblsharenumber").text(numberofshare);
@@ -1216,7 +1217,7 @@ function postInboxMessageList(token, uid, act){
 //        alert(returnstr);    
              
         var list = new Array();
-
+        var pageString="";
         for (var x = 0; x < data.length; x++) { 
             
             var participant="";
@@ -1237,14 +1238,17 @@ function postInboxMessageList(token, uid, act){
 //                $(".scrollul").append("<li class='scrollli' onclick='viewMessageContent("+data[x].thread_id+");'><table style='width:100%;'><tr><td rowspan='3' style='width:20%'><img class='inboxImgUnread' src='img/profile_default_new.png'></td><td style='width:60%;'><p class='inboxUnreadTitle'>"+participant+"</p></td><td style='width:20%;' rowspan='2'><p class='inboxUnreadDate'>"+data[x].last_updated+"</p></td></tr><tr><td style='width:60%;'><p class='inboxUnreadInfo'>"+data[x].subject+"</p></td></tr><tr><td style='width:60%;'><span class='inboxUnreadMsg'>"+data[x].messageBody+"</span></td></tr></table></li>");
             }
             
+            if(pageString=="")
+                pageString=data[x].thread_id;
+            else
+                pageString=pageString+","+data[x].thread_id;
         }
         
 //        $.each(data, function(i, item) {
 //            
 //            list.push(item.text);
 //        });
-        
-          
+        $("#pageString").val(pageString);  
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -1267,7 +1271,7 @@ function postInboxMessageContent(token, uid, act, mid){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);    
+//        alert(returnstr);
         $(".scrollul li").remove();  
 //        var title=data.recipients[0].recipient.name;
         var date=data.messages[0].message.datetime;
@@ -1507,7 +1511,9 @@ function postRegistrationId(uid, token,regid, type){
 }
 
 function viewMessageContent(mid){
-    window.location = "inboxDetailPage.html?mid="+mid;
+    var paging=$("#pageString").val();
+    
+    window.location = "inboxDetailPage.html?mid="+mid+"&paging="+paging;
 }
 
                    
