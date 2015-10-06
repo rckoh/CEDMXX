@@ -121,15 +121,68 @@ function submitReplyMessage(){
     });
 }
                          
+var maxpage;
+var currentpage;
+var page;
 
-//function replyMsg(){
-//    dbmanager.getProfile(function(returnData){
-//        if(returnData.rows.length>0){
-//            var uid=returnData.rows.item(0).uid;
-//            var token=returnData.rows.item(0).token;
-//            var mid=getUrlParameter("mid");
-//            loading.startLoading();
-//            postInboxMessageDelete(token, uid, "6", mid);
-//        }
-//    });
-//}
+function initpaging(){
+    var paging=getUrlParameter("paging");
+    var mid=getUrlParameter("mid");
+    page=paging.split(",");
+    
+    maxpage=page.length-1;
+    
+    for(var x=0; x<=maxpage ; x++){
+        if(page[x]==mid)
+            currentpage=x;
+    }
+}
+
+function nextpage(){
+
+    if(currentpage!=maxpage){
+        $(".scrollul li").remove();  
+        var mid=page[currentpage+1];
+        currentpage=currentpage+1;
+        reloadContent(mid);
+        
+        if(currentpage==maxpage){
+            $(".nextBtn").hide();
+            $(".previousBtn").show();
+        }
+        else{
+            $(".nextBtn").show();
+            $(".previousBtn").show();
+        }
+    }
+}
+
+function previouspage(){
+    
+    if(currentpage!=0){
+        $(".scrollul li").remove();  
+        var mid=page[currentpage-1];
+        currentpage=currentpage-1;
+        reloadContent(mid);
+        
+        if(currentpage==0){
+            $(".previousBtn").hide();
+            $(".nextBtn").show();
+        }
+        else{
+            $(".previousBtn").show();
+            $(".nextBtn").show();
+        }
+    }
+}
+
+function reloadContent(mid){
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var uid=returnData.rows.item(0).uid;
+            var token=returnData.rows.item(0).token;
+            loading.startLoading();
+            postInboxMessageContent(token, uid, "3", mid);
+        }
+    });
+}

@@ -80,8 +80,8 @@
             <div class="pageFooter">
                 <button class="deleteBtn" onclick="deleteMsg();"><img src="img/delete.png"/></button>
                 <button class="replyBtn" onclick="replyOnClick();"><img src="img/reply.png"/></button>
-                <button class="previousBtn"><img src="img/previous.png"/></button>
-                <button class="nextBtn"><img src="img/next.png"/></button>
+                <button class="previousBtn" onclick="previouspage();"><img src="img/previous.png"/></button>
+                <button class="nextBtn" onclick="nextpage();"><img src="img/next.png"/></button>
             </div>
         </div>
         <script type="text/javascript" src="../plugins/iscroll-master/build/iscroll-lite.js"></script>
@@ -99,6 +99,7 @@
             $(document).ready(
                 function(){
                     initMessageContent();
+                    initpaging();
 //                    slideMenu.initSlideMenu();
             });
         </script>
