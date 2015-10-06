@@ -1449,7 +1449,7 @@ function postChangePwd(token, uid, newPwd){
 }
 
 function postForgetPwd(name){
-    var requestUrl=webUrl+"drupalgap/user/request_new_password.json?name="+name;
+    var requestUrl=webUrl+"drupalgap/user/request_new_password.json";
     
     $.ajax({
       url: requestUrl,
@@ -1457,6 +1457,7 @@ function postForgetPwd(name){
       headers: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
+      data:"name=" + name,
       timeout: 10000,    
       success: function(data, status, xhr) {
       debugger;
@@ -1475,12 +1476,10 @@ function postForgetPwd(name){
 }
 
 function postRegistrationId(uid, token,regid, type){
-    var requestUrl=webUrl+"drupalgap/pushnotification.json?uid="+uid+"&token="+regid+"&type="+type;
-    alert(requestUrl);
-    alert(uid);
-    alert(token);
-    alert(regid);
-    alert(type);
+//    var requestUrl=webUrl+"drupalgap/pushnotification.json?uid="+uid+"&token="+regid+"&type="+type;
+    
+    var requestUrl=webUrl+"drupalgap/pushnotification.json;
+    
     $.ajax({
       url: requestUrl,
       method: "POST",
@@ -1488,6 +1487,7 @@ function postRegistrationId(uid, token,regid, type){
         "Content-Type": "application/x-www-form-urlencoded",
         "X-CSRF-Token":token
       },
+      data:"uid=" + uid + "&token=" + regid + "&type=" + type,
       timeout: 10000,    
       success: function(data, status, xhr) {
       debugger;
@@ -1497,7 +1497,7 @@ function postRegistrationId(uid, token,regid, type){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("regidUnable connect to server." + xhr.responseText);      
+          alert("regid: Unable connect to server." + xhr.responseText);      
         }
     })
 }
