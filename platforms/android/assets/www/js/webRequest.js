@@ -414,15 +414,17 @@ function postCompanyProfile(companyid, token, page){
       success: function(data, status, xhr) {
         debugger;
         var newJsonObj=$.parseJSON(data);
-        
+          
         var numberofview=newJsonObj.total_view;
         var numberoffav=newJsonObj.total_favourite;
         var numberofshare=newJsonObj.total_share;
-        
+        var backgroundImg=newJsonObj.background;
+          
         $("#lblviewnumber").text(numberofview);
         $("#lblfavnumber").text(numberoffav);
         $("#lblsharenumber").text(numberofshare);
-        
+        $(".profileBG").attr("src", backgroundImg);
+          
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -526,7 +528,9 @@ function postLogin(token, username, password){
       timeout: 10000,    
       success: function(data, status, xhr) {
         debugger;
-        
+        var returnstr=JSON.stringify(data);
+//        alert(returnstr);
+          
         var uid=data.user.uid;
         var name=data.user.name;
         var email=data.user.mail;
@@ -1491,13 +1495,13 @@ function postRegistrationId(uid, token,regid, type){
       timeout: 10000,    
       success: function(data, status, xhr) {
       debugger;
-        var returnstr=JSON.stringify(data);
-        alert(returnstr);
+//        var returnstr=JSON.stringify(data);
+//        alert(returnstr);
           
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("regid: Unable connect to server." + xhr.responseText);      
+//          alert("regid: Unable connect to server.");      
         }
     })
 }
