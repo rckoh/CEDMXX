@@ -137,7 +137,7 @@ function initpaging(){
             currentpage=x;
     }
     
-    alert(currentpage);
+    
     if(currentpage==maxpage){
             $(".previousBtn").hide();
     }
