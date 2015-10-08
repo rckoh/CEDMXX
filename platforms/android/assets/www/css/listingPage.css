@@ -62,7 +62,7 @@
     background-color: #00FFFF;
     width: 32.75%;
     height: 2px;
-    z-index: 89;
+    z-index: 88;
     /* top:12%; */
 /*    margin: 0px 0.5% 0px 0px;*/
     padding: 0px 0px 0px 0px;
@@ -75,7 +75,7 @@
     background-color: transparent;
     width: 12%;
     height: 100%;
-    z-index: 96;
+    z-index: 88;
     right: 10px;
 }
 
@@ -84,7 +84,7 @@
     width: 100%;
     border: none;
     background-color: transparent;
-    z-index: 95;
+    z-index: 88;
 }
 
 .filterBtnImg{
