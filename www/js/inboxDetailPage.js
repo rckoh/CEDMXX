@@ -136,17 +136,25 @@ function initpaging(){
         if(page[x]==mid)
             currentpage=x;
     }
+    
+    alert(currentpage);
+    if(currentpage==maxpage){
+            $(".previousBtn").hide();
+    }
+    
+    if(currentpage==0){
+            $(".nextBtn").hide();
+    }
 }
 
 function nextpage(){
-
-    if(currentpage!=maxpage){
+    if(currentpage!=0){
         $(".scrollul li").remove();  
-        var mid=page[currentpage+1];
-        currentpage=currentpage+1;
+        var mid=page[currentpage-1];
+        currentpage=currentpage-1;
         reloadContent(mid);
         
-        if(currentpage==maxpage){
+        if(currentpage==0){
             $(".nextBtn").hide();
             $(".previousBtn").show();
         }
@@ -155,25 +163,26 @@ function nextpage(){
             $(".previousBtn").show();
         }
     }
+    
 }
 
 function previouspage(){
-    
-    if(currentpage!=0){
+    if(currentpage!=maxpage){
         $(".scrollul li").remove();  
-        var mid=page[currentpage-1];
-        currentpage=currentpage-1;
+        var mid=page[currentpage+1];
+        currentpage=currentpage+1;
         reloadContent(mid);
         
-        if(currentpage==0){
+        if(currentpage==maxpage){
             $(".previousBtn").hide();
             $(".nextBtn").show();
         }
         else{
-            $(".previousBtn").show();
             $(".nextBtn").show();
+            $(".previousBtn").show();
         }
     }
+    
 }
 
 function reloadContent(mid){
