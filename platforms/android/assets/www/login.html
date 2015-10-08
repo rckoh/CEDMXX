@@ -28,6 +28,9 @@
             document.addEventListener("deviceready", onDeviceReady, false);
             
             function onDeviceReady() {
+                var marginleft=$(".app").width()/2-$(".appLogo").width()/2;
+                $(".appLogo").css("margin-left", marginleft);
+                
 //			     document.addEventListener("backbutton", onBackKeyDown, false);
             }
         </script>
@@ -75,10 +78,10 @@
         <script type="text/javascript">
             app.initialize();
             $(document).ready(function(){
-                $(".appLogo").load(function(){
-//                    $(this).width();
-                    var marginleft=$(".app").width()/2-$(this).width()/2;
-			     $(".appLogo").css("margin-left", marginleft);    
+//                $(".appLogo").load(function(){
+////                    $(this).width();
+//                    var marginleft=$(".app").width()/2-$(this).width()/2;
+//			     $(".appLogo").css("margin-left", marginleft);    
                 });
             });
         </script>
