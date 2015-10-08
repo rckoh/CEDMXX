@@ -27,9 +27,9 @@
     </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
-    <name>Projeksistematik</name>
+    <name>MDeC eSolution</name>
     <description>
-        Projeksistematik
+        MDeC eSolution
     </description>
     <author email="support@projeksisteamtik.com.my.com" href="http://projeksistematik.com.my">
         PSSB Mobile Apps Development Team
