@@ -972,7 +972,7 @@ function postFilterProductList(token, uid, submitted, lookFor, keyword, interest
                 $(".scrollulRM").append("<li class='scrollliRM' onclick='viewProductDetailsBM("+data[x].nid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='"+data[x].image+"'></td><td><h1 class='listviewitemtitleRM'>"+data[x].title+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].description+"</p></td></tr></table></li>");
             }
             else{
-                $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src=''></td><td><h1 class='listviewitemtitleRM'>"+data[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].roles+"</p></td></tr></table></li>");
+                $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleRM'>"+data[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].roles+"</p></td></tr></table></li>");
             }
         }            
           
@@ -1016,7 +1016,7 @@ $(".scrollulLVM li").remove();
                 $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetailsBM("+data[x].nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data[x].image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data[x].title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data[x].description+"</p></td></tr></table></li>");
             }
             else{
-                $(".scrollulLVM").append("<li class='scrollliLVM' onclick='replyOnClick("+data[x].uid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src=''></td><td><h1 class='listviewitemtitleLVM'>"+data[x].name+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data[x].roles+"</p></td></tr></table></li>");
+                $(".scrollulLVM").append("<li class='scrollliLVM' onclick='replyOnClick("+data[x].uid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleLVM'>"+data[x].name+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data[x].roles+"</p></td></tr></table></li>");
             }
         } 
           
@@ -1051,7 +1051,7 @@ function postBMServiceFilterCriteria(token, uid){
         var returnstr=JSON.stringify(data);
 //        alert(returnstr);
 
-        $("#filterServiceLoookFor option").remove();
+        $("#filterServiceLookFor option").remove();
         $("#filterServiceInterest option").remove();
         $("#filterServiceCategory option").remove();
         
@@ -1156,7 +1156,7 @@ function postFilterServiceList(token, uid, submitted, lookFor, keyword, interest
                 $(".scrollulRM").append("<li class='scrollliRM' onclick='viewProductDetailsBM("+data[x].nid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='"+data[x].image+"'></td><td><h1 class='listviewitemtitleRM'>"+data[x].title+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].description+"</p></td></tr></table></li>");
             }
             else{
-                $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src=''></td><td><h1 class='listviewitemtitleRM'>"+data[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].roles+"</p></td></tr></table></li>");
+                $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleRM'>"+data[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].roles+"</p></td></tr></table></li>");
             }
         }            
           
