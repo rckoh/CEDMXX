@@ -66,7 +66,8 @@ function sharetoFV()
             
 function sharetoFVnormal(){
 //    alert("share");
-                window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl');
+        var imageUrl=document.getElementById("productImg").src
+        window.plugins.socialsharing.share('', null, imageUrl, '');
 }
             
 function sharetoFVios(){
