@@ -1,5 +1,6 @@
 var webUrl = "http://netinfinium.publicvm.com:86/";
 var intervalid, intervalidpage2, intervalidpage3;
+var apiTimeout=20000;
 
 function getFeaturedList(){
     var requestUrl=webUrl+"drupalgap/getfeatured";
@@ -10,7 +11,7 @@ function getFeaturedList(){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;        
         $(".scrollul li").remove();
@@ -51,7 +52,7 @@ function getLatestPostList(){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         $(".scrollulPage2 li").remove();
@@ -88,7 +89,7 @@ function getAnnouncementList(){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
           
@@ -127,7 +128,7 @@ function getSearchResultList(key){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
           var returnstr=JSON.stringify(data);
@@ -190,7 +191,7 @@ function getProductDetails(nid, fromPage){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
           var returnstr=JSON.stringify(data);
@@ -246,7 +247,7 @@ function getAnnouncementDetails(nid){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
 
@@ -273,7 +274,7 @@ function getCompanyDetails(nid){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
           var returnstr=JSON.stringify(data);
@@ -317,7 +318,7 @@ function getCompanyProdServList(companyid){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;        
         $("#scrollulProdServ li").remove();
@@ -342,7 +343,7 @@ function getCompanyAnnouncementList(nid){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
           
@@ -369,7 +370,7 @@ function getFavouriteList(uid){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;   
         $(".scrollul li").remove();
@@ -410,7 +411,7 @@ function postCompanyProfile(companyid, token, page){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         var newJsonObj=$.parseJSON(data);
@@ -444,7 +445,7 @@ function postUserPoint(uid, token){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         var newJsonObj=$.parseJSON(data);
@@ -473,7 +474,7 @@ function getProfileProdServList(companyid){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;        
         $(".scrollulPage2 li").remove();
@@ -497,7 +498,7 @@ function requestLogin(username, password){
       headers: {
         "Content-Type": "application/json"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         var sessionToken=JSON.stringify(data);
@@ -526,7 +527,7 @@ function postLogin(token, username, password){
         "X-CSRF-Token":token
       },
       data:"username=" + username + "&password="+password,
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         var returnstr=JSON.stringify(data);
@@ -606,7 +607,7 @@ function postLogout(token){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         deleteProfile();
@@ -657,7 +658,7 @@ function postListingProductList(token, uid){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
     
@@ -688,7 +689,7 @@ function postSearchListingProductList(token, productName, productCompany, gst, i
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
     
@@ -720,7 +721,7 @@ function postListingServiceList(token, uid){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         $(".scrollulLVMPG2 li").remove();
@@ -749,7 +750,7 @@ function postSearchListingServiceList(token, serviceName, serviceCompany, cat, s
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         $(".scrollulLVMPG2 li").remove();
@@ -778,7 +779,7 @@ function postProductSearchCriteria(token, uid){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         $("#filterProductTechArea option").remove();
@@ -825,7 +826,7 @@ function postServiceSearchCriteria(token, uid){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         $("#filterServiceCategory option").remove();
@@ -861,7 +862,7 @@ function postServiceSearchCriteriaSubCategory(token, category, uid){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         $("#filterServiceSubCategory option").remove();
@@ -896,7 +897,7 @@ function postBMProductFilterCriteria(token, uid){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         
@@ -960,7 +961,7 @@ function postFilterProductList(token, uid, submitted, lookFor, keyword, interest
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
@@ -1002,7 +1003,7 @@ function postLVMProductList(token, uid){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         
@@ -1045,7 +1046,7 @@ function postBMServiceFilterCriteria(token, uid){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         var returnstr=JSON.stringify(data);
@@ -1109,7 +1110,7 @@ function postBMServiceSubCategory(token, category, uid){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         var returnstr=JSON.stringify(data);
@@ -1144,7 +1145,7 @@ function postFilterServiceList(token, uid, submitted, lookFor, keyword, interest
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
@@ -1181,7 +1182,7 @@ function postNewInboxMessageCount(token, uid, act){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
@@ -1210,7 +1211,7 @@ function postInboxMessageList(token, uid, act){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
@@ -1269,7 +1270,7 @@ function postInboxMessageContent(token, uid, act, mid){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
@@ -1312,7 +1313,7 @@ function postInboxMessageDelete(token, uid, act, mid){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
@@ -1338,7 +1339,7 @@ function postInboxMessageReply(token, uid, act, mid, message){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
@@ -1371,7 +1372,7 @@ function postNewMessageToUSer(token, uid, act, nid, message, subject){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
@@ -1404,7 +1405,7 @@ function PostFavCheck(token, uid, nid, flag){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
@@ -1442,7 +1443,7 @@ function postChangePwd(token, uid, newPwd){
         "Content-Type": "application/json",
         "X-CSRF-Token":token
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
@@ -1468,7 +1469,7 @@ function postForgetPwd(name){
         "Content-Type": "application/x-www-form-urlencoded"
       },
       data:"name=" + name,
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
@@ -1498,7 +1499,7 @@ function postRegistrationId(uid, token,regid, type){
         "X-CSRF-Token":token
       },
       data:"uid=" + uid + "&token=" + regid + "&type=" + type,
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
 //        var returnstr=JSON.stringify(data);
@@ -1521,7 +1522,7 @@ function getAboutUs(){
       headers: {
         "Content-Type": "application/JSON"
       },
-      timeout: 10000,    
+      timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
