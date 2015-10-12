@@ -273,6 +273,7 @@
     width: auto;
     background-color: transparent;
     border: none;
+    z-index: 90;
 }
 
 .deleteBtn img{
@@ -287,6 +288,7 @@
     width: auto;
     background-color: transparent;
     border: none;
+    z-index: 90;
 }
 
 .replyBtn img{
@@ -301,6 +303,7 @@
     width: auto;
     background-color: transparent;
     border: none;
+    z-index: 90;
 }
 
 .previousBtn img{
@@ -315,6 +318,7 @@
     width: auto;
     background-color: transparent;
     border: none;
+    z-index: 90;
 }
 
 .nextBtn img{

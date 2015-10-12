@@ -663,7 +663,7 @@ function postListingProductList(token, uid){
     
         $(".scrollulLVM li").remove();
         //for (var x = 0; x < data.results.length; x++) { 
-        for (var x = 0; x < 49; x++) { 
+        for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
         }          
       },
@@ -694,7 +694,7 @@ function postSearchListingProductList(token, productName, productCompany, gst, i
     
         $(".scrollulLVM li").remove();
         //for (var x = 0; x < data.results.length; x++) { 
-        for (var x = 0; x < 49; x++) { 
+        for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
         }          
       },
@@ -725,7 +725,7 @@ function postListingServiceList(token, uid){
         debugger;
         $(".scrollulLVMPG2 li").remove();
         //for (var x = 0; x < data.results.length; x++) { 
-        for (var x = 0; x < 49; x++) { 
+        for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
         }          
       },
@@ -754,7 +754,7 @@ function postSearchListingServiceList(token, serviceName, serviceCompany, cat, s
         debugger;
         $(".scrollulLVMPG2 li").remove();
         //for (var x = 0; x < data.results.length; x++) { 
-        for (var x = 0; x < 49; x++) { 
+        for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
         }          
       },

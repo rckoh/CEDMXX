@@ -538,10 +538,8 @@
 }
 
 .listviewimg{
-/*    line-height: px;*/
     width: 25vw;
     height: auto;
-/*    border: 1px solid black;*/
     display: block;
 }
 
@@ -550,17 +548,7 @@
 }
 
 .listviewitemtitle{
-/*
     color: #32978f;
-    background-color: transparent;
-    font-weight: normal;
-    line-height: auto;
-    font-family: "Roboto-Medium";
-    font-size: 3vw;
-    margin: 5px 0px 0px 10px;
-    word-break: normal;
-*/
-     color: #32978f;
     background-color: transparent;
     font-weight: normal;
     line-height: 3vw;
@@ -574,20 +562,6 @@
 }
 
 .listviewitemdetails{
-/*
-    color: #565656;
-    background-color: transparent;
-    font-family: "Roboto-Regular";
-    font-size: 2.4vw;
-    font-weight: normal;
-    line-height: auto;
-    margin: 0px 0px 0px 0px;
-    text-align: justify;
-    margin: 10px 0px 10px 10px;
-    max-height: 60px;
-    text-overflow: clip;
-    overflow: hidden;
-*/
     color: #565656;
     background-color: transparent;
     font-family: "Roboto-Regular";
@@ -604,13 +578,6 @@
 }
 
 .listviewitemseperator{
-/*
-    line-height: 2px;
-    color: #32978f;
-    border-bottom: 1px solid #32978f;
-    width: 30px;
-    margin: 10px 0px 0px 10px;
-*/
     line-height: 0.5vw;
     border-bottom: 1px solid #32978f;
     width: 30px;
@@ -655,17 +622,9 @@
  
 .scrollliPage2 {
     padding:0 10px;
-/*
-    height:120px;
-    line-height:40px;
-*/
     height:auto;
-    line-height:auto;
-    min-height: 40px;
-    border-bottom:1px solid #ccc;
+    min-height: 20vw;
     border-top:1px solid #fff;
-/*    background-color:#fafafa;*/
-    font-size:14px;
     border-bottom: 1px dotted #333;  
 }
 
@@ -681,10 +640,8 @@
 }
 
 .listviewimgPage2{
-/*    line-height: px;*/
-    width: 100px;
+    width: 25vw;
     height: auto;
-/*    border: 1px solid black;*/
     display: block;
 }
 
@@ -696,32 +653,33 @@
     color: #32978f;
     background-color: transparent;
     font-weight: normal;
-    line-height: auto;
+    line-height: 3vw;
+    height: 6vw;
     font-family: "Roboto-Medium";
-    font-size: 3vw;
+    font-size: 2.8vw;
     margin: 5px 0px 0px 10px;
-    word-wrap: break-word;
+    word-break: normal;
+    text-overflow:clip;
+    overflow: hidden;
 }
 
 .listviewitemdetailsPage2{
     color: #565656;
     background-color: transparent;
     font-family: "Roboto-Regular";
-    font-size: 2.4vw;
+    font-size: 2.3vw;
     font-weight: normal;
-    line-height: 15px;
-    margin: 0px 0px 0px 0px;
+    line-height: 2.8vw;
     text-align: justify;
-    margin: 10px 0px 10px 10px;
-    max-height: 60px;
+    margin: 10px 0px 0px 10px;
+    max-height: 8.5vw;
     text-overflow: clip;
     overflow: hidden;
     
 }
 
 .listviewitemseperatorPage2{
-    line-height: 2px;
-/*    color: #32978f;*/
+    line-height: 0.5vw;
     border-bottom: 1px solid #32978f;
     width: 30px;
     margin: 10px 0px 0px 10px;
@@ -768,12 +726,8 @@
 .scrollliPage3 {
     padding:0 10px;
     height:auto;
-    line-height:auto;
-    min-height: 40px;
-    border-bottom:1px solid #ccc;
+    min-height: 20vw;
     border-top:1px solid #fff;
-/*    background-color:#fafafa;*/
-    font-size:14px;
     border-bottom: 1px dotted #333;  
 }
 
@@ -789,10 +743,8 @@
 }
 
 .listviewimgPage3{
-/*    line-height: px;*/
-    width: 100px;
+    width: 25vw;
     height: auto;
-/*    border: 1px solid black;*/
     display: block;
 }
 
@@ -804,32 +756,33 @@
     color: #32978f;
     background-color: transparent;
     font-weight: normal;
-    line-height: auto;
+    line-height: 3vw;
+    height: 6vw;
     font-family: "Roboto-Medium";
-    font-size: 3vw;
+    font-size: 2.8vw;
     margin: 5px 0px 0px 10px;
     word-break: normal;
+    text-overflow:clip;
+    overflow: hidden;
 }
 
 .listviewitemdetailsPage3{
     color: #565656;
     background-color: transparent;
     font-family: "Roboto-Regular";
-    font-size: 2.4vw;
+    font-size: 2.3vw;
     font-weight: normal;
-    line-height: auto;
-    margin: 0px 0px 0px 0px;
+    line-height: 2.8vw;
     text-align: justify;
-    margin: 10px 0px 10px 10px;
-    max-height: 60px;
+    margin: 10px 0px 0px 10px;
+    max-height: 8.5vw;
+    max-height: 8.5vw;
     text-overflow: clip;
     overflow: hidden;
-    
 }
 
 .listviewitemseperatorPage3{
-    line-height: 2px;
-/*    color: #32978f;*/
+    line-height: 0.5vw;
     border-bottom: 1px solid #32978f;
     width: 30px;
     margin: 10px 0px 0px 10px;

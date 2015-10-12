@@ -192,10 +192,8 @@
 .scrollliLVM {
     padding:0 10px;
     height:auto;
-    line-height:auto;
-    border-bottom:1px solid #ccc;
-/*    background-color:#fafafa;*/
-    font-size:14px;
+    min-height: 20vw;
+    border-top:1px solid #fff;
     border-bottom: 1px dotted #333;  
     max-width: 100%;
     overflow: hidden;
@@ -213,10 +211,8 @@
 }
 
 .listviewimgLVM{
-/*    line-height: px;*/
-    width: 100px;
+    width: 25vw;
     height: auto;
-/*    border: 1px solid black;*/
     display: block;
 }
 
@@ -229,33 +225,34 @@
     color: #32978f;
     background-color: transparent;
     font-weight: normal;
-    line-height: auto;
+    line-height: 3vw;
+    height: 6vw;
     font-family: "Roboto-Medium";
-    font-size: 3vw;
-    margin: 0px 0px 0px 10px;
+    font-size: 2.8vw;
+    margin: 5px 0px 0px 10px;
     word-break: normal;
+    text-overflow:clip;
+    overflow: hidden;
 }
 
 .listviewitemdetailsLVM{
     color: #565656;
     background-color: transparent;
     font-family: "Roboto-Regular";
-    font-size: 2.4vw;
+    font-size: 2.3vw;
     font-weight: normal;
-    line-height: auto;
-    margin: 0px 0px 0px 0px;
+    line-height: 2.8vw;
     text-align: justify;
     margin: 10px 0px 0px 10px;
-    max-height: 60px;
+    max-height: 8.5vw;
     text-overflow: clip;
     overflow: hidden;
 }
 
 .listviewitemseperatorLVM{
-    line-height: 2px;
-/*    color: #32978f;*/
+    line-height: 0.5vw;
     border-bottom: 1px solid #32978f;
-    width: 100%;
+    width: 30px;
     margin: 10px 0px 0px 10px;
 }
 
@@ -300,13 +297,9 @@
 .scrollliLVMPG2 {
     padding:0 10px;
     height:auto;
-    line-height:auto;
-    border-bottom:1px solid #ccc;
-/*    border-top:1px solid #fff;*/
-/*    background-color:#fafafa;*/
-    font-size:14px;
+    min-height: 20vw;
+    border-top:1px solid #fff;
     border-bottom: 1px dotted #333;  
-/*    border-bottom: none;*/
 }
 
 .scrollliLVMPG2:hover {
@@ -321,10 +314,8 @@
 }
 
 .listviewimgLVMPG2{
-/*    line-height: px;*/
-    width: 100px;
+    width: 25vw;
     height: auto;
-/*    border: 1px solid black;*/
     display: block;
 }
 
@@ -336,34 +327,35 @@
     color: #32978f;
     background-color: transparent;
     font-weight: normal;
-    line-height: auto;
+    line-height: 3vw;
+    height: 6vw;
     font-family: "Roboto-Medium";
-    font-size: 3vw;
-    margin: 0px 0px 0px 10px;
+    font-size: 2.8vw;
+    margin: 5px 0px 0px 10px;
     word-break: normal;
+    text-overflow:clip;
+    overflow: hidden;
 }
 
 .listviewitemdetailsLVMPG2{
     color: #565656;
     background-color: transparent;
     font-family: "Roboto-Regular";
-    font-size: 2.4vw;
+    font-size: 2.3vw;
     font-weight: normal;
-    line-height: auto;
-    margin: 0px 0px 0px 0px;
+    line-height: 2.8vw;
     text-align: justify;
     margin: 10px 0px 0px 10px;
-    max-height: 60px;
+    max-height: 8.5vw;
+    max-height: 8.5vw;
     text-overflow: clip;
-    overflow: hidden;
-    
+    overflow: hidden;    
 }
 
 .listviewitemseperatorLVMPG2{
-    line-height: 2px;
-/*    color: #32978f;*/
+    line-height: 0.5vw;
     border-bottom: 1px solid #32978f;
-    width: 100%;
+    width: 30px;
     margin: 10px 0px 0px 10px;
 }
 
