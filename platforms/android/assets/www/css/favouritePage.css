@@ -64,7 +64,7 @@
  
 .scrollli {
     padding:0 10px;
-    height:30vw;
+    height:auto;
     border-bottom:1px solid #ccc;
     border-top:1px solid #fff;
 /*    background-color:#fafafa;*/

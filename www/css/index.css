@@ -518,7 +518,7 @@
  
 .scrollli {
     padding:0 10px;
-    height:30vw;
+    height:auto;
 /*    line-height:auto;*/
     min-height: 20vw;
     border-top:1px solid #fff;
