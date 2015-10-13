@@ -67,9 +67,8 @@
                 document.addEventListener("backbutton", onBackKeyDown, false);
                 
                 if(navigator.network.connection.type == Connection.NONE)
-                    alert("no connection");
-                else
-                    alert("gt connection");
+                    navigator.notification.alert("No internet connection.", function(){}, "MDeC eSolution", "Ok");
+                
             }
             
             function onBackKeyDown(e) {
