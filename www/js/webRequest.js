@@ -37,7 +37,7 @@ function getFeaturedList(){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -74,7 +74,7 @@ function getLatestPostList(){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -113,7 +113,7 @@ function getAnnouncementList(){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -158,7 +158,7 @@ function getSearchResultList(key){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -234,7 +234,7 @@ function getProductDetails(nid, fromPage){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -260,7 +260,7 @@ function getAnnouncementDetails(nid){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -281,14 +281,14 @@ function getCompanyDetails(nid){
           
           var title=data.nodes[0].node.title;
           var imageUrl=data.nodes[0].node.image.src;
-          var desc=data.nodes[0].node.desc;
+          var desc=data.nodes[0].node.description;
           var address=data.nodes[0].node.address;
           var wesiteUrl=(data.nodes[0].node.website_url=="")?"N/A":"<a class='brouchurelink' href='"+data.nodes[0].node.website_url+"'>"+data.nodes[0].node.website_url+"</a>";
           var requirement=(data.nodes[0].node.requirement=="")?"N/A":data.nodes[0].node.requirement;
           var awards=(data.nodes[0].node.award=="")?"N/A":data.nodes[0].node.award;
           
           $(".scrollul").append(
-            "<li class='scrollli'><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='lineseperator'>&nbsp;</p><br><h1 id='companyName'>"+title+"</h1><p class='description'> "+desc+"<br><br><table class='companyInfo'><tr><td><span>Address</span></td><td><span>:</span></td><td><span>"+address+"</span> </td></tr><tr><td><span>Website URL</span></td><td><span>:</span></td><td><span>"+wesiteUrl+"</span> </td></tr></table></p><p class='seperator'>&nbsp;</p><br><p class='description'><span class='buttonSpan'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></span><table class='companyStatistic'><tr><td>Views</td><td>:</td><td>0</td></tr><tr><td>Shares</td><td>:</td><td>0</td></tr><tr><td>Favourites</td><td>:</td><td>0</td></tr></table></p><p class='seperator'>&nbsp;</p><br><div class='companyDetails'><div class='requirement'><button class='requirementBtn' onclick='changepage(1);'>Company Requirement</button></div><div class='awards'><button class='awardsBtn' onclick='changepage(2);'>Company Awards</button></div><div class='selectedItem'>&nbsp;</div><div class='companyDetailsDescriptionOne'>"+requirement+"</div><div class='companyDetailsDescriptionTwo'>"+awards+"</div></div><br><h2>Announcement</h2><ul class='scrollul' id='scrollulAnnouncement'></ul><br><h2>Products and Services</h2><ul class='scrollul' id='scrollulProdServ'></ul></li>"
+            "<li class='scrollli'><br><p class='lipclass'><img id='productImg' src='"+imageUrl+"'/></p><p class='lineseperator'>&nbsp;</p><br><h1 id='companyName' class='lih1class'>"+title+"</h1><p class='description'> "+desc+"<br><br><table class='companyInfo'><tr><td><span>Address</span></td><td><span>:</span></td><td><span>"+address+"</span> </td></tr><tr><td><span>Website URL</span></td><td><span>:</span></td><td><span>"+wesiteUrl+"</span> </td></tr></table></p><p class='seperator'>&nbsp;</p><p class='description'><span class='buttonSpan'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></span><table class='companyStatistic'><tr><td>Views</td><td>:</td><td>0</td></tr><tr><td>Shares</td><td>:</td><td>0</td></tr><tr><td>Favourites</td><td>:</td><td>0</td></tr></table></p><p class='seperator'>&nbsp;</p><br><div class='companyDetails'><div class='requirement'><button class='requirementBtn' onclick='changepage(1);'>Company Requirement</button></div><div class='awards'><button class='awardsBtn' onclick='changepage(2);'>Company Awards</button></div><div class='selectedItem'>&nbsp;</div><div class='companyDetailsDescriptionOne'>"+requirement+"</div><div class='companyDetailsDescriptionTwo'>"+awards+"</div></div><br><h2 class='lih2class'>Announcement</h2><ul class='scrollul' id='scrollulAnnouncement'></ul><br><h2 class='lih2class'>Products and Services</h2><ul class='scrollul' id='scrollulProdServ'></ul></li>"
           );
           
           dbmanager.getProfile(function(returnData){
@@ -304,7 +304,7 @@ function getCompanyDetails(nid){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -328,7 +328,7 @@ function getCompanyProdServList(companyid){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server. "); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -356,7 +356,7 @@ function getCompanyAnnouncementList(nid){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -394,7 +394,7 @@ function getFavouriteList(uid){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server."); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -430,7 +430,7 @@ function postCompanyProfile(companyid, token, page){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server. "); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -461,7 +461,7 @@ function postUserPoint(uid, token){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server. "); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -484,7 +484,7 @@ function getProfileProdServList(companyid){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server. "); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -506,10 +506,7 @@ function requestLogin(username, password){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          if(xhr.status==0)
-            alert("Unable connect to server."); 
-          else
-            alert("Unable connect to server."); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
           
           loading.endLoading();
         }
@@ -552,9 +549,9 @@ function postLogin(token, username, password){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           if(xhr.status==0)
-            alert("Unable connect to server.");      
+            navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
           else
-            alert("Invalid username or password");
+            navigator.notification.alert("Invalid username or password.", function(){}, "MDeC eSolution", "Ok");
           
           loading.endLoading();
         }
@@ -586,7 +583,7 @@ function storeProfile(uid, companyid, name, email, profileimg, role, token) {
 
 function errorLogin(err){
 //    alert('Error insert: '+err.message);
-    alert("Login Failed.");
+    navigator.notification.alert("Login failed.", function(){}, "MDeC eSolution", "Ok");
     loading.endLoading();
 }
 
@@ -615,7 +612,7 @@ function postLogout(token){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           
-          alert("Unable connect to server."); 
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
           
           loading.endLoading();
         }
@@ -635,12 +632,12 @@ function runDeleteProfile(t){
   
 function errorDeleteProfile(err){
     loading.endLoading();
-    alert("Logout Failed. db");
+    navigator.notification.alert("Logout failed.", function(){}, "MDeC eSolution", "Ok");
 }
 
 function successDeleteProfile(){
     loading.endLoading();
-    alert("Logout Succesfully");
+    navigator.notification.alert("Logout succesfully", function(){}, "MDeC eSolution", "Ok");
     window.location="index.html";
 }
 
@@ -670,7 +667,7 @@ function postListingProductList(token, uid){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -701,7 +698,7 @@ function postSearchListingProductList(token, productName, productCompany, gst, i
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -732,7 +729,7 @@ function postListingServiceList(token, uid){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -761,7 +758,7 @@ function postSearchListingServiceList(token, serviceName, serviceCompany, cat, s
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -808,7 +805,7 @@ function postProductSearchCriteria(token, uid){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -843,7 +840,7 @@ function postServiceSearchCriteria(token, uid){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -878,7 +875,7 @@ function postServiceSearchCriteriaSubCategory(token, category, uid){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -946,7 +943,7 @@ function postBMProductFilterCriteria(token, uid){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -983,7 +980,7 @@ function postFilterProductList(token, uid, submitted, lookFor, keyword, interest
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -1028,7 +1025,7 @@ $(".scrollulLVM li").remove();
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -1092,7 +1089,7 @@ function postBMServiceFilterCriteria(token, uid){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -1130,7 +1127,7 @@ function postBMServiceSubCategory(token, category, uid){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -1167,7 +1164,7 @@ function postFilterServiceList(token, uid, submitted, lookFor, keyword, interest
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -1187,7 +1184,7 @@ function postNewInboxMessageCount(token, uid, act){
       debugger;
         var returnstr=JSON.stringify(data);
 //        alert(returnstr);
-      
+
         $(".inboxBtn label").remove();
         if(data.new_message_count>0)
             $(".menuheaderright").append("<label class='badgeNumber'>"+data.new_message_count+"</label>");  
@@ -1196,7 +1193,7 @@ function postNewInboxMessageCount(token, uid, act){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -1255,7 +1252,7 @@ function postInboxMessageList(token, uid, act){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -1297,7 +1294,7 @@ function postInboxMessageContent(token, uid, act, mid){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");  
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
           loading.endLoading();
         }
     })
@@ -1317,13 +1314,13 @@ function postInboxMessageDelete(token, uid, act, mid){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-        alert("Message Deleted");    
+        navigator.notification.alert("Message deleted.", function(){}, "MDeC eSolution", "Ok");
         goInbox();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
           loading.endLoading();
         }
     })
@@ -1346,17 +1343,17 @@ function postInboxMessageReply(token, uid, act, mid, message){
 //        alert(returnstr);    
         if(data.success==true){
             postInboxMessageContent(token, uid, "3", mid);
-            alert("Message sent");
+            navigator.notification.alert("Message sent.", function(){}, "MDeC eSolution", "Ok");
             replyOnClick();
         }
         else{
-            alert(data.messages.warning);
+            navigator.notification.alert(data.messages.warning, function(){}, "MDeC eSolution", "Ok");
             loading.endLoading();
         }
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
           loading.endLoading();
         }
     })
@@ -1378,18 +1375,18 @@ function postNewMessageToUSer(token, uid, act, nid, message, subject){
         var returnstr=JSON.stringify(data);
 //        alert(returnstr);    
         if(data.success==true){
-            alert("Message sent");
+            navigator.notification.alert("Message sent.", function(){}, "MDeC eSolution", "Ok");
             loading.endLoading();
             replyOnClick();
         }
         else{
-            alert(data.messages.warning);
+            navigator.notification.alert(data.messages.warning, function(){}, "MDeC eSolution", "Ok");
             loading.endLoading();
         }
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");      
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
           loading.endLoading();
         }
     })
@@ -1427,7 +1424,7 @@ function PostFavCheck(token, uid, nid, flag){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           if(flag=="0")
-            alert("Unable connect to server.");      
+            navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 }
@@ -1447,13 +1444,13 @@ function postChangePwd(token, uid, newPwd){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-        alert("Password Change successfully");  
+        navigator.notification.alert("Password changed succesfully", function(){}, "MDeC eSolution", "Ok");
         loading.endLoading();  
         closeChangePwd();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-            alert("Unable connect to server.");      
+            navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
             loading.endLoading();
         }
     })
@@ -1473,14 +1470,14 @@ function postForgetPwd(name){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-        alert("Email sent"); 
+        navigator.notification.alert("Email sent", function(){}, "MDeC eSolution", "Ok");
           
         loading.endLoading();  
         forgetPwdOnClick();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-            alert("Unable connect to server.");      
+            navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
             loading.endLoading();
         }
     })
@@ -1526,14 +1523,20 @@ function getAboutUs(){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-        alert(returnstr);
+//        alert(returnstr);
         
-        alert(data.nodes[0].node.description);
+//        alert(data.nodes[0].node.description);
+        
+        var content=data.nodes[0].node.description;
+        content=content.replace("About eSolutions","");
+        content=content.replace(/\r\n|\t|\n|\r/g, '<br />');
+//        $("#aboutContent").append("<textarea readonly>"+content+"</textarea>");
+        $("#aboutContent").append("<label>"+content+"</label>");
           
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          alert("Unable connect to server.");      
+//          alert("Unable connect to server.");      
         }
     })
 }

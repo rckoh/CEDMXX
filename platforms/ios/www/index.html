@@ -65,6 +65,11 @@
 
             function onDeviceReady() {
                 document.addEventListener("backbutton", onBackKeyDown, false);
+                
+                if(navigator.network.connection.type == Connection.NONE)
+                    alert("no connection");
+                else
+                    alert("gt connection");
             }
             
             function onBackKeyDown(e) {

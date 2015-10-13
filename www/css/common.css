@@ -295,12 +295,15 @@ input:focus {
 
 .loadingFrame{
     position: absolute;
-    top: 60vw;
-    right:44vw;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 14vw;
     height: 14vw;
     background-color: black;
     border-radius: 10px;
+    margin: auto;
     z-index: 99;
 }
 
