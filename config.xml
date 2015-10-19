@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.projeksistematik.com.my.projeksistematik" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.mdec.esolution" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>MDeC eSolution</name>
     <description>
         MDeC eSolution
     </description>
-    <author email="support@projeksisteamtik.com.my.com" href="http://projeksistematik.com.my">
-        PSSB Mobile Apps Development Team
+    <author email="karen.netinfinium@gmail.com" href="http://www.netinfinium.com/my/">
+        Netinfinium Sdn Bhd
     </author>
     <content src="index.html" />
     <preference name="android-build-tool" value="ant" />
