@@ -59,7 +59,7 @@ var app = {
         switch( e.event )
         {
             case 'registered':
-                $("#redidtxtareas").val(e.regid);
+//                $("#redidtxtareas").val(e.regid);
                 if ( e.regid.length > 0 )
                 {
 //                    console.log("Regid " + e.regid);
@@ -95,7 +95,7 @@ var app = {
         // Your iOS push server needs to know the token before it can push to this device
         // here is where you might want to send it the token for later use.
 //        alert('device token = ' + result);
-        $("#redidtxtareas").val(result);
+//        $("#redidtxtareas").val(result);
         dbmanager.getProfile(function(returnData){
             if(returnData.rows.length>0){
                 var uid=returnData.rows.item(0).uid;
