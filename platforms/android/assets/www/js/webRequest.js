@@ -379,7 +379,7 @@ function getFavouriteList(uid){
                 $(".scrollul").append("<li class='scrollli' onclick='viewProductDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
             }
             else if(data.nodes[x].node.type=="Company"){
-                $(".scrollul").append("<li class='scrollli' onclick='' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "(" +data.nodes[x].node.type+")"+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+                $(".scrollul").append("<li class='scrollli' onclick='viewCompanyDetails("+data.nodes[x].node.nid+")' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
             }
         }
           
@@ -420,7 +420,7 @@ function postCompanyProfile(companyid, token, page){
         var numberoffav=newJsonObj.total_favourite;
         var numberofshare=newJsonObj.total_share;
         var backgroundImg=newJsonObj.background;
-          
+        
         
         $("#lblviewnumber").text(numberofview);
         $("#lblfavnumber").text(numberoffav);
@@ -448,12 +448,21 @@ function postUserPoint(uid, token){
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
-        var newJsonObj=$.parseJSON(data);
 
+        var newJsonObj=$.parseJSON(data);
         var numberofearn=newJsonObj.total_earned;
         var numberofredeem=newJsonObj.total_redeemed;
         var numberofbalance=newJsonObj.totalbalanced;
-        
+          
+        if(numberofbalance==null)
+            numberofbalance=0;
+          
+        if(numberofearn==null)
+            numberofearn=0;
+          
+        if(numberofearn==null)
+            numberofearn=0;
+          
         $("#lblpointearn").text(numberofearn+" Points");
         $("#lblpointredeem").text(numberofredeem+" Points");
         $("#lblpointbalance").text(numberofbalance+ " Points");
@@ -611,7 +620,8 @@ function postLogout(token){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          
+        
+//        deleteProfile();
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
           
           loading.endLoading();
@@ -737,6 +747,7 @@ function postListingServiceList(token, uid){
 function postSearchListingServiceList(token, serviceName, serviceCompany, cat, subcat, uid){
     var requestUrl=webUrl+"drupalgap/mobileapp/getListingResult.json?type=service&title="+serviceName+"&company="+serviceCompany+"&cat="+cat+"&subcat="+subcat;
     
+    
     if(uid!="")
         requestUrl=requestUrl+"&uid="+uid;
     
@@ -782,6 +793,10 @@ function postProductSearchCriteria(token, uid){
         $("#filterProductTechArea option").remove();
         $("#filterProductIndustry option").remove();
         $("#filterProductGST option").remove();
+        
+        $("#filterProductTechArea").append($("<option></option>").attr("value","").text("Any"));
+        $("#filterProductIndustry").append($("<option></option>").attr("value","").text("Any"));
+        $("#filterProductGST").append($("<option></option>").attr("value","").text("Any"));
           
         for(var x=0; x<data.technology_area.length; x++){     
             var optionValue=data.technology_area[x].tech.value;
@@ -827,15 +842,18 @@ function postServiceSearchCriteria(token, uid){
       success: function(data, status, xhr) {
         debugger;
         $("#filterServiceCategory option").remove();
-
+        
+        $("#filterServiceCategory").append($("<option></option>").attr("value","").text("Any"));
+          
         for(var x=0; x<data.service_category.length; x++){     
             var optionValue=data.service_category[x].category.value+"|"+data.service_category[x].category.sub_key;
             var displayname=data.service_category[x].category.display_name;
             $("#filterServiceCategory").append($("<option></option>").attr("value",optionValue).text(displayname));
         }
         
-        postServiceSearchCriteriaSubCategory(token, data.service_category[0].category.sub_key, uid);
-//        loading.endLoading();
+        $("#filterServiceSubCategory").append($("<option></option>").attr("value","").text("Any"));
+//        postServiceSearchCriteriaSubCategory(token, data.service_category[0].category.sub_key, uid);
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -951,6 +969,7 @@ function postBMProductFilterCriteria(token, uid){
 
 function postFilterProductList(token, uid, submitted, lookFor, keyword, interest, industryArea, techArea){
     var requestUrl=webUrl+"drupalgap/mobileapp/businessmatches.json?uid="+uid+"&submitted="+submitted+"&rolesData="+lookFor+"&keywordsData="+keyword+"&interestData="+interest+"&technologyData="+techArea+"& industryData="+industryArea;
+    
     $.ajax({
       url: requestUrl,
       method: "POST",
@@ -991,7 +1010,7 @@ function viewProductDetailsBM(nid){
 
 function postLVMProductList(token, uid){
     var requestUrl=webUrl+"drupalgap/mobileapp/bmRecentViewed.json?uid="+uid;
-//    alert(requestUrl);
+//    alert(uid);
 //    alert(token);
     $.ajax({
       url: requestUrl,
@@ -1523,7 +1542,6 @@ function getAboutUs(){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);
         
 //        alert(data.nodes[0].node.description);
         

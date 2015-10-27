@@ -183,9 +183,9 @@ input:focus {
 }
 
 .loginLogo{
-     width: auto;
+    width: auto;
     height: 15%;
-    display: inline-block;
+/*    display: inline-block;*/
     position: absolute;
     /* margin: 0px 0px 0px 10%; */
     border: 1px solid white;
@@ -193,12 +193,12 @@ input:focus {
 }
 
 .loginTextBox{
-    display: inline-block;
+/*    display: inline-block;*/
     position: absolute;
     right: 10%;
     height: 15%;
-    width: 68%;
-    margin: 0px 0px 0px 10%;
+    width: 65%;
+/*    margin: 0px 0px 0px 10%;*/
     background-color: transparent;
     font-family: "Roboto-Light";
     font-size: 3vw;
@@ -208,22 +208,22 @@ input:focus {
 .pwdLogo{
     width: auto;
     height: 15%;
-    display: inline-block;
+/*    display: inline-block;*/
     position: absolute;
-    top: 20%;
+    top: 25%;
 	left:10%;
     /* margin: 0px 0px 0px 10%; */
     border: 1px solid white;
 }
 
 .pwdTextBox{
-    display: inline-block;
+/*    display: inline-block;*/
     position: absolute;
     right: 10%;
-    top: 20%;
+    top: 25%;
     height: 15%;
-    margin:0 auto;
-    width: 68%;
+/*    margin:0 auto;*/
+    width: 65%;
     /* margin: 0px 0px 0px 10%; */
     background-color: transparent;
     font-family: "Roboto-Light";

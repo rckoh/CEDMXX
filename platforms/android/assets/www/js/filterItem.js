@@ -158,6 +158,11 @@ function serviceFilterResult(){
             var uid=returnData.rows.item(0).uid;
             postFilterServiceList(token, uid, "true", lookfor, keyword, interest, categoryArr[0], subcat);
         }
+        else{
+            var token="";
+            var uid="0";
+            postFilterServiceList(token, uid, "true", lookfor, keyword, interest, categoryArr[0], subcat);
+        }
     });
 }
 

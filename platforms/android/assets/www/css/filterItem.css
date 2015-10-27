@@ -134,7 +134,7 @@
 
 .check_box + label{
     background:url('../img/checkbox.png') no-repeat;
-    height: 3vw;
+    height: 4vw;
     width: 100%;
     display:inline-block;
     padding-left: 5vw;
