@@ -284,19 +284,23 @@
             dbmanager.createTable();
             $(document).ready(
                 function(){
-                    try{
-                        app.initPushNotificationRegister();
-                    }
-                    catch(ex){
-//                        alert(ex.message);
-                    }
-                    
-                    initsubmenustyle();
-                    initLoginButton();
-                    initInboxButton();
-                    inboxMessage.checkNewMessageNumber();
-                    slideMenu.initSlideMenu();
-                    getFeaturedList();
+                    var dmzProcess=getDMZKey();                    
+
+                    $.when(dmzProcess).done(function(){
+                        try{
+                            app.initPushNotificationRegister();
+                        }
+                        catch(ex){
+    //                        alert(ex.message);
+                        }
+
+                        initsubmenustyle();
+                        initLoginButton();
+                        initInboxButton();
+                        inboxMessage.checkNewMessageNumber();
+                        slideMenu.initSlideMenu();
+                        getFeaturedList();
+                    });
             });
         </script>
     </body>

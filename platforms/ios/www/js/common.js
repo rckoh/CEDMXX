@@ -34,6 +34,7 @@ var dbmanager = {
         
         function createTableTransaction(t){
             t.executeSql('CREATE TABLE IF NOT EXISTS userprofile (uid text, companyid text,name text, email text, profileImg text, role text, token text)');
+            t.executeSql('CREATE TABLE IF NOT EXISTS DMZKEYSLOT (DMZKEY text)');
         }
     },
     
@@ -56,7 +57,22 @@ var dbmanager = {
     },
 };
 
+//special dedicated to get dmz key
+function getDMZKeyFromDB(){
+    var defer=$.Deferred();
 
+    db.transaction(function(tx){
+            tx.executeSql('SELECT * FROM DMZKEYSLOT', [], function(tx, rs){
+                defer.resolve(rs.rows);
+          }, errorGetDMZKeyFromDB);
+    });
+    
+    return defer.promise();
+}
+
+function errorGetDMZKeyFromDB(err){
+    alert("fail get dmzkey from db");
+}
 
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
@@ -125,4 +141,21 @@ function encode4HTML(str) {
         .replace(/^(.+?)$/,'<p>$1</p>');
         // wrap all the string into <p> tags
         // if there's at least 1 non-empty character
+}
+
+
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//thousand separator
+function addCommas(nStr) {
+    nStr += '';
+    var x = nStr.split('.');
+    var x1 = x[0];
+    var x2 = x.length > 1 ? '.' + x[1] : '';
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(x1)) {
+        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+    }
+    return x1 + x2;
 }

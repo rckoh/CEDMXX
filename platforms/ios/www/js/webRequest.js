@@ -2,14 +2,84 @@ var webUrl = "http://netinfinium.publicvm.com:86/";
 var intervalid, intervalidpage2, intervalidpage3;
 var apiTimeout=20000;
 
+function getDMZKey(){
+    var requestUrl=webUrl+"api_generator.php?api_name=mobile_validation&key=34716a5e9f9e23f40acadd9dd55e0c22";
+    $.ajax({
+      url: requestUrl,
+      type: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Corrad-Api-Key": "NICMAMDEC"
+      },
+      async: false, 
+      data:"api_name=session&key1=ps2ds&key2=esolutions",
+      timeout: apiTimeout,    
+      success: function(data, status, xhr) {
+        debugger;    
+        
+        var newJsonObj=$.parseJSON(data);
+        var baseurl, dmzkey;
+        $.each(newJsonObj, function(key, value){
+            if(key=='api-url')
+                baseurl=value;
+            else if(key=='key')
+                dmzkey=value
+        });
+        
+        storeDMZKey(dmzkey, baseurl);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+        //alert("fail get dmz key");  
+      }
+    })
+}
+
+function storeDMZKey(dmzKey, baseurl){
+    var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
+    var dmz = {
+    values1 : [dmzKey, baseurl]
+    };
+    
+    insertDmzKey(dmz);
+    
+    function insertDmzKey(dmz) {
+        db.transaction(function(tx) {
+            tx.executeSql('DROP TABLE IF EXISTS DMZKEYSLOT');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS DMZKEYSLOT (DMZKEY text, BASEURL text)');
+            tx.executeSql('DELETE FROM DMZKEYSLOT');
+            tx.executeSql(
+                'INSERT INTO DMZKEYSLOT (DMZKEY, BASEURL) VALUES (?,?)', 
+                dmz.values1,
+                successStoreDMZKey,
+                erroStoreDMZKey
+            );
+        });
+    }
+}
+
+function successStoreDMZKey(){
+    //alert("success get fmz key");
+}
+
+function erroStoreDMZKey(err){
+    //alert("fail get fmz key");
+}
+
 function getFeaturedList(){
-    var requestUrl=webUrl+"drupalgap/getfeatured";
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/getfeatured";
     
     $.ajax({
       url: requestUrl,
       type: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -40,17 +110,23 @@ function getFeaturedList(){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+}); 
 }
 
 function getLatestPostList(){
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
     //alert("webrequst");
-    var requestUrl=webUrl+"drupalgap/getlatestpost";
+    var requestUrl=baseurl+"drupalgap/getlatestpost";
     
     $.ajax({
       url: requestUrl,
       type: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -77,17 +153,23 @@ function getLatestPostList(){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function getAnnouncementList(){
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
     //alert("webrequst");
-    var requestUrl=webUrl+"drupalgap/getannouncement";
+    var requestUrl=baseurl+"drupalgap/getannouncement";
     
     $.ajax({
       url: requestUrl,
       type: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -116,17 +198,24 @@ function getAnnouncementList(){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 
 function getSearchResultList(key){
-    var requestUrl=webUrl+"drupalgap/contentsearch/"+key;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/contentsearch/"+key;
     
     $.ajax({
       url: requestUrl,
       type: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -135,6 +224,8 @@ function getSearchResultList(key){
           
         if(data.view.count>0)  
         {
+            $(".scrollul").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+            
             for (var x = 0; x < data.nodes.length; x++) {
                 if(data.nodes[x].node.type=="Product")
                 {
@@ -161,6 +252,7 @@ function getSearchResultList(key){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function viewProductDetails(nid){
@@ -180,16 +272,21 @@ function viewCompanyDetails(nid){
 }
 
 function getProductDetails(nid, fromPage){
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
     
-    var requestUrl=webUrl+"drupalgap/getprodservdetail/"+nid;
+    var requestUrl=baseurl+"drupalgap/getprodservdetail/"+nid;
     if(fromPage=="BM")
-        requestUrl=webUrl+"drupalgap/bmgetprodservdetail/"+nid;
+        requestUrl=baseurl+"drupalgap/bmgetprodservdetail/"+nid;
     
     $.ajax({
       url: requestUrl,
       type: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -237,15 +334,22 @@ function getProductDetails(nid, fromPage){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function getAnnouncementDetails(nid){
-    var requestUrl=webUrl+"drupalgap/getpostdetail/"+nid;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/getpostdetail/"+nid;
     $.ajax({
       url: requestUrl,
       type: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -263,16 +367,23 @@ function getAnnouncementDetails(nid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 
 function getCompanyDetails(nid){
-    var requestUrl=webUrl+"drupalgap/getcompanydetail/"+nid;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/getcompanydetail/"+nid;
     $.ajax({
       url: requestUrl,
       type: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -307,16 +418,23 @@ function getCompanyDetails(nid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 
 function getCompanyProdServList(companyid){
-    var requestUrl=webUrl+"drupalgap/getprodservlist/"+companyid;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/getprodservlist/"+companyid;
     $.ajax({
       url: requestUrl,
       method: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -331,17 +449,23 @@ function getCompanyProdServList(companyid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function getCompanyAnnouncementList(nid){
-    //alert("webrequst");
-    var requestUrl=webUrl+"drupalgap/getannouncement/"+nid;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+     //alert("webrequst");
+    var requestUrl=baseurl+"drupalgap/getannouncement/"+nid;
     
     $.ajax({
       url: requestUrl,
       type: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -359,21 +483,31 @@ function getCompanyAnnouncementList(nid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});   
 }
 
 
 function getFavouriteList(uid){
-    var requestUrl=webUrl+"drupalgap/getfavourite/"+uid;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/getfavourite/"+uid;
     $.ajax({
       url: requestUrl,
       type: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;   
         $(".scrollul li").remove();
+
+        $(".scrollul").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+          
         for (var x = 0; x < data.nodes.length; x++) {    
             if(data.nodes[x].node.type=="Product" || data.nodes[x].node.type=="Service"){
                 $(".scrollul").append("<li class='scrollli' onclick='viewProductDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
@@ -397,19 +531,26 @@ function getFavouriteList(uid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});
 }
 
 
 
 function postCompanyProfile(companyid, token, page){
-    var requestUrl=webUrl+"drupalgap/mobileapp/companyprofile.json?nid="+companyid;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY;
+    var baseurl=data.item(0).BASEURL; 
+
+    var requestUrl=baseurl+"drupalgap/mobileapp/companyprofile.json?nid="+companyid;
     
     $.ajax({
       url: requestUrl,
       type: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -433,22 +574,28 @@ function postCompanyProfile(companyid, token, page){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});
 }
 
 
 function postUserPoint(uid, token){
-    var requestUrl=webUrl+"drupalgap/mobileapp/userpoints.json?uid="+uid;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/userpoints.json?uid="+uid;
     $.ajax({
       url: requestUrl,
       type: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
-
         var newJsonObj=$.parseJSON(data);
         var numberofearn=newJsonObj.total_earned;
         var numberofredeem=newJsonObj.total_redeemed;
@@ -473,15 +620,22 @@ function postUserPoint(uid, token){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});
 }
 
 function getProfileProdServList(companyid){
-    var requestUrl=webUrl+"drupalgap/getprodservlist/"+companyid;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/getprodservlist/"+companyid;
     $.ajax({
       url: requestUrl,
       method: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -496,16 +650,23 @@ function getProfileProdServList(companyid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
-function requestLogin(username, password){
-    var requestUrl=webUrl+"?q=services/session/token";
+function requestLogin(username, password){  
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"?q=services/session/token";
     
     $.ajax({
       url: requestUrl,
       type: "GET",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -520,17 +681,24 @@ function requestLogin(username, password){
           loading.endLoading();
         }
     })
+});    
 }
 
 function postLogin(token, username, password){
-    var requestUrl=webUrl+"drupalgap/user/login";
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/user/login";
 
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       data:"username=" + username + "&password="+password,
       timeout: apiTimeout,    
@@ -565,6 +733,7 @@ function postLogin(token, username, password){
           loading.endLoading();
         }
     })
+});
 }
 
 function storeProfile(uid, companyid, name, email, profileimg, role, token) {
@@ -605,13 +774,19 @@ function successLogin(){
 
 
 function postLogout(token){
-    var requestUrl=webUrl+"drupalgap/user/logout";
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/user/logout";
     $.ajax({
       url: requestUrl,
       type: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -621,12 +796,13 @@ function postLogout(token){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
         
-//        deleteProfile();
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+        deleteProfile();
+//          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
           
-          loading.endLoading();
+//          loading.endLoading();
         }
     })
+});
 }
 
 
@@ -653,7 +829,12 @@ function successDeleteProfile(){
 
 
 function postListingProductList(token, uid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/getListingResult.json?type=product";
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/getListingResult.json?type=product";
     
     if(uid!="")
         requestUrl=requestUrl+"&uid="+uid;
@@ -663,7 +844,8 @@ function postListingProductList(token, uid){
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -680,11 +862,17 @@ function postListingProductList(token, uid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 
 function postSearchListingProductList(token, productName, productCompany, gst, industry, techArea, uid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/getListingResult.json?type=product&title="+productName+"&company="+productCompany+"&gst="+gst+"&ind="+industry+"&tech="+techArea;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/getListingResult.json?type=product&title="+productName+"&company="+productCompany+"&gst="+gst+"&ind="+industry+"&tech="+techArea;
     
     if(uid!="")
         requestUrl=requestUrl+"&uid="+uid;
@@ -694,13 +882,16 @@ function postSearchListingProductList(token, productName, productCompany, gst, i
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
-    
+//        alert(JSON.stringify(data))
         $(".scrollulLVM li").remove();
+        
+        $(".scrollulLVM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
@@ -711,12 +902,18 @@ function postSearchListingProductList(token, productName, productCompany, gst, i
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 
 
 function postListingServiceList(token, uid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/getListingResult.json?type=service";
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/getListingResult.json?type=service";
     
     if(uid!="")
         requestUrl=requestUrl+"&uid="+uid;
@@ -726,7 +923,8 @@ function postListingServiceList(token, uid){
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -742,10 +940,16 @@ function postListingServiceList(token, uid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+}); 
 }
 
 function postSearchListingServiceList(token, serviceName, serviceCompany, cat, subcat, uid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/getListingResult.json?type=service&title="+serviceName+"&company="+serviceCompany+"&cat="+cat+"&subcat="+subcat;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/getListingResult.json?type=service&title="+serviceName+"&company="+serviceCompany+"&cat="+cat+"&subcat="+subcat;
     
     
     if(uid!="")
@@ -756,12 +960,16 @@ function postSearchListingServiceList(token, serviceName, serviceCompany, cat, s
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         $(".scrollulLVMPG2 li").remove();
+          
+        $(".scrollulLVMPG2").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");
+          
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
@@ -772,10 +980,16 @@ function postSearchListingServiceList(token, serviceName, serviceCompany, cat, s
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function postProductSearchCriteria(token, uid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/getListingSearchCriteria.json?type=product";
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/getListingSearchCriteria.json?type=product";
     
     if(uid!="")
         requestUrl=requestUrl+"&uid="+uid;
@@ -785,7 +999,8 @@ function postProductSearchCriteria(token, uid){
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -823,10 +1038,16 @@ function postProductSearchCriteria(token, uid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function postServiceSearchCriteria(token, uid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/getListingSearchCriteria.json?type=service";
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/getListingSearchCriteria.json?type=service";
     
     if(uid!="")
         requestUrl=requestUrl+"&uid="+uid;
@@ -836,7 +1057,8 @@ function postServiceSearchCriteria(token, uid){
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -861,11 +1083,17 @@ function postServiceSearchCriteria(token, uid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 
 function postServiceSearchCriteriaSubCategory(token, category, uid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/getListingSearchCriteria.json?type=service&cat="+category;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/getListingSearchCriteria.json?type=service&cat="+category;
     
     if(uid!="")
         requestUrl=requestUrl+"&uid="+uid;
@@ -875,7 +1103,8 @@ function postServiceSearchCriteriaSubCategory(token, category, uid){
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -896,11 +1125,17 @@ function postServiceSearchCriteriaSubCategory(token, category, uid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});   
 }
 
 
 function postBMProductFilterCriteria(token, uid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/businessmatchesfilters.json?interestData=Product";
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/businessmatchesfilters.json?interestData=Product";
     
     if(uid!="")
         requestUrl=requestUrl+"&uid=" + uid;
@@ -910,7 +1145,8 @@ function postBMProductFilterCriteria(token, uid){
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -964,18 +1200,25 @@ function postBMProductFilterCriteria(token, uid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 
 function postFilterProductList(token, uid, submitted, lookFor, keyword, interest, industryArea, techArea){
-    var requestUrl=webUrl+"drupalgap/mobileapp/businessmatches.json?uid="+uid+"&submitted="+submitted+"&rolesData="+lookFor+"&keywordsData="+keyword+"&interestData="+interest+"&technologyData="+techArea+"& industryData="+industryArea;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/businessmatches.json?uid="+uid+"&submitted="+submitted+"&rolesData="+lookFor+"&keywordsData="+keyword+"&interestData="+interest+"&technologyData="+techArea+"& industryData="+industryArea;
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -984,12 +1227,14 @@ function postFilterProductList(token, uid, submitted, lookFor, keyword, interest
 //          alert(returnstr);
         $(".scrollulRM li").remove();
 
-        for (var x = 0; x < data.length; x++) { 
-            if(data[x].type=="product" || data[x].type=="service"){
-                $(".scrollulRM").append("<li class='scrollliRM' onclick='viewProductDetailsBM("+data[x].nid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='"+data[x].image+"'></td><td><h1 class='listviewitemtitleRM'>"+data[x].title+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].description+"</p></td></tr></table></li>");
+        $(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+          
+        for (var x = 0; x < data.results.length; x++) { 
+            if(data.results[x].type=="product" || data.results[x].type=="service"){
+                $(".scrollulRM").append("<li class='scrollliRM' onclick='viewProductDetailsBM("+data.results[x].nid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='"+data.results[x].image+"'></td><td><h1 class='listviewitemtitleRM'>"+data.results[x].title+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data.results[x].description+"</p></td></tr></table></li>");
             }
             else{
-                $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleRM'>"+data[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].roles+"</p></td></tr></table></li>");
+                $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data.results[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleRM'>"+data.results[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data.results[x].roles+"</p></td></tr></table></li>");
             }
         }            
           
@@ -1002,6 +1247,7 @@ function postFilterProductList(token, uid, submitted, lookFor, keyword, interest
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function viewProductDetailsBM(nid){
@@ -1009,7 +1255,12 @@ function viewProductDetailsBM(nid){
 }
 
 function postLVMProductList(token, uid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/bmRecentViewed.json?uid="+uid;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/bmRecentViewed.json?uid="+uid;
 //    alert(uid);
 //    alert(token);
     $.ajax({
@@ -1017,7 +1268,8 @@ function postLVMProductList(token, uid){
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1047,10 +1299,16 @@ $(".scrollulLVM li").remove();
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function postBMServiceFilterCriteria(token, uid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/businessmatchesfilters.json?type=Service";
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/businessmatchesfilters.json?type=Service";
     
     if(uid!="")
         requestUrl=requestUrl+"&uid=" + uid;
@@ -1060,7 +1318,8 @@ function postBMServiceFilterCriteria(token, uid){
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1111,10 +1370,16 @@ function postBMServiceFilterCriteria(token, uid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function postBMServiceSubCategory(token, category, uid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/businessmatchesfilters.json?type=Service&subCategoryData="+category;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/businessmatchesfilters.json?type=Service&subCategoryData="+category;
     
     if(uid!="")
         requestUrl=requestUrl+"&uid=" + uid;
@@ -1124,7 +1389,8 @@ function postBMServiceSubCategory(token, category, uid){
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1149,17 +1415,24 @@ function postBMServiceSubCategory(token, category, uid){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function postFilterServiceList(token, uid, submitted, lookFor, keyword, interest, category, subcategory){
-    var requestUrl=webUrl+"drupalgap/mobileapp/businessmatches.json?uid="+uid+"&submitted=true&rolesData="+lookFor+"&keywordsData="+keyword+"&interestData="+interest+"&servCategoryData="+category+"&subCategoryData="+subcategory;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/businessmatches.json?uid="+uid+"&submitted=true&rolesData="+lookFor+"&keywordsData="+keyword+"&interestData="+interest+"&servCategoryData="+category+"&subCategoryData="+subcategory;
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1168,12 +1441,14 @@ function postFilterServiceList(token, uid, submitted, lookFor, keyword, interest
 //          alert(returnstr);
         $(".scrollulRM li").remove();
 
-        for (var x = 0; x < data.length; x++) { 
-            if(data[x].type=="product" || data[x].type=="service"){
-                $(".scrollulRM").append("<li class='scrollliRM' onclick='viewProductDetailsBM("+data[x].nid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='"+data[x].image+"'></td><td><h1 class='listviewitemtitleRM'>"+data[x].title+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].description+"</p></td></tr></table></li>");
+        $(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+          
+        for (var x = 0; x < data.results.length; x++) { 
+            if(data.results[x].type=="product" || data.results[x].type=="service"){
+                $(".scrollulRM").append("<li class='scrollliRM' onclick='viewProductDetailsBM("+data.results[x].nid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='"+data.results[x].image+"'></td><td><h1 class='listviewitemtitleRM'>"+data.results[x].title+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data.results[x].description+"</p></td></tr></table></li>");
             }
             else{
-                $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleRM'>"+data[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data[x].roles+"</p></td></tr></table></li>");
+                $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data.results[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleRM'>"+data.results[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data.results[x].roles+"</p></td></tr></table></li>");
             }
         }            
           
@@ -1186,17 +1461,24 @@ function postFilterServiceList(token, uid, submitted, lookFor, keyword, interest
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function postNewInboxMessageCount(token, uid, act){
-    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act;
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1215,17 +1497,24 @@ function postNewInboxMessageCount(token, uid, act){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function postInboxMessageList(token, uid, act){
-    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act;
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1235,32 +1524,35 @@ function postInboxMessageList(token, uid, act){
              
         var list = new Array();
         var pageString="";
-        for (var x = 0; x < data.length; x++) { 
-            
+          
+        $(".scrollul").append("<li class='scrollliresult'><br><span class='resultTitle'><u>Messages</u>&nbsp;</span><br></li><li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+          
+        for (var x = 0; x < data.lists.length; x++) { 
             var participant="";
-            $.each(data[x].participants , function(key , value){ // First Level
+            $.each(data.lists[x].participants , function(key , value){ // First Level
                $.each(value , function(key , value){ // First Level
                     participant=value.name;
                 }); 
             });
 
-            var datestring=data[x].last_updated;
+            var datestring=data.lists[x].last_updated;
+        
             
-            if(data[x].is_new==0){
-                $(".scrollul").append("<li class='scrollli' onclick='viewMessageContent("+data[x].thread_id+");'><table style='width:100%;'><tr><td rowspan='3' style='width:20%'><img class='inboxImg' src='img/profile_default_new2.png'></td><td style='width:60%;'><p class='inboxReadTitle'>"+data[x].subject+"</p></td><td style='width:20%;' rowspan='2'><p class='inboxReadDate'>"+datestring.substr(0, 6)+"</p></td></tr><tr><td style='width:60%;'></td></tr><tr><td style='width:60%;'><span class='inboxReadMsg'>"+data[x].messageBody+"</span></td></tr></table></li>");
+            if(data.lists[x].is_new==0){
+                $(".scrollul").append("<li class='scrollli' onclick='viewMessageContent("+data.lists[x].thread_id+");'><table style='width:100%;'><tr><td rowspan='3' style='width:20%'><img class='inboxImg' src='img/profile_default_new2.png'></td><td style='width:60%;'><p class='inboxReadTitle'>"+data.lists[x].subject+"</p></td><td style='width:20%;' rowspan='2'><p class='inboxReadDate'>"+datestring.substr(0, 6)+"</p></td></tr><tr><td style='width:60%;'></td></tr><tr><td style='width:60%;'><span class='inboxReadMsg'>"+data.lists[x].messageBody+"</span></td></tr></table></li>");
                 
 //                                $(".scrollul").append("<li class='scrollli' onclick='viewMessageContent("+data[x].thread_id+");'><table style='width:100%;'><tr><td rowspan='3' style='width:20%'><img class='inboxImg' src='img/profile_default_new2.png'></td><td style='width:60%;'><p class='inboxReadTitle'>"+data[x].subject+"</p></td><td style='width:20%;' rowspan='2'><p class='inboxReadDate'>"+data[x].last_updated+"</p></td></tr><tr><td style='width:60%;'><p class='inboxReadInfo'>"+data[x].subject+"</p></td></tr><tr><td style='width:60%;'><span class='inboxReadMsg'>"+data[x].messageBody+"</span></td></tr></table></li>");
             }
             else{
-                $(".scrollul").append("<li class='scrollli' onclick='viewMessageContent("+data[x].thread_id+");'><table style='width:100%;'><tr><td rowspan='3' style='width:20%'><img class='inboxImgUnread' src='img/profile_default_new.png'></td><td style='width:60%;'><p class='inboxUnreadTitle'>"+data[x].subject+"</p></td><td style='width:20%;' rowspan='2'><p class='inboxUnreadDate'>"+datestring.substr(0, 6)+"</p></td></tr><tr><td style='width:60%;'></td></tr><tr><td style='width:60%;'><span class='inboxUnreadMsg'>"+data[x].messageBody+"</span></td></tr></table></li>");
+                $(".scrollul").append("<li class='scrollli' onclick='viewMessageContent("+data.lists[x].thread_id+");'><table style='width:100%;'><tr><td rowspan='3' style='width:20%'><img class='inboxImgUnread' src='img/profile_default_new.png'></td><td style='width:60%;'><p class='inboxUnreadTitle'>"+data.lists[x].subject+"</p></td><td style='width:20%;' rowspan='2'><p class='inboxUnreadDate'>"+datestring.substr(0, 6)+"</p></td></tr><tr><td style='width:60%;'></td></tr><tr><td style='width:60%;'><span class='inboxUnreadMsg'>"+data.lists[x].messageBody+"</span></td></tr></table></li>");
                 
 //                $(".scrollul").append("<li class='scrollli' onclick='viewMessageContent("+data[x].thread_id+");'><table style='width:100%;'><tr><td rowspan='3' style='width:20%'><img class='inboxImgUnread' src='img/profile_default_new.png'></td><td style='width:60%;'><p class='inboxUnreadTitle'>"+participant+"</p></td><td style='width:20%;' rowspan='2'><p class='inboxUnreadDate'>"+data[x].last_updated+"</p></td></tr><tr><td style='width:60%;'><p class='inboxUnreadInfo'>"+data[x].subject+"</p></td></tr><tr><td style='width:60%;'><span class='inboxUnreadMsg'>"+data[x].messageBody+"</span></td></tr></table></li>");
             }
             
             if(pageString=="")
-                pageString=data[x].thread_id;
+                pageString=data.lists[x].thread_id;
             else
-                pageString=pageString+","+data[x].thread_id;
+                pageString=pageString+","+data.lists[x].thread_id;
         }
         
 //        $.each(data, function(i, item) {
@@ -1274,17 +1566,24 @@ function postInboxMessageList(token, uid, act){
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 function postInboxMessageContent(token, uid, act, mid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&mid="+mid;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&mid="+mid;
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1317,17 +1616,24 @@ function postInboxMessageContent(token, uid, act, mid){
           loading.endLoading();
         }
     })
+});    
 }
 
 function postInboxMessageDelete(token, uid, act, mid){
-    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&mid="+mid;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&mid="+mid;
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1343,17 +1649,24 @@ function postInboxMessageDelete(token, uid, act, mid){
           loading.endLoading();
         }
     })
+});    
 }
 
 function postInboxMessageReply(token, uid, act, mid, message){
-    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&mid="+mid+"&dataBody="+message;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&mid="+mid+"&dataBody="+message;
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1376,17 +1689,24 @@ function postInboxMessageReply(token, uid, act, mid, message){
           loading.endLoading();
         }
     })
+});    
 }
 
 function postNewMessageToUSer(token, uid, act, nid, message, subject){
-    var requestUrl=webUrl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&nid="+nid+"&subject="+subject+"&dataBody="+message;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/message.json?uid="+uid+"&act="+act+"&nid="+nid+"&subject="+subject+"&dataBody="+message;
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1409,17 +1729,24 @@ function postNewMessageToUSer(token, uid, act, nid, message, subject){
           loading.endLoading();
         }
     })
+});    
 }
 
 function PostFavCheck(token, uid, nid, flag){
-    var requestUrl=webUrl+"drupalgap/mobileapp/favourite.json?nid="+nid+"&uid="+uid+"&checkflag="+flag;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/favourite.json?nid="+nid+"&uid="+uid+"&checkflag="+flag;
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1446,18 +1773,25 @@ function PostFavCheck(token, uid, nid, flag){
             navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
+});    
 }
 
 
 function postChangePwd(token, uid, newPwd){
-    var requestUrl=webUrl+"drupalgap/mobileapp/changepassword.json?uid="+uid+"&newpass="+newPwd;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/changepassword.json?uid="+uid+"&newpass="+newPwd;
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1473,16 +1807,23 @@ function postChangePwd(token, uid, newPwd){
             loading.endLoading();
         }
     })
+});    
 }
 
 function postForgetPwd(name){
-    var requestUrl=webUrl+"drupalgap/user/request_new_password.json";
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/user/request_new_password.json";
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Mobile-Api-Key":dmzKey
       },
       data:"name=" + name,
       timeout: apiTimeout,    
@@ -1500,19 +1841,25 @@ function postForgetPwd(name){
             loading.endLoading();
         }
     })
+});    
 }
 
 function postRegistrationId(uid, token,regid, type){
-//    var requestUrl=webUrl+"drupalgap/pushnotification.json?uid="+uid+"&token="+regid+"&type="+type;
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    //    var requestUrl=webUrl+"drupalgap/pushnotification.json?uid="+uid+"&token="+regid+"&type="+type;
     
-    var requestUrl=webUrl+"drupalgap/pushnotification.json";
+    var requestUrl=baseurl+"drupalgap/pushnotification.json";
     
     $.ajax({
       url: requestUrl,
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        "X-CSRF-Token":token
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
       },
       data:"uid=" + uid + "&token=" + regid + "&type=" + type,
       timeout: apiTimeout,    
@@ -1527,16 +1874,23 @@ function postRegistrationId(uid, token,regid, type){
 //          alert("regid: Unable connect to server.");      
         }
     })
+});
 }
 
-function getAboutUs(){    
-    var requestUrl=webUrl+"drupalgap/getaboutesolutions";
+function getAboutUs(){  
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/getaboutesolutions";
     
     $.ajax({
       url: requestUrl,
       method: "GET",
       headers: {
-        "Content-Type": "application/JSON"
+        "Content-Type": "application/JSON",
+        "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
@@ -1557,6 +1911,7 @@ function getAboutUs(){
 //          alert("Unable connect to server.");      
         }
     })
+});    
 }
 
 function viewMessageContent(mid){
