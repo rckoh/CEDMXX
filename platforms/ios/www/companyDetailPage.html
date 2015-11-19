@@ -42,7 +42,13 @@
             }
             
             function back(){
-                window.history.back();
+                var frompage=getUrlParameter("fromPage");
+                if(frompage=="featured"){
+                    window.location="index.html?fromPage=featured";
+                }
+                else{
+                    window.history.back();
+                }
             }
             
         </script>
@@ -52,6 +58,8 @@
             <div class="menuheader">
                 <div class="menuheaderleft">
                     <button class="buttonbg"><img class="menubutton" src="img/drawer.png"></img></button>
+                </div>
+                <div class="menuheaderright">
                 </div>
 <!--
                 <table class="menuheadertable">
@@ -201,6 +209,14 @@
                 function(){
                     slideMenu.initSlideMenu();
                     loadContent();
+                    
+                    var frompage=getUrlParameter("fromPage");
+                    if(frompage=="featured"){
+                        $(".menuheaderright").append("<button class='pagetitle'>Featured</button>");
+                    }
+                    else{
+                        $(".menuheaderright").append("<button class='pagetitle'>Compant</button>");
+                    }
             });
         </script>
     </body>

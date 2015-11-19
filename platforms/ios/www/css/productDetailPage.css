@@ -172,8 +172,9 @@
 }
 
 #productImg{
-    width: 80%;
+    width: auto;
     height: auto;
+    max-width: 100%;
 }
 
 #galleryImg{

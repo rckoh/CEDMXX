@@ -42,7 +42,16 @@
             }
             
             function back(){
-                window.history.back();
+                var frompage=getUrlParameter("fromPage");
+                if(frompage=="latestpost"){
+                    window.location="index.html?fromPage=lastestpost";
+                }
+                else if(frompage="announcement"){
+                    window.location="index.html?fromPage=announcement";
+                }
+                else{
+                    window.history.back();
+                }
             }
         </script>
         <script type="text/javascript" src="js/slidemenuaction.js"></script>
@@ -53,6 +62,9 @@
             <div class="menuheader">
                 <div class="menuheaderleft">
                     <button class="buttonbg"><img class="menubutton" src="img/drawer.png"></img></button>
+                </div>
+                <div class="menuheaderright">
+<!--                    <button class="pagetitle">Announcements</button>        -->
                 </div>
             </div>
             <div class="menubg">
@@ -111,6 +123,14 @@
             $(document).ready(
                 function(){
                     slideMenu.initSlideMenu();
+                    
+                    var frompage=getUrlParameter("fromPage");
+                    if(frompage=="latestpost"){
+                        $(".menuheaderright").append("<button class='pagetitle'>Latest Post</button>");
+                    }
+                    else{
+                        $(".menuheaderright").append("<button class='pagetitle'>Announcements</button>");
+                    }
             });
         </script>
     </body>

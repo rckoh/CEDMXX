@@ -31,6 +31,7 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" src="js/webRequest.js"></script>
+        <script type="text/javascript" src="js/queryStr.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
         <script type="text/javascript" src="facebookConnectPlugin.js"></script>
         <script type="text/javascript" src="PushNotification.js"></script>
@@ -285,7 +286,19 @@
             $(document).ready(
                 function(){
                     var dmzProcess=getDMZKey();                    
-
+                    
+                    initsubmenustyle();
+                    var frompage=getUrlParameter("fromPage");
+                    if(frompage=="announcement"){
+                        changepage(3);
+                    }
+                    else if(frompage=="lastestpost"){
+                        changepage(2);
+                    }
+                    else if(frompage=="featured"){
+                        changepage(1);
+                    }
+                    
                     $.when(dmzProcess).done(function(){
                         try{
                             app.initPushNotificationRegister();
@@ -294,7 +307,6 @@
     //                        alert(ex.message);
                         }
 
-                        initsubmenustyle();
                         initLoginButton();
                         initInboxButton();
                         inboxMessage.checkNewMessageNumber();

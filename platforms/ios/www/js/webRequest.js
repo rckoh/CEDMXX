@@ -85,12 +85,14 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;        
         $(".scrollul li").remove();
-        for (var x = 0; x < data.nodes.length; x++) {    
+        var frompage='"featured"';
+          
+        for (var x = 0; x < data.nodes.length; x++) { 
             if(data.nodes[x].node.type=="productservice"){
-                $(".scrollul").append("<li class='scrollli' onclick='viewProductDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+                $(".scrollul").append("<li class='scrollli' onclick='viewProductDetails("+data.nodes[x].node.nid+", "+frompage+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
             }
             else if(data.nodes[x].node.type=="company"){
-                $(".scrollul").append("<li class='scrollli' onclick='viewCompanyDetails("+data.nodes[x].node.nid+")' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+                $(".scrollul").append("<li class='scrollli' onclick='viewCompanyDetails("+data.nodes[x].node.nid+", "+frompage+")' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
             }
         }
           
@@ -134,7 +136,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         $(".scrollulPage2 li").remove();
           
         for (var x = 0; x < data.nodes.length; x++) {
-            $(".scrollulPage2").append("<li class='scrollliPage2' onclick='viewAnnouncementDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage2' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage2'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperatorPage2'>&nbsp;</p><p class='listviewitemdetailsPage2'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+            var frompage='"latestpost"';
+            $(".scrollulPage2").append("<li class='scrollliPage2' onclick='viewAnnouncementDetails("+data.nodes[x].node.nid+","+frompage+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage2' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage2'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperatorPage2'>&nbsp;</p><p class='listviewitemdetailsPage2'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
         }
          
           
@@ -178,7 +181,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         $(".scrollulPage3 li").remove();  
           
         for (var x = 0; x < data.nodes.length; x++) {
-            $(".scrollulPage3").append("<li class='scrollliPage3' onclick='viewAnnouncementDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage3' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage3'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperatorPage3'>&nbsp;</p><p class='listviewitemdetailsPage3'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
+            var frompage='"announcement"';
+            $(".scrollulPage3").append("<li class='scrollliPage3' onclick='viewAnnouncementDetails("+data.nodes[x].node.nid+","+frompage+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage3' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage3'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperatorPage3'>&nbsp;</p><p class='listviewitemdetailsPage3'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
 
         }
           
@@ -255,20 +259,20 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 });    
 }
 
-function viewProductDetails(nid){
-    window.location = "productDetailPage.html?nid="+nid;
+function viewProductDetails(nid, frompage){
+    window.location = "productDetailPage.html?nid="+nid+"&fromPage="+frompage;
 }
 
 function viewServiceDetails(nid){
     window.location = "serviceDetailPage.html?nid="+nid;
 }
 
-function viewAnnouncementDetails(nid){
-    window.location = "announcementDetailPage.html?nid="+nid;
+function viewAnnouncementDetails(nid, frompage){
+    window.location = "announcementDetailPage.html?nid="+nid+"&fromPage="+frompage;
 }
 
-function viewCompanyDetails(nid){
-    window.location = "companyDetailPage.html?nid="+nid;
+function viewCompanyDetails(nid, frompage){
+    window.location = "companyDetailPage.html?nid="+nid+"&fromPage="+frompage;
 }
 
 function getProductDetails(nid, fromPage){
@@ -292,13 +296,17 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
           var returnstr=JSON.stringify(data);
+          
         for (var x = 0; x < data.nodes.length; x++) {
             var title=data.nodes[x].node.title;
             var imageUrl=data.nodes[x].node.background.src;
             var desc=(data.nodes[x].node.description=="")?"N/A":data.nodes[x].node.description;
             var unidsellingpoint=(data.nodes[x].node.product_unique_selling_point=="")?"N/A":data.nodes[x].node.product_unique_selling_point;
             var custRef=(data.nodes[x].node.customer_reference=="")?"N/A":data.nodes[x].node.customer_reference;
-            var brochure=(data.nodes[x].node.brochures=="")?"N/A":"<a class='brouchurelink' href='"+data.nodes[x].node.brochures+"'>"+data.nodes[x].node.brochures+"</a>";
+            var holdbrochure=data.nodes[x].node.brochures;
+            var brochure=(data.nodes[x].node.brochures=="")?"N/A":"<a class='brouchurelink' href='#' onClick='cordova.InAppBrowser.open("+'"'+$(holdbrochure).text()+'"'+", "+'"'+"_system"+'"'+")'>"+$(holdbrochure).text()+"</a>";
+            alert(brochure);
+//            <a href="#" onclick="window.open('http://www.kidzout.com', '_system');">www.kidzout.com</a>
             var tags=(data.nodes[x].node.tags=="")?"N/A":data.nodes[x].node.tags;
             var techarea=(data.nodes[x].node.product_technology_area=="")?"N/A":data.nodes[x].node.product_technology_area;
             var platform=(data.nodes[x].node.platform=="")?"N/A":data.nodes[x].node.platform;
@@ -359,7 +367,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           
         var imageUrl=data.nodes[0].node.background.src;
         var desc=(data.nodes[0].node.description=="")?"N/A":data.nodes[0].node.description;
-          
+        alert(desc);
         $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><br><p class='description'>"+desc+"</p><p><br><br></p></li>");
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -556,7 +564,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
         var newJsonObj=$.parseJSON(data);
-          
+         
         var numberofview=newJsonObj.total_view;
         var numberoffav=newJsonObj.total_favourite;
         var numberofshare=newJsonObj.total_share;
@@ -567,7 +575,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         $("#lblfavnumber").text(numberoffav);
         $("#lblsharenumber").text(numberofshare);
         $(".profileBG").attr("src", backgroundImg);
-          
+        
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -710,9 +718,21 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         var uid=data.user.uid;
         var name=data.user.name;
         var email=data.user.mail;
-        var profileimg=data.user.picture.url;
+        var profileimg="";
+          
+        if(data.user.picture!=null){
+            profileimg=data.user.picture.url;
+        }
+          
         var role="";
-        var companyid=data.user.field_company_id_user.und[0].target_id;  
+        var companyid="";  
+        
+        try{
+            companyid=data.user.field_company_id_user.und[0].target_id;
+        }catch(ex){
+        
+        }
+          
         var sessionToken=data.token;
         $.each(data.user.roles , function(key , value){ // First Level
             if(role=="")
@@ -722,6 +742,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         });
         
         storeProfile(uid, companyid, name, email, profileimg, role, sessionToken);
+          
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -852,6 +873,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         debugger;
     
         $(".scrollulLVM li").remove();
+        
+        $(".scrollulLVM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
@@ -930,6 +953,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
         $(".scrollulLVMPG2 li").remove();
+          
+        $(".scrollulLVMPG2").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");  
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
@@ -1174,12 +1199,14 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             });
         }
           
+        $("#filterProductTechArea").append($("<option></option>").attr("value","").text("Any"));
         for(var x=0; x<data.technologyData.technology_area.length; x++){     
             var optionValue=data.technologyData.technology_area[x].tech.value;
             var displayname=data.technologyData.technology_area[x].tech.display_name;
             $("#filterProductTechArea").append($("<option></option>").attr("value",optionValue).text(displayname));
         }
           
+        $("#filterProductIndustryArea").append($("<option></option>").attr("value","").text("Any"));
         for(var x=0; x<data.technologyData.industry_area.length; x++){     
             var optionValue=data.technologyData.industry_area[x].industry.value;
             var displayname=data.technologyData.industry_area[x].industry.display_name;
@@ -1348,6 +1375,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             });
         }
           
+        $("#filterServiceCategory").append($("<option></option>").attr("value","").text("Any"));
         for(var x=0; x<data.servCategoryData.service_category.length; x++){     
             var optionValue=data.servCategoryData.service_category[x].category.value;
             var displayname=data.servCategoryData.service_category[x].category.display_name;
@@ -1360,9 +1388,9 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         $("#filterServiceLookFor").val($("#filterProductLoookFor").val());
         $("#filterServiceKeyword").val($("#filterProductKeyword").val());
           
-        postBMServiceSubCategory(token, data.servCategoryData.service_category[0].category.sub_key, uid);
+//        postBMServiceSubCategory(token, data.servCategoryData.service_category[0].category.sub_key, uid);
           
-//        loading.endLoading();
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -1896,7 +1924,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-        
+        alert(JSON.stringify(data));   
 //        alert(data.nodes[0].node.description);
         
         var content=data.nodes[0].node.description;

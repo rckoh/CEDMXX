@@ -42,7 +42,7 @@ $("#servicefilter").append("<div id='serviceSubCatDiv' class='serviceSubCatDiv'>
 //$("#serviceSubCatDiv").append("<h1><input type='checkbox' name='vehicle' value='Bike' class='check_box' id='chb1'><label for='chB1'>This is the label</label><br></h1>");
 $("#servicefilter").append("<h1>&nbsp;</h1>");
 $("#servicefilter").append("<button onclick='serviceFilterResult()'>MATCH ME</button>");
-        $("#servicefilter").append("<br>");
+        $("#servicefilter").append("<br><br><br>");
         
     }
 }
@@ -185,18 +185,26 @@ function productLoadLVMResult(){
 function getServiceSubCat(){
     loading.startLoading();
     var category=$("#filterServiceCategory").val();
-    var categoryArr=category.split("|");
     
-    dbmanager.getProfile(function(returnData){
-        if(returnData.rows.length>0){
-            var token=returnData.rows.item(0).token;
-            postBMServiceSubCategory(token, categoryArr[1]);
-        }
-        else{
-            var token="";
-            postBMServiceSubCategory(token, categoryArr[1], "");
-        }
-    });
+    if(category==""){
+        $("#serviceSubCatDiv h1").remove();
+        loading.endLoading();
+    }else
+    {
+        var categoryArr=category.split("|");
+    
+        dbmanager.getProfile(function(returnData){
+            if(returnData.rows.length>0){
+                var token=returnData.rows.item(0).token;
+                postBMServiceSubCategory(token, categoryArr[1]);
+            }
+            else{
+                var token="";
+                postBMServiceSubCategory(token, categoryArr[1], "");
+            }
+        });
+    }
+    
 }
 
                         

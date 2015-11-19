@@ -808,9 +808,9 @@
 /* footer Style end*/
 .pagefooter{
     width: 100%;
-    height: 30px;
+    height: 8vw;
     text-align: center;
-    line-height: 30px;
+    line-height: 8vw;
     font-size: 3.5vw;
     z-index:88;
     background-color: #32978f;

@@ -69,7 +69,9 @@ function pageSwipeLeft(){
             $(".pageone").animate({
                     marginLeft: "-100%",}, 300, function() {});
             $(".pagetwo").animate({
-                    marginLeft: "0%",}, 300, function() {currentpage=2;});
+                    marginLeft: "0%",}, 300, function() {currentpage=2;
+                                                        window.localStorage.setItem("listingpagenumber", '2');
+                                                        });
 
             $(".selectedItem").animate({
                     marginLeft: "33%",}, 300, function() {});
@@ -104,7 +106,8 @@ function changepage(pagenumber){
         }
         
         $(".pageone").animate({
-                marginLeft: "0%",}, 300, function() {currentpage=1;});
+                marginLeft: "0%",}, 300, function() {currentpage=1;
+                                                    window.localStorage.setItem("listingpagenumber", '1');});
         $(".pagetwo").animate({
                 marginLeft: "100%",}, 300, function() {});
         
@@ -132,7 +135,8 @@ function changepage(pagenumber){
         $(".pageone").animate({
                 marginLeft: "-100%",}, 300, function() {});
         $(".pagetwo").animate({
-                marginLeft: "0%",}, 300, function() {currentpage=2;});
+                marginLeft: "0%",}, 300, function() {currentpage=2;
+                                                    window.localStorage.setItem("listingpagenumber", '2');});
         
         $(".selectedItem").animate({
                 marginLeft: "33.67%",}, 300, function() {});
@@ -153,7 +157,8 @@ function pageSwipeRight(){
             $(".pageone").css("marginLeft", "-100%");
 
             $(".pageone").animate({
-                    marginLeft: "0%",}, 300, function() {currentpage=1;});
+                    marginLeft: "0%",}, 300, function() {currentpage=1;
+                                                        window.localStorage.setItem("listingpagenumber", '1');});
             $(".pagetwo").animate({
                     marginLeft: "100%",}, 300, function() {});
 

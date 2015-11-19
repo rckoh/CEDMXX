@@ -33,6 +33,10 @@
                 
 //			     document.addEventListener("backbutton", onBackKeyDown, false);
             }
+            
+            function backToIndex(){
+                window.location="index.html";
+            }
         </script>
         <script type="text/javascript" src="js/menuclick.js"></script>
         
@@ -40,6 +44,7 @@
     <body>
         <div data-role="app" class="app" id="app">
             <div class="content">
+                <button class="backBtn" onclick="backToIndex();">Back</button>
                 <div class="appLogoFrame">
                     <img class="appLogo" src="img/mdec.png"/>
                 </div>

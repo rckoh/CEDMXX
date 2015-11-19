@@ -143,6 +143,18 @@
                 initListingProdList();
                 initInboxButton();
                 inboxMessage.checkNewMessageNumber();
+                
+                // Set togglebutton to false default
+                var listingpagenumber = window.localStorage.getItem("listingpagenumber");
+                
+                if (listingpagenumber==null) 
+                    window.localStorage.setItem("listingpagenumber", '1');
+                
+                listingpagenumber=window.localStorage.getItem("listingpagenumber");
+                if(listingpagenumber=='1')
+                    changepage(1);
+                else if(listingpagenumber=='2')
+                    changepage(2);
             });
         </script>
     </body>
