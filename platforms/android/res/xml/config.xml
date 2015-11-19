@@ -11,6 +11,9 @@
     <feature name="SocialSharing">
         <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
     <preference name="Fullscreen" value="true" />
     <allow-intent href="market:*" />
     <name>MDeC eSolution</name>

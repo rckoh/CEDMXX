@@ -45,6 +45,7 @@
 		4126F3B52D324CEA807A301D /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = A28CF2897D1C4D4F8411A268 /* SocialSharing.m */; };
 		A9CDF686CD174F68A943BE81 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA99F02F023A4F4A8E0914FB /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		36FEE72C130A4F919954F22B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B309140127644F3BA1404E21 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FF0365856AD7416EA14F4DAF /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB1A1E3873040AEA8A2C65E /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		ADD75DFDFD17431384B2A9D9 /* SocialSharing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SocialSharing.h"; path = "nl.x-services.plugins.socialsharing/SocialSharing.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		CA99F02F023A4F4A8E0914FB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		B309140127644F3BA1404E21 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		DDB1A1E3873040AEA8A2C65E /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		8BA17497399D44DA8A3CA92F /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +233,8 @@
 				9953BDC8666F435D8107A5AB /* APPHiddenStatusbarOverlay.h */,
 				A28CF2897D1C4D4F8411A268 /* SocialSharing.m */,
 				ADD75DFDFD17431384B2A9D9 /* SocialSharing.h */,
+				DDB1A1E3873040AEA8A2C65E /* CDVInAppBrowser.m */,
+				8BA17497399D44DA8A3CA92F /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = "MDeC eSolution/Plugins";
@@ -418,6 +423,7 @@
 				F2BBB64EED804826B986EBE1 /* PushPlugin.m in Sources */,
 				C47AFBAD40DA4E4AB1B3E0C0 /* APPHiddenStatusbarOverlay.m in Sources */,
 				4126F3B52D324CEA807A301D /* SocialSharing.m in Sources */,
+				FF0365856AD7416EA14F4DAF /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

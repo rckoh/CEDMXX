@@ -304,8 +304,9 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             var unidsellingpoint=(data.nodes[x].node.product_unique_selling_point=="")?"N/A":data.nodes[x].node.product_unique_selling_point;
             var custRef=(data.nodes[x].node.customer_reference=="")?"N/A":data.nodes[x].node.customer_reference;
             var holdbrochure=data.nodes[x].node.brochures;
-            var brochure=(data.nodes[x].node.brochures=="")?"N/A":"<a class='brouchurelink' href='#' onClick='cordova.InAppBrowser.open("+'"'+$(holdbrochure).text()+'"'+", "+'"'+"_system"+'"'+")'>"+$(holdbrochure).text()+"</a>";
-            alert(brochure);
+            var holdbrochurestr='"'+jQuery.trim($(holdbrochure).text())+'"';
+            var brochure=(data.nodes[x].node.brochures=="")?"N/A":"<a class='brouchurelink' href='#' onClick='cordovaOpenLink("+holdbrochurestr+")'><img class='brochureImg' src='img/brochure.png'/></a>";
+            
 //            <a href="#" onclick="window.open('http://www.kidzout.com', '_system');">www.kidzout.com</a>
             var tags=(data.nodes[x].node.tags=="")?"N/A":data.nodes[x].node.tags;
             var techarea=(data.nodes[x].node.product_technology_area=="")?"N/A":data.nodes[x].node.product_technology_area;
@@ -367,7 +368,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           
         var imageUrl=data.nodes[0].node.background.src;
         var desc=(data.nodes[0].node.description=="")?"N/A":data.nodes[0].node.description;
-        alert(desc);
+        
         $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><br><p class='description'>"+desc+"</p><p><br><br></p></li>");
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -402,12 +403,16 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           var imageUrl=data.nodes[0].node.image.src;
           var desc=data.nodes[0].node.description;
           var address=data.nodes[0].node.address;
-          var wesiteUrl=(data.nodes[0].node.website_url=="")?"N/A":"<a class='brouchurelink' href='"+data.nodes[0].node.website_url+"'>"+data.nodes[0].node.website_url+"</a>";
+          
+          var holdwebsiteurl=data.nodes[0].node.brochures;
+          var holdwebsiteurlstr='"'+jQuery.trim($(holdwebsiteurl).text())+'"';
+          var wesiteUrl=(data.nodes[0].node.website_url=="")?"N/A":"<a class='brouchurelink' href='#' onClick='cordovaOpenLink("+holdwebsiteurlstr+")'>"+$(holdwebsiteurl).text()+"</a>";
+          
           var requirement=(data.nodes[0].node.requirement=="")?"N/A":data.nodes[0].node.requirement;
           var awards=(data.nodes[0].node.award=="")?"N/A":data.nodes[0].node.award;
           
           $(".scrollul").append(
-            "<li class='scrollli'><br><p class='lipclass'><img id='productImg' src='"+imageUrl+"'/></p><p class='lineseperator'>&nbsp;</p><br><h1 id='companyName' class='lih1class'>"+title+"</h1><p class='description'> "+desc+"<br><br><table class='companyInfo'><tr><td><span>Address</span></td><td><span>:</span></td><td><span>"+address+"</span> </td></tr><tr><td><span>Website URL</span></td><td><span>:</span></td><td><span>"+wesiteUrl+"</span> </td></tr></table></p><p class='seperator'>&nbsp;</p><p class='description'><span class='buttonSpan'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></span><table class='companyStatistic'><tr><td>Views</td><td>:</td><td>0</td></tr><tr><td>Shares</td><td>:</td><td>0</td></tr><tr><td>Favourites</td><td>:</td><td>0</td></tr></table></p><p class='seperator'>&nbsp;</p><br><div class='companyDetails'><div class='requirement'><button class='requirementBtn' onclick='changepage(1);'>Company Requirement</button></div><div class='awards'><button class='awardsBtn' onclick='changepage(2);'>Company Awards</button></div><div class='selectedItem'>&nbsp;</div><div class='companyDetailsDescriptionOne'>"+requirement+"</div><div class='companyDetailsDescriptionTwo'>"+awards+"</div></div><br><h2 class='lih2class'>Announcement</h2><ul class='scrollul' id='scrollulAnnouncement'></ul><br><h2 class='lih2class'>Products and Services</h2><ul class='scrollul' id='scrollulProdServ'></ul></li>"
+            "<li class='scrollli'><br><p class='lipclass'><img id='productImg' src='"+imageUrl+"'/></p><p class='lineseperator'>&nbsp;</p><br><h1 id='companyName' class='lih1class'>"+title+"</h1><p class='description'> "+desc+"<br><br><table class='companyInfo'><tr><td><span>Address</span></td><td><span>:</span></td><td><span>"+address+"</span> </td></tr><tr><td><span>Website URL</span></td><td><span>:</span></td><td><span>"+wesiteUrl+"</span> </td></tr></table></p><p class='seperator'>&nbsp;</p><p class='description'><span class='buttonSpan'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></span><table class='companyStatistic'><tr><td>Views</td><td>:</td><td>0</td></tr><tr><td>Shares</td><td>:</td><td>0</td></tr><tr><td>Favourites</td><td>:</td><td>0</td></tr></table></p><p class='seperator'>&nbsp;</p><br><div class='companyDetails'><div class='requirement'><button class='requirementBtn' onclick='changepage(1);'>Company Requirement</button></div><div class='awards'><button class='awardsBtn' onclick='changepage(2);'>Company Awards</button></div><div class='selectedItem'>&nbsp;</div><div class='companyDetailsDescriptionOne'>"+requirement+"</div><div class='companyDetailsDescriptionTwo'>"+awards+"</div></div><br><h2 class='lih2class'>Products and Services</h2><ul class='scrollul' id='scrollulProdServ'></ul></li>"
           );
           
           dbmanager.getProfile(function(returnData){
@@ -419,7 +424,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           });
           
           getCompanyProdServList(nid);
-          getCompanyAnnouncementList(nid);
+//          getCompanyAnnouncementList(nid);
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -1924,7 +1929,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-        alert(JSON.stringify(data));   
+//        alert(JSON.stringify(data));   
 //        alert(data.nodes[0].node.description);
         
         var content=data.nodes[0].node.description;
