@@ -272,16 +272,24 @@ input:focus {
     font-size: 3vw;
 }
 
+.divBackBtn{
+    position: absolute;
+    top: 68%;
+    left: 0;
+/*    background-color: antiquewhite; */
+    width: 100%;
+}
+
 .backBtn{
     position: absolute;
-    top: 3%;
-    left: 2%;
+    left:40%;
     outline: none;
     border: none;
     background-color: transparent;
     font-size: 3vw;
     font-family: "Roboto-Bold";
     color: white;
+    width: 20%;
 }
 /* Login Style end*/
 /* ------------------------------------------------------------------------------------*/

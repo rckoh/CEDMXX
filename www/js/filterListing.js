@@ -10,8 +10,9 @@ var filterListing = {
         $("#productfilter").append("<p><input type='text' id='productName'></input></p>");        
         $("#productfilter").append("<h1>Company</h1>");
         $("#productfilter").append("<p><input type='text' id='productCompany'></input></p>");
-        $("#productfilter").append("<h1>GST Compliance</h1>");
-        $("#productfilter").append("<p><select id='filterProductGST' value=''></select></p>");                     $("#productfilter").append("<h1>Industry</h1>");
+//        $("#productfilter").append("<h1>GST Compliance</h1>");
+//        $("#productfilter").append("<p><select id='filterProductGST' value=''></select></p>");    
+        $("#productfilter").append("<h1>Industry</h1>");
         $("#productfilter").append("<p><select id='filterProductIndustry'></select></p>");
         $("#productfilter").append("<h1>Technology Area</h1>");
         $("#productfilter").append("<p><select id='filterProductTechArea'></select></p>");                         $("#productfilter").append("<h1>&nbsp;</h1>");
@@ -95,11 +96,11 @@ function productSearchResult(){
     dbmanager.getProfile(function(returnData){
         if(returnData.rows.length>0){
             var token=returnData.rows.item(0).token;
-            postSearchListingProductList(token, productName, company, gst, industry, techArea);
+            postSearchListingProductList(token, productName, company, "", industry, techArea);
         }
         else{
             var token="";
-            postSearchListingProductList(token, productName, company, gst, industry, techArea, "0");
+            postSearchListingProductList(token, productName, company, "", industry, techArea, "0");
         }
     });
 }
