@@ -15,12 +15,17 @@
     font-size: 3.5vw;
 }
 
-.backBtnSmall{
+.backBtn{
     background-color: transparent;
     border:none;
-    vertical-align: middle;
     height: 100%;
 	width:auto;
+}
+
+.backBtnImgSmall{
+    vertical-align:middle;
+    background-color: transparent;
+    margin: auto;
 }
 
 .btnBackLbl{
