@@ -9,19 +9,7 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"PushPlugin\"><param name=\"android-package\" value=\"com.plugin.gcm.PushPlugin\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"SocialSharing\"><param name=\"android-package\" value=\"nl.xservices.plugins.SocialSharing\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -51,11 +39,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<permission android:name=\"com.projeksistematik.com.my.projeksistematik.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
+                            "xml": "<permission android:name=\"com.mdec.esolution.permission.C2D_MESSAGE\" android:protectionLevel=\"signature\" />",
                             "count": 1
                         },
                         {
-                            "xml": "<uses-permission android:name=\"com.projeksistematik.com.my.projeksistematik.permission.C2D_MESSAGE\" />",
+                            "xml": "<uses-permission android:name=\"com.mdec.esolution.permission.C2D_MESSAGE\" />",
                             "count": 1
                         }
                     ],
@@ -65,27 +53,11 @@
                             "count": 1
                         },
                         {
-                            "xml": "<receiver android:name=\"com.plugin.gcm.CordovaGCMBroadcastReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><action android:name=\"com.google.android.c2dm.intent.REGISTRATION\" /><category android:name=\"com.projeksistematik.com.my.projeksistematik\" /></intent-filter></receiver>",
+                            "xml": "<receiver android:name=\"com.plugin.gcm.CordovaGCMBroadcastReceiver\" android:permission=\"com.google.android.c2dm.permission.SEND\"><intent-filter><action android:name=\"com.google.android.c2dm.intent.RECEIVE\" /><action android:name=\"com.google.android.c2dm.intent.REGISTRATION\" /><category android:name=\"com.mdec.esolution\" /></intent-filter></receiver>",
                             "count": 1
                         },
                         {
                             "xml": "<service android:name=\"com.plugin.gcm.GCMIntentService\" />",
-                            "count": 1
-                        }
-                    ],
-                    "/*": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 1
-                        }
-                    ]
-                }
-            },
-            "config.xml": {
-                "parents": {
-                    "/*": [
-                        {
-                            "xml": "<preference name=\"Fullscreen\" value=\"true\" />",
                             "count": 1
                         }
                     ]
@@ -94,19 +66,7 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.projeksistematik.com.my.projeksistematik"
-        },
         "com.phonegap.plugins.PushPlugin": {
-            "PACKAGE_NAME": "com.projeksistematik.com.my.projeksistematik"
-        },
-        "de.appplant.cordova.plugin.hidden-statusbar-overlay": {
-            "PACKAGE_NAME": "com.projeksistematik.com.my.projeksistematik"
-        },
-        "nl.x-services.plugins.socialsharing": {
-            "PACKAGE_NAME": "com.projeksistematik.com.my.projeksistematik"
-        },
-        "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.mdec.esolution"
         }
     },
