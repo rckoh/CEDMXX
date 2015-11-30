@@ -305,9 +305,17 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             var unidsellingpoint=(data.nodes[x].node.product_unique_selling_point=="")?"N/A":data.nodes[x].node.product_unique_selling_point;
             var custRef=(data.nodes[x].node.customer_reference=="")?"N/A":data.nodes[x].node.customer_reference;
             var holdbrochure=data.nodes[x].node.brochures;
-            var holdbrochurestr='"'+jQuery.trim($(holdbrochure).text())+'"';
-            var brochure=(data.nodes[x].node.brochures=="")?"N/A":"<a class='brouchurelink' href='#' onClick='cordovaOpenLink("+holdbrochurestr+")'><img class='brochureImg' src='img/brochure.png'/></a>";
+            var holdbrochurestr;
             
+            try{
+                holdbrochurestr='"'+jQuery.trim($(holdbrochure).text())+'"';        
+            }
+            catch(ex){
+                holdbrochurestr='"'+jQuery.trim(holdbrochure)+'"';
+            }
+            
+              
+            var brochure=(data.nodes[x].node.brochures=="")?"N/A":"<a class='brouchurelink' href='#' onClick='cordovaOpenLink("+holdbrochurestr+")'><img class='brochureImg' src='img/brochure.png'/></a>";
 //            <a href="#" onclick="window.open('http://www.kidzout.com', '_system');">www.kidzout.com</a>
             var tags=(data.nodes[x].node.tags=="")?"N/A":data.nodes[x].node.tags;
             var techarea=(data.nodes[x].node.product_technology_area=="")?"N/A":data.nodes[x].node.product_technology_area;
@@ -328,6 +336,12 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             
 //            <img id='galleryImg' src='"+data.nodes[x].node.gallery+"'/>
         }
+        
+        //if add onclick function to overwrite the anchor received from backend
+        $("a").click(function() {
+            cordovaOpenLink(this.href);
+            return false;
+        });
           
         dbmanager.getProfile(function(returnData){
                 if(returnData.rows.length>0){
@@ -363,12 +377,18 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
-
+        //alert(JSON.stringify(data));
         var title=data.nodes[0].node.title;
         title=$(title).text();
         var imageUrl=data.nodes[0].node.background.src;
         var desc=(data.nodes[0].node.description=="")?"N/A":data.nodes[0].node.description;
         $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><br><span class='description'>"+desc+"</span><p><br><br></p></li>");
+        
+        //if add onclick function to overwrite the anchor received from backend
+        $("a").click(function() {
+            cordovaOpenLink(this.href);
+            return false;
+        });
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -411,6 +431,13 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           $(".scrollul").append(
             "<li class='scrollli'><br><p class='lipclass'><img id='productImg' src='"+imageUrl+"'/></p><p class='lineseperator'>&nbsp;</p><br><h1 id='companyName' class='lih1class'>"+title+"</h1><p class='description'> "+desc+"<br><br><table class='companyInfo'><tr><td><span>Address</span></td><td><span>:</span></td><td><span>"+address+"</span> </td></tr><tr><td><span>Website URL</span></td><td><span>:</span></td><td><span>"+wesiteUrl+"</span> </td></tr></table></p><p class='seperator'>&nbsp;</p><p class='description'><span class='buttonSpan'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></span><table class='companyStatistic'><tr><td>Views</td><td>:</td><td>0</td></tr><tr><td>Shares</td><td>:</td><td>0</td></tr><tr><td>Favourites</td><td>:</td><td>0</td></tr></table></p><p class='seperator'>&nbsp;</p><br><div class='companyDetails'><div class='requirement'><button class='requirementBtn' onclick='changepage(1);'>Company Requirement</button></div><div class='awards'><button class='awardsBtn' onclick='changepage(2);'>Company Awards</button></div><div class='selectedItem'>&nbsp;</div><div class='companyDetailsDescriptionOne'>"+requirement+"</div><div class='companyDetailsDescriptionTwo'>"+awards+"</div></div><br><h2 class='lih2class'>Products and Services</h2><ul class='scrollul' id='scrollulProdServ'></ul></li>"
           );
+          
+          
+          //if add onclick function to overwrite the anchor received from backend
+        $("a").click(function() {
+            cordovaOpenLink(this.href);
+            return false;
+        });
           
           dbmanager.getProfile(function(returnData){
                 if(returnData.rows.length>0){
@@ -1784,16 +1811,18 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         var returnstr=JSON.stringify(data);
 //        alert("returnstr:"+returnstr);  
 //        alert("flag:"+flag);  
-        
         if(flag=="1"){
             if(data=="true")
                 $("#shareImg").attr("src", "img/fav-ed.png");
         }
         else{
             if(data=="true")
-                $("#shareImg").attr("src", "img/fav-ed.png");
-            else
-                $("#shareImg").attr("src", "img/fav-alt.png");
+                if($("#shareImg").attr("src")=="img/fav-alt.png")
+                    $("#shareImg").attr("src", "img/fav-ed.png");
+                else
+                    $("#shareImg").attr("src", "img/fav-alt.png");
+//            else
+//                $("#shareImg").attr("src", "img/fav-alt.png");
         }   
         
       },
