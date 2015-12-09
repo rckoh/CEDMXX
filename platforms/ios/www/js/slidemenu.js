@@ -42,6 +42,12 @@ var slideMenu = {
 $(function(){
 	
 	$("button.buttonbg").click(function(){
+        
+//        $(".filterFrame").animate({
+//                marginLeft: "100%",
+//              }, 300, function(){$(".filterFrame").css("margin-left", "-100%");
+//        });
+        
 		if(menuStatus != true){				
 			$(".menubg").animate({
                 marginLeft: "0px",}, 300, function() {
@@ -161,17 +167,22 @@ function changePwd(){
             var uid=returnData.rows.item(0).uid;
             var newPwd=$(".newPwd").val();
             var confirmPwd=$(".confirmPwd").val();
+            var pattern = new RegExp('^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*(){}\\[\\]]).*$');
+            
             
             if(newPwd==""){
                 alert("Invalid password");
                 $(".newPwd").focus();
             }
             else if(confirmPwd==""){
-                alert("Invalid password");
+                alert("Invalid confirm password");
                 $(".confirmPwd").focus();
             }
-            else if(newPwd.length<6){
-                alert("Password must at least 6 characters");
+            else if(!pattern.test(newPwd)){
+                alert("password should contain at least one number, one alphabet and one special character");
+            }
+            else if(newPwd.length<8){
+                alert("Password must at least 8 characters");
                 $(".newPwd").focus();
             }
             else if(confirmPwd!=newPwd){

@@ -66,3 +66,7 @@ function initUserPoint(){
         }
     });
 }
+
+function goProfilePage(tabname){
+    window.location = "profilePage.html?tab="+tabname;
+}

@@ -281,16 +281,23 @@ input:focus {
 }
 
 .backBtn{
-    position: absolute;
-    left:40%;
-    outline: none;
-    border: none;
-    background-color: transparent;
+    background-color: black;
+    width: 100%;
     font-size: 3vw;
-    font-family: "Roboto-Bold";
+    border: none;
     color: white;
-    width: 20%;
+    font-family: "Roboto-Bold";
 }
+
+.btnRegister{
+    background-color: transparent;
+    width: 100%;
+    font-size: 3vw;
+    border: none;
+    color: white;
+    font-family: "Roboto-Bold";
+}
+
 /* Login Style end*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
@@ -303,12 +310,15 @@ input:focus {
 /* forget password*/
 
 .forgetPwdDiv{
-    height:60%;
+    height:100%;
     width: 100%;
     position: relative;
     top:0%;
     background-color: lightgray;
     width: 100%;
+    background: URL("../img/login.jpg");
+    background-size: auto auto;
+    background-repeat: no repeat;
 }
 
 
@@ -332,12 +342,12 @@ input:focus {
     right: 3%;
     border: none;
     outline: 0;
-    height: 15%;
-    bottom: 0;
+    height: 5%;
+    top: 0;
     width: auto;
     background-color: transparent;
-    color: deepskyblue;
-    font-size: 3vw;
+    color: white;
+    font-size: 3.5vw;
 }
 
 .btnForgetPwdClose{
@@ -345,12 +355,12 @@ input:focus {
     left: 3%;
     border: none;
     outline: 0;
-    height: 15%;
-    bottom: 0;
+    height: 5%;
+    top: 0;
     width: auto;
     background-color: transparent;
-    color: deepskyblue;
-    font-size: 3vw;
+    color: white;
+    font-size: 3.5vw;
 }
 
 
@@ -362,14 +372,14 @@ input:focus {
     padding: 0;
     margin: 0;
     height: 80%;
-    top: 10%;
+    top: 15%;
     border-radius: 10px;
     background-color: transparent;
-    color: #565656;
+    color: white;
     resize: none;
     min-height: 73%;
     max-height: 73%;    
-    font-size: 3vw;
+    font-size: 4vw;
     padding: 1vw;
 }
 
@@ -393,8 +403,8 @@ input:focus {
     top: 20%;
     border-radius: 10px;
     background-color: transparent;
-    color: #565656;    
-    font-size: 2vw;
+    color: white;    
+    font-size: 3vw;
     padding: 1vw;
     text-transform: capitalize;
 }

@@ -149,7 +149,10 @@ function serviceFilterResult(){
     
     var subcat="";
      $('.check_box:checked').each(function() {
-       subcat=subcat+","+$(this).val();
+        if(subcat.length==0)
+            subcat=$(this).val();
+        else
+            subcat=subcat+"|"+$(this).val();
      });
     
     dbmanager.getProfile(function(returnData){

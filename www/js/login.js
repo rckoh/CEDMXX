@@ -215,3 +215,7 @@ function forgetPwdOnClick(){
         $(".keyTxt").focus();
     }
 }
+
+function openRegisterPage(){
+    cordovaOpenLink('https://esolutions.mdec.com.my/user/register');
+}

@@ -2,6 +2,16 @@ var webUrl = "http://netinfinium.publicvm.com:86/";
 var intervalid, intervalidpage2, intervalidpage3;
 var apiTimeout=20000;
 
+var scLookfor='';
+var scprokeyword='';
+var scservkeyword='';
+var scinterest='';
+var scTechArea='';
+var scIndustryArea='';
+var scServiceCat='';
+var scsubkey='';
+var scServiceSubCat='';
+
 function getDMZKey(){
     var requestUrl=webUrl+"api_generator.php?api_name=mobile_validation&key=34716a5e9f9e23f40acadd9dd55e0c22";
     $.ajax({
@@ -120,7 +130,7 @@ var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
     var baseurl=data.item(0).BASEURL; 
-    //alert("webrequst");
+    //alert("webrequst"+dmzKey+baseurl);
     var requestUrl=baseurl+"drupalgap/getlatestpost";
     
     $.ajax({
@@ -299,14 +309,24 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           
         for (var x = 0; x < data.nodes.length; x++) {
             var title=data.nodes[x].node.title;
-            title=$(title).text();
+            
+            try{
+                title=jQuery.trim($(title).text());        
+            }
+            catch(ex){
+               // alert("fail title");
+            }
+            
+            if(title=='')
+                title=data.nodes[x].node.title;
+            
             var imageUrl=data.nodes[x].node.background.src;
             var desc=(data.nodes[x].node.description=="")?"N/A":data.nodes[x].node.description;
             var unidsellingpoint=(data.nodes[x].node.product_unique_selling_point=="")?"N/A":data.nodes[x].node.product_unique_selling_point;
             var custRef=(data.nodes[x].node.customer_reference=="")?"N/A":data.nodes[x].node.customer_reference;
             var holdbrochure=data.nodes[x].node.brochures;
             var holdbrochurestr;
-            
+
             try{
                 holdbrochurestr='"'+jQuery.trim($(holdbrochure).text())+'"';        
             }
@@ -1183,6 +1203,158 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 }
 
 
+function postBMInitCriteriaValue(token, uid){
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/businessmatchesfilterslogin.json?uid="+uid;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
+      },
+      timeout: apiTimeout,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+        //alert(returnstr);
+        
+        $.each(data.rolesData, function(key, value){
+            if(value.role.selected=='true'){
+                scLookfor=value.role.value;
+            }
+        });
+        
+        $.each(data.interestData, function(key, value){
+            $.each(value, function(key, value){
+                if(value.interest.selected=='true'){
+                    scinterest=value.interest.value;
+                }
+            });
+        });
+         
+        if(scinterest=='Product')
+        {
+            scprokeyword=data.keywordsData; 
+            
+            $.each(data.technologyData.technology_area, function(key, value){
+                $.each(value, function(key, value){   
+                    if(value.selected=='true'){
+                        scTechArea=value.value;
+                    }
+                });
+            });
+
+
+            $.each(data.technologyData.industry_area, function(key, value){
+                $.each(value, function(key, value){   
+                    if(value.selected=='true'){
+                        scIndustryArea=value.value;
+                    }
+                });
+            });
+        }
+        
+        if(scinterest=='Service')
+        {
+            scservkeyword=data.keywordsData; 
+            scsubkey=data.servCategoryData.sub_key;
+            
+            $.each(data.servCategoryData.service_category, function(key, value){
+                $.each(value, function(key, value){   
+                    if(value.selected=='true'){
+                        scServiceCat=value.value+'|'+scsubkey;
+                    }
+                });
+            });
+            
+            if(data.servCategoryData.sub_category!=null){
+                $.each(data.servCategoryData.sub_category, function(key, value){
+                    $.each(value, function(key, value){   
+                        if(value.checked=='true'){
+                            if(scServiceSubCat.length==0)
+                                scServiceSubCat=value.value;
+                            else
+                                scServiceSubCat=scServiceSubCat+"|"+value.value;
+                        }
+                    });
+                });
+            }
+        }
+        
+//        alert(sckeyword);
+//        alert(scLookfor);
+//        alert(scinterest);
+//        alert(scTechArea);
+//        alert(scIndustryArea);
+//        alert(scServiceCat);
+//        alert(scServiceSubCat);
+                  
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          //alert("unable connect to server");
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+        }
+    })
+});    
+}
+
+
+
+function postBMInitProductList(token, uid){
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY; 
+    var baseurl=data.item(0).BASEURL; 
+    
+    var requestUrl=baseurl+"drupalgap/mobileapp/businessmatches.json?uid="+uid;
+    
+    $.ajax({
+      url: requestUrl,
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":token,
+        "Mobile-Api-Key":dmzKey
+      },
+      timeout: apiTimeout,    
+      success: function(data, status, xhr) {
+      debugger;
+        var returnstr=JSON.stringify(data);
+//          alert(returnstr);
+        $(".scrollulRM li").remove();
+
+        $(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+          
+        for (var x = 0; x < data.results.length; x++) { 
+            if(data.results[x].type=="product" || data.results[x].type=="service"){
+                $(".scrollulRM").append("<li class='scrollliRM' onclick='viewProductDetailsBM("+data.results[x].nid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='"+data.results[x].image+"'></td><td><h1 class='listviewitemtitleRM'>"+data.results[x].title+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data.results[x].description+"</p></td></tr></table></li>");
+            }
+            else{
+                $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data.results[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleRM'>"+data.results[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data.results[x].roles+"</p></td></tr></table></li>");
+            }
+        }            
+          
+        loading.endLoading();
+                  
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          loading.endLoading();
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+        }
+    })
+});    
+}
+
+
 function postBMProductFilterCriteria(token, uid){
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
@@ -1244,10 +1416,25 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         
         if($("#filterServiceInterest").val()!=null){
             $("#filterProductInterest").val($("#filterServiceInterest").val());
-            $("#filterProductLoookFor").val($("#filterServiceLookFor").val());
-            $("#filterProductKeyword").val($("#filterServiceKeyword").val());
+//            $("#filterProductLoookFor").val($("#filterServiceLookFor").val());
+//            $("#filterProductKeyword").val($("#filterServiceKeyword").val());
         }
-          
+         
+        if(scLookfor!='')
+            $("#filterProductLoookFor").val(scLookfor);
+        
+//        if(scinterest!='')
+//            $("#filterProductInterest").val(scinterest);
+            
+        if(scTechArea!='')
+            $("#filterProductTechArea").val(scTechArea);
+        
+        if(scIndustryArea!='')
+            $("#filterProductIndustryArea").val(scIndustryArea);
+            
+        if(scprokeyword!='')
+            $("#filterProductKeyword").val(scprokeyword);
+            
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -1294,6 +1481,12 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             }
         }            
           
+        scLookfor=lookFor;
+        scprokeyword=keyword;
+        scinterest=interest;
+        scIndustryArea=industryArea;
+        scTechArea=industryArea;  
+          
         loading.endLoading();
                   
       },
@@ -1332,7 +1525,6 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       debugger;
         
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);
         
 $(".scrollulLVM li").remove();
 
@@ -1399,6 +1591,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
               $.each(value, function(key, value){
                 var optionValue=value.value;
                 var displayname=value.display_name;
+
                 $("#filterServiceInterest").append($("<option></option>").attr("value",optionValue).text(displayname)); 
                 });
             });
@@ -1414,10 +1607,24 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         
 
         $("#filterServiceInterest").val($("#filterProductInterest").val());
-        $("#filterServiceLookFor").val($("#filterProductLoookFor").val());
-        $("#filterServiceKeyword").val($("#filterProductKeyword").val());
+//        $("#filterServiceLookFor").val($("#filterProductLoookFor").val());
+//        $("#filterServiceKeyword").val($("#filterProductKeyword").val());
           
-//        postBMServiceSubCategory(token, data.servCategoryData.service_category[0].category.sub_key, uid);
+        
+        if(scLookfor!='')
+            $("#filterServiceLookFor").val(scLookfor);
+          
+//        if(scinterest!='')
+//            $("#filterServiceInterest").val(scinterest);
+        
+        if(scservkeyword!='')
+            $("#filterServiceKeyword").val(scservkeyword);
+          
+        if(scServiceCat!='')
+            $("#filterServiceCategory").val(scServiceCat);
+          
+        if(scsubkey!='')
+            postBMServiceSubCategory(token, scsubkey, uid);
           
         loading.endLoading();
       },
@@ -1461,8 +1668,21 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         for(var x=0; x<data.servCategoryData.sub_category.length; x++){     
             var optionValue=data.servCategoryData.sub_category[x].sub.value;
             var displayname=data.servCategoryData.sub_category[x].sub.display_name;
-            $("#serviceSubCatDiv").append("<h1><input type='checkbox' name='filterServiceSubCat' value='"+optionValue+"' class='check_box' id='chb"+x+"'><label for='chb"+x+"'>"+displayname+"</label><br></h1>"); 
+            
+            if(scServiceSubCat==''){
+                $("#serviceSubCatDiv").append("<h1><input type='checkbox' name='filterServiceSubCat' value='"+optionValue+"' class='check_box' id='chb"+x+"'><label for='chb"+x+"'>"+displayname+"</label><br></h1>"); 
+            }
+            else{
+                var arrscServiceSubCat=scServiceSubCat.split('|');
+                
+                if(jQuery.inArray(optionValue, arrscServiceSubCat)==-1)
+                    $("#serviceSubCatDiv").append("<h1><input type='checkbox' name='filterServiceSubCat' value='"+optionValue+"' class='check_box' id='chb"+x+"'><label for='chb"+x+"'>"+displayname+"</label><br></h1>"); 
+                else
+                    $("#serviceSubCatDiv").append("<h1><input type='checkbox' name='filterServiceSubCat' value='"+optionValue+"' class='check_box' id='chb"+x+"' checked><label for='chb"+x+"'>"+displayname+"</label><br></h1>"); 
+            }
+            
         }
+        
           
         loading.endLoading();
       },
@@ -1508,7 +1728,13 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
                 $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data.results[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleRM'>"+data.results[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data.results[x].roles+"</p></td></tr></table></li>");
             }
         }            
-          
+         
+        scLookfor=lookFor;
+        scservkeyword=keyword;
+        scinterest=interest;
+        scServiceCat=category;
+        scServiceSubCat=subcategory;
+        
         loading.endLoading();
                   
       },

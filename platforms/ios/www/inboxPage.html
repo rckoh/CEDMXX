@@ -62,48 +62,48 @@
             </div>
             <div class="content">
                 <div class="profileDiv">
-                        <div class="profilePicFrame">
-                            <div class="helper"></div>
-                            <img class="profileImg" id="imgProfile" src=""/>
-                        </div>
-                        <label class="username" id="lblUSername"></label>
-                        <img src="" class="profileBG" id="profileBG"></img>
-                        <div class="profileStatistic">
-                            <table class="profileStatisticTable">
-                                <tr style="width:100%;">
-                                    <td style="width:33.33%;">
-                                        <label class="statisticNumber" id="lblviewnumber">0</label><br>
-                                        <label class="statisticLbl">Views</label>
-                                    </td>
-                                    <td style="width:33.33%">
-                                        <label class="statisticNumber" id=lblfavnumber>0</label><br>
-                                        <label class="statisticLbl">Favourites</label>
-                                    </td>
-                                    <td style="width:33.33%">
-                                        <label class="statisticNumber" id="lblsharenumber">0</label><br>
-                                        <label class="statisticLbl">Shares</label>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="subheaderblack">
-                            <div>
-                                <table class="subheadertable">
+                    <div class="profilePicFrame">
+                        <div class="helper"></div>
+                        <img class="profileImg" id="imgProfile" src=""/>
+                    </div>
+                    <label class="username" id="lblUSername"></label>
+                    <img src="" class="profileBG" id="profileBG"></img>
+                    <div class="profileStatistic">
+                        <table class="profileStatisticTable">
+                            <tr style="width:100%;">
+                                <td style="width:33.33%;">
+                                    <label class="statisticNumber" id="lblviewnumber">0</label><br>
+                                    <label class="statisticLbl">Views</label>
+                                </td>
+                                <td style="width:33.33%">
+                                    <label class="statisticNumber" id=lblfavnumber>0</label><br>
+                                    <label class="statisticLbl">Favourites</label>
+                                </td>
+                                <td style="width:33.33%">
+                                    <label class="statisticNumber" id="lblsharenumber">0</label><br>
+                                    <label class="statisticLbl">Shares</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="subheaderblack">
+                        <div>
+                            <table class="subheadertable">
                                 <tr style="width:32.67%:height:100%;">
                                     <td style="width:49.5%;">
-                                        <button class="subheaderbutton" onclick="changepage(1);" id="btnFeatured">Points</button>
+                                        <button class="subheaderbutton" onclick="goProfilePage('point');" id="btnFeatured">Points</button>
                                     </td>
                                     <td style="width:1%">
-                                        &nbsp;|&nbsp;
+                                            &nbsp;|&nbsp;
                                     </td>
                                     <td style="width:49.5%">
-                                        <button class="subheaderbutton" onclick="changepage(2);" id="btnLatestPost">Products & Services</button>
+                                        <button class="subheaderbutton" onclick="goProfilePage('pns');" id="btnLatestPost">Products & Services</button>
                                     </td>
                                 </tr>
                             </table>
-                            </div>
                         </div>
                     </div>
+                </div>
                 <div class="pageone">
                     <div class="wrapper" id="wrapper">
                         <div class="scroll-content" id="scroll-content">
@@ -180,10 +180,26 @@
             app.initialize();
             dbmanager.initdb();
             $(document).ready(function(){
+                
                 $(".profilePicFrame").width( $(".profilePicFrame").height());
                 var marginleft=$(".app").width()/2 - $(".profilePicFrame").width()/2;
                 $(".profilePicFrame").css("margin-left", marginleft);    
                 $(".profilePicFrame").show();  
+                
+                dbmanager.getProfile(function(returnData){
+                    var roles=returnData.rows.item(0).role;
+                    var rolearr=roles.split(",");
+                    if(jQuery.inArray("7",rolearr)==0 && jQuery.inArray("6",rolearr)==0){    
+                        $(".profilePicFrame").hide();
+                        $("#lblUSername").hide();
+                        $("#profileBG").hide();
+                        $(".profileStatistic").hide();
+                        
+                        $(".subheaderblack").css("top", "0%");
+                        $(".pageone").css("height", "92%");
+                        
+                    }
+                });
                 
                 slideMenu.initSlideMenu();
                 initUserPoint();

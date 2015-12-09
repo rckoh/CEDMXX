@@ -159,8 +159,20 @@ function initSearchCriteria(searchType){
 }
 
 function initLVMProduct(){
-    productLoadLVMResult();
+    
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var token=returnData.rows.item(0).token;
+            var uid=returnData.rows.item(0).uid;
+            postLVMProductList(token, uid);   
+            postBMInitProductList(token, uid);
+            postBMInitCriteriaValue(token, uid);
+        }
+    });
+        
+   // productLoadLVMResult();
 }
+
 
 var selectedId;
 var textboxDisplay=0;

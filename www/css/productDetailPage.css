@@ -229,13 +229,15 @@
 /* ------------------------------------------------------------------------------------*/
 /* reply message*/
 .messageDiv{
-    height:60%;
+    height:100%;
     width: 100%;
     position: relative;
     top:0%;
     background-color: lightgray;
     width: 100%;
-
+    background: URL("../img/login.jpg");
+    background-size: auto auto;
+    background-repeat: no repeat;
 }
 
 .replyMessageInput{
@@ -243,7 +245,7 @@
     position: absolute;
     left: 5%;
     height: 65%;
-    top: 22%;
+    top: 25%;
     border-radius: 10px;
     background-color: white;
     border-color: transparent;
@@ -261,7 +263,7 @@
     position: absolute;
     left: 5%;
     height:7%;
-    top: 10%;
+    top: 13%;
     border-radius: 10px;
     background-color: white;
     color: #565656;
@@ -275,12 +277,12 @@
     right: 3%;
     border: none;
     outline: 0;
-    height: 15%;
-    bottom: 0;
+    height: 5%;
+    top: 0;
     width: auto;
     background-color: transparent;
-    color: deepskyblue;
-    font-size: 3vw;
+    color: white;
+    font-size: 3.5vw;
 }
 
 .btnClose{
@@ -288,12 +290,12 @@
     left: 3%;
     border: none;
     outline: 0;
-    height: 15%;
-    bottom: 0;
+    height: 5%;
+    top: 0;
     width: auto;
     background-color: transparent;
-    color: deepskyblue;
-    font-size: 3vw;
+    color: white;
+    font-size: 3.5vw;
 }
 
 .btnSend img{
@@ -310,14 +312,14 @@
     padding: 0;
     margin: 0;
     height: 80%;
-    top: 3%;
+    top: 5%;
     border-radius: 10px;
     background-color: transparent;
-    color: #565656;
+    color: white;
     resize: none;
     min-height: 73%;
     max-height: 73%;    
-    font-size: 3vw;
+    font-size: 4vw;
     padding: 1vw;
     box-sizing: border-box;
 }

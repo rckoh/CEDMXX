@@ -17,12 +17,12 @@ li:hover{
     position: absolute;
     width: 70%;
     height: 94%;
-    z-index: 90;
+    z-index: 98;
 /*    padding: 0px 0px 0px 0px;*/
     margin-left: -70%;
     opacity: 0.95; 
     background-color: #46a19a;
-    box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.2);
+/*    box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.2);*/
     top:6%;
     -webkit-transform: translate3d(0,0,0);
     -moz-transform: translate3d(0,0,0);

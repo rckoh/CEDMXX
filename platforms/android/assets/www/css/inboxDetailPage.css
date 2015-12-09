@@ -165,14 +165,17 @@
 /* ------------------------------------------------------------------------------------*/
 /* reply message*/
 .messageDiv{
-    height:60%;
+    height:100%;
     width: 100%;
     position: absolute;
     top:0%;
     background-color: lightgray;
-    z-index: 89;
+    z-index: 99;
     width: 100%;
     display: none;
+    background: URL("../img/login.jpg");
+    background-size: auto auto;
+    background-repeat: no repeat;
 }
 
 .replyMessageInput{
@@ -182,7 +185,7 @@
     padding: 0;
     margin: 0;
     height: 80%;
-    top: 10%;
+    top: 15%;
     border-radius: 10px;
     background-color: white;
     color: #565656;
@@ -199,12 +202,12 @@
     right: 3%;
     border: none;
     outline: 0;
-    height: 15%;
-    bottom: 0;
+    height: 5%;
+    top: 0;
     width: auto;
     background-color: transparent;
-    color: deepskyblue;
-    font-size: 3vw;
+    color: white;
+    font-size: 3.5vw;
 }
 
 .btnClose{
@@ -212,12 +215,12 @@
     left: 3%;
     border: none;
     outline: 0;
-    height: 15%;
-    bottom: 0;
+    height: 5%;
+    top: 0;
     width: auto;
     background-color: transparent;
-    color: deepskyblue;
-    font-size: 3vw;
+    color: white;
+    font-size: 3.5vw;
 }
 
 .btnSend img{
@@ -234,14 +237,14 @@
     padding: 0;
     margin: 0;
     height: 80%;
-    top: 3%;
+    top: 8%;
     border-radius: 10px;
     background-color: transparent;
-    color: #565656;
+    color: white;
     resize: none;
     min-height: 73%;
     max-height: 73%;    
-    font-size: 3vw;
+    font-size: 4vw;
     padding: 1vw;
     box-sizing: border-box;
 }
