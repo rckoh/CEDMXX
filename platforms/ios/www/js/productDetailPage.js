@@ -65,11 +65,10 @@ function sharetoFV()
 }
             
 function sharetoFVnormal(){
-//    alert("share");
-        var imageUrl=document.getElementById("productImg").src
-        var productDetails=$('#productdetails').text();
+    var imageUrl=document.getElementById("productImg").src;    
+    var productDetails=$('#productdetails').text();
+    window.plugins.socialsharing.share(productDetails, null, imageUrl, '');
         
-        window.plugins.socialsharing.share(productDetails, null, imageUrl, '');
 }
             
 function sharetoFVios(){
