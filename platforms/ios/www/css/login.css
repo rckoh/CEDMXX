@@ -243,15 +243,15 @@ input:focus {
 .loginActionFrame{
     position: absolute;
     top: 63%;
-    margin: 0px 0px 0px 15%;
+    margin: 0px 0px 0px 10%;
     /* background-color: antiquewhite; */
-    width: 70%;
+    width: 80%;
 }
 
 .btnForgetPassword{
     background-color: transparent;
     width: 100%;
-    font-size: 3vw;
+    font-size: 4vw;
     border: none;
     color: white;
     font-family: "Roboto-Bold";
@@ -260,7 +260,7 @@ input:focus {
 .btnLogin{
     background-color: transparent;
     width: 100%;
-    font-size: 3vw;
+    font-size: 4vw;
     border: none;
     color: white;
     font-family: "Roboto-Bold";
@@ -269,7 +269,7 @@ input:focus {
 .buttonSeperator{
     color: white;
     font-family: "Roboto-Bold";
-    font-size: 3vw;
+    font-size: 4vw;
 }
 
 .divBackBtn{
@@ -283,7 +283,7 @@ input:focus {
 .backBtn{
     background-color: black;
     width: 100%;
-    font-size: 3vw;
+    font-size: 4vw;
     border: none;
     color: white;
     font-family: "Roboto-Bold";
@@ -292,7 +292,7 @@ input:focus {
 .btnRegister{
     background-color: transparent;
     width: 100%;
-    font-size: 3vw;
+    font-size: 4vw;
     border: none;
     color: white;
     font-family: "Roboto-Bold";

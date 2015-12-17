@@ -435,7 +435,7 @@ input:focus {
 .resultTitle{
     position: absolute;
     color: gray;
-    font-size: 4vw;
+    font-size: 5vw;
     font-family: "Roboto-Medium";
 	text-align:center;
     width: 100%;
@@ -445,7 +445,7 @@ input:focus {
 .resultnumber{
     position: absolute;
     color: gray;
-    font-size: 3vw;
+    font-size: 4vw;
     font-family: "Roboto-Medium";
 	text-align:right;
     width: 100%;

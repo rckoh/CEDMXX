@@ -148,8 +148,9 @@ function sharetoFV()
             
 function sharetoFVnormal(){
     var imageUrl=document.getElementById("productImg").src
-    window.plugins.socialsharing.share('', null, imageUrl, '');
-//                window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl');
+    var productDetails=$('#productdetails').text();
+    
+    window.plugins.socialsharing.share(productDetails, null, imageUrl, '');    
 }
             
 function sharetoFVios(){

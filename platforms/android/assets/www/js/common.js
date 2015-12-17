@@ -53,7 +53,7 @@ var dbmanager = {
     
     errorExecuteSQL:function(err){
         //fail executeSQL
-        alert("fail"+err.message);
+        alert(err.message);
     },
 };
 

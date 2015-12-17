@@ -100,6 +100,15 @@
             app.initialize();
             dbmanager.initdb();
             $(document).ready(function(){
+                $(document).keypress(function(e) {
+                    var code = (e.keyCode ? e.keyCode : e.which);
+                    if ( (code==13) || (code==10))
+                        {
+                            $("#username").blur();
+                            $("#password").blur();
+                            login();
+                        }
+                });
 //                $(".appLogo").load(function(){
 ////                    $(this).width();
 //                    var marginleft=$(".app").width()/2-$(this).width()/2;

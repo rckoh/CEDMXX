@@ -112,24 +112,24 @@
 .msgInfo{
     margin: 0px 0px 0px 0px;
     font-family: "Roboto-Light";
-    font-size: 3vw;
-    line-height: 3vw;
+    font-size: 4vw;
+    line-height: 4.1vw;
 }
 
 .msgTitle{
+    font-family: "Roboto-Medium";
+    font-size: 5vw;
+    color: #46a19a;
+    margin: 0px 0px 0px 0px;
+    line-height: 5.1vw;
+}
+
+.msgDate{
     font-family: "Roboto-Medium";
     font-size: 4vw;
     color: #46a19a;
     margin: 0px 0px 0px 0px;
     line-height: 4.1vw;
-}
-
-.msgDate{
-    font-family: "Roboto-Medium";
-    font-size: 3vw;
-    color: #46a19a;
-    margin: 0px 0px 0px 0px;
-    line-height: 3.1vw;
 }
 
 
@@ -141,10 +141,10 @@
 
 .description{
     font-family: "Roboto-Regular"; 
-    font-size: 2.4vw; 
+    font-size: 3.4vw; 
     text-align: justify;
     color: #565656; 
-    line-height: 2.4vw;
+    line-height: 3.4vw;
 }
 
 .h2seperator{

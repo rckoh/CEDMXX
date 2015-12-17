@@ -67,9 +67,9 @@ function sharetoFV()
 function sharetoFVnormal(){
 //    alert("share");
         var imageUrl=document.getElementById("productImg").src
-        var companyname=$('#companyName').text();
-    
-        window.plugins.socialsharing.share(companyname, null, imageUrl, '');
+        var productDetails=$('#productdetails').text();
+        
+        window.plugins.socialsharing.share(productDetails, null, imageUrl, '');
 }
             
 function sharetoFVios(){
