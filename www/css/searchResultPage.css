@@ -71,7 +71,7 @@
     border-top:1px solid #fff;
 /*    background-color:#fafafa;*/
 /*    font-size:14px;*/
-    border-bottom: 1px dotted #333;  
+    border-bottom: 1px dotted #df2d3c;  
     overflow: hidden;
 }
 
@@ -109,7 +109,7 @@
     margin: 5px 0px 0px 10px;
     word-break: normal;
 */
-    color: #32978f;
+    color: #df2d3c;
     background-color: transparent;
     font-weight: normal;
     line-height: 4vw;
@@ -154,7 +154,7 @@
 .listviewitemseperator{
     line-height: 2px;
 /*    color: #32978f;*/
-    border-bottom: 1px solid #32978f;
+    border-bottom: 1px solid #df2d3c;
     width: 30px;
     margin: 2px 0px 0px 10px;
 }

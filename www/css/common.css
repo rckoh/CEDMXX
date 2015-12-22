@@ -70,10 +70,11 @@ button:focus {
 input{
     text-indent: 10px;
     background-color: #44c5c7; 
-    color: white;
-    border: 1px solid white;
-    border-color:white;
+    color: #000000;
+    border: 1px solid black;
+/*    border-color:black;*/
     border-style: solid;
+    opacity:0.5;
     
 }
 
@@ -140,7 +141,7 @@ input:focus {
 .menuheader{
     height: 6%;
 	width:100%;
-    background-color: #46a19a;
+    background-color: #df2d3c;
 	position:absolute;
 	top:0px;
 }
@@ -376,7 +377,7 @@ input:focus {
     top: 0;
     width: auto;
     background-color: transparent;
-    color: white;
+    color: #df2d3c;
     font-size: 3.5vw;
 }
 
@@ -389,7 +390,7 @@ input:focus {
     top: 0;
     width: auto;
     background-color: transparent;
-    color: white;
+    color: #df2d3c;
     font-size: 3.5vw;
 }
 
@@ -405,7 +406,7 @@ input:focus {
     top: 20%;
     border-radius: 10px;
     background-color: transparent;
-    color: white;
+    color: #df2d3c;
     resize: none;
     min-height: 73%;
     max-height: 73%;    
@@ -434,7 +435,7 @@ input:focus {
 
 .resultTitle{
     position: absolute;
-    color: gray;
+    color: #818181;
     font-size: 5vw;
     font-family: "Roboto-Medium";
 	text-align:center;
@@ -444,8 +445,8 @@ input:focus {
 
 .resultnumber{
     position: absolute;
-    color: gray;
-    font-size: 4vw;
+    color: #565656;
+    font-size: 3vw;
     font-family: "Roboto-Medium";
 	text-align:right;
     width: 100%;

@@ -18,14 +18,14 @@
     text-align: center;
     line-height: auto;
     font-weight: bold;
-    color: #32978f;
+    color: #BDBDBD;
     position: absolute;
 }
 
 .subheaderbutton{
     background-color: transparent;
     border: none;
-    color: #32978f;
+    color: #BDBDBD;
     width: 100%;
     height: 100%;
     font-family: "Roboto-Medium";
@@ -267,7 +267,7 @@
 .inboxUnreadTitle{
     font-family: "Roboto-Bold";
     font-size: 4vw;
-    color: #46a19a;
+    color: #e2424f;
     margin: 20px 0px 0px 0px;
     width: 50vw;
 /*    white-space: nowrap;*/
@@ -278,14 +278,15 @@
 }
 
 .inboxUnreadDate{
-    font-family: "Roboto-Bold";
+    font-family: "Roboto-Regular";
     font-size: 3.4vw;
-    color: #46a19a;
+    color: #e2424f;
     margin: 20px 0px 0px 0px;
+    text-align: right;
 }
 
 .inboxUnreadInfo{
-    font-family: "Roboto-Bold";
+    font-family: "Roboto-Regular";
     font-size: 3.5vw;
     color: #565656;
     margin: 0px 0px 0px 0px;
@@ -298,7 +299,7 @@
 }
 
 .inboxUnreadMsg{
-    font-family: "Roboto-Light";
+    font-family: "Roboto-Regular";
     font-size: 3.4vw;
     color: #565656;
     margin: 0px 0px 20px 0px;
@@ -307,14 +308,15 @@
     text-overflow: clip;
     display:inline-block;
     width: 50vw;
-    height: 4.5vw
+    height: 4.5vw;
+    opacity: 0.8;
  
 }
 
 .inboxReadTitle{
     font-family: "Roboto-Bold";
     font-size: 4vw;
-    color: #787878;
+    color: #565656;
     margin: 20px 0px 0px 0px;
     width: 50vw;
 /*    white-space: nowrap;*/
@@ -325,16 +327,17 @@
 }
 
 .inboxReadDate{
-    font-family: "Roboto-Bold";
+    font-family: "Roboto-Regular";
     font-size: 3.4vw;
     color: #565656;
     margin: 20px 0px 0px 0px;
+    text-align: right;  
 }
 
 .inboxReadInfo{
     font-family: "Roboto-Bold";
     font-size: 3.5vw;
-    color: #787878;
+    color: #565656;
     margin: 0px 0px 0px 0px;
     width: 50vw;
 /*    white-space: nowrap;*/
@@ -345,16 +348,17 @@
 }
 
 .inboxReadMsg{
-    font-family: "Roboto-Light";
+    font-family: "Roboto-Regular";
     font-size: 3.4vw;
-    color: #787878;
+    color: #565656;
     margin: 0px 0px 20px 0px;
 /*    white-space: nowrap;*/
     overflow:hidden !important;
     text-overflow: clip;
     display:inline-block;
     width: 50vw;
-    height: 4.5vw
+    height: 4.5vw;
+    opacity: 0.8;
 }
 
 

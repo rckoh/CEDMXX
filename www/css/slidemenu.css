@@ -21,7 +21,7 @@ li:hover{
 /*    padding: 0px 0px 0px 0px;*/
     margin-left: -70%;
     opacity: 0.95; 
-    background-color: #46a19a;
+    background-color: #404040;
 /*    box-shadow: 2px 0px 0px 0px rgba(0, 0, 0, 0.2);*/
     top:6%;
     -webkit-transform: translate3d(0,0,0);
@@ -40,9 +40,9 @@ li:hover{
     padding: 0px 0px 0px 0px;
     margin: 5px 5px 5px 5px;
     /* background-color: #32978f; */
-    color: rgba(255,255,255, 1);
+    color: rgba(0,0,0, 0.25);
     font-size: 2.8vw;
-    font-family: "Roboto-Light";
+    font-family: "Roboto-Regular";
     position: absolute;
 }
 
@@ -51,11 +51,12 @@ li:hover{
     width: 95%;
     padding: 0px 0px 0px 0px;
     margin: 5px 5px 5px 5px;
-    background-color: #32978f;
+    background-color: transparent;
     color: rgba(255,255,255, 1);
     font-size: 2.8vw;
-    font-family: "Roboto-Light";
+    font-family: "Roboto-Regular";
     position: absolute;
+    border: 1px solid white;
 }
 
 
@@ -85,7 +86,7 @@ li:hover{
 /*    font-weight: bold;*/
     color: white;
     font-size: 4vw;
-    font-family: "Roboto-Light";
+    font-family: "Roboto-Regular";
 /*    -webkit-transform: translateZ(0);*/
 }
 
