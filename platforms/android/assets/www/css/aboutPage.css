@@ -45,11 +45,11 @@ html, body {
     position: absolute;
     font-family: "Roboto-Light";
     font-size: 5vw;
-    color: white;
+    color: #df2d3c;
     width: 80%;
     height: auto;
     text-align: center;
-    border: 2px solid white;
+    border: 2px solid #8a8989;
     margin: 10% 0px 0px 8%;
     padding: 2% 2% 2% 2%;
     word-spacing: 2px;
@@ -59,7 +59,7 @@ html, body {
     position: absolute;
     font-family: "Roboto-Light";
     font-size: 4vw;
-    color: white;
+    color: #171717;
     width: 88%;
     height: auto;
     text-align: justify;

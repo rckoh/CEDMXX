@@ -326,7 +326,7 @@ function slideshowpagethree(data){
 //submenu
 function initsubmenustyle(){
     currentpage=1;
-    $("#btnFeatured").css("color", "#00FFFF");
+    $("#btnFeatured").css("color", "#FFFFFF");
 }
 
 function changepage(pagenumber){
@@ -334,9 +334,9 @@ function changepage(pagenumber){
         $(".pageone").show();
         $(".pagetwo").hide();
         $(".pagethree").hide();
-        $("#btnFeatured").css("color", "#4be5d9");
-        $("#btnLatestPost").css("color", "#32978f");
-        $("#btnAnnouncement").css("color", "#32978f");
+        $("#btnFeatured").css("color", "#FFFFFF");
+        $("#btnLatestPost").css("color", "#BDBDBD");
+        $("#btnAnnouncement").css("color", "#BDBDBD");
         
         if(currentpage>pagenumber){
             $(".pageone").css("marginLeft", "-100%");
@@ -364,9 +364,9 @@ function changepage(pagenumber){
         $(".pageone").hide();
         $(".pagetwo").show();
         $(".pagethree").hide();
-        $("#btnFeatured").css("color", "#32978f");
-        $("#btnLatestPost").css("color", "#4be5d9");
-        $("#btnAnnouncement").css("color", "#32978f");
+        $("#btnFeatured").css("color", "#BDBDBD");
+        $("#btnLatestPost").css("color", "#FFFFFF");
+        $("#btnAnnouncement").css("color", "#BDBDBD");
         
         if(currentpage>pagenumber){
             $(".pagetwo").css("marginLeft", "-100%");
@@ -393,9 +393,9 @@ function changepage(pagenumber){
         $(".pageone").hide();
         $(".pagetwo").hide();
         $(".pagethree").show();
-        $("#btnFeatured").css("color", "#32978f");
-        $("#btnLatestPost").css("color", "#32978f");
-        $("#btnAnnouncement").css("color", "#4be5d9");
+        $("#btnFeatured").css("color", "#BDBDBD");
+        $("#btnLatestPost").css("color", "#BDBDBD");
+        $("#btnAnnouncement").css("color", "#FFFFFF");
         
         
         if(currentpage>pagenumber){
@@ -426,9 +426,9 @@ function pageSwipeLeft(){
             $(".pageone").hide();
             $(".pagetwo").show();
             $(".pagethree").hide();
-            $("#btnFeatured").css("color", "#32978f");
-            $("#btnLatestPost").css("color", "#4be5d9");
-            $("#btnAnnouncement").css("color", "#32978f");
+            $("#btnFeatured").css("color", "#BDBDBD");
+            $("#btnLatestPost").css("color", "#FFFFFF");
+            $("#btnAnnouncement").css("color", "#BDBDBD");
 
             $(".pagetwo").css("marginLeft", "100%");
 
@@ -448,9 +448,9 @@ function pageSwipeLeft(){
              $(".pageone").hide();
             $(".pagetwo").hide();
             $(".pagethree").show();
-            $("#btnFeatured").css("color", "#32978f");
-            $("#btnLatestPost").css("color", "#32978f");
-            $("#btnAnnouncement").css("color", "#4be5d9");
+            $("#btnFeatured").css("color", "#BDBDBD");
+            $("#btnLatestPost").css("color", "#BDBDBD");
+            $("#btnAnnouncement").css("color", "#FFFFFF");
 
             $(".pagethree").css("marginLeft", "100%");
 
@@ -485,9 +485,9 @@ function pageSwipeRight(){
             $(".pageone").hide();
             $(".pagetwo").show();
             $(".pagethree").hide();
-            $("#btnFeatured").css("color", "#32978f");
-            $("#btnLatestPost").css("color", "#4be5d9");
-            $("#btnAnnouncement").css("color", "#32978f");
+            $("#btnFeatured").css("color", "#BDBDBD");
+            $("#btnLatestPost").css("color", "#FFFFFF");
+            $("#btnAnnouncement").css("color", "#BDBDBD");
 
             $(".pagetwo").css("marginLeft", "-100%");
 
@@ -507,9 +507,9 @@ function pageSwipeRight(){
             $(".pageone").show();
             $(".pagetwo").hide();
             $(".pagethree").hide();
-            $("#btnFeatured").css("color", "#4be5d9");
-            $("#btnLatestPost").css("color", "#32978f");
-            $("#btnAnnouncement").css("color", "#32978f");
+            $("#btnFeatured").css("color", "#FFFFFF");
+            $("#btnLatestPost").css("color", "#BDBDBD");
+            $("#btnAnnouncement").css("color", "#BDBDBD");
 
             $(".pageone").css("marginLeft", "-100%");
 

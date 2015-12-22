@@ -55,8 +55,8 @@ function changepage(pagenumber){
     if(pagenumber==1){
         $(".pageone").show();
         $(".pagetwo").hide();
-        $("#btnPoints").css("color", "#4be5d9");
-        $("#btnProducts").css("color", "#32978f");
+        $("#btnPoints").css("color", "#ffffff");
+        $("#btnProducts").css("color", "#bdbdbd");
         
         if(currentpage>pagenumber){
             $(".pageone").css("marginLeft", "-100%");
@@ -81,8 +81,8 @@ function changepage(pagenumber){
         
         $(".pageone").hide();
         $(".pagetwo").show();
-        $("#btnPoints").css("color", "#32978f");
-        $("#btnProducts").css("color", "#4be5d9");
+        $("#btnPoints").css("color", "#bdbdbd");
+        $("#btnProducts").css("color", "#ffffff");
         
         if(currentpage>pagenumber){
             $(".pagetwo").css("marginLeft", "-100%");
@@ -106,7 +106,7 @@ function changepage(pagenumber){
 
 function initsubmenustyle(){
     currentpage=1;
-    $("#btnPoints").css("color", "#00FFFF");
+    $("#btnPoints").css("color", "#ffffff");
 }
 
 function pageSwipeLeft(){
@@ -114,8 +114,8 @@ function pageSwipeLeft(){
         if(currentpage==1){
             $(".pageone").hide();
             $(".pagetwo").show();
-            $("#btnPoints").css("color", "#32978f");
-            $("#btnProducts").css("color", "#4be5d9");
+            $("#btnPoints").css("color", "#bdbdbd");
+            $("#btnProducts").css("color", "#ffffff");
 
             $(".pagetwo").css("marginLeft", "100%");
 
@@ -147,8 +147,8 @@ function pageSwipeRight(){
         if(currentpage==2){
             $(".pageone").show();
             $(".pagetwo").hide();
-            $("#btnPoints").css("color", "#4be5d9");
-            $("#btnProducts").css("color", "#32978f");
+            $("#btnPoints").css("color", "#ffffff");
+            $("#btnProducts").css("color", "#bdbdbd");
 
             $(".pageone").css("marginLeft", "-100%");
 

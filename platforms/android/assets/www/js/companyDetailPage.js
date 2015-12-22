@@ -148,9 +148,9 @@ function sharetoFV()
             
 function sharetoFVnormal(){
     var imageUrl=document.getElementById("productImg").src;
-    //var productDetails=$('#productdetails').text();
+    var productDetails=$('#productdetails').text();
     
-    window.plugins.socialsharing.share("", null, imageUrl, '');    
+    window.plugins.socialsharing.share(productDetails, null, imageUrl, '');    
 }
             
 function sharetoFVios(){

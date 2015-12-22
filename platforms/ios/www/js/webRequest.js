@@ -1803,7 +1803,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-             
+           
         var list = new Array();
         var pageString="";
           
@@ -1870,7 +1870,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);
+      
         $(".scrollul li").remove();  
 //        var title=data.recipients[0].recipient.name;
         var date=data.messages[0].message.datetime;

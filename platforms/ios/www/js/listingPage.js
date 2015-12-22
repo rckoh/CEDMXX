@@ -53,7 +53,7 @@ var app = {
 
 function initsubmenustyle(){
     currentpage=1;
-    $("#btnProduct").css("color", "#00FFFF");
+    $("#btnProduct").css("color", "#ffffff");
 }
 
 function pageSwipeLeft(){
@@ -61,8 +61,8 @@ function pageSwipeLeft(){
         if(currentpage==1){
             $(".pageone").hide();
             $(".pagetwo").show();
-            $("#btnProduct").css("color", "#32978f");
-            $("#btnServices").css("color", "#4be5d9");
+            $("#btnProduct").css("color", "#bdbdbd");
+            $("#btnServices").css("color", "#ffffff");
 
             $(".pagetwo").css("marginLeft", "100%");
 
@@ -94,8 +94,8 @@ function changepage(pagenumber){
     if(pagenumber==1){
         $(".pageone").show();
         $(".pagetwo").hide();
-        $("#btnProduct").css("color", "#4be5d9");
-        $("#btnServices").css("color", "#32978f");
+        $("#btnProduct").css("color", "#ffffff");
+        $("#btnServices").css("color", "#bdbdbd");
         
         if(currentpage>pagenumber){
             $(".pageone").css("marginLeft", "-100%");
@@ -121,8 +121,8 @@ function changepage(pagenumber){
     if(pagenumber==2){
         $(".pageone").hide();
         $(".pagetwo").show();
-        $("#btnProduct").css("color", "#32978f");
-        $("#btnServices").css("color", "#4be5d9");
+        $("#btnProduct").css("color", "#bdbdbd");
+        $("#btnServices").css("color", "#ffffff");
         
         if(currentpage>pagenumber){
             $(".pagetwo").css("marginLeft", "-100%");
@@ -151,8 +151,8 @@ function pageSwipeRight(){
     if(currentpage==2){
             $(".pageone").show();
             $(".pagetwo").hide();
-            $("#btnProduct").css("color", "#4be5d9");
-            $("#btnServices").css("color", "#32978f");
+            $("#btnProduct").css("color", "#ffffff");
+            $("#btnServices").css("color", "#bdbdbd");
 
             $(".pageone").css("marginLeft", "-100%");
 

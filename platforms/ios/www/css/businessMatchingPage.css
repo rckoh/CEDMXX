@@ -47,7 +47,7 @@
 .subheaderbutton{
     background-color: transparent;
     border: none;
-    color: #32978f;
+    color: #bdbdbd;
     width: 100%;
     height: 100%;
 	line-height:100%;
@@ -60,7 +60,7 @@
 
 .selectedItem{
     position: absolute;
-    background-color: #00FFFF;
+    background-color: #df2d3c;
     width: 32.75%;
     height: 2px;
     z-index: 88;
@@ -174,7 +174,7 @@
 	position:absolute;
     font-family: "Roboto-Medium";
     font-size: 3vw;
-    background-color: #46a19a;
+    background-color: #df2d3c;
     color: white;
     line-height: 30px;
     height: 5%;
@@ -209,7 +209,7 @@
     height:auto;
     min-height: 20vw;
     border-top:1px solid #fff;
-    border-bottom: 1px dotted #333;  
+    border-bottom: 1px dotted #df2d3c;  
     overflow: hidden;
 }
 
@@ -235,7 +235,7 @@
 }
 
 .listviewitemtitleLVM{
-    color: #32978f;
+    color: #df2d3c;
     background-color: transparent;
     font-weight: normal;
     line-height: 4vw;
@@ -265,7 +265,7 @@
 
 .listviewitemseperatorLVM{
     line-height: 0.5vw;
-    border-bottom: 1px solid #32978f;
+    border-bottom: 1px solid #df2d3c;
     width: 30px;
     margin: 2px 0px 0px 10px;
 }
@@ -297,7 +297,7 @@
 .headerRM{
     font-family: "Roboto-Medium";
     font-size: 3vw;
-    background-color: #46a19a;
+    background-color: #df2d3c;
     color: white;
     line-height: 30px;
     height: 5%;
@@ -333,7 +333,7 @@
     height:auto;
     min-height: 20vw;
     border-top:1px solid #fff;
-    border-bottom: 1px dotted #333; 
+    border-bottom: 1px dotted #df2d3c; 
     overflow: hidden;
 }
 
@@ -359,7 +359,7 @@
 }
 
 .listviewitemtitleRM{
-    color: #32978f;
+    color: #df2d3c;
     background-color: transparent;
     font-weight: normal;
     line-height: 4vw;
@@ -389,7 +389,7 @@
 
 .listviewitemseperatorRM{
     line-height: 0.5vw;
-    border-bottom: 1px solid #32978f;
+    border-bottom: 1px solid #df2d3c;
     width: 30px;
     margin: 2px 0px 0px 10px;
 }

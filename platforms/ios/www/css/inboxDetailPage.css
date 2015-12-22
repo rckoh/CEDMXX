@@ -117,17 +117,17 @@
 }
 
 .msgTitle{
-    font-family: "Roboto-Medium";
+    font-family: "Roboto-Bold";
     font-size: 5vw;
-    color: #46a19a;
+    color: #e2424f;
     margin: 0px 0px 0px 0px;
     line-height: 5.1vw;
 }
 
 .msgDate{
-    font-family: "Roboto-Medium";
+    font-family: "Roboto-regular";
     font-size: 4vw;
-    color: #46a19a;
+    color: #e2424f;
     margin: 0px 0px 0px 0px;
     line-height: 4.1vw;
 }
@@ -206,7 +206,7 @@
     top: 0;
     width: auto;
     background-color: transparent;
-    color: white;
+    color: #df2d3c;
     font-size: 3.5vw;
 }
 
@@ -219,7 +219,7 @@
     top: 0;
     width: auto;
     background-color: transparent;
-    color: white;
+    color: #df2d3c;
     font-size: 3.5vw;
 }
 
@@ -240,7 +240,7 @@
     top: 8%;
     border-radius: 10px;
     background-color: transparent;
-    color: white;
+    color: #df2d3c;
     resize: none;
     min-height: 73%;
     max-height: 73%;    
