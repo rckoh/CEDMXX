@@ -229,7 +229,7 @@ input:focus {
 }
 
 .pagetitle{
-    color: rgba(255, 255, 255, 0.6);
+    color: white;
     width: auto;
     height: 100%;
     line-height: 100%;
