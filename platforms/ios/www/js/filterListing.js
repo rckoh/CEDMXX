@@ -10,14 +10,12 @@ var filterListing = {
         $("#productfilter").append("<p><input type='text' id='productName'></input></p>");        
         $("#productfilter").append("<h1>Company</h1>");
         $("#productfilter").append("<p><input type='text' id='productCompany'></input></p>");
-//        $("#productfilter").append("<h1>GST Compliance</h1>");
-//        $("#productfilter").append("<p><select id='filterProductGST' value=''></select></p>");    
         $("#productfilter").append("<h1>Industry</h1>");
         $("#productfilter").append("<p><select id='filterProductIndustry'></select></p>");
         $("#productfilter").append("<h1>Technology Area</h1>");
-        $("#productfilter").append("<p><select id='filterProductTechArea'></select></p>");                         $("#productfilter").append("<h1>&nbsp;</h1>");
+        $("#productfilter").append("<p><select id='filterProductTechArea'></select></p>"); 
+        $("#productfilter").append("<h1>&nbsp;</h1>");
         $("#productfilter").append("<button onclick='productSearchResult();'>SEARCH</button>");
-
 
         $("#filterItem").prepend("<div id='servicefilter' class='servicefilter'></div>");
         $("#servicefilter").append("<h1>Service Name</h1>");
