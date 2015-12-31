@@ -333,7 +333,7 @@ input:focus {
     top: 0;
     width: auto;
     background-color: transparent;
-    color: white;
+    color: #df2d3c;
     font-size: 3.5vw;
 }
 
@@ -346,7 +346,7 @@ input:focus {
     top: 0;
     width: auto;
     background-color: transparent;
-    color: white;
+    color: #df2d3c;
     font-size: 3.5vw;
 }
 
@@ -362,7 +362,7 @@ input:focus {
     top: 15%;
     border-radius: 10px;
     background-color: transparent;
-    color: white;
+    color: #df2d3c;
     resize: none;
     min-height: 73%;
     max-height: 73%;    
@@ -390,7 +390,7 @@ input:focus {
     top: 20%;
     border-radius: 10px;
     background-color: transparent;
-    color: white;    
+    color: #df2d3c;    
     font-size: 3vw;
     padding: 1vw;
     text-transform: capitalize;

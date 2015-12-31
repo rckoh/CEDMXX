@@ -899,6 +899,7 @@ function successDeleteProfile(){
 
 
 function postListingProductList(token, uid){
+    loading.startLoading();
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -927,11 +928,14 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
-        }          
+        }   
+          
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          loading.endLoading();
         }
     })
 });    
@@ -980,6 +984,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 
 
 function postListingServiceList(token, uid){
+    loading.startLoading();
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -1007,11 +1012,13 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
-        }          
+        }     
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          loading.endLoading();
         }
     })
 }); 
@@ -1208,7 +1215,7 @@ var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
     var baseurl=data.item(0).BASEURL; 
-    
+
     var requestUrl=baseurl+"drupalgap/mobileapp/businessmatchesfilterslogin.json?uid="+uid;
     
     $.ajax({
@@ -1288,7 +1295,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             }
         }
         
-//        alert(sckeyword);
+//        alert(scprokeyword);
 //        alert(scLookfor);
 //        alert(scinterest);
 //        alert(scTechArea);
@@ -1309,6 +1316,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 
 
 function postBMInitProductList(token, uid){
+    loading.startLoading();
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -1343,12 +1351,12 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }            
           
         loading.endLoading();
-                  
+               
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          loading.endLoading();
           navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          loading.endLoading();
         }
     })
 });    
@@ -1485,8 +1493,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         scprokeyword=keyword;
         scinterest=interest;
         scIndustryArea=industryArea;
-        scTechArea=industryArea;  
-          
+        scTechArea=techArea;  
+        
         loading.endLoading();
                   
       },
@@ -1544,7 +1552,7 @@ $(".scrollulLVM li").remove();
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -1614,8 +1622,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         if(scLookfor!='')
             $("#filterServiceLookFor").val(scLookfor);
           
-//        if(scinterest!='')
-//            $("#filterServiceInterest").val(scinterest);
+        if(scinterest!='')
+            $("#filterServiceInterest").val(scinterest);
         
         if(scservkeyword!='')
             $("#filterServiceKeyword").val(scservkeyword);
@@ -1663,7 +1671,6 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 //        alert(returnstr);
 
         $("#serviceSubCatDiv h1").remove();
-
           
         for(var x=0; x<data.servCategoryData.sub_category.length; x++){     
             var optionValue=data.servCategoryData.sub_category[x].sub.value;
@@ -1674,7 +1681,6 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             }
             else{
                 var arrscServiceSubCat=scServiceSubCat.split('|');
-                
                 if(jQuery.inArray(optionValue, arrscServiceSubCat)==-1)
                     $("#serviceSubCatDiv").append("<h1><input type='checkbox' name='filterServiceSubCat' value='"+optionValue+"' class='check_box' id='chb"+x+"'><label for='chb"+x+"'>"+displayname+"</label><br></h1>"); 
                 else
@@ -1695,7 +1701,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 });    
 }
 
-function postFilterServiceList(token, uid, submitted, lookFor, keyword, interest, category, subcategory){
+function postFilterServiceList(token, uid, submitted, lookFor, keyword, interest, category, subcategory, categoryvalue){
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -1732,7 +1738,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         scLookfor=lookFor;
         scservkeyword=keyword;
         scinterest=interest;
-        scServiceCat=category;
+        scServiceCat=categoryvalue;
         scServiceSubCat=subcategory;
         
         loading.endLoading();
@@ -1777,7 +1783,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    

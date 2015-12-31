@@ -5,7 +5,7 @@
 
 var filterItem = {
     initItemFilter:function(){
-
+        
         $("#filterItem").prepend("<div id='productfilter' class='productFilter'></div>");
         $("#productfilter").append("<h1>Looking for</h1>");
         $("#productfilter").append("<p><select id='filterProductLoookFor'></select></p>");        
@@ -43,7 +43,7 @@ $("#servicefilter").append("<div id='serviceSubCatDiv' class='serviceSubCatDiv'>
 $("#servicefilter").append("<h1>&nbsp;</h1>");
 $("#servicefilter").append("<button onclick='serviceFilterResult()'>MATCH ME</button>");
         $("#servicefilter").append("<br><br><br>");
-        
+
     }
 }
 
@@ -53,6 +53,9 @@ $(function(){
     
 	$("#filterBtn").click(function(){
         
+        if(scinterest=='Service'){
+            currentpage=2;
+        }
         
         if(currentpage==1){
             $("#productfilter").show();
@@ -95,6 +98,7 @@ function changeType(type){
         $("#servicefilter").show();
         currentpage=2;
         initSearchCriteria("service");
+        scinterest='Service';
     }
     else
     {
@@ -102,6 +106,7 @@ function changeType(type){
         $("#servicefilter").hide();
         currentpage=1;
         initSearchCriteria("product");
+        scinterest='Product';
 //        $("#filterProductInterest").val("Product");
     }
 }
@@ -159,12 +164,12 @@ function serviceFilterResult(){
         if(returnData.rows.length>0){
             var token=returnData.rows.item(0).token;
             var uid=returnData.rows.item(0).uid;
-            postFilterServiceList(token, uid, "true", lookfor, keyword, interest, categoryArr[0], subcat);
+            postFilterServiceList(token, uid, "true", lookfor, keyword, interest, categoryArr[0], subcat, category);
         }
         else{
             var token="";
             var uid="0";
-            postFilterServiceList(token, uid, "true", lookfor, keyword, interest, categoryArr[0], subcat);
+            postFilterServiceList(token, uid, "true", lookfor, keyword, interest, categoryArr[0], subcat, category);
         }
     });
 }
