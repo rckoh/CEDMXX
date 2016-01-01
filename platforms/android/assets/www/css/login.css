@@ -226,11 +226,28 @@ input:focus {
     margin: 0px 0px 0px 15%;
 }
 
+.seperatortwo{
+    position: absolute;
+    top: 70%;
+    height: 10px;
+    width: 70%;
+    border-bottom: 2px solid #6B6B6B;
+    margin: 0px 0px 0px 15%;
+}
+
 .loginActionFrame{
     position: absolute;
     top: 63%;
     margin: 0px 0px 0px 10%;
     /* background-color: antiquewhite; */
+    width: 80%;
+    
+}
+
+.loginActionFrametwo{
+    position: absolute;
+    top: 73%;
+    margin: 0px 0px 0px 10%;
     width: 80%;
     
 }

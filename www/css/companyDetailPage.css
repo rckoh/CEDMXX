@@ -234,14 +234,17 @@
     width: 60%;
     height: auto;
 }
+
 .seperator{
     border-bottom: 2px dotted #df2d3c;
     margin: 0px 0px 0px 0px;
+    line-height: 2px;
 }
 
 .lineseperator{
     border-bottom: 2px solid #df2d3c;
     margin: 0px 0px 30px 0px;
+    line-height: 2px;
 }   
 
 .description{
@@ -250,7 +253,7 @@
     text-align: justify;
     color: #565656;
     line-height: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .h2seperator{

@@ -189,6 +189,7 @@
 .seperator{
     border-bottom: 2px dotted #df2d3c;
     margin: 0px 0px 30px 0px;
+    line-height: 2px;
     margin: 5px 0px 0px 10px;
 }
 
@@ -197,7 +198,7 @@
     font-size: 3.5vw;
     text-align: justify;
     color: #565656;
-    line-height: 20px;
+    line-height: 3.6vw;
     margin-top: 30px;
 }
 

@@ -152,7 +152,7 @@ function initchangePwd(){
     $(".changePwdDiv").append("<input class='newPwd' placeholder='New password' type='password'></input>");
     $(".changePwdDiv").append("<input class='confirmPwd' placeholder='Confirm password' type='password'></input>");
     $(".changePwdDiv").append("<button class='btnChangePwdClose' onclick='closeChangePwd()'>Close</button>");
-    $(".changePwdDiv").append("<button class='btnChangePwd' onclick='changePwd()'>Change Password</button>");
+    $(".changePwdDiv").append("<button class='btnChangePwd' onclick='changePwd()'>Submit</button>");
                     
 }
 
@@ -161,41 +161,49 @@ function closeChangePwd(){
 }
 
 function changePwd(){
-    dbmanager.getProfile(function(returnData){
-        if(returnData.rows.length>0){
-            var token=returnData.rows.item(0).token;
-            var uid=returnData.rows.item(0).uid;
-            var newPwd=$(".newPwd").val();
-            var confirmPwd=$(".confirmPwd").val();
-            var pattern = new RegExp('^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*(){}\\[\\]]).*$');
-            
-            
-            if(newPwd==""){
-                alert("Invalid password");
-                $(".newPwd").focus();
+    navigator.notification.confirm("Are you sure you want to change password?", onConfirmChangePwd, "Confirmation", "Yes,No");     
+}
+
+function onConfirmChangePwd(button){
+    if(button==2){//If User selected No, then we just do nothing
+        return;
+    }else{
+        dbmanager.getProfile(function(returnData){
+            if(returnData.rows.length>0){
+                var token=returnData.rows.item(0).token;
+                var uid=returnData.rows.item(0).uid;
+                var newPwd=$(".newPwd").val();
+                var confirmPwd=$(".confirmPwd").val();
+                var pattern = new RegExp('^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*(){}\\[\\]]).*$');
+
+
+                if(newPwd==""){
+                    navigator.notification.alert("Invalid password.", function(){}, "MDeC eSolution", "Ok");
+                    $(".newPwd").focus();
+                }
+                else if(confirmPwd==""){
+                    navigator.notification.alert("Invalid confirm password", function(){}, "MDeC eSolution", "Ok");
+                    $(".confirmPwd").focus();
+                }
+                else if(!pattern.test(newPwd)){
+                    navigator.notification.alert("password should contain at least one number, one alphabet and one special character.", function(){}, "MDeC eSolution", "Ok");
+                }
+                else if(newPwd.length<8){
+                    navigator.notification.alert("Password must at least 8 characters.", function(){}, "MDeC eSolution", "Ok");
+                    $(".newPwd").focus();
+                }
+                else if(confirmPwd!=newPwd){
+                    navigator.notification.alert("Password not matching", function(){}, "MDeC eSolution", "Ok");
+                    $(".confirmPwd").focus();
+                }
+                else{
+                    loading.startLoading();
+                    postChangePwd(token, uid, newPwd);
+                }
+
             }
-            else if(confirmPwd==""){
-                alert("Invalid confirm password");
-                $(".confirmPwd").focus();
-            }
-            else if(!pattern.test(newPwd)){
-                alert("password should contain at least one number, one alphabet and one special character");
-            }
-            else if(newPwd.length<8){
-                alert("Password must at least 8 characters");
-                $(".newPwd").focus();
-            }
-            else if(confirmPwd!=newPwd){
-                alert("Password not matching");
-                $(".confirmPwd").focus();
-            }
-            else{
-                loading.startLoading();
-                postChangePwd(token, uid, newPwd);
-            }
-                
-        }
-    });
+        });
+    }
 }
 
 
