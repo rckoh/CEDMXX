@@ -182,6 +182,16 @@
     text-indent: 10px;
 }
 
+.headerLVM span{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.headerLVM img{
+    vertical-align: middle;
+    background-color: transparent;
+}
+
 .wrapperLVM{
     height: 44%;
     width: 100%;
@@ -299,12 +309,22 @@
     font-size: 3vw;
     background-color: #df2d3c;
     color: white;
-    line-height: 30px;
     height: 5%;
     width: 100%;
     text-indent: 10px;
     position: absolute;
     top: 51%;
+    display: inline-block;
+}
+
+.headerRM span{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.headerRM img{
+    vertical-align: middle;
+    background-color: transparent;
 }
 
 .wrapperRM{
