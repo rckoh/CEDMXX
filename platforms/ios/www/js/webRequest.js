@@ -12,6 +12,7 @@ var scServiceCat='';
 var scsubkey='';
 var scServiceSubCat='';
 
+
 function getDMZKey(){
     var requestUrl=webUrl+"api_generator.php?api_name=mobile_validation&key=34716a5e9f9e23f40acadd9dd55e0c22";
     $.ajax({
@@ -44,6 +45,7 @@ function getDMZKey(){
       }
     })
 }
+
 
 function storeDMZKey(dmzKey, baseurl){
     var db = window.openDatabase("Database", "1.0", "ESLN", 200000);
@@ -217,6 +219,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 
 
 function getSearchResultList(key){
+loading.startLoading();
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -235,6 +238,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
           var returnstr=JSON.stringify(data);
+          $(".scrollul li").remove();
           
         if(data.view.count>0)  
         {
@@ -260,10 +264,15 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             $(".scrollul").append("<li class='' id=featuredrow"+x+"><label class='noresultlbl'> no result found</label></li>");
         }
         
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          
+          var keystring='"'+key+'"';
+          $(".scrollul").append("<li class='scrollli'><button class='retryserviceBtn' onclick='getSearchResultList("+keystring+");'>Retry</button></li>");
+          loading.endLoading();
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -286,6 +295,9 @@ function viewCompanyDetails(nid, frompage){
 }
 
 function getProductDetails(nid, fromPage){
+    
+loading.startLoading();
+    
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -347,11 +359,14 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             var gallery=data.nodes[x].node.gallery;
             var scategory=(data.nodes[x].node.service_category=="" || data.nodes[x].node.service_category==null)?"N/A":data.nodes[x].node.service_category;
             var ssubcat=(data.nodes[x].node.service_sub_category=="" || data.nodes[x].node.service_sub_category==null)?"N/A":data.nodes[x].node.service_sub_category;
+            
+            $(".scrollul li").remove();
+            
             if(data.nodes[x].node.type=="Product"){
-                $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+ imageUrl +"'/></p><p class='seperator'>&nbsp;</p><p>&nbsp;</p><span class='description' id='productdetails'>"+ desc +"</span><p class='seperator'>&nbsp;</p><h2>Unique Selling Point</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+unidsellingpoint+"</span><br><h2>Customer References</h2><p class='h2seperator'>&nbsp;</p><span class='description'>" +custRef+"</span><h2>Brochures</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+brochure+"</span><br><h2>Tags</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+tags+"</span><br><h2>Technology Area</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+techarea+"</span><br><h2>Platforms</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+platform+"</span><br><h2>Product Requirement</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+prequirement+"</span><br><h2>Market</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+market+" </span><br><h2>Industry</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+industry+"</span><br><h2>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
+                $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+ imageUrl +"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><span class='description' id='productdetails'>"+ desc +"</span><p class='seperator'>&nbsp;</p><h2>Unique Selling Point</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+unidsellingpoint+"</span><br><h2>Customer References</h2><p class='h2seperator'>&nbsp;</p><span class='description'>" +custRef+"</span><h2>Brochures</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+brochure+"</span><br><h2>Tags</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+tags+"</span><br><h2>Technology Area</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+techarea+"</span><br><h2>Platforms</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+platform+"</span><br><h2>Product Requirement</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+prequirement+"</span><br><h2>Market</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+market+" </span><br><h2>Industry</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+industry+"</span><br><h2>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
             }
             else if(data.nodes[x].node.type=="Service"){
-                $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><p>&nbsp;</p><span class='description' id='productdetails'>"+desc+"</span><p class='seperator'>&nbsp;</p><h2>Customer References</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+custRef+"</span><br><h2>Brochures</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+brochure+"</span><br><h2>Tags</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+tags+"</span><br><h2>Platforms</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+platform+"</span><br><h2>Service Requirement</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+srequirement+"</span><br><h2>Market</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+market+"</span><br><h2>Service Category</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+scategory+"</span><br><h2>Service Sub Category</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+ssubcat+"</span><br><h2>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
+                $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><span class='description' id='productdetails'>"+desc+"</span><p class='seperator'>&nbsp;</p><h2>Customer References</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+custRef+"</span><br><h2>Brochures</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+brochure+"</span><br><h2>Tags</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+tags+"</span><br><h2>Platforms</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+platform+"</span><br><h2>Service Requirement</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+srequirement+"</span><br><h2>Market</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+market+"</span><br><h2>Service Category</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+scategory+"</span><br><h2>Service Sub Category</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+ssubcat+"</span><br><h2>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
             }
             
 //            <img id='galleryImg' src='"+data.nodes[x].node.gallery+"'/>
@@ -371,16 +386,27 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
                 }
         });
         
+        loading.endLoading();
+        
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          
+          var frompagestring='"'+fromPage+'"';
+          
+          $(".scrollul").append("<li class='scrollli'><button class='retryserviceBtn' onclick='getProductDetails("+nid+","+frompagestring+")'>Retry</button></li>");
+
+          loading.endLoading();
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
 }
 
 function getAnnouncementDetails(nid){
+    
+loading.startLoading();
+    
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -402,17 +428,26 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         title=$(title).text();
         var imageUrl=data.nodes[0].node.background.src;
         var desc=(data.nodes[0].node.description=="")?"N/A":data.nodes[0].node.description;
-        $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><br><span class='description'>"+desc+"</span><p><br><br></p></li>");
+        
+        $(".scrollul li").remove();
+          
+        $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><span class='description'>"+desc+"</span><p><br></p></li>");
         
         //if add onclick function to overwrite the anchor received from backend
         $("a").click(function() {
             cordovaOpenLink(this.href);
             return false;
         });
+        
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          
+          $(".scrollul").append("<li class='scrollli'><button class='retryserviceBtn' onclick='getAnnouncementDetails("+nid+")'>Retry</button></li>");
+          
+          loading.endLoading();
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -420,12 +455,14 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 
 
 function getCompanyDetails(nid){
+loading.startLoading();
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
     var baseurl=data.item(0).BASEURL; 
     
     var requestUrl=baseurl+"drupalgap/getcompanydetail/"+nid;
+    
     $.ajax({
       url: requestUrl,
       type: "GET",
@@ -447,7 +484,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           
           var requirement=(data.nodes[0].node.requirement=="")?"N/A":data.nodes[0].node.requirement;
           var awards=(data.nodes[0].node.award=="")?"N/A":data.nodes[0].node.award;
-          
+           $("#scrollul li").remove();  
           $(".scrollul").append(
             "<li class='scrollli'><br><p class='lipclass'><img id='productImg' src='"+imageUrl+"'/></p><p class='lineseperator'>&nbsp;</p><h1 id='companyName' class='lih1class'>"+title+"</h1><p class='description' id='productdetails'> "+desc+"<br><table class='companyInfo'><tr><td><span>Address</span></td><td><span>:</span></td><td><span>"+address+"</span> </td></tr><tr><td><span>Website URL</span></td><td><span>:</span></td><td><span>"+wesiteUrl+"</span> </td></tr></table></p><p class='seperator'>&nbsp;</p><p class='description'><span class='buttonSpan'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></span><table class='companyStatistic'><tr><td>Views</td><td>:</td><td>0</td></tr><tr><td>Shares</td><td>:</td><td>0</td></tr><tr><td>Favourites</td><td>:</td><td>0</td></tr></table></p><p class='seperator'>&nbsp;</p><br><div class='companyDetails'><div class='requirement'><button class='requirementBtn' onclick='changepage(1);'>Company Requirement</button></div><div class='awards'><button class='awardsBtn' onclick='changepage(2);'>Company Awards</button></div><div class='selectedItem'>&nbsp;</div><div class='companyDetailsDescriptionOne'>"+requirement+"</div><div class='companyDetailsDescriptionTwo'>"+awards+"</div></div><br><h2 class='lih2class'>Products and Services</h2><ul class='scrollul' id='scrollulProdServ'></ul></li>"
           );
@@ -468,11 +505,19 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           });
           
           getCompanyProdServList(nid);
+          loading.endLoading();
+          
+          
 //          getCompanyAnnouncementList(nid);
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          loading.endLoading();
+          $(".scrollul").append(
+            "<li class='scrollli'><button class='retryserviceBtn' onclick='getCompanyDetails("+nid+")'>Retry</button></li>"
+          );
+          
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -503,7 +548,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -537,14 +582,17 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });   
 }
 
-
+    
 function getFavouriteList(uid){
+
+loading.startLoading();
+    
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -573,7 +621,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
                 $(".scrollul").append("<li class='scrollli' onclick='viewCompanyDetails("+data.nodes[x].node.nid+")' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
             }
         }
-          
+         
+        loading.endLoading();
         $(".slideshowimagenamediv h1").remove();
         $(".slideshowimagenamediv p").remove();
         $(".slideshowimage").attr("src", data.nodes[0].node.background.src);
@@ -582,10 +631,14 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         intervalid=window.setInterval(function() {
         slideshow(data);
         },5000);
+          
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          
+          loading.endLoading();
+          $(".scrollul").append("<li><button class='retryserviceBtn' onclick='getFavouriteList("+uid+")'>Retry</button></li>");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });
@@ -628,7 +681,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });
@@ -674,13 +727,14 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });
 }
 
 function getProfileProdServList(companyid){
+loading.startLoading();
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -701,10 +755,16 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         for (var x = 0; x < data.nodes.length; x++) {    
             $(".scrollulPage2").append("<li class='scrollliPage2' onclick='viewProductDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage2' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage2'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperatorPage2'>&nbsp;</p><p class='listviewitemdetailsPage2'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
         }
+        
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          loading.endLoading();
+          
+          $(".scrollulPage2").append("<li><button class='retryserviceBtn' onclick='getProfileProdServList("+companyid+")'>Retry</button></li>");
+          
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -733,7 +793,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          navigator.notification.alert("Login failed.", function(){}, "MDeC eSolution", "Ok");
           
           loading.endLoading();
         }
@@ -796,7 +856,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           if(xhr.status==0)
-            navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+            navigator.notification.alert("Login failed.", function(){}, "MDeC eSolution", "Ok");
           else
             navigator.notification.alert("Invalid username or password.", function(){}, "MDeC eSolution", "Ok");
           
@@ -934,7 +994,10 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          var tokenstr='"'+token+'"';
+          var uidstr='"'+uid+'"'
+          $(".scrollulLVM").append("<li><button class='retryserviceBtn' onclick='postListingProductList("+tokenstr+","+uidstr+");'>Retry</button></li>");
           loading.endLoading();
         }
     })
@@ -943,6 +1006,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 
 
 function postSearchListingProductList(token, productName, productCompany, gst, industry, techArea, uid){
+loading.startLoading();
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -971,11 +1035,26 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
-        }          
+        }   
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          
+          $(".scrollulLVM li").remove();
+          
+          var tokenstr='"'+token+'"';
+          var productNamestr='"'+productName+'"';
+          var productCompanystr='"'+productCompany+'"';
+          var gststr='"'+gst+'"';
+          var industrystr='"'+industry+'"';
+          var techAreastr='"'+techArea+'"';
+          var uidstr='"'+uid+'"';
+          
+          $(".scrollulLVM").append("<li><button class='retryserviceBtn' onclick='postSearchListingProductList("+tokenstr+", "+productNamestr+", "+productCompanystr+", "+gststr+", "+industrystr+", "+techAreastr+", "+uidstr+")'>Retry</button></li>");
+          
+          loading.endLoading();
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -1017,7 +1096,11 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          var tokenstr='"'+token+'"';
+          var uidstr='"'+uid+'"';
+          $(".scrollulLVMPG2 li").remove();
+          $(".scrollulLVMPG2").append("<li><button class='retryserviceBtn' onclick='postListingServiceList("+tokenstr+","+uidstr+")'>Retry</button></li>");
           loading.endLoading();
         }
     })
@@ -1025,6 +1108,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 }
 
 function postSearchListingServiceList(token, serviceName, serviceCompany, cat, subcat, uid){
+loading.startLoading();
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -1054,11 +1138,24 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
-        }          
+        }
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          
+          $(".scrollulLVMPG2 li").remove();
+          
+          var tokenstr='"'+token+'"';
+          var serviceNamestr='"'+serviceName+'"';
+          var serviceCompanystr='"'+serviceCompany+'"';
+          var catstr='"'+cat+'"';
+          var subcatstr='"'+subcat+'"';
+          var uidstr='"'+uid+'"';
+          
+          $(".scrollulLVMPG2").append("<li><button class='retryserviceBtn' onclick='postSearchListingServiceList("+tokenstr+", "+serviceNamestr+", "+serviceCompanystr+", "+catstr+", "+subcatstr+", "+uidstr+")'>Retry</button></li>");
+          loading.endLoading();
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -1116,7 +1213,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -1154,6 +1251,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             $("#filterServiceCategory").append($("<option></option>").attr("value",optionValue).text(displayname));
         }
         
+        $("#filterServiceSubCategory option").remove();
         $("#filterServiceSubCategory").append($("<option></option>").attr("value","").text("Any"));
 //        postServiceSearchCriteriaSubCategory(token, data.service_category[0].category.sub_key, uid);
         loading.endLoading();
@@ -1161,7 +1259,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -1191,7 +1289,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
         $("#filterServiceSubCategory option").remove();
-
+        $("#filterServiceSubCategory").append($("<option></option>").attr("value","").text("Any"));
+          
         for(var x=0; x<data.sub_category.length; x++){     
             var optionValue=data.sub_category[x].sub.value;
             var displayname=data.sub_category[x].sub.display_name;
@@ -1203,7 +1302,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });   
@@ -1307,7 +1406,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           //alert("unable connect to server");
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -1355,7 +1454,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
           loading.endLoading();
         }
     })
@@ -1448,7 +1547,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -1501,7 +1600,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -1639,7 +1738,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -1695,7 +1794,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -1747,7 +1846,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           loading.endLoading();
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -1790,6 +1889,9 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 }
 
 function postInboxMessageList(token, uid, act){
+
+loading.startLoading();
+    
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -1812,7 +1914,9 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
            
         var list = new Array();
         var pageString="";
-          
+        
+        $(".scrollul li").remove();
+        
         $(".scrollul").append("<li class='scrollliresult'><br><span class='resultTitle'><u>Messages</u>&nbsp;</span><br></li><li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
           
         for (var x = 0; x < data.lists.length; x++) { 
@@ -1846,17 +1950,28 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 //            
 //            list.push(item.text);
 //        });
-        $("#pageString").val(pageString);  
+        $("#pageString").val(pageString);
+          
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          
+          loading.endLoading();
+          
+          var tokenstr='"'+token+'"';
+          var uidstr='"'+uid+'"';
+          var actstr='"'+act+'"';
+          
+          $(".scrollul").append("<li><button class='retryserviceBtn' onclick='postInboxMessageList("+tokenstr+", "+uidstr+", "+actstr+");'>Retry</button></li>");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
 }
 
 function postInboxMessageContent(token, uid, act, mid){
+loading.startLoading();
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -1899,7 +2014,15 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          $(".scrollul li").remove();
+          
+          var tokenstr='"'+token+'"';
+          var uidstr='"'+uid+'"';
+          var actstr='"'+act+'"';
+          var midstr='"'+mid+'"';
+          
+          $(".scrollul").append("<li><button class='retryserviceBtn' onclick='postInboxMessageContent("+tokenstr+", "+uidstr+", "+actstr+", "+midstr+");'>Retry</button></li>");
           loading.endLoading();
         }
     })
@@ -1932,7 +2055,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          navigator.notification.alert("Cannot delete message. Please try again later.", function(){}, "MDeC eSolution", "Ok");
           loading.endLoading();
         }
     })
@@ -1972,7 +2095,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          navigator.notification.alert("Failed to send message.", function(){}, "MDeC eSolution", "Ok");
           loading.endLoading();
         }
     })
@@ -2012,7 +2135,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          navigator.notification.alert("Failed to send message.", function(){}, "MDeC eSolution", "Ok");
           loading.endLoading();
         }
     })
@@ -2020,6 +2143,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 }
 
 function PostFavCheck(token, uid, nid, flag){
+loading.startLoading();
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -2054,12 +2178,13 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 //            else
 //                $("#shareImg").attr("src", "img/fav-alt.png");
         }   
-        
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          if(flag=="0")
-            navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          loading.endLoading();
+          //if(flag=="0")
+            //navigator.notification.alert("Failed to add favourite.", function(){}, "MDeC eSolution", "Ok");
         }
     })
 });    
@@ -2092,7 +2217,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-            navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+            navigator.notification.alert("Failed to change password.", function(){}, "MDeC eSolution", "Ok");
             loading.endLoading();
         }
     })
@@ -2167,6 +2292,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 }
 
 function getAboutUs(){  
+loading.startLoading();
+    
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
@@ -2192,11 +2319,16 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         content=content.replace("About eSolutions","");
         content=content.replace(/\r\n|\t|\n|\r/g, '<br />');
 //        $("#aboutContent").append("<textarea readonly>"+content+"</textarea>");
+        $("#aboutContent button").remove();
         $("#aboutContent").append("<label>"+content+"</label>");
           
+        loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
+
+          $("#aboutContent").append("<button class='retryserviceBtn' onclick='getAboutUs();'>Retry</button>");
+          loading.endLoading();
 //          alert("Unable connect to server.");      
         }
     })

@@ -152,8 +152,9 @@
 
 .scrollli p{
     background-color: white;
-    margin: 0px 0px 0px 0px;
+    margin:  0px 0px 0px;
 }
+
 
 .pBtn button{
     background-color: white;
@@ -199,7 +200,7 @@
     text-align: justify;
     color: #565656;
     line-height: 3.6vw;
-    margin-top: 30px;
+/*    margin-top: 30px;*/
 }
 
 .h2seperator{

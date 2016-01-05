@@ -71,7 +71,7 @@ function initMessageContent(){
             var uid=returnData.rows.item(0).uid;
             var token=returnData.rows.item(0).token;
             var mid=getUrlParameter("mid");
-            loading.startLoading();
+            
             postInboxMessageContent(token, uid, "3", mid);
         }
     });
@@ -190,7 +190,6 @@ function reloadContent(mid){
         if(returnData.rows.length>0){
             var uid=returnData.rows.item(0).uid;
             var token=returnData.rows.item(0).token;
-            loading.startLoading();
             postInboxMessageContent(token, uid, "3", mid);
         }
     });
