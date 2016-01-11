@@ -266,15 +266,16 @@
 
 .inboxUnreadTitle{
     font-family: "Roboto-Bold";
-    font-size: 4vw;
+    font-size: 3.8vw;
     color: #e2424f;
     margin: 20px 0px 0px 0px;
-    width: 50vw;
-/*    white-space: nowrap;*/
+    width: 60vw;
     overflow:hidden !important;
     text-overflow: clip;
     display:inline-block;
-    height: 4.5vw
+    height: auto;
+    line-height: 4.5vw;
+    max-height: 9vw;
 }
 
 .inboxUnreadDate{
@@ -315,15 +316,16 @@
 
 .inboxReadTitle{
     font-family: "Roboto-Bold";
-    font-size: 4vw;
+    font-size: 3.8vw;
     color: #565656;
     margin: 20px 0px 0px 0px;
-    width: 50vw;
-/*    white-space: nowrap;*/
+    width: 60vw;
     overflow:hidden !important;
     text-overflow: clip;
     display:inline-block;
-    height: 4.5vw
+    height: auto;
+    line-height: 4.5vw;
+    max-height: 9vw;
 }
 
 .inboxReadDate{

@@ -117,7 +117,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         slideshow(data);
         },5000);
           
-        
+        $(".listviewitemtitle").dotdotdot();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -158,6 +158,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         $(".slideshowimagepage2").attr("src", data.nodes[0].node.background.src);
         $(".slideshowimagenamedivpage2").append("<h1 class='slideshowitemtitlepage2'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage2'>&nbsp;</p><p class='slideshowitemdetailspage2'>"+data.nodes[0].node.description+"</p>");
        
+        $(".listviewitemtitlePage2").dotdotdot();
         window.clearInterval(intervalidpage2);
         intervalidpage2=window.setInterval(function() {
         slideshowpagetwo(data);
@@ -203,6 +204,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         $(".slideshowimagepage3").attr("src", data.nodes[0].node.background.src);
         $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[0].node.description+"</p>");
         
+        $(".listviewitemtitlePage3").dotdotdot();
         window.clearInterval(intervalidpage3);  
         intervalidpage3=window.setInterval(function() {
         slideshowpagethree(data);
@@ -264,6 +266,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             $(".scrollul").append("<li class='' id=featuredrow"+x+"><label class='noresultlbl'> no result found</label></li>");
         }
         
+        $(".listviewitemtitle").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -621,7 +624,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
                 $(".scrollul").append("<li class='scrollli' onclick='viewCompanyDetails("+data.nodes[x].node.nid+")' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimg' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitle'>" + data.nodes[x].node.title + "</h1><p class='listviewitemseperator'>&nbsp;</p><p class='listviewitemdetails'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
             }
         }
-         
+        
+        $(".listviewitemtitle").dotdotdot();
         loading.endLoading();
         $(".slideshowimagenamediv h1").remove();
         $(".slideshowimagenamediv p").remove();
@@ -631,7 +635,6 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         intervalid=window.setInterval(function() {
         slideshow(data);
         },5000);
-          
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -756,6 +759,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             $(".scrollulPage2").append("<li class='scrollliPage2' onclick='viewProductDetails("+data.nodes[x].node.nid+");' id=featuredrow"+x+"><table style='height:100%; width:100%;'><tr><td style='width:20%'><img class='listviewimgPage2' src='" + data.nodes[x].node.image.src +"'></td><td><h1 class='listviewitemtitlePage2'>" + data.nodes[x].node.title+ "</h1><p class='listviewitemseperatorPage2'>&nbsp;</p><p class='listviewitemdetailsPage2'>" + data.nodes[x].node.description + "</p></td></tr></table></li>");
         }
         
+        $(".listviewitemtitlePage2").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -989,7 +993,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
         }   
-          
+        
+        $(".listviewitemtitleLVM").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -1035,7 +1040,9 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
-        }   
+        }  
+        
+        $(".listviewitemtitleLVM").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -1092,6 +1099,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
         }     
+        
+        $(".listviewitemtitleLVMPG2").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -1139,6 +1148,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
         }
+          
+        $(".listviewitemtitleLVMPG2").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -1448,7 +1459,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
                 $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data.results[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleRM'>"+data.results[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data.results[x].roles+"</p></td></tr></table></li>");
             }
         }            
-          
+        
+        $(".listviewitemtitleRM").dotdotdot(); 
         loading.endLoading();
                
       },
@@ -1587,7 +1599,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
                 $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data.results[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleRM'>"+data.results[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data.results[x].roles+"</p></td></tr></table></li>");
             }
         }            
-          
+        
+        $(".listviewitemtitleRM").dotdotdot();
         scLookfor=lookFor;
         scprokeyword=keyword;
         scinterest=interest;
@@ -1617,8 +1630,9 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
     var baseurl=data.item(0).BASEURL; 
     
     var requestUrl=baseurl+"drupalgap/mobileapp/bmRecentViewed.json?uid="+uid;
-//    alert(uid);
-//    alert(token);
+    alert(uid);
+    alert(token);
+    alert(dmzKey);
     $.ajax({
       url: requestUrl,
       method: "POST",
@@ -1632,7 +1646,6 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       debugger;
         
         var returnstr=JSON.stringify(data);
-        
 $(".scrollulLVM li").remove();
 
         for (var x = 0; x < data.length; x++) { 
@@ -1644,7 +1657,7 @@ $(".scrollulLVM li").remove();
             }
         } 
           
-        
+        $(".listviewitemtitleLVM").dotdotdot();
         loading.endLoading();
                   
       },
@@ -1833,7 +1846,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
                 $(".scrollulRM").append("<li class='scrollliRM' onclick='replyOnClick("+data.results[x].uid+")'><table class='listviewitemframeRM'><tr><td style='width:20%'><img class='listviewimgRM' src='img/buyer.png'></td><td><h1 class='listviewitemtitleRM'>"+data.results[x].name+"</h1><p class='listviewitemseperatorRM'>&nbsp;</p><p class='listviewitemdetailsRM'>"+data.results[x].roles+"</p></td></tr></table></li>");
             }
         }            
-         
+        
+        $(".listviewitemtitleRM").dotdotdot();
         scLookfor=lookFor;
         scservkeyword=keyword;
         scinterest=interest;
@@ -1952,6 +1966,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 //        });
         $("#pageString").val(pageString);
           
+        $(".inboxUnreadTitle").dotdotdot();
+        $(".inboxReadTitle").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){

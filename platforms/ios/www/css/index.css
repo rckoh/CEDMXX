@@ -553,15 +553,14 @@
     color: #df2d3c;
     background-color: transparent;
     font-weight: normal;
-    line-height: 4vw;
-    height: 4vw;
-    max-height: 4vw;
+    line-height: 4.5vw;
+    height: auto;
+    max-height: 9vw;
     font-family: "Roboto-Medium";
     font-size: 3.8vw;
     margin: 5px 0px 0px 10px;
     word-break: normal;
-    text-overflow:clip;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 .listviewitemdetails{
@@ -576,7 +575,6 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
-    
 }
 
 .listviewitemseperator{
@@ -656,14 +654,13 @@
     color: #df2d3c;
     background-color: transparent;
     font-weight: normal;
-    line-height: 4vw;
-    height: 4vw;
-    max-height: 4vw;
+    line-height: 4.5vw;
+    height: auto;
+    max-height: 9vw;
     font-family: "Roboto-Medium";
     font-size: 3.8vw;
     margin: 5px 0px 0px 10px;
     word-break: normal;
-    text-overflow:clip;
     overflow: hidden;
 
 }
@@ -763,14 +760,13 @@
     color: #df2d3c;
     background-color: transparent;
     font-weight: normal;
-    line-height: 4vw;
-    height: 4vw;
-    max-height: 4vw;
+    line-height: 4.5vw;
+    height: auto;
+    max-height: 9vw;
     font-family: "Roboto-Medium";
     font-size: 3.8vw;
     margin: 5px 0px 0px 10px;
     word-break: normal;
-    text-overflow:clip;
     overflow: hidden;
 }
 
