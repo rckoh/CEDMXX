@@ -1,21 +1,4 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
@@ -134,6 +117,389 @@ input:focus {
 }
 
 
+
+@media(min-width:320px){
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* Top Header Style*/
+.menuheader{
+    height: 6%;
+	width:100%;
+    background-color: #df2d3c;
+	position:absolute;
+	top:0px;
+}
+
+.menuheaderleft{
+    height: 100%;
+    width: 20%;
+}
+
+.menuheaderright{
+    position:absolute;
+    top:0;
+    right:0;
+    height:100%;
+    width:80%;
+    background-color: transparent;
+}
+
+.menubutton{
+    width: auto;
+    height: 100%;
+    background-color: transparent;
+}
+
+
+.buttonbg{
+    width: 15%;
+    height: 100%;
+    background-color: transparent;
+    border:none;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+}
+
+.pageTitileImgBG{
+    width: 10%;
+    height: 100%;
+    background-color: transparent;
+    border:none;
+    float: right;
+/*
+    right:75px;
+    top: 0px;
+*/
+/*    position: absolute;*/
+}
+
+.inboxBtn{
+/*    position: absolute;*/
+    width: 10%;
+    height: 100%;
+    background-color: transparent;
+    border:none;
+    float: right;
+    display: none;
+/*
+    right:110px;
+    top: 0px;
+*/
+    
+}
+
+.pageTitileImg{
+    width: auto;
+    height: 70%;
+    background-color: transparent;
+    position: relative;
+    vertical-align: middle;
+    
+}
+
+.inboxBtnImg{
+    width: auto;
+    height: 50%;
+    background-color: transparent;
+    position: relative;
+    vertical-align: middle;
+}
+
+.menubutton:active {
+    vertical-align: top;
+    padding: 1px 1px 1px;
+    border: none;
+}
+
+.pagetitle{
+    color: white;
+    width: auto;
+    height: 100%;
+    line-height: 100%;
+    background-color: transparent;
+    border:none;
+    right: 10px;
+    top: 0px;
+/*    position: absolute;*/
+    font-size: 4vw;
+    font-family: "Roboto-Thin";
+	text-align:right;
+    float: right;
+/*    margin-left: 10px;*/
+}
+
+.backBtn{
+    background-color: transparent;
+    border:none;
+    vertical-align: middle;
+    height: 40px;
+}
+
+.backBtnImg{
+    width: auto;
+    height: 100%;
+    background-color: transparent;
+}
+
+
+.badgeNumber{
+   position:relative;
+    float: right;
+   top:1vw;
+   right:-4vw;
+   font-size:2vw;
+   background:red;
+   color:white;
+   width:3vw;
+    height:3vw;
+   text-align:center;
+   line-height:3vw;
+   border-radius:50%;
+   box-shadow:0 0 1px #333;
+   border: 2px solid red;
+}
+/* Top Header Style end */
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* Loading Style */
+.loadingPage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 99;
+}
+
+.loadingFrame{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 14vw;
+    height: 14vw;
+    background-color: black;
+    border-radius: 10px;
+    margin: auto;
+    z-index: 99;
+}
+
+.loadingIcon{
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+/* Loading Style end */
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* change password*/
+
+.btnLogin{
+    background-color: transparent;
+    width: 100%;
+    font-size: 4vw;
+    border: none;
+    color: #6b6b6b;
+    font-family: "Roboto-Light";
+}
+    
+.changePwdDiv{
+    height:100%;
+    width: 100%;
+    position: relative;
+    top:0%;
+    background-color: lightgray;
+    width: 100%;
+    background: URL("../img/login.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    
+}
+
+
+.newPwd{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    height:5%;
+    top: 30%;
+    border-radius: 10px;
+    background-color: white;
+    color: #565656;
+    font-size: 3vw;
+    padding: 1vw;
+}
+
+.confirmPwd{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    height:5%;
+    top: 40%;
+    border-radius: 10px;
+    background-color: white;
+    color: #565656;
+    font-size: 3vw;
+    padding: 1vw;
+}
+
+.btnChangePwd{
+    position: absolute;
+/*    right: 3%;*/
+    border: none;
+    outline: 0;
+    height: 5%;
+    top: 53%;
+    width: auto;
+    background-color: transparent;
+/*    color: #df2d3c;*/
+    font-size: 3.5vw;
+    
+    right:20%;
+    width: 30%;
+    border: none;
+    color: #6b6b6b;
+    font-family: "Roboto-Light";
+}
+
+.btnChangePwdClose{
+    position: absolute;
+    left: 20%;
+    border: none;
+    outline: 0;
+    height: 5%;
+    top: 53%;
+    width: auto;
+    background-color: transparent;
+/*    color: #df2d3c;*/
+    font-size: 3.5vw;
+    width: 30%;
+    border: none;
+    color: #6b6b6b;
+    font-family: "Roboto-Light";
+}
+
+
+
+.changePwdLbl{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    height: 80%;
+    top: 20%;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #df2d3c;
+    resize: none;
+    min-height: 73%;
+    max-height: 73%;    
+    font-size: 4vw;
+    padding: 1vw;
+    box-sizing: border-box;
+}
+
+.changePwdFrame{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+/*    display: none;*/
+    background-color: transparent;
+    z-index: 89;
+}
+    
+.btnPwdSeperator{
+    position: absolute;
+    height: 5%;
+    top: 53%;
+    width: 2px;
+    background-color: transparent;
+    font-size: 4vw;
+    right:50%;
+    border: none;
+    color: #6b6b6b;
+    font-family: "Roboto-Light";
+    line-height: 100%;
+}
+    
+.btnPwdTopSeperator{
+    position: absolute;
+    top: 50%;
+    height: 10px;
+    width: 70%;
+    border-bottom: 2px solid #6B6B6B;
+    margin: 0px 0px 0px 15%;
+}
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/*result number*/
+
+.resultTitle{
+    position: absolute;
+    color: #818181;
+    font-size: 5vw;
+    font-family: "Roboto-Medium";
+	text-align:center;
+    width: 100%;
+    left: 0;
+}
+
+.resultnumber{
+    position: absolute;
+    color: #565656;
+    font-size: 3vw;
+    font-family: "Roboto-Medium";
+	text-align:right;
+    width: 100%;
+    left: 0;
+}
+
+.scrollliresult{
+    
+}
+
+
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------------*/
+/*retry service button*/
+.retryserviceBtn{
+    position: absolute;
+    top: 10vw;
+    width: 20%;
+    height: 8vw;
+    left: 40%;
+    font-size: 4vw;
+}
+}
+
+@media(min-width:600px){
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
@@ -336,9 +702,8 @@ input:focus {
     background-color: lightgray;
     width: 100%;
     background: URL("../img/login.jpg");
-    background-size: auto auto;
-    background-repeat: no repeat;
-    
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 
@@ -370,28 +735,38 @@ input:focus {
 
 .btnChangePwd{
     position: absolute;
-    right: 3%;
+/*    right: 3%;*/
     border: none;
     outline: 0;
     height: 5%;
-    top: 0;
+    top: 53%;
     width: auto;
     background-color: transparent;
-    color: #df2d3c;
+/*    color: #df2d3c;*/
     font-size: 3.5vw;
+    
+    right:20%;
+    width: 30%;
+    border: none;
+    color: #6b6b6b;
+    font-family: "Roboto-Light";
 }
 
 .btnChangePwdClose{
     position: absolute;
-    left: 3%;
+    left: 20%;
     border: none;
     outline: 0;
     height: 5%;
-    top: 0;
+    top: 53%;
     width: auto;
     background-color: transparent;
-    color: #df2d3c;
+/*    color: #df2d3c;*/
     font-size: 3.5vw;
+    width: 30%;
+    border: none;
+    color: #6b6b6b;
+    font-family: "Roboto-Light";
 }
 
 
@@ -424,6 +799,29 @@ input:focus {
     z-index: 89;
 }
 
+    
+.btnPwdSeperator{
+    position: absolute;
+    height: 5%;
+    top: 53%;
+    width: 2px;
+    background-color: transparent;
+    font-size: 4vw;
+    right:50%;
+    border: none;
+    color: #6b6b6b;
+    font-family: "Roboto-Light";
+    line-height: 100%;
+}
+    
+.btnPwdTopSeperator{
+    position: absolute;
+    top: 50%;
+    height: 10px;
+    width: 70%;
+    border-bottom: 2px solid #6B6B6B;
+    margin: 0px 0px 0px 15%;
+}    
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------------*/
@@ -470,5 +868,5 @@ input:focus {
     left: 40%;
     font-size: 4vw;
 }
-
+}
 

@@ -433,7 +433,6 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         var desc=(data.nodes[0].node.description=="")?"N/A":data.nodes[0].node.description;
         
         $(".scrollul li").remove();
-          
         $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><span class='description'>"+desc+"</span><p><br></p></li>");
         
         //if add onclick function to overwrite the anchor received from backend
@@ -1630,9 +1629,9 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
     var baseurl=data.item(0).BASEURL; 
     
     var requestUrl=baseurl+"drupalgap/mobileapp/bmRecentViewed.json?uid="+uid;
-    alert(uid);
-    alert(token);
-    alert(dmzKey);
+//    alert(uid);
+//    alert(token);
+//    alert(dmzKey);
     $.ajax({
       url: requestUrl,
       method: "POST",
@@ -2307,9 +2306,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 });
 }
 
-function getAboutUs(){  
+function getAboutUs(){ 
 loading.startLoading();
-    
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 

@@ -191,15 +191,17 @@
                 dbmanager.getProfile(function(returnData){
                     var roles=returnData.rows.item(0).role;
                     var rolearr=roles.split(",");
-                    if(jQuery.inArray("7",rolearr)==0 && jQuery.inArray("6",rolearr)==0){    
+                    if(jQuery.inArray("7",rolearr)==1 || jQuery.inArray("6",rolearr)==1){    
+                        
+                    }
+                    else{
                         $(".profilePicFrame").hide();
                         $("#lblUSername").hide();
                         $("#profileBG").hide();
                         $(".profileStatistic").hide();
-                        
-                        $(".subheaderblack").css("top", "0%");
-                        $(".pageone").css("height", "92%");
-                        
+                        $(".subheaderblack").hide();
+//                        $(".subheaderblack").css("top", "0%");
+                        $(".pageone").css("height", "100%");
                     }
                 });
                 

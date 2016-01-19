@@ -48,7 +48,8 @@ $(function(){
 //              }, 300, function(){$(".filterFrame").css("margin-left", "-100%");
 //        });
         
-		if(menuStatus != true){				
+		if(menuStatus != true){	
+            closefilter();
 			$(".menubg").animate({
                 marginLeft: "0px",}, 300, function() {
                     menuStatus = true; 
@@ -64,6 +65,18 @@ $(function(){
 			return false;
         }
 });
+    
+function closefilter(){
+
+    if (filtermenustatus==1) {
+        $(".filterFrame").animate({
+        marginLeft: "100%",
+        }, 300, function(){$(".filterFrame").css("margin-left", "-100%");});
+        filtermenustatus=0; 
+        return false;
+    }
+            
+}
     
 //	$("body").on("swipeleft", function(){
 //		if (menuStatus){	
@@ -145,16 +158,20 @@ function initchangePwd(){
     $(".menubg").animate({
 			marginLeft: "-70%",
 		  }, 300, function(){menuStatus = false;});
-              
+    
     $(".app").prepend("<div class='changePwdFrame'></div>");
     $(".changePwdFrame").prepend("<div class='changePwdDiv'></div>");
+//    $(".changePwdDiv").prepend("<div class='pwdActionFrame'></div>");
+    $(".changePwdDiv").prepend("<div class='btnPwdTopSeperator'>&nbsp;</div>");
     $(".changePwdDiv").append("<label class='changePwdLbl'>Change Password</label>");
     $(".changePwdDiv").append("<input class='newPwd' placeholder='New password' type='password'></input>");
     $(".changePwdDiv").append("<input class='confirmPwd' placeholder='Confirm password' type='password'></input>");
     $(".changePwdDiv").append("<button class='btnChangePwdClose' onclick='closeChangePwd()'>Close</button>");
+    $(".changePwdDiv").append("<button class='btnPwdSeperator'>|</button>");
     $(".changePwdDiv").append("<button class='btnChangePwd' onclick='changePwd()'>Submit</button>");
-                    
+//    $(".pwdActionFrame").append("<table style='width:100%'><tr style='width:100%'><td style='width:45%;'><button class='btnChangePwdClose' onclick='closeChangePwd();'>Close</button></td><td style='width:10%; text-align:center;' class='buttonSeperator'>|</td><td style='width:45%'><button class='btnChangePwd' onclick='changePwd();'>Submit</button></td></tr></table>");
 }
+
 
 function closeChangePwd(){
     $(".app .changePwdFrame").remove();

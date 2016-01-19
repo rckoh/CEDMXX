@@ -2,7 +2,6 @@
 //----------------------------------------------------------
 //----------------------------------------------------------
 //init filter menu
-
 var filterListing = {
     initListingFilter:function(){
         $("#filterItem").prepend("<div id='productfilter' class='productFilter'></div>");
@@ -28,7 +27,6 @@ var filterListing = {
         $("#servicefilter").append("<p><select id='filterServiceSubCategory'><option value=''></option></select></p>");
         $("#servicefilter").append("<h1>&nbsp;</h1>");
         $("#servicefilter").append("<button onclick='serviceSearchResult();'>SEARCH</button>");
-
     },
 
 }
@@ -61,7 +59,7 @@ $(function(){
 		$(".filterFrame").animate({
 			marginLeft: "0%",
 		  }, 300, function(){});
-              
+        filtermenustatus=1;      
         return false;
 	});
     
@@ -69,7 +67,7 @@ $(function(){
 		$(".filterFrame").animate({
 			marginLeft: "100%",
 		  }, 300, function(){$(".filterFrame").css("margin-left", "-100%");});
-               
+        filtermenustatus=0;       
         return false;
 	});
 });

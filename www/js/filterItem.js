@@ -2,10 +2,8 @@
 //----------------------------------------------------------
 //----------------------------------------------------------
 //init filter menu
-
 var filterItem = {
     initItemFilter:function(){
-        
         $("#filterItem").prepend("<div id='productfilter' class='productFilter'></div>");
         $("#productfilter").append("<h1>Looking for</h1>");
         $("#productfilter").append("<p><select id='filterProductLoookFor'></select></p>");        
@@ -72,7 +70,7 @@ $(function(){
 		$(".filterFrame").animate({
 			marginLeft: "0%",
 		  }, 300, function(){});
-              
+        filtermenustatus=1;  
         return false;
 	});
     
@@ -80,7 +78,7 @@ $(function(){
 		$(".filterFrame").animate({
 			marginLeft: "100%",
 		  }, 300, function(){$(".filterFrame").css("margin-left", "-100%");});
-               
+        filtermenustatus=0;
         return false;
 	});
 
