@@ -131,7 +131,7 @@
 }
 
 
-.scrollli h1{
+.scrollli .scrolllih1{
     font-family: "Roboto-Regular";
     font-size: 4vw;
     line-height: 4.5vw;
@@ -141,6 +141,7 @@
     height: auto;
 }
 
+/*
 .scrollli h2{
     font-family: "Roboto-Regular";
     font-size: 4vw;
@@ -149,6 +150,7 @@
     background-color: white;
     height: 30px;
 }
+*/
 
 .scrollli p{
     background-color: white;
@@ -189,7 +191,7 @@
     text-align: justify;
     color: #565656;
 /*    line-height: 4vw;*/
-    margin-top: 30px;
+/*    margin-top: 30px;*/
 }
 
 .h2seperator{
@@ -338,7 +340,7 @@
 }
 
 
-.scrollli h1{
+.scrollli .scrolllih1{
     font-family: "Roboto-Regular";
     font-size: 5vw;
     color: #df2d3c;
@@ -347,6 +349,7 @@
     height: auto;
 }
 
+/*
 .scrollli h2{
     font-family: "Roboto-Regular";
     font-size: 4vw;
@@ -355,6 +358,7 @@
     background-color: white;
     height: 30px;
 }
+*/
 
 .scrollli p{
     background-color: white;
@@ -394,8 +398,8 @@
 /*    font-size: 3.5vw;*/
     text-align: justify;
     color: #565656;
-    line-height: auto;
-    margin-top: 30px;
+/*    line-height: auto;*/
+/*    margin-top: 30px;*/
 }
 
 .h2seperator{

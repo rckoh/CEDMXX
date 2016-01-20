@@ -148,10 +148,12 @@ function sharetoFV()
             
 function sharetoFVnormal(){
     var imageUrl=document.getElementById("productImg").src;
-//    imageUrl=imageUrl.replace();
+    var newurl = imageUrl.split("?");
+    var title=$("#companyName").text();
     var productDetails=$('#productdetails').text();
-    
-    window.plugins.socialsharing.share(productDetails, null, imageUrl, '');    
+    var websiteLink="";
+
+    window.plugins.socialsharing.share(productDetails, title, newurl[0], websiteLink);    
 }
             
 function sharetoFVios(){

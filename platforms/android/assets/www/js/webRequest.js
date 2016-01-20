@@ -321,7 +321,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
           var returnstr=JSON.stringify(data);
-          
+
         for (var x = 0; x < data.nodes.length; x++) {
             var title=data.nodes[x].node.title;
             
@@ -362,14 +362,13 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             var gallery=data.nodes[x].node.gallery;
             var scategory=(data.nodes[x].node.service_category=="" || data.nodes[x].node.service_category==null)?"N/A":data.nodes[x].node.service_category;
             var ssubcat=(data.nodes[x].node.service_sub_category=="" || data.nodes[x].node.service_sub_category==null)?"N/A":data.nodes[x].node.service_sub_category;
-            
             $(".scrollul li").remove();
-            
+           
             if(data.nodes[x].node.type=="Product"){
-                $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+ imageUrl +"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><span class='description' id='productdetails'>"+ desc +"</span><p class='seperator'>&nbsp;</p><h2>Unique Selling Point</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+unidsellingpoint+"</span><br><h2>Customer References</h2><p class='h2seperator'>&nbsp;</p><span class='description'>" +custRef+"</span><h2>Brochures</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+brochure+"</span><br><h2>Tags</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+tags+"</span><br><h2>Technology Area</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+techarea+"</span><br><h2>Platforms</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+platform+"</span><br><h2>Product Requirement</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+prequirement+"</span><br><h2>Market</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+market+" </span><br><h2>Industry</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+industry+"</span><br><h2>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
+                $(".scrollul").append("<li class='scrollli'><h1 class='scrolllih1' id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+ imageUrl +"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><span class='description' id='productdetails'>"+ desc +"</span><p class='seperator'>&nbsp;</p><h2 class='scrolllih2'>Unique Selling Point</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+unidsellingpoint+"</span><br><h2 class='scrolllih2'>Customer References</h2><p class='h2seperator'>&nbsp;</p><span class='description'>" +custRef+"</span><h2  class='scrolllih2'>Brochures</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+brochure+"</span><br><h2 class='scrolllih2'>Tags</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+tags+"</span><br><h2 class='scrolllih2'>Technology Area</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+techarea+"</span><br><h2 class='scrolllih2'>Platforms</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+platform+"</span><br><h2 class='scrolllih2'>Product Requirement</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+prequirement+"</span><br><h2 class='scrolllih2'>Market</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+market+" </span><br><h2 class='scrolllih2'>Industry</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+industry+"</span><br><h2 class='scrolllih2'>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
             }
             else if(data.nodes[x].node.type=="Service"){
-                $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><span class='description' id='productdetails'>"+desc+"</span><p class='seperator'>&nbsp;</p><h2>Customer References</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+custRef+"</span><br><h2>Brochures</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+brochure+"</span><br><h2>Tags</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+tags+"</span><br><h2>Platforms</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+platform+"</span><br><h2>Service Requirement</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+srequirement+"</span><br><h2>Market</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+market+"</span><br><h2>Service Category</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+scategory+"</span><br><h2>Service Sub Category</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+ssubcat+"</span><br><h2>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
+                $(".scrollul").append("<li class='scrollli'><h1 class='scrolllih1' id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><span class='description' id='productdetails'>"+desc+"</span><p class='seperator'>&nbsp;</p><h2 class='scrolllih2'>Customer References</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+custRef+"</span><br><h2 class='scrolllih2'>Brochures</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+brochure+"</span><br><h2 class='scrolllih2'>Tags</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+tags+"</span><br><h2 class='scrolllih2'>Platforms</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+platform+"</span><br><h2 class='scrolllih2'>Service Requirement</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+srequirement+"</span><br><h2 class='scrolllih2'>Market</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+market+"</span><br><h2 class='scrolllih2'>Service Category</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+scategory+"</span><br><h2 class='scrolllih2'>Service Sub Category</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+ssubcat+"</span><br><h2 class='scrolllih2'>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
             }
             
 //            <img id='galleryImg' src='"+data.nodes[x].node.gallery+"'/>
@@ -431,9 +430,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         title=$(title).text();
         var imageUrl=data.nodes[0].node.background.src;
         var desc=(data.nodes[0].node.description=="")?"N/A":data.nodes[0].node.description;
-        
         $(".scrollul li").remove();
-        $(".scrollul").append("<li class='scrollli'><h1 id='companyName'>"+title+"</h1><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><span class='description'>"+desc+"</span><p><br></p></li>");
+        $(".scrollul").append("<li class='scrollli'><h1 class='scrolllih1' id='companyName'>"+title+"</h1><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><span class='description'>"+desc+"</span><p><br></p></li>");
         
         //if add onclick function to overwrite the anchor received from backend
         $("a").click(function() {
@@ -476,6 +474,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
           var returnstr=JSON.stringify(data);
+          
           var title=data.nodes[0].node.title;
           var imageUrl=data.nodes[0].node.image.src;
           var desc=data.nodes[0].node.description;
@@ -483,7 +482,6 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           var holdwebsiteurl=data.nodes[0].node.brochures;
           var holdwebsiteurlstr='"'+jQuery.trim($(holdwebsiteurl).text())+'"';
           var wesiteUrl=(data.nodes[0].node.website_url=="")?"N/A":"<a class='brouchurelink' href='#' onClick='cordovaOpenLink("+holdwebsiteurlstr+")'>"+$(holdwebsiteurl).text()+"</a>";
-          
           var requirement=(data.nodes[0].node.requirement=="")?"N/A":data.nodes[0].node.requirement;
           var awards=(data.nodes[0].node.award=="")?"N/A":data.nodes[0].node.award;
            $("#scrollul li").remove();  
@@ -1788,14 +1786,14 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             var displayname=data.servCategoryData.sub_category[x].sub.display_name;
             
             if(scServiceSubCat==''){
-                $("#serviceSubCatDiv").append("<h1><input type='checkbox' name='filterServiceSubCat' value='"+optionValue+"' class='check_box' id='chb"+x+"'><label for='chb"+x+"'>"+displayname+"</label><br></h1>"); 
+                $("#serviceSubCatDiv").append("<h1><input type='checkbox' name='filterServiceSubCat' value='"+optionValue+"' class='check_box' id='chb"+x+"'><label for='chb"+x+"'>"+displayname+"</label><br></h1><br>"); 
             }
             else{
                 var arrscServiceSubCat=scServiceSubCat.split('|');
                 if(jQuery.inArray(optionValue, arrscServiceSubCat)==-1)
-                    $("#serviceSubCatDiv").append("<h1><input type='checkbox' name='filterServiceSubCat' value='"+optionValue+"' class='check_box' id='chb"+x+"'><label for='chb"+x+"'>"+displayname+"</label><br></h1>"); 
+                    $("#serviceSubCatDiv").append("<h1><input type='checkbox' name='filterServiceSubCat' value='"+optionValue+"' class='check_box' id='chb"+x+"'><label for='chb"+x+"'>"+displayname+"</label><br></h1><br>"); 
                 else
-                    $("#serviceSubCatDiv").append("<h1><input type='checkbox' name='filterServiceSubCat' value='"+optionValue+"' class='check_box' id='chb"+x+"' checked><label for='chb"+x+"'>"+displayname+"</label><br></h1>"); 
+                    $("#serviceSubCatDiv").append("<h1><input type='checkbox' name='filterServiceSubCat' value='"+optionValue+"' class='check_box' id='chb"+x+"' checked><label for='chb"+x+"'>"+displayname+"</label><br></h1><br>"); 
             }
             
         }
