@@ -1780,6 +1780,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 //        alert(returnstr);
 
         $("#serviceSubCatDiv h1").remove();
+        $("#serviceSubCatDiv br").remove();
           
         for(var x=0; x<data.servCategoryData.sub_category.length; x++){     
             var optionValue=data.servCategoryData.sub_category[x].sub.value;

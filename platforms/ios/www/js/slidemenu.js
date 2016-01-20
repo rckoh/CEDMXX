@@ -153,7 +153,8 @@ function logoutOnclick(){
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
 //change password onclick
-
+var changepasswordOpened=0;
+var keyevenadded=0;
 function initchangePwd(){
     $(".menubg").animate({
 			marginLeft: "-70%",
@@ -169,12 +170,31 @@ function initchangePwd(){
     $(".changePwdDiv").append("<button class='btnChangePwdClose' onclick='closeChangePwd()'>Close</button>");
     $(".changePwdDiv").append("<button class='btnPwdSeperator'>|</button>");
     $(".changePwdDiv").append("<button class='btnChangePwd' onclick='changePwd()'>Submit</button>");
+    changepasswordOpened=1;
+    
+    if(keyevenadded==0){
+        $(document).keypress(function(e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+            if ( (code==13) || (code==10))
+            {
+                if(changepasswordOpened==1){
+                    $(".newPwd").blur();
+                    $(".confirmPwd").blur();
+                    changePwd();
+                }
+            }
+        });
+        keyevenadded=1;
+    }
+    
 //    $(".pwdActionFrame").append("<table style='width:100%'><tr style='width:100%'><td style='width:45%;'><button class='btnChangePwdClose' onclick='closeChangePwd();'>Close</button></td><td style='width:10%; text-align:center;' class='buttonSeperator'>|</td><td style='width:45%'><button class='btnChangePwd' onclick='changePwd();'>Submit</button></td></tr></table>");
 }
 
 
 function closeChangePwd(){
     $(".app .changePwdFrame").remove();
+    changepasswordOpened=0;
+    $(document).off("keypress", function(){});
 }
 
 function changePwd(){
