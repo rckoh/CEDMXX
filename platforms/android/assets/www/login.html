@@ -100,7 +100,7 @@
                     <div class="btnForgetPwdTopSeperator">
                     </div>
                     <button class='btnForgetPwdClose' onclick='forgetPwdOnClick();'>Close</button>
-                    <button class='btnForgetPwdSeperator' onclick='forgetPwdOnClick();'>|</button>
+                    <button class='btnForgetPwdSeperator'>|</button>
                     <button class='btnForgetPwd' onclick='forgetPwd();'>Forget Password</button>
                 </div>
             </div>
@@ -110,13 +110,32 @@
             app.initialize();
             dbmanager.initdb();
             $(document).ready(function(){
-                $(document).keypress(function(e) {
+                $("#username").keypress(function(e) {
                     var code = (e.keyCode ? e.keyCode : e.which);
                     if ( (code==13) || (code==10))
                         {
                             $("#username").blur();
                             $("#password").blur();
                             login();
+                        }
+                });
+                
+                $("#password").keypress(function(e) {
+                    var code = (e.keyCode ? e.keyCode : e.which);
+                    if ( (code==13) || (code==10))
+                        {
+                            $("#username").blur();
+                            $("#password").blur();
+                            login();
+                        }
+                });
+                
+                $(".keyTxt").keypress(function(e) {
+                    var code = (e.keyCode ? e.keyCode : e.which);
+                    if ( (code==13) || (code==10))
+                        {
+                            $(".keyTxt").blur();
+                            forgetPwd();
                         }
                 });
 //                $(".appLogo").load(function(){

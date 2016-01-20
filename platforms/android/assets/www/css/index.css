@@ -578,6 +578,8 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    word-break:keep-all;
+    white-space: pre-wrap;
 }
 
 .listviewitemseperator{
@@ -682,6 +684,8 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    word-break:keep-all;
+    white-space: pre-wrap;
 
     
 }
@@ -789,6 +793,8 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    word-break:keep-all;
+    white-space: pre-wrap;
 
 }
 
@@ -1419,6 +1425,8 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    word-break:keep-all;
+    white-space: pre-wrap;
 }
 
 .listviewitemseperator{
@@ -1523,6 +1531,8 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    word-break:keep-all;
+    white-space: pre-wrap;
 
     
 }
@@ -1630,6 +1640,8 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    word-break:keep-all;
+    white-space: pre-wrap;
 
 }
 
