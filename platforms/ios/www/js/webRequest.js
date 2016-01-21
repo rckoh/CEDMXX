@@ -41,7 +41,6 @@ function getDMZKey(){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-        //alert("fail get dmz key");  
       }
     })
 }
@@ -71,11 +70,11 @@ function storeDMZKey(dmzKey, baseurl){
 }
 
 function successStoreDMZKey(){
-    //alert("success get fmz key");
+    
 }
 
 function erroStoreDMZKey(err){
-    //alert("fail get fmz key");
+    
 }
 
 function getFeaturedList(){
@@ -132,7 +131,7 @@ var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
     var baseurl=data.item(0).BASEURL; 
-    //alert("webrequst"+dmzKey+baseurl);
+    
     var requestUrl=baseurl+"drupalgap/getlatestpost";
     
     $.ajax({
@@ -177,7 +176,7 @@ var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
     var baseurl=data.item(0).BASEURL; 
-    //alert("webrequst");
+    
     var requestUrl=baseurl+"drupalgap/getannouncement";
     
     $.ajax({
@@ -329,7 +328,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
                 title=jQuery.trim($(title).text());        
             }
             catch(ex){
-               // alert("fail title");
+               
             }
             
             if(title=='')
@@ -425,7 +424,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
-        //alert(JSON.stringify(data));
+        
         var title=data.nodes[0].node.title;
         title=$(title).text();
         var imageUrl=data.nodes[0].node.background.src;
@@ -561,7 +560,7 @@ var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY; 
     var baseurl=data.item(0).BASEURL; 
-     //alert("webrequst");
+     
     var requestUrl=baseurl+"drupalgap/getannouncement/"+nid;
     
     $.ajax({
@@ -825,7 +824,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);
+
           
         var uid=data.user.uid;
         var name=data.user.name;
@@ -893,13 +892,13 @@ function storeProfile(uid, companyid, name, email, profileimg, role, token) {
 }
 
 function errorLogin(err){
-//    alert('Error insert: '+err.message);
+
     navigator.notification.alert("Login failed.", function(){}, "MDeC eSolution", "Ok");
     loading.endLoading();
 }
 
 function successLogin(){
-//    alert('insert success');
+
     loading.endLoading();
     window.location="index.html";
 }
@@ -1032,7 +1031,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
-//        alert(JSON.stringify(data))
+
         $(".scrollulLVM li").remove();
         
         $(".scrollulLVM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");
@@ -1339,7 +1338,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-        //alert(returnstr);
+        
         
         $.each(data.rolesData, function(key, value){
             if(value.role.selected=='true'){
@@ -1403,19 +1402,12 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
                 });
             }
         }
-        
-//        alert(scprokeyword);
-//        alert(scLookfor);
-//        alert(scinterest);
-//        alert(scTechArea);
-//        alert(scIndustryArea);
-//        alert(scServiceCat);
-//        alert(scServiceSubCat);
+
                   
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          //alert("unable connect to server");
+          
           //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
         }
     })
@@ -1445,7 +1437,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-//          alert(returnstr);
+
         $(".scrollulRM li").remove();
 
         $(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
@@ -1585,7 +1577,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-//          alert(returnstr);
+
         $(".scrollulRM li").remove();
 
         $(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
@@ -1629,9 +1621,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
     var baseurl=data.item(0).BASEURL; 
     
     var requestUrl=baseurl+"drupalgap/mobileapp/bmRecentViewed.json?uid="+uid;
-//    alert(uid);
-//    alert(token);
-//    alert(dmzKey);
+
     $.ajax({
       url: requestUrl,
       method: "POST",
@@ -1692,7 +1682,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);
+
 
         $("#filterServiceLookFor option").remove();
         $("#filterServiceInterest option").remove();
@@ -1779,7 +1769,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);
+
 
         $("#serviceSubCatDiv h1").remove();
         $("#serviceSubCatDiv br").remove();
@@ -1833,7 +1823,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-//          alert(returnstr);
+
         $(".scrollulRM li").remove();
 
         $(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
@@ -1886,7 +1876,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);
+
 
         $(".inboxBtn label").remove();
         if(data.new_message_count>0)
@@ -2098,7 +2088,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);    
+   
         if(data.success==true){
             postInboxMessageContent(token, uid, "3", mid);
             navigator.notification.alert("Message sent.", function(){}, "MDeC eSolution", "Ok");
@@ -2138,7 +2128,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-//        alert(returnstr);    
+   
         if(data.success==true){
             navigator.notification.alert("Message sent.", function(){}, "MDeC eSolution", "Ok");
             loading.endLoading();
@@ -2179,8 +2169,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-//        alert("returnstr:"+returnstr);  
-//        alert("flag:"+flag);  
+
         if(flag=="1"){
             if(data=="true")
                 $("#shareImg").attr("src", "img/fav-ed.png");
@@ -2295,13 +2284,12 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
       debugger;
-//        var returnstr=JSON.stringify(data);
-//        alert(returnstr);
+
           
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-//          alert("regid: Unable connect to server.");      
+   
         }
     })
 });
@@ -2327,8 +2315,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-//        alert(JSON.stringify(data));   
-//        alert(data.nodes[0].node.description);
+
         
         var content=data.nodes[0].node.description;
         content=content.replace("About eSolutions","");
@@ -2344,7 +2331,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 
           $("#aboutContent").append("<button class='retryserviceBtn' onclick='getAboutUs();'>Retry</button>");
           loading.endLoading();
-//          alert("Unable connect to server.");      
+    
         }
     })
 });    
