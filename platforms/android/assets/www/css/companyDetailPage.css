@@ -887,7 +887,7 @@
     height: 100%;
     display: inline-block;
     vertical-align: top;
-    line-height: 100%;
+    line-height: 4vw;
     color: #565656;
     font-family: "Roboto-Regular";
     font-size: 3.5vw;

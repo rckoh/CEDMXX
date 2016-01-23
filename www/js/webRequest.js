@@ -243,7 +243,11 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           
         if(data.view.count>0)  
         {
-            $(".scrollul").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+			if(data.view.count<2)
+				$(".scrollul").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" result&nbsp;</span><br></li>");
+			else
+				$(".scrollul").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+            
             
             for (var x = 0; x < data.nodes.length; x++) {
                 if(data.nodes[x].node.type=="Product")
@@ -473,7 +477,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
           var returnstr=JSON.stringify(data);
-          
+         
           var title=data.nodes[0].node.title;
           var imageUrl=data.nodes[0].node.image.src;
           var desc=data.nodes[0].node.description;
@@ -485,7 +489,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           var awards=(data.nodes[0].node.award=="")?"N/A":data.nodes[0].node.award;
            $("#scrollul li").remove();  
           $(".scrollul").append(
-            "<li class='scrollli'><br><p class='lipclass'><img id='productImg' src='"+imageUrl+"'/></p><p class='lineseperator'>&nbsp;</p><h1 id='companyName' class='lih1class'>"+title+"</h1><p class='description' id='productdetails'> "+desc+"<br><table class='companyInfo'><tr><td><span>Address</span></td><td><span>:</span></td><td><span>"+address+"</span> </td></tr><tr><td><span>Website URL</span></td><td><span>:</span></td><td><span>"+wesiteUrl+"</span> </td></tr></table></p><p class='seperator'>&nbsp;</p><p class='description'><span class='buttonSpan'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></span><table class='companyStatistic'><tr><td>Views</td><td>:</td><td>0</td></tr><tr><td>Shares</td><td>:</td><td>0</td></tr><tr><td>Favourites</td><td>:</td><td>0</td></tr></table></p><p class='seperator'>&nbsp;</p><br><div class='companyDetails'><div class='requirement'><button class='requirementBtn' onclick='changepage(1);'>Company Requirement</button></div><div class='awards'><button class='awardsBtn' onclick='changepage(2);'>Company Awards</button></div><div class='selectedItem'>&nbsp;</div><div class='companyDetailsDescriptionOne'>"+requirement+"</div><div class='companyDetailsDescriptionTwo'>"+awards+"</div></div><br><h2 class='lih2class'>Products and Services</h2><ul class='scrollul' id='scrollulProdServ'></ul></li>"
+            "<li class='scrollli'><br><p class='lipclass'><img id='productImg' src='"+imageUrl+"'/></p><p class='lineseperator'>&nbsp;</p><h1 id='companyName' class='lih1class'>"+title+"</h1><p class='description' id='productdetails'> "+desc+"<br><table class='companyInfo'><tr><td><span>Address</span></td><td><span>:</span></td><td><span>"+address+"</span> </td></tr><tr><td><span>Website URL</span></td><td><span>:</span></td><td><span>"+wesiteUrl+"</span> </td></tr></table></p><p class='seperator'>&nbsp;</p><p class='description'><span class='buttonSpan'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></span><table class='companyStatistic'><tr><td>Views</td><td>:</td><td><label id='sstView'>0</label></td></tr><tr><td>Shares</td><td>:</td><td><label id='sstShare'>0</label></td></tr><tr><td>Favourites</td><td>:</td><td><label id='sstFav'>0</label></td></tr></table></p><p class='seperator'>&nbsp;</p><br><div class='companyDetails'><div class='requirement'><button class='requirementBtn' onclick='changepage(1);'>Company Requirement</button></div><div class='awards'><button class='awardsBtn' onclick='changepage(2);'>Company Awards</button></div><div class='selectedItem'>&nbsp;</div><div class='companyDetailsDescriptionOne'>"+requirement+"</div><div class='companyDetailsDescriptionTwo'>"+awards+"</div></div><br><h2 class='lih2class'>Products and Services</h2><ul class='scrollul' id='scrollulProdServ'></ul></li>"
           );
           
           
@@ -504,6 +508,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           });
           
           getCompanyProdServList(nid);
+		  postCompanySST(nid);
           loading.endLoading();
           
           
@@ -522,6 +527,44 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 });    
 }
 
+
+function postCompanySST(companyid){
+var getDMZKeyFromDbProcess=getDMZKeyFromDB();
+$.when(getDMZKeyFromDbProcess).done(function(data){
+    var dmzKey=data.item(0).DMZKEY;
+    var baseurl=data.item(0).BASEURL; 
+
+    var requestUrl=baseurl+"drupalgap/mobileapp/companyprofile.json?nid="+companyid;
+    
+    $.ajax({
+      url: requestUrl,
+      type: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token":"",
+        "Mobile-Api-Key":dmzKey
+      },
+      timeout: apiTimeout,    
+      success: function(data, status, xhr) {
+        debugger;
+        var newJsonObj=$.parseJSON(data);
+  
+        var numberofview=newJsonObj.total_view;
+        var numberoffav=newJsonObj.total_favourite;
+        var numberofshare=newJsonObj.total_share;
+
+        $("#sstView").text(numberofview);
+        $("#sstFav").text(numberoffav);
+        $("#sstShare").text(numberofshare);
+      },
+      error:function (xhr, ajaxOptions, thrownError){
+        debugger;
+          //navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+        }
+    })
+});	
+
+}
 
 function getCompanyProdServList(companyid){
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
@@ -611,8 +654,10 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;   
         $(".scrollul li").remove();
-
-        $(".scrollul").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+		if(data.view.count<2)
+			$(".scrollul").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" result&nbsp;</span><br></li>");
+		else
+			$(".scrollul").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
           
         for (var x = 0; x < data.nodes.length; x++) {    
             if(data.nodes[x].node.type=="Product" || data.nodes[x].node.type=="Service"){
@@ -985,8 +1030,10 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         debugger;
     
         $(".scrollulLVM li").remove();
-        
-        $(".scrollulLVM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");
+        if(data.view[0].count<2)
+			$(".scrollulLVM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" result&nbsp;</span><br></li>");
+		else
+			$(".scrollulLVM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
@@ -1033,8 +1080,10 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         debugger;
 
         $(".scrollulLVM li").remove();
-        
-        $(".scrollulLVM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");
+        if(data.view[0].count<2)
+			$(".scrollulLVM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" result&nbsp;</span><br></li>");
+		else
+			$(".scrollulLVM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVM").append("<li class='scrollliLVM' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVM'><tr><td style='width:20%'><img class='listviewimgLVM' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVM'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVM'>&nbsp;</p><p class='listviewitemdetailsLVM'>"+data.results[x].result.description+"</p></td></tr></table></li>");
@@ -1091,8 +1140,12 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
         $(".scrollulLVMPG2 li").remove();
-          
-        $(".scrollulLVMPG2").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");  
+         
+		if(data.view[0].count<2)
+			$(".scrollulLVMPG2").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" result&nbsp;</span><br></li>");  
+		else
+			$(".scrollulLVMPG2").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");  
+        
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
                     $(".scrollulLVMPG2").append("<li class='scrollliLVMPG2' onclick='viewProductDetails("+data.results[x].result.nid+")'><table class='listviewitemframeLVMPG2'><tr><td style='width:20%'><img class='listviewimgLVMPG2' src='"+data.results[x].result.image+"'></td><td><h1 class='listviewitemtitleLVMPG2'>"+data.results[x].result.title+"</h1><p class='listviewitemseperatorLVMPG2'>&nbsp;</p><p class='listviewitemdetailsLVMPG2'>"+data.results[x].result.description+"</p></td></tr></table></li>");
@@ -1139,8 +1192,11 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
         debugger;
         $(".scrollulLVMPG2 li").remove();
-          
-        $(".scrollulLVMPG2").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");
+
+		if(data.view[0].count<2)
+			$(".scrollulLVMPG2").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" result&nbsp;</span><br></li>");
+		else
+			$(".scrollulLVMPG2").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view[0].count)+" results&nbsp;</span><br></li>");
           
         //for (var x = 0; x < data.results.length; x++) { 
         for (var x = 0; x < data.results.length; x++) { 
@@ -1439,8 +1495,11 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         var returnstr=JSON.stringify(data);
 
         $(".scrollulRM li").remove();
-
-        $(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+		
+		if(data.view.count<2)
+			$(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" result&nbsp;</span><br></li>");
+		else
+			$(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
           
         for (var x = 0; x < data.results.length; x++) { 
             if(data.results[x].type=="product" || data.results[x].type=="service"){
@@ -1579,8 +1638,10 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         var returnstr=JSON.stringify(data);
 
         $(".scrollulRM li").remove();
-
-        $(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+		if(data.view.count<2)
+			$(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" result&nbsp;</span><br></li>");
+		else
+			$(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
           
         for (var x = 0; x < data.results.length; x++) { 
             if(data.results[x].type=="product" || data.results[x].type=="service"){
@@ -1826,7 +1887,10 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 
         $(".scrollulRM li").remove();
 
-        $(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+		if(data.view.count<2)
+			$(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" result&nbsp;</span><br></li>");
+		else
+			$(".scrollulRM").append("<li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
           
         for (var x = 0; x < data.results.length; x++) { 
             if(data.results[x].type=="product" || data.results[x].type=="service"){
@@ -1921,7 +1985,10 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         
         $(".scrollul li").remove();
         
-        $(".scrollul").append("<li class='scrollliresult'><br><span class='resultTitle'><u>Messages</u>&nbsp;</span><br></li><li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
+		if(data.view.count<2)
+			$(".scrollul").append("<li class='scrollliresult'><br><span class='resultTitle'><u>Messages</u>&nbsp;</span><br></li><li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" result&nbsp;</span><br></li>");
+		else
+			$(".scrollul").append("<li class='scrollliresult'><br><span class='resultTitle'><u>Messages</u>&nbsp;</span><br></li><li class='scrollliresult'><br><span class='resultnumber'>"+addCommas(data.view.count)+" results&nbsp;</span><br></li>");
           
         for (var x = 0; x < data.lists.length; x++) { 
             var participant="";

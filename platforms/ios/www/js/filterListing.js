@@ -38,7 +38,11 @@ var filterListing = {
 $(function(){
     
 	$("#filterBtn").click(function(){
-        
+        if(menuStatus == true){	
+            $(".menubg").animate({
+			marginLeft: "-70%",
+		  }, 300, function(){menuStatus = false;});
+		 } 
         
         if(currentpage==1){
             $(".filterHeader").html("");

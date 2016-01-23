@@ -89,7 +89,7 @@
 
 .listviewimg{
 /*    line-height: px;*/
-    width: 100px;
+    width: 25vw;
     height: auto;
 /*    border: 1px solid black;*/
     display: block;
@@ -275,7 +275,7 @@
 
 .listviewimg{
 /*    line-height: px;*/
-    width: 100px;
+    width: 25vw;
     height: auto;
 /*    border: 1px solid black;*/
     display: block;

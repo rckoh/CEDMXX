@@ -65,7 +65,7 @@
     left: 4%;
     height: auto;
     width: 92%;
-    border-top: 1px dotted #df2d3c;
+/*     border-top: 1px dotted #df2d3c; */
 }
 
 .filterItem h1{
@@ -189,13 +189,20 @@
     top: 10px;
     right: 10px;
     height: 30px;
-    width: auto;
+    width: 30px;
     background-color: transparent;
 }
 
 .closeButton{
     border: none;
     background-color: transparent;
+		height:100%;
+	width:100%;
+}
+
+.closeButton img{
+	height:80%;
+	width:auto;
 }
 
 .filterItem{    
@@ -204,7 +211,7 @@
     left: 4%;
     height: auto;
     width: 92%;
-    border-top: 1px dotted #df2d3c;
+    /* border-top: 1px dotted #df2d3c; */
 }
 
 .filterItem h1{
