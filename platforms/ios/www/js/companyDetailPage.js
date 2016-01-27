@@ -153,7 +153,7 @@ function sharetoFVnormal(){
     var productDetails=$('#productdetails').text();
     var websiteLink="http://netinfinium.publicvm.com:86/content/event-penguins";
 
-    window.plugins.socialsharing.share(null, null, null, websiteLink);    
+    window.plugins.socialsharing.share(productDetails, null, null, websiteLink);    
 }
             
 function sharetoFVios(){
