@@ -200,12 +200,16 @@
 
 .description{
     font-family: "Roboto-Regular";
-    font-size: 3.5vw;
+    font-size: 4vw;
     text-align: justify;
     color: #565656;
-    line-height: 4vw;
-    margin-top: 30px;
+    line-height: 5.5vw;
+    margin-top: 10px;
 }
+    
+.description ul{
+    margin-top: 10px;
+}   
 
     
 .h2seperator{
@@ -566,13 +570,17 @@
 
 .description{
     font-family: "Roboto-Regular";
-    font-size: 3.5vw;
+    font-size: 4vw;
     text-align: justify;
     color: #565656;
-    line-height: 4vw;
-   margin-top: 30px;
+    line-height: 5.5vw;
+    margin-top: 10px;
 }
 
+.description ul{
+    margin-top: 10px;
+}   
+    
 .h2seperator{
     border-bottom: 1px solid #df2d3c;
     width: 30px;

@@ -274,6 +274,15 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+    -ms-word-break:break-all;
+    word-break:break-all;
+    word-break:break-word;
+    -ms-hyphens:auto;
+    -moz-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens: auto;
 }
 
 .listviewitemseperatorLVM{
@@ -410,6 +419,15 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+    -ms-word-break:break-all;
+    word-break:break-all;
+    word-break:break-word;
+    -ms-hyphens:auto;
+    -moz-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens: auto;
 }
 
 .listviewitemseperatorRM{
@@ -536,7 +554,15 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
-    
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+    -ms-word-break:break-all;
+    word-break:break-all;
+    word-break:break-word;
+    -ms-hyphens:auto;
+    -moz-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens: auto;
 }
 
 .listviewitemseperatorLVMPG2{
@@ -667,6 +693,15 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+    -ms-word-break:break-all;
+    word-break:break-all;
+    word-break:break-word;
+    -ms-hyphens:auto;
+    -moz-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens: auto;
     
 }
 
@@ -1098,6 +1133,15 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+    -ms-word-break:break-all;
+    word-break:break-all;
+    word-break:break-word;
+    -ms-hyphens:auto;
+    -moz-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens: auto;
 }
 
 .listviewitemseperatorLVM{
@@ -1234,6 +1278,15 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+    -ms-word-break:break-all;
+    word-break:break-all;
+    word-break:break-word;
+    -ms-hyphens:auto;
+    -moz-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens: auto;
 }
 
 .listviewitemseperatorRM{
@@ -1360,6 +1413,15 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+    -ms-word-break:break-all;
+    word-break:break-all;
+    word-break:break-word;
+    -ms-hyphens:auto;
+    -moz-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens: auto;
     
 }
 
@@ -1491,6 +1553,15 @@
     max-height: 10.5vw;
     text-overflow: clip;
     overflow: hidden;
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+    -ms-word-break:break-all;
+    word-break:break-all;
+    word-break:break-word;
+    -ms-hyphens:auto;
+    -moz-hyphens:auto;
+    -webkit-hyphens:auto;
+    hyphens: auto;
     
 }
 

@@ -117,6 +117,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         },5000);
           
         $(".listviewitemtitle").dotdotdot();
+        $(".listviewitemdetails").dotdotdot();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -158,6 +159,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         $(".slideshowimagenamedivpage2").append("<h1 class='slideshowitemtitlepage2'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage2'>&nbsp;</p><p class='slideshowitemdetailspage2'>"+data.nodes[0].node.description+"</p>");
        
         $(".listviewitemtitlePage2").dotdotdot();
+        $(".listviewitemdetailsPage2").dotdotdot();
+          
         window.clearInterval(intervalidpage2);
         intervalidpage2=window.setInterval(function() {
         slideshowpagetwo(data);
@@ -204,6 +207,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         $(".slideshowimagenamedivpage3").append("<h1 class='slideshowitemtitlepage3'>"+data.nodes[0].node.title+"</h1><p class='slideshowitemseperatorpage3'>&nbsp;</p><p class='slideshowitemdetailspage3'>"+data.nodes[0].node.description+"</p>");
         
         $(".listviewitemtitlePage3").dotdotdot();
+        $(".listviewitemdetailsPage3").dotdotdot();
         window.clearInterval(intervalidpage3);  
         intervalidpage3=window.setInterval(function() {
         slideshowpagethree(data);
@@ -270,6 +274,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }
         
         $(".listviewitemtitle").dotdotdot();
+        $(".listviewitemdetails").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -368,15 +373,32 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             $(".scrollul li").remove();
            
             if(data.nodes[x].node.type=="Product"){
-                $(".scrollul").append("<li class='scrollli'><h1 class='scrolllih1' id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+ imageUrl +"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><div class='description' id='productdetails'>"+ desc +"</div><p class='seperator'>&nbsp;</p><h2 class='scrolllih2'>Unique Selling Point</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+unidsellingpoint+"</span><br><h2 class='scrolllih2'>Customer References</h2><p class='h2seperator'>&nbsp;</p><span class='description'>" +custRef+"</span><h2  class='scrolllih2'>Brochures</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+brochure+"</span><br><h2 class='scrolllih2'>Tags</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+tags+"</span><br><h2 class='scrolllih2'>Technology Area</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+techarea+"</span><br><h2 class='scrolllih2'>Platforms</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+platform+"</span><br><h2 class='scrolllih2'>Product Requirement</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+prequirement+"</span><br><h2 class='scrolllih2'>Market</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+market+" </span><br><h2 class='scrolllih2'>Industry</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+industry+"</span><br><h2 class='scrolllih2'>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
+                $(".scrollul").append("<li class='scrollli'><h1 class='scrolllih1' id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+ imageUrl +"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><div class='description' id='productdetails'>"+ desc +"</div><p class='seperator'>&nbsp;</p><h2 class='scrolllih2'>Unique Selling Point</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+unidsellingpoint+"</div><br><h2 class='scrolllih2'>Customer References</h2><p class='h2seperator'>&nbsp;</p><div class='description'>" +custRef+"</div><br><h2  class='scrolllih2'>Brochures</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+brochure+"</div><br><h2 class='scrolllih2'>Tags</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+tags+"</div><br><h2 class='scrolllih2'>Technology Area</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+techarea+"</div><br><h2 class='scrolllih2'>Platforms</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+platform+"</div><br><h2 class='scrolllih2'>Product Requirement</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+prequirement+"</div><br><h2 class='scrolllih2'>Market</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+market+" </div><br><h2 class='scrolllih2'>Industry</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+industry+"</div><br><h2 class='scrolllih2'>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
             }
             else if(data.nodes[x].node.type=="Service"){
-                $(".scrollul").append("<li class='scrollli'><h1 class='scrolllih1' id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><div class='description' id='productdetails'>"+desc+"</div><p class='seperator'>&nbsp;</p><h2 class='scrolllih2'>Customer References</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+custRef+"</span><br><h2 class='scrolllih2'>Brochures</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+brochure+"</span><br><h2 class='scrolllih2'>Tags</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+tags+"</span><br><h2 class='scrolllih2'>Platforms</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+platform+"</span><br><h2 class='scrolllih2'>Service Requirement</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+srequirement+"</span><br><h2 class='scrolllih2'>Market</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+market+"</span><br><h2 class='scrolllih2'>Service Category</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+scategory+"</span><br><h2 class='scrolllih2'>Service Sub Category</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+ssubcat+"</span><br><h2 class='scrolllih2'>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
+                $(".scrollul").append("<li class='scrollli'><h1 class='scrolllih1' id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><div class='description' id='productdetails'>"+desc+"</div><p class='seperator'>&nbsp;</p><h2 class='scrolllih2'>Customer References</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+custRef+"</div><br><h2 class='scrolllih2'>Brochures</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+brochure+"</div><br><h2 class='scrolllih2'>Tags</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+tags+"</div><br><h2 class='scrolllih2'>Platforms</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+platform+"</div><br><h2 class='scrolllih2'>Service Requirement</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+srequirement+"</div><br><h2 class='scrolllih2'>Market</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+market+"</div><br><h2 class='scrolllih2'>Service Category</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+scategory+"</div><br><h2 class='scrolllih2'>Service Sub Category</h2><p class='h2seperator'>&nbsp;</p><span class='description'>"+ssubcat+"</span><br><h2 class='scrolllih2'>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p></li>");
             }
             
 //            <img id='galleryImg' src='"+data.nodes[x].node.gallery+"'/>
         }
         
+        $('#productdetails *').css("font-size", "4vw");
+        $('#productdetails *').css("line-height", "5.5vw");
+        $('#productdetails *').css("max-width", "100%");
+        $('#productdetails *').css("word-wrap", "keep-all");
+        $('#productdetails *').css("white-space", "pre-wrap");
+        $('#productdetails a').css("display", "inline-block");
+        $('#productdetails a').css("overflow-wrap", "break-word");
+        $('#productdetails a').css("word-wrap", "break-word");
+        $('#productdetails a').css("-ms-word-break", "break-all");         
+        $('#productdetails a').css("word-break", "break-all");         
+        $('#productdetails a').css("word-break", "break-word");         
+        $('#productdetails a').css("-ms-hyphens", "auto");         
+        $('#productdetails a').css("-moz-hyphens", "auto");         
+        $('#productdetails a').css("-webkit-hyphens", "auto");         
+        $('#productdetails a').css("hyphens", "auto");        
+        $('#productdetails img').css("width", "100%");
+        $('#productdetails img').css("height", "auto");
           
         //if add onclick function to overwrite the anchor received from backend
         $("a").click(function() {
@@ -437,17 +459,25 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         $(".scrollul li").remove();
         $(".scrollul").append("<li class='scrollli'><h1 class='scrolllih1' id='companyName'>"+title+"</h1><br><p><img id='productImg' src='"+imageUrl+"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><span class='description'>"+desc+"</span><p><br></p></li>");
         
-        //$('.description *').removeAttr('style');
         $('.description *').css("font-size", "4vw");
-        $('.description *').css("line-height", "4.5vw");
+        $('.description *').css("line-height", "5.5vw");
         $('.description *').css("max-width", "100%");
-        $('.description a').css("display", "inline-block");
-//        $('.description h2').css("word-wrap", "break-all");
         $('.description *').css("word-wrap", "keep-all");
         $('.description *').css("white-space", "pre-wrap");
+        $('.description a').css("display", "inline-block");
+        $('.description a').css("overflow-wrap", "break-word");
+        $('.description a').css("word-wrap", "break-word");
+        $('.description a').css("-ms-word-break", "break-all");         
+        $('.description a').css("word-break", "break-all");         
+        $('.description a').css("word-break", "break-word");         
+        $('.description a').css("-ms-hyphens", "auto");         
+        $('.description a').css("-moz-hyphens", "auto");         
+        $('.description a').css("-webkit-hyphens", "auto");         
+        $('.description a').css("hyphens", "auto");        
         $('.description img').css("width", "100%");
         $('.description img').css("height", "auto");
-        
+
+          
         //if add onclick function to overwrite the anchor received from backend
         $("a").click(function() {
             cordovaOpenLink(this.href);
@@ -601,6 +631,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }
           
         $(".listviewitemtitlechild").dotdotdot();
+        $(".listviewitemdetails").dotdotdot();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
@@ -681,6 +712,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }
         
         $(".listviewitemtitle").dotdotdot();
+        $(".listviewitemdetails").dotdotdot();
+          
         loading.endLoading();
         $(".slideshowimagenamediv h1").remove();
         $(".slideshowimagenamediv p").remove();
@@ -815,6 +848,8 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }
         
         $(".listviewitemtitlePage2").dotdotdot();
+        $(".listviewitemdetailsPage2").dotdotdot();
+          
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -1052,6 +1087,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }   
         
         $(".listviewitemtitleLVM").dotdotdot();
+        $(".listviewitemdetailsLVM").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -1102,6 +1138,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }  
         
         $(".listviewitemtitleLVM").dotdotdot();
+        $(".listviewitemdetailsLVM").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -1164,6 +1201,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }     
         
         $(".listviewitemtitleLVMPG2").dotdotdot();
+        $(".listviewitemdetailsLVMPG2").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -1216,6 +1254,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }
           
         $(".listviewitemtitleLVMPG2").dotdotdot();
+        $(".listviewitemdetailsLVMPG2").dotdotdot();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
@@ -1523,6 +1562,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }            
         
         $(".listviewitemtitleRM").dotdotdot(); 
+        $(".listviewitemdetailsRM").dotdotdot(); 
         loading.endLoading();
                
       },
@@ -1665,6 +1705,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }            
         
         $(".listviewitemtitleRM").dotdotdot();
+        $(".listviewitemdetailsRM").dotdotdot();
         scLookfor=lookFor;
         scprokeyword=keyword;
         scinterest=interest;
@@ -1720,6 +1761,7 @@ $(".scrollulLVM li").remove();
         } 
           
         $(".listviewitemtitleLVM").dotdotdot();
+        $(".listviewitemdetailsLVM").dotdotdot();
         loading.endLoading();
                   
       },
@@ -1914,6 +1956,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         }            
         
         $(".listviewitemtitleRM").dotdotdot();
+        $(".listviewitemdetailsRM").dotdotdot();
         scLookfor=lookFor;
         scservkeyword=keyword;
         scinterest=interest;

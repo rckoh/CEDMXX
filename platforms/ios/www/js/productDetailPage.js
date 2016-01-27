@@ -69,7 +69,7 @@ function sharetoFVnormal(){
     var newurl=imageUrl.split("?");
     var productDetails=$('#productdetails').text();
     var title=$("#companyName").text();
-    var websiteLink="http://netinfinium.publicvm.com:86/content/event-penguins";
+    var websiteLink="";
     
     window.plugins.socialsharing.share(productDetails, title, newurl[0], websiteLink);
         
