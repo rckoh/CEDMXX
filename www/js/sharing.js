@@ -38,7 +38,7 @@ var sharing={
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
 
                 window.plugins.socialsharing.shareViaFacebook(null, null, websiteLink, function(){
-                    //console.log('share ok')
+                    app.closeShareSheet();
                 }, function(errormsg){
                     navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
                 });
@@ -51,7 +51,7 @@ var sharing={
                 var websiteLink= baseurl+title;
                 
                 window.plugins.socialsharing.shareViaFacebook(null, null, websiteLink, function(){
-                    //console.log('share ok')
+                    app.closeShareSheet();
                 }, function(errormsg){
                     navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
                 });
@@ -70,7 +70,7 @@ var sharing={
                 websiteLink= baseurl+websiteLink.substring(1, websiteLink.length);
 
                 window.plugins.socialsharing.shareViaWhatsApp(null, null, websiteLink,   function() {
-                    //console.log('share ok')
+                    app.closeShareSheet();
                 }, function(errormsg){
                     navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
                 });
@@ -83,7 +83,7 @@ var sharing={
                 var websiteLink= baseurl+title;
                 
                 window.plugins.socialsharing.shareViaWhatsApp(null, null, websiteLink,   function() {
-                    //console.log('share ok')
+                    app.closeShareSheet();
                 }, function(errormsg){
                     navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
                 });
@@ -109,7 +109,9 @@ var sharing={
                 window.plugins.socialsharing.shareViaEmail(
                   productDetails+"<br><br>"+websiteLink, 
                   title,null, null, null, [newurl[0]], 
-                  function(){}, 
+                  function(){
+                    app.closeShareSheet();
+                  }, 
                   function(errormsg){
                     navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
                   } // called when sh*t hits the fan
@@ -128,7 +130,9 @@ var sharing={
                 window.plugins.socialsharing.shareViaEmail(
                   productDetails+"<br><br>"+websiteLink, 
                   title,null, null, null, [newurl[0]], 
-                  function(){},
+                  function(){
+                    app.closeShareSheet();
+                  },
                   function(errormsg){
                     navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
                   } // called when sh*t hits the fan
