@@ -82,7 +82,6 @@ var sharing={
                 title="msc-company/"+title.replace(/\s+/g, '-');
                 var websiteLink= baseurl+title;
                 
-                alert(websiteLink);
                 window.plugins.socialsharing.shareViaWhatsApp(null, null, websiteLink,   function() {
                     //console.log('share ok')
                 }, function(errormsg){
