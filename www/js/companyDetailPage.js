@@ -147,13 +147,14 @@ function sharetoFV()
 }
             
 function sharetoFVnormal(){
-    var imageUrl=document.getElementById("productImg").src;
-    var newurl = imageUrl.split("?");
-    var title=$("#companyName").text();
-    var productDetails=$('#productdetails').text();
-    var websiteLink="";
-
-    window.plugins.socialsharing.share(productDetails, title, newurl[0], websiteLink);    
+//    var imageUrl=document.getElementById("productImg").src;
+//    var newurl = imageUrl.split("?");
+//    var title=$("#companyName").text();
+//    var productDetails=$('#productdetails').text();
+//    var websiteLink="";
+//
+//    window.plugins.socialsharing.share(productDetails, title, newurl[0], websiteLink);    
+    sharing.initShareSheet();
 }
             
 function sharetoFVios(){

@@ -65,28 +65,14 @@ function sharetoFV()
 }
             
 function sharetoFVnormal(){
-    var imageUrl=document.getElementById("productImg").src;    
-    var newurl=imageUrl.split("?");
-    var productDetails=$('#productdetails').text();
-    var title=$("#companyName").text();
-    var websiteLink="";
-    
-    window.plugins.socialsharing.share(productDetails, title, newurl[0], websiteLink);
-        
-}
-            
-function sharetoFVios(){
-                window.plugins.socialsharing.shareVia('com.apple.social.facebook', 'Message via FB', null, null, null, function(){alert('share ok')}, function(msg) {alert('error: ' + msg)});
-}
-            
-function showDialogFB() { 
-                alert("sharedialog");
-                facebookConnectPlugin.showDialog( {
-                            method: "share",
-                            href: 'https://developers.facebook.com/docs/',
-                        }, 
-                    function (response) { alert(JSON.stringify(response)) },
-                    function (response) { alert(JSON.stringify(response)) });
+//    var imageUrl=document.getElementById("productImg").src;    
+//    var newurl=imageUrl.split("?");
+//    var productDetails=$('#productdetails').text();
+//    var title=$("#companyName").text();
+//    var websiteLink="";
+//    
+//    window.plugins.socialsharing.share(productDetails, title, newurl[0], websiteLink);
+        sharing.initShareSheet();
 }
 
 var selectedId;
