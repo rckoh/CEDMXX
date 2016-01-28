@@ -109,7 +109,7 @@ var sharing={
 
                 window.plugins.socialsharing.shareViaEmail(
                   productDetails+"<br><br>"+websiteLink, 
-                  title,null, null, null, null, 
+                  title,null, null, null, [imageUrl], 
                   function(){}, 
                   function(errormsg){
                     navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
@@ -122,14 +122,13 @@ var sharing={
                 var title=$("#companyName").text();
                 var productDetails=$('#productdetails').text();
                 var baseurl=data.item(0).BASEURL; 
-                var title=$("#companyName").text();
                 
-                title="msc-company/"+title.replace(/\s+/g, '-');
-                var websiteLink= baseurl+title;
+                var titleurl="msc-company/"+title.replace(/\s+/g, '-');
+                var websiteLink= baseurl+titleurl;
                 
                 window.plugins.socialsharing.shareViaEmail(
                   productDetails+"<br><br>"+websiteLink, 
-                  title,null, null, null, null, 
+                  title,null, null, null, [imageUrl], 
                   function(){},
                   function(errormsg){
                     navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
