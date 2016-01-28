@@ -108,7 +108,7 @@ var sharing={
 
                 window.plugins.socialsharing.shareViaEmail(
                   productDetails+"<br><br>"+websiteLink, 
-                  title,null, null, null, [imageUrl], 
+                  title,null, null, null, [newurl[0]], 
                   function(){}, 
                   function(errormsg){
                     navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
@@ -127,7 +127,7 @@ var sharing={
                 
                 window.plugins.socialsharing.shareViaEmail(
                   productDetails+"<br><br>"+websiteLink, 
-                  title,null, null, null, [imageUrl], 
+                  title,null, null, null, [newurl[0]], 
                   function(){},
                   function(errormsg){
                     navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
