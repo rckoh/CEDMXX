@@ -97,7 +97,6 @@ var sharing={
             var sharingpage=$("#sharingpage").val();
             
             if(sharingpage=='product'){
-                alert(sharingpage);
                 var imageUrl=document.getElementById("productImg").src;    
                 var newurl=imageUrl.split("?");
                 var productDetails=$('#productdetails').text();
