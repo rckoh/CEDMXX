@@ -40,7 +40,7 @@ var sharing={
                 window.plugins.socialsharing.shareViaFacebook(null, null, websiteLink, function(){
                     app.closeShareSheet();
                 }, function(errormsg){
-                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
+                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
                 });
             }
             else{
@@ -53,7 +53,7 @@ var sharing={
                 window.plugins.socialsharing.shareViaFacebook(null, null, websiteLink, function(){
                     app.closeShareSheet();
                 }, function(errormsg){
-                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
+                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
                 });
             }
         });
@@ -72,7 +72,7 @@ var sharing={
                 window.plugins.socialsharing.shareViaWhatsApp(null, null, websiteLink,   function() {
                     app.closeShareSheet();
                 }, function(errormsg){
-                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
+                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
                 });
             }
             else{
@@ -85,7 +85,7 @@ var sharing={
                 window.plugins.socialsharing.shareViaWhatsApp(null, null, websiteLink,   function() {
                     app.closeShareSheet();
                 }, function(errormsg){
-                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
+                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
                 });
             }
         });
@@ -112,7 +112,7 @@ var sharing={
                     app.closeShareSheet();
                   }, 
                   function(errormsg){
-                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
+                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
                   } // called when sh*t hits the fan
                 );
             }
@@ -133,7 +133,7 @@ var sharing={
                     app.closeShareSheet();
                   },
                   function(errormsg){
-                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolution", "Ok");
+                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
                   } // called when sh*t hits the fan
                 );
             }

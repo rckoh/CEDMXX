@@ -53,7 +53,7 @@ var dbmanager = {
     
     errorExecuteSQL:function(err){
         //fail executeSQL
-        alert(err.message);
+        //alert(err.message);
     },
 };
 
@@ -71,7 +71,7 @@ function getDMZKeyFromDB(){
 }
 
 function errorGetDMZKeyFromDB(err){
-    alert("fail get dmzkey from db");
+    //alert("fail get dmzkey from db");
 }
 
 //-----------------------------------------------------------------

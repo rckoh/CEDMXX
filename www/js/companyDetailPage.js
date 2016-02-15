@@ -51,7 +51,16 @@ function clearSearch(){
 
 function loadContent(){
     var nid=getUrlParameter("nid");
-    getCompanyDetails(nid);
+    dbmanager.getProfile(function(returnData){
+        if(returnData.rows.length>0){
+            var token=returnData.rows.item(0).token;
+            
+            getCompanyDetails(nid, token);
+        }
+        else{
+            getCompanyDetails(nid, "");
+        }
+    });
 }
 
 var currentpage=1;

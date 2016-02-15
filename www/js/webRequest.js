@@ -121,7 +121,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolutions", "Ok");
         }
     })
 }); 
@@ -168,7 +168,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolutions", "Ok");
         }
     })
 });    
@@ -216,7 +216,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+          navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolutions", "Ok");
         }
     })
 });    
@@ -371,7 +371,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
             var scategory=(data.nodes[x].node.service_category=="" || data.nodes[x].node.service_category==null)?"N/A":data.nodes[x].node.service_category;
             var ssubcat=(data.nodes[x].node.service_sub_category=="" || data.nodes[x].node.service_sub_category==null)?"N/A":data.nodes[x].node.service_sub_category;
             $(".scrollul li").remove();
-           
+           alert(desc);
             if(data.nodes[x].node.type=="Product"){
                 $(".scrollul").append("<li class='scrollli'><h1 class='scrolllih1' id='companyName'>"+title+"</h1><p class='pBtn'><button onclick='sharetoFVnormal();'><img src='img/share%20alt.png'/></button>&nbsp;<button onclick='clickFav("+nid+")'><img src='img/fav-alt.png' id='shareImg'/></button>&nbsp;<button onclick='replyOnClick("+nid+")'><img src='img/message-alt.png'/></button></p><p><img id='productImg' src='"+ imageUrl +"'/></p><p class='seperator'>&nbsp;</p><p style='height:2vw;'>&nbsp;</p><div class='description' id='productdetails'>"+ desc +"</div><p class='seperator'>&nbsp;</p><h2 class='scrolllih2'>Unique Selling Point</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+unidsellingpoint+"</div><br><h2 class='scrolllih2'>Customer References</h2><p class='h2seperator'>&nbsp;</p><div class='description'>" +custRef+"</div><br><h2  class='scrolllih2'>Brochures</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+brochure+"</div><br><h2 class='scrolllih2'>Tags</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+tags+"</div><br><h2 class='scrolllih2'>Technology Area</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+techarea+"</div><br><h2 class='scrolllih2'>Platforms</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+platform+"</div><br><h2 class='scrolllih2'>Product Requirement</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+prequirement+"</div><br><h2 class='scrolllih2'>Market</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+market+" </div><br><h2 class='scrolllih2'>Industry</h2><p class='h2seperator'>&nbsp;</p><div class='description'>"+industry+"</div><br><h2 class='scrolllih2'>Gallery</h2><p class='h2seperator'>&nbsp;</p><br><span class='description'></span><p><br><br></p><div id='websitelink' style='display:none;'>"+data.nodes[x].node.title+"<input type='hidden' id='sharingpage' value='product'></input></div></li>");
             }
@@ -385,7 +385,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         $('#productdetails *').css("line-height", "5.5vw");
         $('#productdetails *').css("max-width", "100%");
         $('#productdetails *').css("word-wrap", "keep-all");
-        $('#productdetails *').css("white-space", "pre-wrap");
+//        $('#productdetails *').css("white-space", "pre-wrap");
         $('#productdetails a').css("display", "inline-block");
         $('#productdetails a').css("overflow-wrap", "break-word");
         $('#productdetails a').css("word-wrap", "break-word");
@@ -462,7 +462,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         $('.description *').css("line-height", "5.5vw");
         $('.description *').css("max-width", "100%");
         $('.description *').css("word-wrap", "keep-all");
-        $('.description *').css("white-space", "pre-wrap");
+//        $('.description *').css("white-space", "pre-wrap");
         $('.description a').css("display", "inline-block");
         $('.description a').css("overflow-wrap", "break-word");
         $('.description a').css("word-wrap", "break-word");
@@ -498,7 +498,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 }
 
 
-function getCompanyDetails(nid){
+function getCompanyDetails(nid, token){
 loading.startLoading();
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
@@ -549,7 +549,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
           });
           
           getCompanyProdServList(nid);
-		  postCompanySST(nid);
+		  postCompanySST(nid, token);
           loading.endLoading();
           
           
@@ -569,27 +569,26 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
 }
 
 
-function postCompanySST(companyid){
+function postCompanySST(companyid, token){
 var getDMZKeyFromDbProcess=getDMZKeyFromDB();
 $.when(getDMZKeyFromDbProcess).done(function(data){
     var dmzKey=data.item(0).DMZKEY;
     var baseurl=data.item(0).BASEURL; 
 
     var requestUrl=baseurl+"drupalgap/mobileapp/companyprofile.json?nid="+companyid;
-    
     $.ajax({
       url: requestUrl,
       type: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token":"",
+        "X-CSRF-Token":token,
         "Mobile-Api-Key":dmzKey
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;
         var newJsonObj=$.parseJSON(data);
-  
+        
         var numberofview=newJsonObj.total_view;
         var numberoffav=newJsonObj.total_favourite;
         var numberofshare=newJsonObj.total_share;
@@ -886,7 +885,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Login failed.", function(){}, "MDeC eSolution", "Ok");
+          navigator.notification.alert("Login failed.", function(){}, "MDeC eSolutions", "Ok");
           
           loading.endLoading();
         }
@@ -949,9 +948,9 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
           if(xhr.status==0)
-            navigator.notification.alert("Login failed.", function(){}, "MDeC eSolution", "Ok");
+            navigator.notification.alert("Login failed.", function(){}, "MDeC eSolutions", "Ok");
           else
-            navigator.notification.alert("Invalid username or password.", function(){}, "MDeC eSolution", "Ok");
+            navigator.notification.alert("Invalid username or password.", function(){}, "MDeC eSolutions", "Ok");
           
           loading.endLoading();
         }
@@ -984,7 +983,7 @@ function storeProfile(uid, companyid, name, email, profileimg, role, token) {
 
 function errorLogin(err){
 
-    navigator.notification.alert("Login failed.", function(){}, "MDeC eSolution", "Ok");
+    navigator.notification.alert("Login failed.", function(){}, "MDeC eSolutions", "Ok");
     loading.endLoading();
 }
 
@@ -1041,12 +1040,12 @@ function runDeleteProfile(t){
   
 function errorDeleteProfile(err){
     loading.endLoading();
-    navigator.notification.alert("Logout failed.", function(){}, "MDeC eSolution", "Ok");
+    navigator.notification.alert("Logout failed.", function(){}, "MDeC eSolutions", "Ok");
 }
 
 function successDeleteProfile(){
     loading.endLoading();
-    navigator.notification.alert("Logout succesfully", function(){}, "MDeC eSolution", "Ok");
+    navigator.notification.alert("Logout succesfully", function(){}, "MDeC eSolutions", "Ok");
     window.location="index.html";
 }
 
@@ -2176,13 +2175,13 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-        navigator.notification.alert("Message deleted.", function(){}, "MDeC eSolution", "Ok");
+        navigator.notification.alert("Message deleted.", function(){}, "MDeC eSolutions", "Ok");
         goInbox();
         loading.endLoading();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Cannot delete message. Please try again later.", function(){}, "MDeC eSolution", "Ok");
+          navigator.notification.alert("Cannot delete message. Please try again later.", function(){}, "MDeC eSolutions", "Ok");
           loading.endLoading();
         }
     })
@@ -2212,17 +2211,17 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
    
         if(data.success==true){
             postInboxMessageContent(token, uid, "3", mid);
-            navigator.notification.alert("Message sent.", function(){}, "MDeC eSolution", "Ok");
+            navigator.notification.alert("Message sent.", function(){}, "MDeC eSolutions", "Ok");
             replyOnClick();
         }
         else{
-            navigator.notification.alert(data.messages.warning, function(){}, "MDeC eSolution", "Ok");
+            navigator.notification.alert(data.messages.warning, function(){}, "MDeC eSolutions", "Ok");
             loading.endLoading();
         }
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Failed to send message.", function(){}, "MDeC eSolution", "Ok");
+          navigator.notification.alert("Failed to send message.", function(){}, "MDeC eSolutions", "Ok");
           loading.endLoading();
         }
     })
@@ -2251,18 +2250,18 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
         var returnstr=JSON.stringify(data);
    
         if(data.success==true){
-            navigator.notification.alert("Message sent.", function(){}, "MDeC eSolution", "Ok");
+            navigator.notification.alert("Message sent.", function(){}, "MDeC eSolutions", "Ok");
             loading.endLoading();
             replyOnClick();
         }
         else{
-            navigator.notification.alert(data.messages.warning, function(){}, "MDeC eSolution", "Ok");
+            navigator.notification.alert(data.messages.warning, function(){}, "MDeC eSolutions", "Ok");
             loading.endLoading();
         }
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-          navigator.notification.alert("Failed to send message.", function(){}, "MDeC eSolution", "Ok");
+          navigator.notification.alert("Failed to send message.", function(){}, "MDeC eSolutions", "Ok");
           loading.endLoading();
         }
     })
@@ -2337,13 +2336,13 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-        navigator.notification.alert("Password changed succesfully", function(){}, "MDeC eSolution", "Ok");
+        navigator.notification.alert("Password changed succesfully", function(){}, "MDeC eSolutions", "Ok");
         loading.endLoading();  
         closeChangePwd();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-            navigator.notification.alert("Failed to change password.", function(){}, "MDeC eSolution", "Ok");
+            navigator.notification.alert("Failed to change password.", function(){}, "MDeC eSolutions", "Ok");
             loading.endLoading();
         }
     })
@@ -2370,14 +2369,14 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       success: function(data, status, xhr) {
       debugger;
         var returnstr=JSON.stringify(data);
-        navigator.notification.alert("Email sent", function(){}, "MDeC eSolution", "Ok");
+        navigator.notification.alert("Email sent", function(){}, "MDeC eSolutions", "Ok");
           
         loading.endLoading();  
         forgetPwdOnClick();
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
-            navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolution", "Ok");
+            navigator.notification.alert("Unable connect to server.", function(){}, "MDeC eSolutions", "Ok");
             loading.endLoading();
         }
     })

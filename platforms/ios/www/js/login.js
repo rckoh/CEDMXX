@@ -185,7 +185,7 @@ function forgetPwd(){
     var keyWord=$(".keyTxt").val();
 
     if(keyWord==""){
-        alert("Please insert user id or email address");
+        navigator.notification.alert("Please insert user id or email address", function(){}, "MDeC eSolutions", "Ok");
         $(".keyTxt").focus();
     }
     else{
