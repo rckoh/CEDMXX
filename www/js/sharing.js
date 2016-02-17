@@ -105,9 +105,7 @@ var sharing={
                 var websiteLink=$("#websitelink a").attr("href");
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
                 
-                if(productDetails.length>1000){
-                    productDetails=productDetails.substr(0,1000)+'...';
-                }
+                productDetails=productDetails.substr(0,productDetails.length);
                 
                 window.plugins.socialsharing.shareViaEmail(
                   productDetails+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>',
