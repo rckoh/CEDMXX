@@ -106,7 +106,7 @@ var sharing={
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
 
                 window.plugins.socialsharing.shareViaEmail(
-                  '<html>'+productDetails+'<br>'+websiteLink+'</html>',
+                  '<html>'+productDetails+'<br><a href='+websiteLink+'>'+websiteLink+'</a></html>',
                   title,null, null, null, [newurl[0]], 
                   function(){
                     app.closeShareSheet();
@@ -127,7 +127,7 @@ var sharing={
                 var websiteLink= baseurl+titleurl;
                 
                 window.plugins.socialsharing.shareViaEmail(
-                  '<html>'+productDetails+'<br>'+websiteLink+'</html>', 
+                  '<html>'+productDetails+'<br><a href='+websiteLink+'>'+websiteLink+'</a></html>',
                   title,null, null, null, [newurl[0]], 
                   function(){
                     app.closeShareSheet();
