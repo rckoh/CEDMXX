@@ -99,20 +99,11 @@ var sharing={
             if(sharingpage=='product'){
                 var imageUrl=document.getElementById("productImg").src;    
                 var newurl=imageUrl.split("?");
-                var productDetails=$('#productdetails').html().toString();
+                var productDetails=$('#productdetails').text();
                 var title=$("#companyName").text();
                 var baseurl=data.item(0).BASEURL; 
                 var websiteLink=$("#websitelink a").attr("href");
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
-                alert(productDetails);
-                var elements = $(productDetails);
-                var newProductDetails="";
-                elements.find('*').removeAttr('style');
-                $.each(elements , function(key , value){
-                    if(value.innerHTML)
-                        newProductDetails=newProductDetails+value.innerHTML;
-                });
-                alert(newProductDetails);
                 
                 window.plugins.socialsharing.shareViaEmail(
                   productDetails+websiteLink, 
