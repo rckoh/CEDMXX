@@ -99,14 +99,14 @@ var sharing={
             if(sharingpage=='product'){
                 var imageUrl=document.getElementById("productImg").src;    
                 var newurl=imageUrl.split("?");
-                var productDetails=$('#productdetails').html();
+                var productDetails=$('#productdetails').text();
                 var title=$("#companyName").text();
                 var baseurl=data.item(0).BASEURL; 
                 var websiteLink=$("#websitelink a").attr("href");
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
                 
                 window.plugins.socialsharing.shareViaEmail(
-                  productDetails+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>',
+                  title+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>',
                   title,null, null, null, [newurl[0]], 
                   function(){
                     app.closeShareSheet();
@@ -120,7 +120,7 @@ var sharing={
                 var imageUrl=document.getElementById("productImg").src;
                 var newurl = imageUrl.split("?");
                 var title=$("#companyName").text();
-                var productDetails=$('#productdetails').html();
+                var productDetails=$('#productdetails').text();
                 var baseurl=data.item(0).BASEURL; 
                 
                 var titleurl="msc-company/"+title.replace(/\s+/g, '-');
