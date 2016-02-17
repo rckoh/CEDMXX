@@ -104,9 +104,9 @@ var sharing={
                 var baseurl=data.item(0).BASEURL; 
                 var websiteLink=$("#websitelink a").attr("href");
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
-
+                
                 window.plugins.socialsharing.shareViaEmail(
-                  '<html>'+productDetails+'<br><a href='+websiteLink+'>'+websiteLink+'</a></html>',
+                  productDetails+'<br><a href='+websiteLink+'>'+websiteLink+'</a>',
                   title,null, null, null, [newurl[0]], 
                   function(){
                     app.closeShareSheet();
