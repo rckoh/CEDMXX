@@ -104,44 +104,16 @@ var sharing={
                 var baseurl=data.item(0).BASEURL; 
                 var websiteLink=$("#websitelink a").attr("href");
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
-                
-                if ( device.platform == 'android' || device.platform == 'Android'){
+                          
+                if ( device.platform == 'android' || device.platform == 'Android'){   
                     
-//                    var elements=$(productDetails);
-//                    var newelements='';
-//                    elements.find('*').removeAttr('style');
-//                    elements.find('a').removeAttr('target');
-//                    
-////                    elements.find('*').each(function(index) {
-////                        
-////                        if($(this).get(0).tagName!='A');
-////                        {
-////                            var text = $(this).text();//get span content
-////                            $(this).replaceWith(text+'<br>');//replace all span with just content
-////                        }
-////                    });
-//                    
-//                    $.each(elements, function(key, value){
-//                        if(value.innerHTML)
-//                             var htmlcontent=value.innerHTML.toString();
-//                            newelements=newelements+htmlcontent;
-//                        }
-//                            
-//                    });
-//                    var entitystr=escapeHtmlEntity(newelements);
-//                    entitystr=entitystr.replace(/<span>/g, "<p>");
-//                    entitystr=entitystr.replace(/<\/span>/g, "</p>");
-//                    entitystr=entitystr.replace(/<ul>/g, "<p>");
-//                    entitystr=entitystr.replace(/<\/ul>/g, "</p>");
-//                    entitystr=entitystr.replace(/<li>/g, "<p>");
-//                    entitystr=entitystr.replace(/<\/li>/g, "</p>");
-//                    entitystr=entitystr.replace(/<strong>/g, "");
-//                    entitystr=entitystr.replace(/<\/strong>/g, "");
-//                    newelements=entitystr    
-                    var productdetalTxt=$('#productdetails').text();
-                    
+                    productDetails=productDetails.replace(/\sstyle="[a-zA-Z\/][^>]*"/g, "")
+                    productDetails=productDetails.replace(/<br *\/?>/gi, "\n");
+                    productDetails=productDetails.replace(/<[a-zA-Z\/][^>]*>/g, "")
+                    productDetails=productDetails+"\n";
+                            
                     window.plugins.socialsharing.shareViaEmail(
-                      productdetalTxt+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
+                      productDetails+websiteLink, 
                       title,null, null, null, [newurl[0]], 
                       function(){
                         app.closeShareSheet();
@@ -153,7 +125,7 @@ var sharing={
                 } 
                 else {
                      window.plugins.socialsharing.shareViaEmail(
-                      productDetails+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
+                      productDetails+websiteLink, 
                       title,null, null, null, [newurl[0]], 
                       function(){
                         app.closeShareSheet();
@@ -174,16 +146,36 @@ var sharing={
                 var titleurl="msc-company/"+title.replace(/\s+/g, '-');
                 var websiteLink= baseurl+titleurl;
                 
-                window.plugins.socialsharing.shareViaEmail(
-                  productDetails+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
-                  title,null, null, null, [newurl[0]], 
-                  function(){
-                    app.closeShareSheet();
-                  },
-                  function(errormsg){
-                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
-                  } // called when sh*t hits the fan
-                );
+                if ( device.platform == 'android' || device.platform == 'Android'){   
+                    
+                    productDetails=productDetails.replace(/\sstyle="[a-zA-Z\/][^>]*"/g, "")
+                    productDetails=productDetails.replace(/<br *\/?>/gi, "\n");
+                    productDetails=productDetails.replace(/<[a-zA-Z\/][^>]*>/g, "")
+                    productDetails=productDetails+"\n";
+                            
+                    window.plugins.socialsharing.shareViaEmail(
+                      productDetails+websiteLink, 
+                      title,null, null, null, [newurl[0]], 
+                      function(){
+                        app.closeShareSheet();
+                      }, 
+                      function(errormsg){
+                        navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
+                      }
+                    ); 
+                } 
+                else {
+                     window.plugins.socialsharing.shareViaEmail(
+                      productDetails+websiteLink, 
+                      title,null, null, null, [newurl[0]], 
+                      function(){
+                        app.closeShareSheet();
+                      }, 
+                      function(errormsg){
+                        navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
+                      }
+                    );   
+                }
             }
         });
     }
