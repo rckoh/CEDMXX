@@ -105,16 +105,32 @@ var sharing={
                 var websiteLink=$("#websitelink a").attr("href");
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
                 
-                window.plugins.socialsharing.shareViaEmail(
-                  productDetails+websiteLink, 
-                  title,null, null, null, [newurl[0]], 
-                  function(){
-                    app.closeShareSheet();
-                  }, 
-                  function(errormsg){
-                    navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
-                  } // called when sh*t hits the fan
-                );
+                
+                if ( device.platform == 'android' || device.platform == 'Android'){
+                    productDetails.replace('span', 'p');
+                    window.plugins.socialsharing.shareViaEmail(
+                      productDetails+websiteLink, 
+                      title,null, null, null, [newurl[0]], 
+                      function(){
+                        app.closeShareSheet();
+                      }, 
+                      function(errormsg){
+                        navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
+                      } // called when sh*t hits the fan
+                    ); 
+                } 
+                else {
+                     window.plugins.socialsharing.shareViaEmail(
+                      productDetails+websiteLink, 
+                      title,null, null, null, [newurl[0]], 
+                      function(){
+                        app.closeShareSheet();
+                      }, 
+                      function(errormsg){
+                        navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
+                      } // called when sh*t hits the fan
+                    );   
+                }
             }
             else{
                 var imageUrl=document.getElementById("productImg").src;
