@@ -112,10 +112,14 @@ var sharing={
                     elements.find('*').removeAttr('style');
                     elements.find('a').removeAttr('target');
                     
-                    elements.find('*').each(function(index) {
-                        var text = $(this).text();
-                        $(this).replaceWith(text+'<br>');
-                    });
+//                    elements.find('*').each(function(index) {
+//                        
+//                        if($(this).get(0).tagName!='A');
+//                        {
+//                            var text = $(this).text();//get span content
+//                            $(this).replaceWith(text+'<br>');//replace all span with just content
+//                        }
+//                    });
                     
                     $.each(elements, function(key, value){
                         if(value.innerHTML)
@@ -125,6 +129,16 @@ var sharing={
                         }
                             
                     });
+                    var entitystr=escapeHtmlEntity(newelements);
+                    entitystr=entitystr.replace(/<span>/g, "<p>");
+                    entitystr=entitystr.replace(/<\/span>/g, "</p>");
+                    entitystr=entitystr.replace(/<ul>/g, "<p>");
+                    entitystr=entitystr.replace(/<\/ul>/g, "</p>");
+                    entitystr=entitystr.replace(/<li>/g, "<p>");
+                    entitystr=entitystr.replace(/<\/li>/g, "</p>");
+                    entitystr=entitystr.replace(/<strong>/g, "");
+                    entitystr=entitystr.replace(/<\/strong>/g, "");
+                    newelements=entitystr    
                     
                     window.plugins.socialsharing.shareViaEmail(
                       escapeHtmlEntity(newelements)+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
