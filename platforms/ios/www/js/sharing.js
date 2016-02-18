@@ -111,15 +111,15 @@ var sharing={
                     var elements=$(productDetails);
                     var newelements='';
                     elements.find('*').removeAttr('style');
-                    elements.find("span").each(function(index) {
+                    elements.find('*').each(function(index) {
                         var text = $(this).text();//get span content
                         $(this).replaceWith('<p>'+text+'<p>');//replace all span with just content
                     });
-
+                    
                     $.each(elements, function(key, value){
                         if(value.innerHTML)
                             newelements=newelements+value.innerHTML;
-                    });
+                    });    
                     
                     window.plugins.socialsharing.shareViaEmail(
                       newelements+'<a href="'+websiteLink+'">'+websiteLink+'</a>', 
@@ -129,7 +129,7 @@ var sharing={
                       }, 
                       function(errormsg){
                         navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
-                      } // called when sh*t hits the fan
+                      }
                     ); 
                 } 
                 else {
@@ -141,7 +141,7 @@ var sharing={
                       }, 
                       function(errormsg){
                         navigator.notification.alert(errormsg, function(){}, "MDeC eSolutions", "Ok");
-                      } // called when sh*t hits the fan
+                      }
                     );   
                 }
             }
