@@ -99,7 +99,7 @@ var sharing={
             if(sharingpage=='product'){
                 var imageUrl=document.getElementById("productImg").src;    
                 var newurl=imageUrl.split("?");
-                var productDetails=$('#productdetails').text();
+                var productDetails=$('#productdetails').html();
                 var title=$("#companyName").text();
                 var baseurl=data.item(0).BASEURL; 
                 var websiteLink=$("#websitelink a").attr("href");
