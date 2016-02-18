@@ -99,7 +99,7 @@ var sharing={
             if(sharingpage=='product'){
                 var imageUrl=document.getElementById("productImg").src;    
                 var newurl=imageUrl.split("?");
-                var productDetails=$('#productdetails').html();
+                var productDetails=$('#productdetails').text();
                 var title=$("#companyName").text();
                 var baseurl=data.item(0).BASEURL; 
                 var websiteLink=$("#websitelink a").attr("href");
@@ -110,19 +110,13 @@ var sharing={
                     var elements=$(productDetails);
                     var newelements='';
                     elements.find('*').removeAttr('style');
-                    elements.find('span').each(function(index) {
-                        var text = $(this).text();//get span content
-                        $(this).replaceWith('<p>'+text+'<p>');//replace all span with just content
-                    });
-                    
-                    elements.find('ul').each(function(index) {
-                        var text = $(this).text();//get span content
-                        $(this).replaceWith('<p>'+text+'<p>');//replace all span with just content
-                    });
-                    
-                    elements.find('li').each(function(index) {
-                        var text = $(this).text();//get span content
-                        $(this).replaceWith('<p>'+text+'<p>');//replace all span with just content
+                    elements.find('*').each(function(index) {
+                        
+                        if($(this).get(0).tagName!='A');
+                        {
+                            var text = $(this).text();//get span content
+                            $(this).replaceWith(text+'<br>');//replace all span with just content
+                        }
                     });
                     
                     $.each(elements, function(key, value){
@@ -131,7 +125,7 @@ var sharing={
                     });    
                     
                     window.plugins.socialsharing.shareViaEmail(
-                      newelements+'<a href="'+websiteLink+'">'+websiteLink+'</a>', 
+                      newelements+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
                       title,null, null, null, [newurl[0]], 
                       function(){
                         app.closeShareSheet();
@@ -143,7 +137,7 @@ var sharing={
                 } 
                 else {
                      window.plugins.socialsharing.shareViaEmail(
-                      productDetails+'<a href="'+websiteLink+'">'+websiteLink+'</a>', 
+                      productDetails+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
                       title,null, null, null, [newurl[0]], 
                       function(){
                         app.closeShareSheet();
@@ -165,7 +159,7 @@ var sharing={
                 var websiteLink= baseurl+titleurl;
                 
                 window.plugins.socialsharing.shareViaEmail(
-                  productDetails+'<a href="'+websiteLink+'">'+websiteLink+'</a>', 
+                  productDetails+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
                   title,null, null, null, [newurl[0]], 
                   function(){
                     app.closeShareSheet();
