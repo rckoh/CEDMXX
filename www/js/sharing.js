@@ -140,8 +140,17 @@ var sharing={
                     entitystr=entitystr.replace(/<\/strong>/g, "");
                     newelements=entitystr    
                     
+                    productDetails=productDetails.replace(/<span>/g, "<p>");
+                    productDetails=productDetails.replace(/<\/span>/g, "</p>");
+                    productDetails=productDetails.replace(/<ul>/g, "<p>");
+                    productDetails=productDetails.replace(/<\/ul>/g, "</p>");
+                    productDetails=productDetails.replace(/<li>/g, "<p>");
+                    productDetails=productDetails.replace(/<\/li>/g, "</p>");
+                    productDetails=productDetails.replace(/<strong>/g, "");
+                    productDetails=productDetails.replace(/<\/strong>/g, "");
+                    
                     window.plugins.socialsharing.shareViaEmail(
-                      escapeHtmlEntity(newelements)+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
+                      productDetails+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
                       title,null, null, null, [newurl[0]], 
                       function(){
                         app.closeShareSheet();
