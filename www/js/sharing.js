@@ -107,41 +107,41 @@ var sharing={
                 
                 if ( device.platform == 'android' || device.platform == 'Android'){
                     
-                    var elements=$(productDetails);
-                    var newelements='';
-                    elements.find('*').removeAttr('style');
-                    elements.find('a').removeAttr('target');
-                    
-//                    elements.find('*').each(function(index) {
-//                        
-//                        if($(this).get(0).tagName!='A');
-//                        {
-//                            var text = $(this).text();//get span content
-//                            $(this).replaceWith(text+'<br>');//replace all span with just content
+//                    var elements=$(productDetails);
+//                    var newelements='';
+//                    elements.find('*').removeAttr('style');
+//                    elements.find('a').removeAttr('target');
+//                    
+////                    elements.find('*').each(function(index) {
+////                        
+////                        if($(this).get(0).tagName!='A');
+////                        {
+////                            var text = $(this).text();//get span content
+////                            $(this).replaceWith(text+'<br>');//replace all span with just content
+////                        }
+////                    });
+//                    
+//                    $.each(elements, function(key, value){
+//                        if(value.innerHTML)
+//                             var htmlcontent=value.innerHTML.toString();
+//                            newelements=newelements+htmlcontent;
 //                        }
+//                            
 //                    });
-                    
-                    $.each(elements, function(key, value){
-                        if(value.innerHTML)
-                        {
-                            var htmlcontent=value.innerHTML.toString();
-                            newelements=newelements+htmlcontent;
-                        }
-                            
-                    });
-                    var entitystr=escapeHtmlEntity(newelements);
-                    entitystr=entitystr.replace(/<span>/g, "<p>");
-                    entitystr=entitystr.replace(/<\/span>/g, "</p>");
-                    entitystr=entitystr.replace(/<ul>/g, "<p>");
-                    entitystr=entitystr.replace(/<\/ul>/g, "</p>");
-                    entitystr=entitystr.replace(/<li>/g, "<p>");
-                    entitystr=entitystr.replace(/<\/li>/g, "</p>");
-                    entitystr=entitystr.replace(/<strong>/g, "");
-                    entitystr=entitystr.replace(/<\/strong>/g, "");
-                    newelements=entitystr    
+//                    var entitystr=escapeHtmlEntity(newelements);
+//                    entitystr=entitystr.replace(/<span>/g, "<p>");
+//                    entitystr=entitystr.replace(/<\/span>/g, "</p>");
+//                    entitystr=entitystr.replace(/<ul>/g, "<p>");
+//                    entitystr=entitystr.replace(/<\/ul>/g, "</p>");
+//                    entitystr=entitystr.replace(/<li>/g, "<p>");
+//                    entitystr=entitystr.replace(/<\/li>/g, "</p>");
+//                    entitystr=entitystr.replace(/<strong>/g, "");
+//                    entitystr=entitystr.replace(/<\/strong>/g, "");
+//                    newelements=entitystr    
+                    var productdetalTxt=$('#productdetails').text();
                     
                     window.plugins.socialsharing.shareViaEmail(
-                      escapeHtmlEntity(newelements)+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
+                      productdetalTxt+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
                       title,null, null, null, [newurl[0]], 
                       function(){
                         app.closeShareSheet();
