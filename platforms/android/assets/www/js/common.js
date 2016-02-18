@@ -167,3 +167,16 @@ function addCommas(nStr) {
 function cordovaOpenLink(url){
     cordova.InAppBrowser.open(url, '_system');
 }
+
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//escape all htmlentities
+function escapeHtmlEntity(str){
+    str=str.replace(/&amp;/g,"&");
+    str=str.replace(/&quot;/g,'"');
+    str=str.replace(/&lt;/g,"<");
+    str=str.replace(/&gt;/g,">");
+    str=str.replace(/&ndash;/g,"-");
+    return str
+}

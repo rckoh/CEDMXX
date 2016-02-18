@@ -105,6 +105,7 @@ var sharing={
                 var websiteLink=$("#websitelink a").attr("href");
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
                 
+                
                 if ( device.platform == 'android' || device.platform == 'Android'){
                     
                     var elements=$(productDetails);
@@ -121,11 +122,15 @@ var sharing={
                     
                     $.each(elements, function(key, value){
                         if(value.innerHTML)
-                            newelements=newelements+value.innerHTML;
-                    });    
+                        {
+                            var htmlcontent=value.innerHTML.toString();
+                            newelements=newelements+htmlcontent;
+                        }
+                            
+                    });
                     
                     window.plugins.socialsharing.shareViaEmail(
-                      newelements+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
+                      escapeHtmlEntity(newelements)+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
                       title,null, null, null, [newurl[0]], 
                       function(){
                         app.closeShareSheet();
