@@ -107,9 +107,22 @@ var sharing={
                 
                 
                 if ( device.platform == 'android' || device.platform == 'Android'){
-                    productDetails.replace('span', 'p');
+                    
+                    var elements=$(productDetails);
+                    var newelements='';
+                    elements.find('*').removeAttr('style');
+                    elements.find("span").each(function(index) {
+                        var text = $(this).text();//get span content
+                        $(this).replaceWith('<p>'+text+'<p>');//replace all span with just content
+                    });
+
+                    $.each(elements, function(key, value){
+                        if(value.innerHTML)
+                            newelements=newelements+value.innerHTML;
+                    });
+                    
                     window.plugins.socialsharing.shareViaEmail(
-                      productDetails+websiteLink, 
+                      newelements+websiteLink, 
                       title,null, null, null, [newurl[0]], 
                       function(){
                         app.closeShareSheet();
