@@ -134,7 +134,7 @@ var sharing={
                 } 
                 else {
                      window.plugins.socialsharing.shareViaEmail(
-                      productDetails+websiteLink, 
+                      productDetails+'<a href="'+websiteLink+'">'+websiteLink+'</a>', 
                       title,null, null, null, [newurl[0]], 
                       function(){
                         app.closeShareSheet();
@@ -156,7 +156,7 @@ var sharing={
                 var websiteLink= baseurl+titleurl;
                 
                 window.plugins.socialsharing.shareViaEmail(
-                  productDetails+websiteLink, 
+                  productDetails+'<a href="'+websiteLink+'">'+websiteLink+'</a>', 
                   title,null, null, null, [newurl[0]], 
                   function(){
                     app.closeShareSheet();
