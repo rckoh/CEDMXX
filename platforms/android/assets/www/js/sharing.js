@@ -110,6 +110,7 @@ var sharing={
                     var elements=$(productDetails);
                     var newelements='';
                     elements.find('*').removeAttr('style');
+                    elements.find('a').removeAttr('target');
                     
 //                    elements.find('*').each(function(index) {
 //                        
@@ -135,6 +136,8 @@ var sharing={
                     entitystr=entitystr.replace(/<\/ul>/g, "</p>");
                     entitystr=entitystr.replace(/<li>/g, "<p>");
                     entitystr=entitystr.replace(/<\/li>/g, "</p>");
+                    entitystr=entitystr.replace(/<strong>/g, "");
+                    entitystr=entitystr.replace(/<\/strong>/g, "");
                     newelements=entitystr    
                     
                     window.plugins.socialsharing.shareViaEmail(
