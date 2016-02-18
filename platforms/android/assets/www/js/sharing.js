@@ -105,13 +105,22 @@ var sharing={
                 var websiteLink=$("#websitelink a").attr("href");
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
                 
-                
                 if ( device.platform == 'android' || device.platform == 'Android'){
                     
                     var elements=$(productDetails);
                     var newelements='';
                     elements.find('*').removeAttr('style');
-                    elements.find('*').each(function(index) {
+                    elements.find('span').each(function(index) {
+                        var text = $(this).text();//get span content
+                        $(this).replaceWith('<p>'+text+'<p>');//replace all span with just content
+                    });
+                    
+                    elements.find('ul').each(function(index) {
+                        var text = $(this).text();//get span content
+                        $(this).replaceWith('<p>'+text+'<p>');//replace all span with just content
+                    });
+                    
+                    elements.find('li').each(function(index) {
                         var text = $(this).text();//get span content
                         $(this).replaceWith('<p>'+text+'<p>');//replace all span with just content
                     });
