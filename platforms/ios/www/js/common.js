@@ -178,5 +178,6 @@ function escapeHtmlEntity(str){
     str=str.replace(/&lt;/g,"<");
     str=str.replace(/&gt;/g,">");
     str=str.replace(/&ndash;/g,"-");
+    str=str.replace(/\s\s+/g,"");
     return str
 }

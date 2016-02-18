@@ -105,20 +105,20 @@ var sharing={
                 var websiteLink=$("#websitelink a").attr("href");
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
                 
-                
                 if ( device.platform == 'android' || device.platform == 'Android'){
                     
                     var elements=$(productDetails);
                     var newelements='';
                     elements.find('*').removeAttr('style');
-                    elements.find('*').each(function(index) {
-                        
-                        if($(this).get(0).tagName!='A');
-                        {
-                            var text = $(this).text();//get span content
-                            $(this).replaceWith(text+'<br>');//replace all span with just content
-                        }
-                    });
+                    
+//                    elements.find('*').each(function(index) {
+//                        
+//                        if($(this).get(0).tagName!='A');
+//                        {
+//                            var text = $(this).text();//get span content
+//                            $(this).replaceWith(text+'<br>');//replace all span with just content
+//                        }
+//                    });
                     
                     $.each(elements, function(key, value){
                         if(value.innerHTML)
@@ -128,6 +128,14 @@ var sharing={
                         }
                             
                     });
+                    var entitystr=escapeHtmlEntity(newelements);
+                    entitystr=entitystr.replace(/<span>/g, "<p>");
+                    entitystr=entitystr.replace(/<\/span>/g, "</p>");
+                    entitystr=entitystr.replace(/<ul>/g, "<p>");
+                    entitystr=entitystr.replace(/<\/ul>/g, "</p>");
+                    entitystr=entitystr.replace(/<li>/g, "<p>");
+                    entitystr=entitystr.replace(/<\/li>/g, "</p>");
+                    newelements=entitystr    
                     
                     window.plugins.socialsharing.shareViaEmail(
                       escapeHtmlEntity(newelements)+'<br><a href="'+websiteLink+'">'+websiteLink+'</a>', 
