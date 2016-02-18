@@ -122,7 +122,7 @@ var sharing={
                     });
                     
                     window.plugins.socialsharing.shareViaEmail(
-                      newelements+websiteLink, 
+                      newelements+'<a href="'+websiteLink+'">'+websiteLink+'</a>', 
                       title,null, null, null, [newurl[0]], 
                       function(){
                         app.closeShareSheet();
