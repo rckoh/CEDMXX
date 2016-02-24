@@ -110,6 +110,10 @@ var sharing={
                     productDetails=productDetails.replace(/\sstyle="[a-zA-Z\/][^>]*"/g, "")
                     productDetails=productDetails.replace(/<br *\/?>/gi, "\n");
                     productDetails=productDetails.replace(/<[a-zA-Z\/][^>]*>/g, "")
+                    productDetails=productDetails.replace(/&amp;/g, "&");
+                    productDetails=productDetails.replace(/&nbsp;/g, " ");
+                    productDetails=productDetails.replace(/&apos;/g, "'");
+                    productDetails=productDetails.replace(/&quot;/g, '"');
                     productDetails=productDetails+"\n";
                             
                     window.plugins.socialsharing.shareViaEmail(
@@ -151,8 +155,12 @@ var sharing={
                     productDetails=productDetails.replace(/\sstyle="[a-zA-Z\/][^>]*"/g, "")
                     productDetails=productDetails.replace(/<br *\/?>/gi, "\n");
                     productDetails=productDetails.replace(/<[a-zA-Z\/][^>]*>/g, "")
+                    productDetails=productDetails.replace(/&amp;/g, "&");
+                    productDetails=productDetails.replace(/&nbsp;/g, " ");
+                    productDetails=productDetails.replace(/&apos;/g, "'");
+                    productDetails=productDetails.replace(/&quot;/g, '"');
                     productDetails=productDetails+"\n";
-                            
+                          
                     window.plugins.socialsharing.shareViaEmail(
                       productDetails+websiteLink, 
                       title,null, null, null, [newurl[0]], 

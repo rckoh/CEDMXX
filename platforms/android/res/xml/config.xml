@@ -1,13 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.mdec.esolution" version="1.0.0" versionCode="829" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-
-        versionCode = "817"&gt;
-        <preference name="loglevel" value="DEBUG" />
+<widget id="com.mdec.esolution" version="1.0.0" versionCode="830" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
     <feature name="PushPlugin">
         <param name="android-package" value="com.plugin.gcm.PushPlugin" />
     </feature>
     <allow-intent href="market:*" />
-    <name>MDeC eSolution</name>
+    <name>MDeC eSolutions</name>
     <description>
         MDeC eSolution
     </description>
@@ -95,7 +93,7 @@
     <key>UIViewControllerBasedStatusBarAppearance</key>
     <false />
     <gap:config-file parent="CFBundleShortVersionString" platform="ios">
-        <string>119</string>
+        <string>120</string>
     </gap:config-file>
     <gap:config-file parent="CFBundleURLTypes" platform="ios">
         <array>
