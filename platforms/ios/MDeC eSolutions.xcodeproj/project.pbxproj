@@ -39,13 +39,8 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		3F079F6B3BCA4B67A129C9BE /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = E649CF92AAA843F6B82E410B /* AppDelegate+notification.m */; };
-		F2BBB64EED804826B986EBE1 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 829AE3B240234B15ABE0DB9E /* PushPlugin.m */; };
-		C47AFBAD40DA4E4AB1B3E0C0 /* APPHiddenStatusbarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6934C318E561432C9E81BB27 /* APPHiddenStatusbarOverlay.m */; };
-		4126F3B52D324CEA807A301D /* SocialSharing.m in Sources */ = {isa = PBXBuildFile; fileRef = A28CF2897D1C4D4F8411A268 /* SocialSharing.m */; };
-		A9CDF686CD174F68A943BE81 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA99F02F023A4F4A8E0914FB /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		36FEE72C130A4F919954F22B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B309140127644F3BA1404E21 /* MessageUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		FF0365856AD7416EA14F4DAF /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB1A1E3873040AEA8A2C65E /* CDVInAppBrowser.m */; };
+		1B770A3179A849DCBC2C2EE9 /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5086CB07193049A1BEA97EE5 /* AppDelegate+notification.m */; };
+		2D046B926B27401BB027820F /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E3DE4C474F470CAE148C63 /* PushPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,18 +106,10 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "MDeC eSolutions/config.xml"; sourceTree = "<group>"; };
-		E649CF92AAA843F6B82E410B /* AppDelegate+notification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		829AE3B240234B15ABE0DB9E /* PushPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PushPlugin.m"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		427D417F65064A2F8368A0A4 /* AppDelegate+notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+notification.h"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		4861AA736CA94ADE91A08DB2 /* PushPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PushPlugin.h"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		6934C318E561432C9E81BB27 /* APPHiddenStatusbarOverlay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "APPHiddenStatusbarOverlay.m"; path = "de.appplant.cordova.plugin.hidden-statusbar-overlay/APPHiddenStatusbarOverlay.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		9953BDC8666F435D8107A5AB /* APPHiddenStatusbarOverlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "APPHiddenStatusbarOverlay.h"; path = "de.appplant.cordova.plugin.hidden-statusbar-overlay/APPHiddenStatusbarOverlay.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		A28CF2897D1C4D4F8411A268 /* SocialSharing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SocialSharing.m"; path = "nl.x-services.plugins.socialsharing/SocialSharing.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		ADD75DFDFD17431384B2A9D9 /* SocialSharing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SocialSharing.h"; path = "nl.x-services.plugins.socialsharing/SocialSharing.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		CA99F02F023A4F4A8E0914FB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Social.framework"; path = "System/Library/Frameworks/Social.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		B309140127644F3BA1404E21 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MessageUI.framework"; path = "System/Library/Frameworks/MessageUI.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		DDB1A1E3873040AEA8A2C65E /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		8BA17497399D44DA8A3CA92F /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		5086CB07193049A1BEA97EE5 /* AppDelegate+notification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate+notification.m"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		57E3DE4C474F470CAE148C63 /* PushPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "PushPlugin.m"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		17A02C9D61FD470D963D7852 /* AppDelegate+notification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+notification.h"; path = "com.phonegap.plugins.PushPlugin/AppDelegate+notification.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		68C69C8BB9794F90A6290702 /* PushPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "PushPlugin.h"; path = "com.phonegap.plugins.PushPlugin/PushPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +121,6 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
-				A9CDF686CD174F68A943BE81 /* Social.framework in Frameworks */,
-				36FEE72C130A4F919954F22B /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,8 +193,6 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
-				CA99F02F023A4F4A8E0914FB /* Social.framework */,
-				B309140127644F3BA1404E21 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -225,16 +208,10 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				E649CF92AAA843F6B82E410B /* AppDelegate+notification.m */,
-				829AE3B240234B15ABE0DB9E /* PushPlugin.m */,
-				427D417F65064A2F8368A0A4 /* AppDelegate+notification.h */,
-				4861AA736CA94ADE91A08DB2 /* PushPlugin.h */,
-				6934C318E561432C9E81BB27 /* APPHiddenStatusbarOverlay.m */,
-				9953BDC8666F435D8107A5AB /* APPHiddenStatusbarOverlay.h */,
-				A28CF2897D1C4D4F8411A268 /* SocialSharing.m */,
-				ADD75DFDFD17431384B2A9D9 /* SocialSharing.h */,
-				DDB1A1E3873040AEA8A2C65E /* CDVInAppBrowser.m */,
-				8BA17497399D44DA8A3CA92F /* CDVInAppBrowser.h */,
+				5086CB07193049A1BEA97EE5 /* AppDelegate+notification.m */,
+				57E3DE4C474F470CAE148C63 /* PushPlugin.m */,
+				17A02C9D61FD470D963D7852 /* AppDelegate+notification.h */,
+				68C69C8BB9794F90A6290702 /* PushPlugin.h */,
 			);
 			name = Plugins;
 			path = "MDeC eSolutions/Plugins";
@@ -419,11 +396,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				3F079F6B3BCA4B67A129C9BE /* AppDelegate+notification.m in Sources */,
-				F2BBB64EED804826B986EBE1 /* PushPlugin.m in Sources */,
-				C47AFBAD40DA4E4AB1B3E0C0 /* APPHiddenStatusbarOverlay.m in Sources */,
-				4126F3B52D324CEA807A301D /* SocialSharing.m in Sources */,
-				FF0365856AD7416EA14F4DAF /* CDVInAppBrowser.m in Sources */,
+				1B770A3179A849DCBC2C2EE9 /* AppDelegate+notification.m in Sources */,
+				2D046B926B27401BB027820F /* PushPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +438,7 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "MDeC eSolutionss";
+				PRODUCT_NAME = "MDeC eSolutions";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -493,7 +467,7 @@
 					"-weak-lSystem",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "MDeC eSolutionss";
+				PRODUCT_NAME = "MDeC eSolutions";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

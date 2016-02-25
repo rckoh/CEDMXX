@@ -1,4 +1,6 @@
-var webUrl = "http://netinfinium.publicvm.com:86/";
+//var webUrl = "http://netinfinium.publicvm.com:86/";
+var webUrl = "https://corrad.mdec.com.my/corrad/";
+
 var intervalid, intervalidpage2, intervalidpage3;
 var apiTimeout=20000;
 
@@ -23,15 +25,13 @@ function getDMZKey(){
         "Corrad-Api-Key": "NICMAMDEC"
       },
       async: false, 
-      data:"api_name=session&key1=ps2ds&key2=esolutions",
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
         debugger;    
-        
-        var newJsonObj=$.parseJSON(data);
+        //var newJsonObj=$.parseJSON(data);
         var baseurl, dmzkey;
-        $.each(newJsonObj, function(key, value){
-            if(key=='api-url')
+        $.each(data, function(key, value){
+            if(key=='url')
                 baseurl=value;
             else if(key=='key')
                 dmzkey=value
@@ -41,6 +41,7 @@ function getDMZKey(){
       },
       error:function (xhr, ajaxOptions, thrownError){
         debugger;
+          alert(xhr.responseText);
       }
     })
 }
@@ -94,7 +95,7 @@ $.when(getDMZKeyFromDbProcess).done(function(data){
       },
       timeout: apiTimeout,    
       success: function(data, status, xhr) {
-        debugger;        
+        debugger; 
         $(".scrollul li").remove();
         var frompage='"featured"';
           
