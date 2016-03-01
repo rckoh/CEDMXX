@@ -104,24 +104,15 @@ var sharing={
                 var baseurl=data.item(0).BASEURL; 
                 var websiteLink=$("#websitelink a").attr("href");
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
-                alert(productDetails);
-                productDetails=productDetails.replace(/\sstyle="[a-zA-Z\/][^>]*"/g, "")
-                    productDetails=productDetails.replace(/<br *\/?>/gi, "\n");
-                    productDetails=productDetails.replace(/<li>/gi, "wsescchkpoint");    
-                    productDetails=productDetails.replace(/wsescchkpoint\s\s+/gi, "   -");
-                alert(productDetails);
-                    productDetails=productDetails.replace(/<[a-zA-Z\/][^>]*>/g, "")
-                    productDetails=productDetails.replace(/&amp;/g, "&");
-                    productDetails=productDetails.replace(/&nbsp;/g, " ");
-                    productDetails=productDetails.replace(/&apos;/g, "'");
-                    productDetails=productDetails.replace(/&quot;/g, '"');
-                    productDetails=productDetails+"\n";
-                alert(productDetails);
+                
+                
+                
                 if ( device.platform == 'android' || device.platform == 'Android'){   
                     
                     productDetails=productDetails.replace(/\sstyle="[a-zA-Z\/][^>]*"/g, "")
                     productDetails=productDetails.replace(/<br *\/?>/gi, "\n");
-                    productDetails=productDetails.replace(/<li>/gi, "-");
+                    productDetails=productDetails.replace(/<li>/gi, "wsescchkpoint");    
+                    productDetails=productDetails.replace(/wsescchkpoint\s\s+/gi, "   -");
                     productDetails=productDetails.replace(/<[a-zA-Z\/][^>]*>/g, "")
                     productDetails=productDetails.replace(/&amp;/g, "&");
                     productDetails=productDetails.replace(/&nbsp;/g, " ");
@@ -167,7 +158,8 @@ var sharing={
                     
                     productDetails=productDetails.replace(/\sstyle="[a-zA-Z\/][^>]*"/g, "")
                     productDetails=productDetails.replace(/<br *\/?>/gi, "\n");
-                    productDetails=productDetails.replace(/<li>/gi, "-");
+                    productDetails=productDetails.replace(/<li>/gi, "wsescchkpoint");    
+                    productDetails=productDetails.replace(/wsescchkpoint\s\s+/gi, "   -");
                     productDetails=productDetails.replace(/<[a-zA-Z\/][^>]*>/g, "")
                     productDetails=productDetails.replace(/&amp;/g, "&");
                     productDetails=productDetails.replace(/&nbsp;/g, " ");
