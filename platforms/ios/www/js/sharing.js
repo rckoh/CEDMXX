@@ -109,7 +109,7 @@ var sharing={
                     
                     productDetails=productDetails.replace(/\sstyle="[a-zA-Z\/][^>]*"/g, "")
                     productDetails=productDetails.replace(/<br *\/?>/gi, "\n");
-                    productDetails=productDetails.replace(/<li>/gi, "\n");
+                    productDetails=productDetails.replace(/<li>/gi, "-");
                     productDetails=productDetails.replace(/<[a-zA-Z\/][^>]*>/g, "")
                     productDetails=productDetails.replace(/&amp;/g, "&");
                     productDetails=productDetails.replace(/&nbsp;/g, " ");
@@ -155,7 +155,7 @@ var sharing={
                     
                     productDetails=productDetails.replace(/\sstyle="[a-zA-Z\/][^>]*"/g, "")
                     productDetails=productDetails.replace(/<br *\/?>/gi, "\n");
-                    productDetails=productDetails.replace(/<li>/gi, "\n");
+                    productDetails=productDetails.replace(/<li>/gi, "-");
                     productDetails=productDetails.replace(/<[a-zA-Z\/][^>]*>/g, "")
                     productDetails=productDetails.replace(/&amp;/g, "&");
                     productDetails=productDetails.replace(/&nbsp;/g, " ");
