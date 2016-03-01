@@ -105,14 +105,12 @@ var sharing={
                 var websiteLink=$("#websitelink a").attr("href");
                 websiteLink=baseurl+websiteLink.substring(1, websiteLink.length);
                 
-                
-                
                 if ( device.platform == 'android' || device.platform == 'Android'){   
                     
                     productDetails=productDetails.replace(/\sstyle="[a-zA-Z\/][^>]*"/g, "")
                     productDetails=productDetails.replace(/<br *\/?>/gi, "\n");
                     productDetails=productDetails.replace(/<li>/gi, "wsescchkpoint");    
-                    productDetails=productDetails.replace(/wsescchkpoint\s\s+/gi, "   -");
+                    productDetails=productDetails.replace(/wsescchkpoint\s+/gi, "   -");
                     productDetails=productDetails.replace(/<[a-zA-Z\/][^>]*>/g, "")
                     productDetails=productDetails.replace(/&amp;/g, "&");
                     productDetails=productDetails.replace(/&nbsp;/g, " ");
@@ -159,7 +157,7 @@ var sharing={
                     productDetails=productDetails.replace(/\sstyle="[a-zA-Z\/][^>]*"/g, "")
                     productDetails=productDetails.replace(/<br *\/?>/gi, "\n");
                     productDetails=productDetails.replace(/<li>/gi, "wsescchkpoint");    
-                    productDetails=productDetails.replace(/wsescchkpoint\s\s+/gi, "   -");
+                    productDetails=productDetails.replace(/wsescchkpoint\s+/gi, "   -");
                     productDetails=productDetails.replace(/<[a-zA-Z\/][^>]*>/g, "")
                     productDetails=productDetails.replace(/&amp;/g, "&");
                     productDetails=productDetails.replace(/&nbsp;/g, " ");
